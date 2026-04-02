@@ -4,7 +4,7 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$repo_root"
 
-mapfile -t package_dirs < <(find packages -mindepth 1 -maxdepth 1 -type d | sort)
+mapfile -t package_dirs < <(find packages -type f -name 'ato.yaml' -printf '%h\n' | sort)
 
 if [ "${#package_dirs[@]}" -eq 0 ]; then
   echo "No packages found under packages/"

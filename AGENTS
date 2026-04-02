@@ -6,7 +6,7 @@ This repository is a collection of reusable Atopile packages maintained in one f
 
 - Treat this repository as a package library, not as a single PCB design.
 - Keep packages reusable, composable, and narrowly scoped.
-- Prefer adding new packages under `packages/`.
+- Prefer adding new packages under `packages/`, grouped by category when useful.
 
 ## Repository Layout
 
@@ -14,11 +14,13 @@ Use this structure for new work:
 
 ```text
 packages/
-  <package-name>/
-    ato.yaml
-    <package-name>.ato
-    example.ato
-    layouts/
+  <category>/
+    <subcategory>/
+      <package-name>/
+        ato.yaml
+        <package-name>.ato
+        example.ato
+        layouts/
 parts/
   samacsys/
     symbols/
@@ -59,6 +61,8 @@ Guidance:
 
 - Keep interfaces explicit and readable.
 - Prefer reusable parameterized packages over one-off designs.
+- MLCC package names should follow `c_<capacitance>_<voltage>_<package>_<manufacturer>_<lcsc>`.
+- For simple passives, generic KiCad assets or `ato`-installed vendor-specific local parts are both acceptable; keep the LCSC code explicit either way.
 - Keep BOM decisions deterministic and documented in code.
 - Keep package-local assets and dependencies easy to trace.
 

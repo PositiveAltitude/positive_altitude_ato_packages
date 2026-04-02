@@ -8,10 +8,12 @@ This repository is organized as a package collection. The repository root is not
 
 ```text
 packages/
-  <package-name>/
-    ato.yaml
-    <package-name>.ato
-    example.ato
+  <category>/
+    <subcategory>/
+      <package-name>/
+        ato.yaml
+        <package-name>.ato
+        example.ato
 parts/
   samacsys/
     symbols/
@@ -24,8 +26,9 @@ scripts/
 
 ## Conventions
 
-- Each reusable package lives in `packages/<package-name>/`.
+- Each reusable package lives somewhere under `packages/`, optionally grouped by category such as `packages/passive/mlcc/<package-name>/`.
 - Each package follows the official Atopile package shape: local `ato.yaml`, one main `.ato` file, and one `example.ato`.
+- MLCC packages should use `c_<capacitance>_<voltage>_<package>_<manufacturer>_<lcsc>` naming, for example `c_100nf_50v_0402_murata_c77020`.
 - Build and verify packages from within each package directory.
 - Download KiCad symbols and footprints via MCP with SamacSys first. Use EasyEDA only as a fallback.
 - Use LCSC-sourced components only, and specify LCSC codes explicitly in code.

@@ -1,0 +1,12 @@
+"""Example usage of the c_100nf_50v_0402_murata_c77020 MLCC package."""
+
+import Electrical
+from "c_100nf_50v_0402_murata_c77020.ato" import C100nF
+
+module Example:
+    net_high = new Electrical
+    net_low = new Electrical
+    capacitor = new C100nF
+
+    net_high ~ capacitor.unnamed[0]
+    capacitor.unnamed[1] ~ net_low
