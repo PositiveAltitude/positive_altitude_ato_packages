@@ -1,0 +1,15 @@
+requires-atopile: "0.14.1010"
+
+paths:
+  src: ./
+  layout: ./layouts
+
+builds:
+  default:
+    entry: c_100nf_50v_0402_samsung_c307331.ato:C_100nF_50V_0402_Samsung_C307331
+  example:
+    entry: example.ato:Example
+
+package:
+  identifier: "local/passive-mlcc-c-100nf-50v-0402-samsung-c307331"
+  version: "0.0.1"

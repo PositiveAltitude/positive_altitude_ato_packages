@@ -1,0 +1,16 @@
+"""Samsung 100 nF 50 V 0402 MLCC pinned to LCSC C307331."""
+
+import Capacitor
+
+module C_100nF_50V_0402_Samsung_C307331 from Capacitor:
+    capacitance = 100nF +/- 10%
+    max_voltage = 50V
+    temperature_coefficient = "X7R"
+    package = "0402"
+    manufacturer = "Samsung Electro-Mechanics"
+    mpn = "CL05B104KB54PNC"
+    lcsc_id = "C307331"
+    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KB54PNC_C307331.pdf"
+
+module C100nF from C_100nF_50V_0402_Samsung_C307331:
+    pass
