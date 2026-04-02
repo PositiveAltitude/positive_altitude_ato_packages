@@ -1,0 +1,12 @@
+"""Example usage of the r_10k_1pct_1_16w_0402_uniroyal_c25744 resistor package."""
+
+import Electrical
+from "r_10k_1pct_1_16w_0402_uniroyal_c25744.ato" import R10k
+
+module Example:
+    net_high = new Electrical
+    net_low = new Electrical
+    resistor = new R10k
+
+    net_high ~ resistor.unnamed[0]
+    resistor.unnamed[1] ~ net_low

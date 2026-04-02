@@ -1,0 +1,12 @@
+"""Example usage of the r_4k7_1pct_1_16w_0402_uniroyal_c25900 resistor package."""
+
+import Electrical
+from "r_4k7_1pct_1_16w_0402_uniroyal_c25900.ato" import R4k7
+
+module Example:
+    net_high = new Electrical
+    net_low = new Electrical
+    resistor = new R4k7
+
+    net_high ~ resistor.unnamed[0]
+    resistor.unnamed[1] ~ net_low

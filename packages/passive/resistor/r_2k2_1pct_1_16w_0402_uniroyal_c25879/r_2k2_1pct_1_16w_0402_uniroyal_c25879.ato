@@ -1,0 +1,16 @@
+"""Uni-Royal 2.2 kOhm 1% 1/16 W 0402 resistor pinned to LCSC C25879."""
+
+import Resistor
+
+module R_2k2_1pct_1_16W_0402_Uniroyal_C25879 from Resistor:
+    resistance = 2.2kohm +/- 1%
+    max_power = 62.5mW
+    max_voltage = 50V
+    package = "0402"
+    manufacturer = "UNI-ROYAL(Uniroyal Elec)"
+    mpn = "0402WGF2201TCE"
+    lcsc_id = "C25879"
+    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0402WGF2201TCE_C25879.pdf"
+
+module R2k2 from R_2k2_1pct_1_16W_0402_Uniroyal_C25879:
+    pass

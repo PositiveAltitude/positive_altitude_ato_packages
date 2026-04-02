@@ -62,6 +62,7 @@ Guidance:
 - Keep interfaces explicit and readable.
 - Prefer reusable parameterized packages over one-off designs.
 - MLCC package names should follow `c_<capacitance>_<voltage>_<package>_<manufacturer>_<lcsc>`.
+- Resistor package names should follow `r_<resistance>_<tolerance>_<power>_<package>_<manufacturer>_<lcsc>`.
 - For simple passives, generic KiCad assets or `ato`-installed vendor-specific local parts are both acceptable; keep the LCSC code explicit either way.
 - Keep BOM decisions deterministic and documented in code.
 - Keep package-local assets and dependencies easy to trace.

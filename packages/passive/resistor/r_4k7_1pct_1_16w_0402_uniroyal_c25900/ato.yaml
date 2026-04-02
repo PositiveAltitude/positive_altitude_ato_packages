@@ -1,0 +1,15 @@
+requires-atopile: "0.14.1010"
+
+paths:
+  src: ./
+  layout: ./layouts
+
+builds:
+  default:
+    entry: r_4k7_1pct_1_16w_0402_uniroyal_c25900.ato:R_4k7_1pct_1_16W_0402_Uniroyal_C25900
+  example:
+    entry: example.ato:Example
+
+package:
+  identifier: "local/passive-resistor-r-4k7-1pct-1-16w-0402-uniroyal-c25900"
+  version: "0.0.1"

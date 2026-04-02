@@ -1,0 +1,16 @@
+"""Uni-Royal 10 kOhm 1% 1/16 W 0402 resistor pinned to LCSC C25744."""
+
+import Resistor
+
+module R_10k_1pct_1_16W_0402_Uniroyal_C25744 from Resistor:
+    resistance = 10kohm +/- 1%
+    max_power = 62.5mW
+    max_voltage = 50V
+    package = "0402"
+    manufacturer = "UNI-ROYAL(Uniroyal Elec)"
+    mpn = "0402WGF1002TCE"
+    lcsc_id = "C25744"
+    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2411221126_UNI-ROYAL-Uniroyal-Elec-0402WGF1002TCE_C25744.pdf"
+
+module R10k from R_10k_1pct_1_16W_0402_Uniroyal_C25744:
+    pass
