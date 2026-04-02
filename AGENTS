@@ -1,0 +1,70 @@
+# AGENTS
+
+This repository is a collection of reusable Atopile packages maintained in one folder.
+
+## Scope
+
+- Treat this repository as a package library, not as a single PCB design.
+- Keep packages reusable, composable, and narrowly scoped.
+- Prefer adding new packages under `packages/`.
+
+## Repository Layout
+
+Use this structure for new work:
+
+```text
+packages/
+  <package-name>/
+    ato.yaml
+    <package-name>.ato
+    example.ato
+    layouts/
+parts/
+  samacsys/
+    symbols/
+    footprints/
+  easyeda/
+    symbols/
+    footprints/
+scripts/
+```
+
+Guidance:
+
+- Mirror the official Atopile package template inside each package folder.
+- Keep one primary package entry file per package directory.
+- Store downloaded KiCad symbol and footprint assets under `parts/samacsys/` first.
+- Use `parts/easyeda/` only when SamacSys is unavailable or clearly inadequate.
+
+## Part Selection Rules
+
+- All concrete components must be sourced from LCSC.
+- Explicitly specify the LCSC code for every concrete part selection.
+- Do not rely on Atopile's part picker to choose parts implicitly.
+- Prefer healthy LCSC stock unless the task explicitly requires something else.
+
+## Library Asset Rules
+
+- When downloading KiCad symbols and footprints, use MCP with SamacSys first.
+- EasyEDA is a fallback only if SamacSys does not provide a suitable symbol or footprint.
+- If EasyEDA is used, call that out explicitly in the work summary.
+
+## Verification Rules
+
+- `ato` is installed and must be used to build and verify changes.
+- Run `ato build` in each changed package directory before concluding work.
+- Treat a change as incomplete if it has not been verified with `ato`.
+
+## Authoring Expectations
+
+- Keep interfaces explicit and readable.
+- Prefer reusable parameterized packages over one-off designs.
+- Keep BOM decisions deterministic and documented in code.
+- Keep package-local assets and dependencies easy to trace.
+
+## Working Style For Future Agents
+
+- Read this file before adding packages or parts.
+- Preserve existing user changes unless explicitly asked to modify them.
+- Do not replace SamacSys-first sourcing with EasyEDA-first workflows.
+- Do not introduce components without explicit LCSC references.

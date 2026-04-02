@@ -10,8 +10,7 @@ jobs:
 
       - uses: atopile/setup-atopile@main
 
-      - run: ato sync
-      - run: ato build --frozen
+      - run: ./scripts/build_packages.sh
         id: build
         continue-on-error: true
 
@@ -19,7 +18,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build
-          path: build
+          path: packages/**/build
 
       - name: Check build status
         if: steps.build.outcome == 'failure'
