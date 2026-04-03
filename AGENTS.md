@@ -21,22 +21,21 @@ packages/
         <package-name>.ato
         example.ato
         layouts/
-parts/
-  samacsys/
-    symbols/
-    footprints/
-  easyeda/
-    symbols/
-    footprints/
+        parts/
+          <part-name>/
+            <part-name>.ato
+            <ecad-assets>
 scripts/
 ```
 
 Guidance:
 
-- Mirror the official Atopile package template inside each package folder.
-- Keep one primary package entry file per package directory.
-- Store downloaded KiCad symbol and footprint assets under `parts/samacsys/` first.
-- Use `parts/easyeda/` only when SamacSys is unavailable or clearly inadequate.
+- Mirror the official Atopile package template inside each `packages/` folder.
+- Keep one primary entry file per directory.
+- Keep multi-component assemblies in `packages/`.
+- Keep package-specific generated parts under the package's own `parts/` folder.
+- Use generic `Capacitor`, `Resistor`, `Inductor`, and similar abstractions directly in package code when a separate generated part is unnecessary.
+- Prefer using `ato` part generation over manual symbol/footprint sourcing workflows.
 
 ## Part Selection Rules
 
@@ -47,23 +46,25 @@ Guidance:
 
 ## Library Asset Rules
 
-- When downloading KiCad symbols and footprints, use MCP with SamacSys first.
-- EasyEDA is a fallback only if SamacSys does not provide a suitable symbol or footprint.
-- If EasyEDA is used, call that out explicitly in the work summary.
+- Prefer `ato` to generate and manage local part assets whenever it can provide a usable result.
+- Keep generated part definitions and ECAD assets under the owning package's `parts/` folder.
+- If a package depends on a manually vendored source-specific asset, call that out explicitly in the work summary.
 
 ## Verification Rules
 
 - `ato` is installed and must be used to build and verify changes.
 - Run `ato build` in each changed package directory before concluding work.
+- If only raw parts under `parts/` changed, verify them by building at least one package that imports them.
 - Treat a change as incomplete if it has not been verified with `ato`.
 
 ## Authoring Expectations
 
 - Keep interfaces explicit and readable.
 - Prefer reusable parameterized packages over one-off designs.
+- Use package-local `parts/` only for concrete parts that need generated symbols, footprints, or models.
 - MLCC package names should follow `c_<capacitance>_<voltage>_<package>_<manufacturer>_<lcsc>`.
 - Resistor package names should follow `r_<resistance>_<tolerance>_<power>_<package>_<manufacturer>_<lcsc>`.
-- For simple passives, generic KiCad assets or `ato`-installed vendor-specific local parts are both acceptable; keep the LCSC code explicit either way.
+- For simple passives, prefer generic modules with explicit electrical values and fixed LCSC codes.
 - Keep BOM decisions deterministic and documented in code.
 - Keep package-local assets and dependencies easy to trace.
 
@@ -71,5 +72,6 @@ Guidance:
 
 - Read this file before adding packages or parts.
 - Preserve existing user changes unless explicitly asked to modify them.
-- Do not replace SamacSys-first sourcing with EasyEDA-first workflows.
+- Do not bypass `ato` part generation without a concrete reason.
 - Do not introduce components without explicit LCSC references.
+- Do not create repo-level shared part stores unless explicitly requested.

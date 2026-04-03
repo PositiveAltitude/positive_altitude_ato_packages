@@ -1,0 +1,26 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Texas_Instruments_TPS62933DRLR_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C3200405", date="2026-04-02T21:57:05.676725+00:00", checksum="9b131dcf01f29a7a3b6251f1531c19694874f2030da2ae69317b890eac0ceb0b">
+
+    trait is_atomic_part<manufacturer="Texas Instruments", partnumber="TPS62933DRLR", footprint="SOT-583-8_L2.1-W1.2-P0.50-LS1.6-BR.kicad_mod", symbol="TPS62933DRLR.kicad_sym", model="SOT-583-8_L2.1-W1.2-P0.50-LS1.6-BR.STEP">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C3200405", manufacturer="Texas Instruments", partno="TPS62933DRLR">
+    trait has_designator_prefix<prefix="U">
+    trait has_datasheet<datasheet="https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2302220500_Texas-Instruments-TPS62933DRLR_C3200405.pdf">
+
+    # pins
+    signal BST ~ pin 6
+    signal EN ~ pin 2
+    signal FB ~ pin 8
+    signal GND ~ pin 4
+    signal RT ~ pin 1
+    signal SS ~ pin 7
+    signal SW ~ pin 5
+    signal VIN ~ pin 3

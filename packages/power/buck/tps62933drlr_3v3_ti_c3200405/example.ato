@@ -1,0 +1,16 @@
+"""Example usage of the tps62933drlr_3v3_ti_c3200405 buck package."""
+
+import ElectricPower
+from "tps62933drlr_3v3_ti_c3200405.ato" import TPS62933Buck3V3
+
+module Example:
+    battery_4s = new ElectricPower
+    v3v3 = new ElectricPower
+    buck = new TPS62933Buck3V3
+
+    assert battery_4s.voltage within 12V to 16.8V
+    assert v3v3.voltage within 3.3V +/- 2%
+    assert v3v3.max_current <= 1A
+
+    battery_4s ~ buck.power_in
+    buck.power_out ~ v3v3

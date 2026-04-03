@@ -14,24 +14,22 @@ packages/
         ato.yaml
         <package-name>.ato
         example.ato
-parts/
-  samacsys/
-    symbols/
-    footprints/
-  easyeda/
-    symbols/
-    footprints/
+        parts/
+          <part-name>/
+            <part-name>.ato
+            <ecad-assets>
 scripts/
 ```
 
 ## Conventions
 
-- Each reusable package lives somewhere under `packages/`, optionally grouped by category such as `packages/passive/mlcc/<package-name>/`.
-- Each package follows the official Atopile package shape: local `ato.yaml`, one main `.ato` file, and one `example.ato`.
+- Multi-component reusable modules live under `packages/`.
+- Package-specific generated parts and ECAD assets live under that package's local `parts/` folder.
+- For simple passives, prefer generic Atopile abstractions with fixed LCSC codes directly in package code.
 - MLCC packages should use `c_<capacitance>_<voltage>_<package>_<manufacturer>_<lcsc>` naming, for example `c_100nf_50v_0402_murata_c77020`.
 - Resistor packages should use `r_<resistance>_<tolerance>_<power>_<package>_<manufacturer>_<lcsc>` naming, for example `r_10k_1pct_1_16w_0402_uniroyal_c25744`.
 - Build and verify packages from within each package directory.
-- Download KiCad symbols and footprints via MCP with SamacSys first. Use EasyEDA only as a fallback.
+- Prefer `ato` part generation and keep the generated `.ato` and ECAD assets together under the relevant `parts/` directory.
 - Use LCSC-sourced components only, and specify LCSC codes explicitly in code.
 
 Created by PositiveAltitude <dima@positivealtitude.dev>
