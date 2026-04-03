@@ -4,78 +4,7 @@ import Capacitor
 import ElectricPower
 import Inductor
 import Resistor
-from "./parts/Texas_Instruments_TPS62933DRLR/Texas_Instruments_TPS62933DRLR.ato" import Texas_Instruments_TPS62933DRLR_package
-
-module C_100nF_50V_0402_Samsung_C307331 from Capacitor:
-    capacitance = 100nF +/- 10%
-    max_voltage = 50V
-    temperature_coefficient = "X7R"
-    package = "0402"
-    manufacturer = "Samsung Electro-Mechanics"
-    mpn = "CL05B104KB54PNC"
-    lcsc_id = "C307331"
-    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KB54PNC_C307331.pdf"
-
-module C_10uF_50V_1206_Samsung_C89632 from Capacitor:
-    capacitance = 10uF +/- 10%
-    max_voltage = 50V
-    temperature_coefficient = "X7R"
-    package = "1206"
-    manufacturer = "Samsung Electro-Mechanics"
-    mpn = "CL31B106KBHNNNE"
-    lcsc_id = "C89632"
-    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1810221111_Samsung-Electro-Mechanics-CL31B106KBHNNNE_C89632.pdf"
-
-module C_22uF_25V_1206_Samsung_C12891 from Capacitor:
-    capacitance = 22uF +/- 10%
-    max_voltage = 25V
-    temperature_coefficient = "X5R"
-    package = "1206"
-    manufacturer = "Samsung Electro-Mechanics"
-    mpn = "CL31A226KAHNNNE"
-    lcsc_id = "C12891"
-    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1810181722_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
-
-module C_33nF_50V_0402_Samsung_C472437 from Capacitor:
-    capacitance = 33nF +/- 10%
-    max_voltage = 50V
-    temperature_coefficient = "X7R"
-    package = "0402"
-    manufacturer = "Samsung Electro-Mechanics"
-    mpn = "CL05B333KB5VPNC"
-    lcsc_id = "C472437"
-    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B333KB5VPNC_C472437.pdf"
-
-module R_10k2_1pct_1_16W_0402_Uniroyal_C11660 from Resistor:
-    resistance = 10.2kohm +/- 1%
-    max_power = 62.5mW
-    max_voltage = 50V
-    package = "0402"
-    manufacturer = "UNI-ROYAL(Uniroyal Elec)"
-    mpn = "0402WGF1022TCE"
-    lcsc_id = "C11660"
-    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0402WGF1022TCE_C11660.pdf"
-
-module R_31k6_1pct_1_16W_0402_Uniroyal_C11463 from Resistor:
-    resistance = 31.6kohm +/- 1%
-    max_power = 62.5mW
-    max_voltage = 50V
-    package = "0402"
-    manufacturer = "UNI-ROYAL(Uniroyal Elec)"
-    mpn = "0402WGF3162TCE"
-    lcsc_id = "C11463"
-    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0402WGF3162TCE_C11463.pdf"
-
-module L_6u8_20pct_4A5_SMD7_3x6_6_Chilisin_C108296 from Inductor:
-    inductance = 6.8uH +/- 20%
-    max_current = 4.5A
-    saturation_current = 8A
-    dc_resistance = 60mohm
-    package = "SMD7_3x6_6mm"
-    manufacturer = "Chilisin Elec"
-    mpn = "MHCI06030-6R8M-R8"
-    lcsc_id = "C108296"
-    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2204131830_Chilisin-Elec-MHCI06030-6R8M-R8_C108296.pdf"
+from "parts/Texas_Instruments_TPS62933DRLR/Texas_Instruments_TPS62933DRLR.ato" import Texas_Instruments_TPS62933DRLR_package
 
 module TPS62933DRLR_3V3_TI_C3200405:
     """
@@ -93,16 +22,107 @@ module TPS62933DRLR_3V3_TI_C3200405:
     assert power_out.max_current <= 3A
 
     converter = new Texas_Instruments_TPS62933DRLR_package
-    input_bulk_a = new C_10uF_50V_1206_Samsung_C89632
-    input_bulk_b = new C_10uF_50V_1206_Samsung_C89632
-    input_bypass = new C_100nF_50V_0402_Samsung_C307331
-    output_bulk_a = new C_22uF_25V_1206_Samsung_C12891
-    output_bulk_b = new C_22uF_25V_1206_Samsung_C12891
-    bootstrap_cap = new C_100nF_50V_0402_Samsung_C307331
-    soft_start_cap = new C_33nF_50V_0402_Samsung_C472437
-    output_inductor = new L_6u8_20pct_4A5_SMD7_3x6_6_Chilisin_C108296
-    feedback_top = new R_31k6_1pct_1_16W_0402_Uniroyal_C11463
-    feedback_bottom = new R_10k2_1pct_1_16W_0402_Uniroyal_C11660
+    input_bulk_a = new Capacitor
+    input_bulk_b = new Capacitor
+    input_bypass = new Capacitor
+    output_bulk_a = new Capacitor
+    output_bulk_b = new Capacitor
+    bootstrap_cap = new Capacitor
+    soft_start_cap = new Capacitor
+    output_inductor = new Inductor
+    feedback_top = new Resistor
+    feedback_bottom = new Resistor
+
+    input_bulk_a.capacitance = 10uF +/- 10%
+    input_bulk_a.max_voltage = 50V
+    input_bulk_a.temperature_coefficient = "X7R"
+    input_bulk_a.package = "1206"
+    input_bulk_a.manufacturer = "Samsung Electro-Mechanics"
+    input_bulk_a.mpn = "CL31B106KBHNNNE"
+    input_bulk_a.lcsc_id = "C89632"
+    input_bulk_a.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1810221111_Samsung-Electro-Mechanics-CL31B106KBHNNNE_C89632.pdf"
+
+    input_bulk_b.capacitance = 10uF +/- 10%
+    input_bulk_b.max_voltage = 50V
+    input_bulk_b.temperature_coefficient = "X7R"
+    input_bulk_b.package = "1206"
+    input_bulk_b.manufacturer = "Samsung Electro-Mechanics"
+    input_bulk_b.mpn = "CL31B106KBHNNNE"
+    input_bulk_b.lcsc_id = "C89632"
+    input_bulk_b.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1810221111_Samsung-Electro-Mechanics-CL31B106KBHNNNE_C89632.pdf"
+
+    input_bypass.capacitance = 100nF +/- 10%
+    input_bypass.max_voltage = 50V
+    input_bypass.temperature_coefficient = "X7R"
+    input_bypass.package = "0402"
+    input_bypass.manufacturer = "Samsung Electro-Mechanics"
+    input_bypass.mpn = "CL05B104KB54PNC"
+    input_bypass.lcsc_id = "C307331"
+    input_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KB54PNC_C307331.pdf"
+
+    output_bulk_a.capacitance = 22uF +/- 10%
+    output_bulk_a.max_voltage = 25V
+    output_bulk_a.temperature_coefficient = "X5R"
+    output_bulk_a.package = "1206"
+    output_bulk_a.manufacturer = "Samsung Electro-Mechanics"
+    output_bulk_a.mpn = "CL31A226KAHNNNE"
+    output_bulk_a.lcsc_id = "C12891"
+    output_bulk_a.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1810181722_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
+
+    output_bulk_b.capacitance = 22uF +/- 10%
+    output_bulk_b.max_voltage = 25V
+    output_bulk_b.temperature_coefficient = "X5R"
+    output_bulk_b.package = "1206"
+    output_bulk_b.manufacturer = "Samsung Electro-Mechanics"
+    output_bulk_b.mpn = "CL31A226KAHNNNE"
+    output_bulk_b.lcsc_id = "C12891"
+    output_bulk_b.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1810181722_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
+
+    bootstrap_cap.capacitance = 100nF +/- 10%
+    bootstrap_cap.max_voltage = 50V
+    bootstrap_cap.temperature_coefficient = "X7R"
+    bootstrap_cap.package = "0402"
+    bootstrap_cap.manufacturer = "Samsung Electro-Mechanics"
+    bootstrap_cap.mpn = "CL05B104KB54PNC"
+    bootstrap_cap.lcsc_id = "C307331"
+    bootstrap_cap.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KB54PNC_C307331.pdf"
+
+    soft_start_cap.capacitance = 33nF +/- 10%
+    soft_start_cap.max_voltage = 50V
+    soft_start_cap.temperature_coefficient = "X7R"
+    soft_start_cap.package = "0402"
+    soft_start_cap.manufacturer = "Samsung Electro-Mechanics"
+    soft_start_cap.mpn = "CL05B333KB5VPNC"
+    soft_start_cap.lcsc_id = "C472437"
+    soft_start_cap.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B333KB5VPNC_C472437.pdf"
+
+    output_inductor.inductance = 6.8uH +/- 20%
+    output_inductor.max_current = 4.5A
+    output_inductor.saturation_current = 8A
+    output_inductor.dc_resistance = 60mohm
+    output_inductor.package = "SMD7_3x6_6mm"
+    output_inductor.manufacturer = "Chilisin Elec"
+    output_inductor.mpn = "MHCI06030-6R8M-R8"
+    output_inductor.lcsc_id = "C108296"
+    output_inductor.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2204131830_Chilisin-Elec-MHCI06030-6R8M-R8_C108296.pdf"
+
+    feedback_top.resistance = 31.6kohm +/- 1%
+    feedback_top.max_power = 62.5mW
+    feedback_top.max_voltage = 50V
+    feedback_top.package = "0402"
+    feedback_top.manufacturer = "UNI-ROYAL(Uniroyal Elec)"
+    feedback_top.mpn = "0402WGF3162TCE"
+    feedback_top.lcsc_id = "C11463"
+    feedback_top.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0402WGF3162TCE_C11463.pdf"
+
+    feedback_bottom.resistance = 10.2kohm +/- 1%
+    feedback_bottom.max_power = 62.5mW
+    feedback_bottom.max_voltage = 50V
+    feedback_bottom.package = "0402"
+    feedback_bottom.manufacturer = "UNI-ROYAL(Uniroyal Elec)"
+    feedback_bottom.mpn = "0402WGF1022TCE"
+    feedback_bottom.lcsc_id = "C11660"
+    feedback_bottom.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0402WGF1022TCE_C11660.pdf"
 
     power_in.lv ~ power_out.lv
 
