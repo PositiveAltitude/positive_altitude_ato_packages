@@ -1,0 +1,101 @@
+(footprint "cjiang_FTC252012S2R2MBCA:IND-SMD_L2.5-W2.0_MHCHL2520"
+	(version 20241229)
+	(generator "faebryk_convert")
+	(generator_version "v5")
+	(layer "F.Cu")
+	(tedit "5DC5F6A4")
+	(uuid "1ffd0366-7c30-4b46-a0b7-86e7c57e5fd2")
+	(property "Reference" "REF**"
+		(at 0 -4)
+		(layer "F.SilkS")
+		(uuid "c67b8099-757a-4d44-9d5c-b6c12c9e6fd6")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "IND-SMD_L2.5-W2.0_MHCHL2520"
+		(at 0 4)
+		(layer "F.Fab")
+		(uuid "b7ce36bd-ab8a-4ee9-a3f6-412ef80f2799")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_circle
+		(center -1.25 1)
+		(end -1.22 1)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(locked no)
+		(uuid "88fa9017-23a7-4e36-ae36-39fcacc05481")
+	)
+	(fp_line
+		(start -0.37 -1)
+		(end 0.37 -1)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "1caaea2b-1694-4f20-9c47-50992187eb9d")
+	)
+	(fp_line
+		(start -0.37 1)
+		(end 0.37 1)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "5d5fa71f-8554-4c4b-816f-49e8d61d6aad")
+	)
+	(fp_text user "%R"
+		(at 0 0)
+		(layer "F.Fab")
+		(uuid "2270905c-e089-4080-81f5-36710bf112d8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "2" smd rect
+		(at 1 0 90)
+		(size 2.2 0.8)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "17855f32-a93c-430b-a6ee-dc45085e1e5a")
+	)
+	(pad "1" smd rect
+		(at -1 0 90)
+		(size 2.2 0.8)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "c7a06552-b419-4316-a60a-435a85751d23")
+	)
+	(model "${KIPRJMOD}/../../parts/cjiang_FTC252012S2R2MBCA/IND-SMD_L2.5-W2.0_MHCHL2520.STEP"
+		(offset
+			(xyz 0 -0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+	(embedded_fonts no)
+)

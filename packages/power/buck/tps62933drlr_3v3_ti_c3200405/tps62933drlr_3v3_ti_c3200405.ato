@@ -10,8 +10,12 @@ module TPS62933DRLR_3V3_TI_C3200405:
     """
     Fixed 3.3 V implementation of TPS62933DRLR using the TI reference design.
 
-    RT is intentionally left floating for 500 kHz. The 33 nF soft-start capacitor
-    is required because the SS pin must not float.
+    RT is tied to GND to select the controller's fixed 1.2 MHz mode. The inductor
+    is resized to a compact 2.2 uH part and the design is intentionally derated to
+    1 A output current. With the selected FTC252012S2R2MBCA inductor, a practical
+    continuous output current ceiling is about 2.5 A, with roughly 3 A as the hard
+    upper edge before inductor and regulator limits converge. The 33 nF soft-start
+    capacitor is required because the SS pin must not float.
     """
 
     power_in = new ElectricPower
@@ -19,7 +23,7 @@ module TPS62933DRLR_3V3_TI_C3200405:
 
     assert power_in.voltage within 3.8V to 30V
     assert power_out.voltage within 3.3V +/- 2%
-    assert power_out.max_current <= 3A
+    assert power_out.max_current <= 1A
 
     converter = new Texas_Instruments_TPS62933DRLR_package
     input_bulk_a = new Capacitor
@@ -96,15 +100,15 @@ module TPS62933DRLR_3V3_TI_C3200405:
     soft_start_cap.lcsc_id = "C472437"
     soft_start_cap.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B333KB5VPNC_C472437.pdf"
 
-    output_inductor.inductance = 6.8uH +/- 20%
-    output_inductor.max_current = 4.5A
-    output_inductor.saturation_current = 8A
-    output_inductor.dc_resistance = 60mohm
-    output_inductor.package = "SMD7_3x6_6mm"
-    output_inductor.manufacturer = "Chilisin Elec"
-    output_inductor.mpn = "MHCI06030-6R8M-R8"
-    output_inductor.lcsc_id = "C108296"
-    output_inductor.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2204131830_Chilisin-Elec-MHCI06030-6R8M-R8_C108296.pdf"
+    output_inductor.inductance = 2.2uH +/- 20%
+    output_inductor.max_current = 3A
+    output_inductor.saturation_current = 3.8A
+    output_inductor.dc_resistance = 55mohm
+    output_inductor.package = "SMD2_5x2mm"
+    output_inductor.manufacturer = "cjiang (Changjiang Microelectronics Tech)"
+    output_inductor.mpn = "FTC252012S2R2MBCA"
+    output_inductor.lcsc_id = "C5832372"
+    output_inductor.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2306021632_cjiang--Changjiang-Microelectronics-Tech-FTC252012S2R2MBCA_C5832372.pdf"
 
     feedback_top.resistance = 31.6kohm +/- 1%
     feedback_top.max_power = 62.5mW
@@ -129,6 +133,7 @@ module TPS62933DRLR_3V3_TI_C3200405:
     power_in.hv ~ converter.VIN
     power_in.lv ~ converter.GND
     power_in.hv ~ converter.EN
+    converter.RT ~ power_in.lv
 
     converter.SS ~> soft_start_cap ~> power_in.lv
     converter.BST ~> bootstrap_cap ~> converter.SW

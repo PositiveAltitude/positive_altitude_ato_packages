@@ -1,0 +1,149 @@
+(footprint "Chilisin_Elec_MHCI06030_2R2M_R8:IND-SMD_L7.3-W6.6_MHCI06030"
+	(version 20241229)
+	(generator "faebryk_convert")
+	(generator_version "v5")
+	(layer "F.Cu")
+	(tedit "5DC5F6A4")
+	(uuid "e1aca8d8-4548-4147-a8d1-32b9bc2e39fd")
+	(property "Reference" "REF**"
+		(at 0 -4)
+		(layer "F.SilkS")
+		(uuid "4c1b09c4-dc97-432b-a8d2-5ede2b692490")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "IND-SMD_L7.3-W6.6_MHCI06030"
+		(at 0 4)
+		(layer "F.Fab")
+		(uuid "c7863107-81b1-42c8-9f96-d4cfd32b397e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_circle
+		(center -3.55 3.31)
+		(end -3.52 3.31)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(locked no)
+		(uuid "f626f6fc-4f48-4a9b-87b1-092cd79b752a")
+	)
+	(fp_line
+		(start -3.58 -1.71)
+		(end -3.58 -3.38)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "7486b05f-7c51-49bd-b3d3-40604d23844a")
+	)
+	(fp_line
+		(start -3.58 -3.38)
+		(end 3.58 -3.38)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "a6e1867b-d272-4866-ac14-f0a34b9c5b01")
+	)
+	(fp_line
+		(start 3.58 -3.38)
+		(end 3.58 -1.71)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "7e9875d3-2dda-4ab7-8563-08982115969d")
+	)
+	(fp_line
+		(start -3.58 1.71)
+		(end -3.58 3.38)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "d19c35ff-bb6d-4dde-9e8a-b22549b2f8f1")
+	)
+	(fp_line
+		(start -3.58 3.38)
+		(end 3.58 3.38)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "adfad0af-7129-4811-a494-4117e54426c7")
+	)
+	(fp_line
+		(start 3.58 3.38)
+		(end 3.58 1.71)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "07c47989-c6cc-4f80-961b-18364668ff03")
+	)
+	(fp_text user "%R"
+		(at 0 0)
+		(layer "F.Fab")
+		(uuid "2c7f7e39-1e50-4b1e-a552-7b30dc4d0dc2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "2" smd rect
+		(at 3.08 0 0)
+		(size 2.52 3.12)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "4d2fdf10-2b43-4e18-8708-9ec087bc427c")
+	)
+	(pad "1" smd rect
+		(at -3.08 0 0)
+		(size 2.52 3.12)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "3e814779-1c27-4c7b-8026-4c555c677e9e")
+	)
+	(model "${KIPRJMOD}/../../parts/Chilisin_Elec_MHCI06030_2R2M_R8/IND-SMD_L7.1-W6.6-H2.8.step"
+		(offset
+			(xyz 0 0 -0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+	(embedded_fonts no)
+)

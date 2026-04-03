@@ -1,0 +1,20 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Chilisin_Elec_MHCI06030_6R8M_R8_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C108296", date="2026-04-03T13:58:27.525002+00:00", checksum="dfbfb56f3b294928a7e4cdbade28133ac204c5042f0f9d94b8c344d7b6986181">
+
+    trait is_atomic_part<manufacturer="Chilisin Elec", partnumber="MHCI06030-6R8M-R8", footprint="IND-SMD_L7.3-W6.8.kicad_mod", symbol="MHCI06030-6R8M-R8.kicad_sym", model="IND-SMD_L7.3-W6.8-H3.0.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C108296", manufacturer="Chilisin Elec", partno="MHCI06030-6R8M-R8">
+    trait has_designator_prefix<prefix="L">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Chilisin-Elec-MHCI06030-6R8M-R8_C108296.pdf">
+
+    # pins
+    pin 2
+    pin 1
