@@ -1,0 +1,161 @@
+(footprint "TAE_TAXM40M4ZHBCDT2T:CRYSTAL-SMD_4P-L2.0-W1.6-BL"
+	(version 20241229)
+	(generator "faebryk_convert")
+	(generator_version "v5")
+	(layer "F.Cu")
+	(tedit "5DC5F6A4")
+	(uuid "f3c633a8-14fa-4c76-a39e-e99d6c40667f")
+	(property "Reference" "REF**"
+		(at 0 -4.55)
+		(layer "F.SilkS")
+		(uuid "d26159fc-0733-4316-b487-bbe356c03bd0")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "CRYSTAL-SMD_4P-L2.0-W1.6-BL"
+		(at 0 4.55)
+		(layer "F.Fab")
+		(uuid "895a27cd-1464-49ca-9926-e0d5585212b1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_circle
+		(center -1 0.8)
+		(end -0.97 0.8)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(locked no)
+		(uuid "a565aca0-4b6e-4467-9205-b9018d2d7398")
+	)
+	(fp_circle
+		(center -1.14 0.89)
+		(end -1.01 0.89)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "Cmts.User")
+		(locked no)
+		(uuid "f7e9982d-ae48-405a-b4f1-56602a2c4688")
+	)
+	(fp_line
+		(start -1.65 0.15)
+		(end -1.65 1.45)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "dcc74eed-0a70-413c-a97e-9c7afa37e0a8")
+	)
+	(fp_line
+		(start -1.65 1.45)
+		(end -0.25 1.45)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "89cc5bbc-6af5-4f31-93d6-59a84c92cf50")
+	)
+	(fp_line
+		(start -1.35 -1.15)
+		(end 1.35 -1.15)
+		(stroke
+			(width 3)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(layers "F.Fab")
+		(locked no)
+		(uuid "21535a85-7834-4c00-8772-9f0ea8bbb0d0")
+	)
+	(fp_line
+		(start 1.35 -1.15)
+		(end 1.35 1.15)
+		(stroke
+			(width 3)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(layers "F.Fab")
+		(locked no)
+		(uuid "5812798f-a9ea-4b2a-ae85-6b3f1b0ab1ad")
+	)
+	(fp_line
+		(start 1.35 1.15)
+		(end -1.35 1.15)
+		(stroke
+			(width 3)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(layers "F.Fab")
+		(locked no)
+		(uuid "5f1704ab-39b2-4f4b-b633-919dbf09704a")
+	)
+	(fp_line
+		(start -1.35 -1.15)
+		(end -1.35 -1.15)
+		(stroke
+			(width 3)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(layers "F.Fab")
+		(locked no)
+		(uuid "e218c1f4-b768-427a-a3c8-8fe84e945e68")
+	)
+	(pad "2" smd rect
+		(at 0.7 0.55 0)
+		(size 0.9 0.8)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "72ea3a53-1f72-47df-b6b7-68b2299ea451")
+	)
+	(pad "3" smd rect
+		(at 0.7 -0.55 0)
+		(size 0.9 0.8)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "3d17b939-5f1b-479c-87a3-7d1f126cad23")
+	)
+	(pad "4" smd rect
+		(at -0.7 -0.55 0)
+		(size 0.9 0.8)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "681fd566-cfce-4e99-b417-878bac78317c")
+	)
+	(pad "1" smd rect
+		(at -0.7 0.55 0)
+		(size 0.9 0.8)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "2adf9a60-2e24-4d58-b32b-5b5d27f1804d")
+	)
+	(model "${KIPRJMOD}/../../parts/TAE_TAXM40M4ZHBCDT2T/CRYSTAL-SMD_4P-L2.0-W1.6-BL.STEP"
+		(offset
+			(xyz 0 0 -0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+	(embedded_fonts no)
+)

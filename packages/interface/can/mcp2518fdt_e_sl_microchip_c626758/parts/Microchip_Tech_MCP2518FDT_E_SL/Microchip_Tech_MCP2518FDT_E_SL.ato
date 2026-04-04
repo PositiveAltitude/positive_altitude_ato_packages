@@ -1,0 +1,32 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Microchip_Tech_MCP2518FDT_E_SL_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C626758", date="2026-04-04T13:27:57.668528+00:00", checksum="ada5553b3ba06d7a0379b359e25db6e9377468901a77ad8b1d96264a94d25700">
+
+    trait is_atomic_part<manufacturer="Microchip Tech", partnumber="MCP2518FDT-E/SL", footprint="SOIC-14_L8.7-W3.9-P1.27-LS6.0-BL.kicad_mod", symbol="MCP2518FDT-E_SL.kicad_sym", model="SOIC-14_L8.6-W3.9-H1.8-LS6.0-P1.27.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C626758", manufacturer="Microchip Tech", partno="MCP2518FDT-E/SL">
+    trait has_designator_prefix<prefix="U">
+    trait has_datasheet<datasheet="https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2210180200_Microchip-Tech-MCP2518FDT-E-SL_C626758.pdf">
+
+    # pins
+    signal CLKO_SOF ~ pin 3
+    signal OSC1 ~ pin 6
+    signal OSC2 ~ pin 5
+    signal RXCAN ~ pin 2
+    signal SCK ~ pin 10
+    signal SDI ~ pin 11
+    signal SDO ~ pin 12
+    signal TXCAN ~ pin 1
+    signal VDD ~ pin 14
+    signal VSS ~ pin 7
+    signal nCS ~ pin 13
+    signal nINT ~ pin 4
+    signal nINT0_GPIO0_XSTBY ~ pin 9
+    signal nINT1_GPIO1 ~ pin 8

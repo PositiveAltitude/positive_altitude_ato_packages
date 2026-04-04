@@ -1,0 +1,22 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component TAE_TAXM40M4ZHBCDT2T_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C424432", date="2026-04-04T13:28:03.425689+00:00", checksum="11c90f5a9774868a832246c8ac803b47d1cd3d2d17755f3abe6dd7700219a6b4">
+
+    trait is_atomic_part<manufacturer="TAE", partnumber="TAXM40M4ZHBCDT2T", footprint="CRYSTAL-SMD_4P-L2.0-W1.6-BL.kicad_mod", symbol="TAXM40M4ZHBCDT2T.kicad_sym", model="CRYSTAL-SMD_4P-L2.0-W1.6-BL.STEP">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C424432", manufacturer="TAE", partno="TAXM40M4ZHBCDT2T">
+    trait has_designator_prefix<prefix="XTAL">
+    trait has_datasheet<datasheet="https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304031830_Yajingxin-TAXM40M4ZHBCDT2T_C424432.pdf">
+
+    # pins
+    signal XTAL1 ~ pin 1
+    signal XTAL2 ~ pin 3
+    signal GND ~ pin 4
+    GND ~ pin 2
