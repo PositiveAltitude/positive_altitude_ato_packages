@@ -1,0 +1,51 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component STMicroelectronics_STM32G0B1KBU6_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C5159549", date="2026-04-04T09:36:19.178031+00:00", checksum="27c744525ba0857d58e643253e102bd994c9bea0ea7996be0d64008a8b42b815">
+
+    trait is_atomic_part<manufacturer="STMicroelectronics", partnumber="STM32G0B1KBU6", footprint="QFN-32_L5.0-W5.0-P0.50-TL-EP3.5.kicad_mod", symbol="STM32G0B1KBU6.kicad_sym", model="QFN-32_L5.0-W5.0-H1.0-P0.50-TL-EP3.5.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C5159549", manufacturer="STMicroelectronics", partno="STM32G0B1KBU6">
+    trait has_designator_prefix<prefix="U">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_STMicroelectronics-STM32G0B1KBU6_C5159549.pdf">
+
+    # pins
+    signal PA0 ~ pin 7
+    signal PA1 ~ pin 8
+    signal PA2 ~ pin 9
+    signal PA3 ~ pin 10
+    signal PA4 ~ pin 11
+    signal PA5 ~ pin 12
+    signal PA6 ~ pin 13
+    signal PA7 ~ pin 14
+    signal PA8 ~ pin 18
+    signal PA9 ~ pin 19
+    signal PA10 ~ pin 21
+    signal PA11PA9 ~ pin 22
+    signal PA12PA10 ~ pin 23
+    signal PA13 ~ pin 24
+    signal PA14_BOOT0 ~ pin 25
+    signal PA15 ~ pin 26
+    signal PB0 ~ pin 15
+    signal PB1 ~ pin 16
+    signal PB2 ~ pin 17
+    signal PB3 ~ pin 27
+    signal PB4 ~ pin 28
+    signal PB5 ~ pin 29
+    signal PB6 ~ pin 30
+    signal PB7 ~ pin 31
+    signal PB8 ~ pin 32
+    signal PB9 ~ pin 1
+    signal PC6 ~ pin 20
+    signal PC14_OSC32_IN ~ pin 2
+    signal PC15_OSC32_OUT ~ pin 3
+    signal PF2_NRST ~ pin 6
+    signal VDD_VDDA ~ pin 4
+    signal VSS ~ pin 33
+    signal VSS_VSSA ~ pin 5
