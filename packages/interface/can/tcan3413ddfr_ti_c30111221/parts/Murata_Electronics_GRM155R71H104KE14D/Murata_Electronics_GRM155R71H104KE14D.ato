@@ -1,0 +1,22 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Murata_Electronics_GRM155R71H104KE14D_package:
+    """100nF (104) ±10% 50V"""
+
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C77020", date="2026-04-04T12:21:09.272485+00:00", checksum="d0d50b976978f08cc883817fd35d2533662ca36f550b938ea0abed37efc13a36">
+
+    trait is_atomic_part<manufacturer="Murata Electronics", partnumber="GRM155R71H104KE14D", footprint="C0402.kicad_mod", symbol="GRM155R71H104KE14D.kicad_sym", model="C0402_L1.0-W0.5-H0.5.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C77020", manufacturer="Murata Electronics", partno="GRM155R71H104KE14D">
+    trait has_designator_prefix<prefix="C">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf">
+
+    # pins
+    pin 1
+    pin 2

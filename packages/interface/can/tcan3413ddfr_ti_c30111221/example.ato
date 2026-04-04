@@ -1,0 +1,8 @@
+"""Example usage of the TCAN3413DDFR transceiver package."""
+
+from "tcan3413ddfr_ti_c30111221.ato" import TCAN3413DDFR
+
+module Example:
+    can_phy = new TCAN3413DDFR
+
+    assert can_phy.power.voltage within 3.3V +/- 5%
