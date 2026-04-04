@@ -324,7 +324,7 @@
 			)
 		)
 	)
-	(footprint "Samsung_Electro_Mechanics_CL05B104KB54PNC:C0402"
+	(footprint "Murata_Electronics_GRM155R71H104KE14D:C0402"
 		(layer "F.Cu")
 		(uuid "28e04041-2fcf-451e-8541-5c6f4642524b")
 		(at 10 0 0)
@@ -339,7 +339,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" "100nF"
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "c93500f2-aec9-4e00-ba7b-850c90db473e")
@@ -350,13 +350,13 @@
 				)
 			)
 		)
-		(property "LCSC" "C307331"
+		(property "LCSC" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "2c4046a3-d0dc-4762-81c4-13614642524b")
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "Murata Electronics"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -380,19 +380,19 @@
 			(hide yes)
 			(uuid "def592d3-fd14-4973-95cd-f4934642524b")
 		)
-		(property "Partnumber" "CL05B104KB54PNC"
+		(property "Partnumber" "GRM155R71H104KE14D"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "fd9c7d65-4639-4ea8-ad26-5f544642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KB54PNC_C307331.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "bc95bb37-6b14-4480-b9ff-c9794642524b")
 		)
-		(property "capacitance" "0±10.0%F"
+		(property "capacitance" "100±10.0%nF"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -416,7 +416,7 @@
 			(hide yes)
 			(uuid "64a850a7-9f8c-4965-ba04-c1d14642524b")
 		)
-		(property "lcsc_id" "C307331"
+		(property "lcsc_id" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -560,17 +560,6 @@
 			(locked no)
 			(uuid "5b35239f-e4f4-4c05-8697-dff95f9489b6")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "a69cc26b-dcde-474b-afde-c9e6d43332d7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.42 0 0)
 			(size 0.5 0.54)
@@ -586,7 +575,7 @@
 			(uuid "91a401a4-8fb3-4109-8b09-c583294aafc4")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Samsung_Electro_Mechanics_CL05B104KB54PNC/C0402_L1.0-W0.5-H0.5.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71H104KE14D/C0402_L1.0-W0.5-H0.5.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -598,7 +587,7 @@
 			)
 		)
 	)
-	(footprint "Samsung_Electro_Mechanics_CL05B104KB54PNC:C0402"
+	(footprint "Murata_Electronics_GRM155R71H104KE14D:C0402"
 		(layer "F.Cu")
 		(uuid "40a8d624-124c-4db2-b79b-d8814642524b")
 		(at 10 -10 0)
@@ -613,7 +602,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" "100nF"
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "c93500f2-aec9-4e00-ba7b-850c90db473e")
@@ -624,13 +613,13 @@
 				)
 			)
 		)
-		(property "LCSC" "C307331"
+		(property "LCSC" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "37818b60-7e71-4593-8453-de7e4642524b")
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "Murata Electronics"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -654,19 +643,19 @@
 			(hide yes)
 			(uuid "68f9322e-f406-4c67-858e-50054642524b")
 		)
-		(property "Partnumber" "CL05B104KB54PNC"
+		(property "Partnumber" "GRM155R71H104KE14D"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "ef6b1436-cdd1-4267-885a-93c04642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KB54PNC_C307331.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "495cabdb-9aff-48df-8285-44754642524b")
 		)
-		(property "capacitance" "0±10.0%F"
+		(property "capacitance" "100±10.0%nF"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -690,7 +679,7 @@
 			(hide yes)
 			(uuid "6fec5cdc-2d0b-4848-81d8-e9214642524b")
 		)
-		(property "lcsc_id" "C307331"
+		(property "lcsc_id" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -834,17 +823,6 @@
 			(locked no)
 			(uuid "5b35239f-e4f4-4c05-8697-dff95f9489b6")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "a69cc26b-dcde-474b-afde-c9e6d43332d7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.42 0 0)
 			(size 0.5 0.54)
@@ -860,7 +838,7 @@
 			(uuid "91a401a4-8fb3-4109-8b09-c583294aafc4")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Samsung_Electro_Mechanics_CL05B104KB54PNC/C0402_L1.0-W0.5-H0.5.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71H104KE14D/C0402_L1.0-W0.5-H0.5.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -872,7 +850,7 @@
 			)
 		)
 	)
-	(footprint "UNI_ROYAL_0402WGF1022TCE:R0402"
+	(footprint "YAGEO_RC0402FR_0710KL:R0402"
 		(layer "F.Cu")
 		(uuid "470315db-06d1-4a07-add3-cc864642524b")
 		(at 10 -20 0)
@@ -887,7 +865,7 @@
 				)
 			)
 		)
-		(property "Value" "10200Ω"
+		(property "Value" "10kΩ"
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "68f6bd9a-f06f-401d-afde-6200328a8e1b")
@@ -898,13 +876,13 @@
 				)
 			)
 		)
-		(property "LCSC" "C11660"
+		(property "LCSC" "C60490"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "79212123-9ca5-41b8-b55d-69934642524b")
 		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+		(property "Manufacturer" "YAGEO"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -922,31 +900,31 @@
 			(hide yes)
 			(uuid "c668926f-78d6-4156-bacd-02504642524b")
 		)
-		(property "PARAM_resistance" "{\"type\": \"Quantity_Interval_Disjoint\", \"data\": {\"intervals\": {\"type\": \"Numeric_Interval_Disjoint\", \"data\": {\"intervals\": [{\"type\": \"Numeric_Interval\", \"data\": {\"min\": 10098.000002279878, \"max\": 10301.999997720122}}]}}, \"unit\": \"ohm\"}}"
+		(property "PARAM_resistance" "{\"type\": \"Quantity_Interval_Disjoint\", \"data\": {\"intervals\": {\"type\": \"Numeric_Interval_Disjoint\", \"data\": {\"intervals\": [{\"type\": \"Numeric_Interval\", \"data\": {\"min\": 9900.000002235174, \"max\": 10099.999997764826}}]}}, \"unit\": \"ohm\"}}"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "901941a2-7e25-47fa-af34-10104642524b")
 		)
-		(property "Partnumber" "0402WGF1022TCE"
+		(property "Partnumber" "RC0402FR-0710KL"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "133a249b-6754-4c63-bece-cb114642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0402WGF1022TCE_C11660.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "dc14978c-a2ea-41da-84e7-f9e04642524b")
 		)
-		(property "resistance" "10200±1.0%Ω"
+		(property "resistance" "10±1.0%kΩ"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "a747cee5-0c84-4a96-80ad-03fe4642524b")
 		)
-		(property "max_power" "0.062W"
+		(property "max_power" "62.5mW"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -964,7 +942,7 @@
 			(hide yes)
 			(uuid "170b6d6f-afd3-4036-ace8-1a4c4642524b")
 		)
-		(property "lcsc_id" "C11660"
+		(property "lcsc_id" "C60490"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1060,17 +1038,6 @@
 			(locked no)
 			(uuid "2fbfadbc-5194-4cd3-b1b2-f8545962c468")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "77770c23-06c6-4f7e-9722-36094e8474ae")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
@@ -1086,7 +1053,7 @@
 			(uuid "3be70d8f-a004-473b-bdd3-ffbd3b8c0b15")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/UNI_ROYAL_0402WGF1022TCE/R0402_L1.0-W0.5-H0.4.step"
+		(model "${KIPRJMOD}/../../parts/YAGEO_RC0402FR_0710KL/R0402_L1.0-W0.5-H0.4.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -1098,7 +1065,7 @@
 			)
 		)
 	)
-	(footprint "UNI_ROYAL_0402WGF3162TCE:R0402"
+	(footprint "YAGEO_RC0402FR_0731K6L:R0402"
 		(layer "F.Cu")
 		(uuid "da8143a6-6af4-4221-9b20-666c4642524b")
 		(at 10 -30 0)
@@ -1113,7 +1080,7 @@
 				)
 			)
 		)
-		(property "Value" "31600Ω"
+		(property "Value" "31.6kΩ"
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "806f5b15-8d15-4f7c-9d63-faaea3bfd879")
@@ -1124,13 +1091,13 @@
 				)
 			)
 		)
-		(property "LCSC" "C11463"
+		(property "LCSC" "C276265"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "5d426345-7eec-4814-91ed-a4f24642524b")
 		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+		(property "Manufacturer" "YAGEO"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1154,25 +1121,25 @@
 			(hide yes)
 			(uuid "a54a5c4e-30e6-4e6f-9315-ab6a4642524b")
 		)
-		(property "Partnumber" "0402WGF3162TCE"
+		(property "Partnumber" "RC0402FR-0731K6L"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "9e58e7c0-7fd4-4690-ae63-73c34642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0402WGF3162TCE_C11463.pdf"
+		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304140030_YAGEO-RC0402FR-0731K6L_C276265.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "e1b0a83e-649f-461b-8d0a-8c6b4642524b")
 		)
-		(property "resistance" "31600±1.0%Ω"
+		(property "resistance" "31.6±1.0%kΩ"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "3b78acd0-9c97-473b-979f-5a754642524b")
 		)
-		(property "max_power" "0.062W"
+		(property "max_power" "62.5mW"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1190,7 +1157,7 @@
 			(hide yes)
 			(uuid "a9afc3ab-6a4f-48d5-ac7a-a18e4642524b")
 		)
-		(property "lcsc_id" "C11463"
+		(property "lcsc_id" "C276265"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1286,17 +1253,6 @@
 			(locked no)
 			(uuid "8a9876cb-cdbb-4136-a028-b365071ddcdc")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "27f90e3c-269a-4ee4-9c8c-cc28eb0eee20")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
@@ -1312,7 +1268,7 @@
 			(uuid "9a9a25fd-d769-4ea0-94c7-7099e6776382")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/UNI_ROYAL_0402WGF3162TCE/R0402_L1.0-W0.5-H0.4.step"
+		(model "${KIPRJMOD}/../../parts/YAGEO_RC0402FR_0731K6L/R0402_L1.0-W0.5-H0.4.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -1324,7 +1280,7 @@
 			)
 		)
 	)
-	(footprint "Samsung_Electro_Mechanics_CL31B106KBHNNNE:C1206"
+	(footprint "Murata_Electronics_GRM31CR61H106KA12L:C1206"
 		(layer "F.Cu")
 		(uuid "d3cddd2b-c951-4701-8e5b-e6104642524b")
 		(at 10 -40 0)
@@ -1339,7 +1295,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" "10µF"
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "73527fe4-16e5-44dc-b6f3-2d7d0a41aee1")
@@ -1350,13 +1306,13 @@
 				)
 			)
 		)
-		(property "LCSC" "C89632"
+		(property "LCSC" "C77092"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "015a94be-59fe-4269-a817-d5904642524b")
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "Murata Electronics"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1374,25 +1330,25 @@
 			(hide yes)
 			(uuid "081ddeea-0786-427f-9996-854e4642524b")
 		)
-		(property "PARAM_temperature_coefficient" "{\"type\": \"EnumSet\", \"data\": {\"elements\": [{\"name\": \"X7R\"}], \"enum\": {\"name\": \"TemperatureCoefficient\", \"values\": {\"C0G\": 8.0, \"X5R\": 4.0, \"X6R\": 5.0, \"X7R\": 6.0, \"X7S\": 3.0, \"X8R\": 7.0, \"Y5V\": 1.0, \"Z5U\": 2.0}}}}"
+		(property "PARAM_temperature_coefficient" "{\"type\": \"EnumSet\", \"data\": {\"elements\": [{\"name\": \"X5R\"}], \"enum\": {\"name\": \"TemperatureCoefficient\", \"values\": {\"C0G\": 8.0, \"X5R\": 4.0, \"X6R\": 5.0, \"X7R\": 6.0, \"X7S\": 3.0, \"X8R\": 7.0, \"Y5V\": 1.0, \"Z5U\": 2.0}}}}"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "34b71e02-b3f2-4aee-ba11-e6914642524b")
 		)
-		(property "Partnumber" "CL31B106KBHNNNE"
+		(property "Partnumber" "GRM31CR61H106KA12L"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "1265c9a8-3ba8-44a2-9758-6c364642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1810221111_Samsung-Electro-Mechanics-CL31B106KBHNNNE_C89632.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61H106KA12L_C77092.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "9a4a94c6-b122-4f86-910d-7c554642524b")
 		)
-		(property "capacitance" "0±10.0%F"
+		(property "capacitance" "10±10.0%µF"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1404,7 +1360,7 @@
 			(hide yes)
 			(uuid "dacbd906-b559-43f5-b1bb-83374642524b")
 		)
-		(property "temperature_coefficient" "X7R"
+		(property "temperature_coefficient" "X5R"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1416,7 +1372,7 @@
 			(hide yes)
 			(uuid "d873323e-a996-4874-9d6d-98b04642524b")
 		)
-		(property "lcsc_id" "C89632"
+		(property "lcsc_id" "C77092"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1560,17 +1516,6 @@
 			(locked no)
 			(uuid "48ca9f81-e4c5-4cfa-a77a-7fb7716735e0")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "082c7d9c-7fe0-48b1-b3f2-cb03060bb3f9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 1.59 0 0)
 			(size 1.49 1.73)
@@ -1586,7 +1531,7 @@
 			(uuid "0d533124-307a-4e3c-87f3-14f30ed04c08")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Samsung_Electro_Mechanics_CL31B106KBHNNNE/C1206_L3.2-W1.6-H1.3.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM31CR61H106KA12L/C1206_L3.2-W1.6-H1.3.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -1598,7 +1543,7 @@
 			)
 		)
 	)
-	(footprint "Samsung_Electro_Mechanics_CL31B106KBHNNNE:C1206"
+	(footprint "Murata_Electronics_GRM31CR61H106KA12L:C1206"
 		(layer "F.Cu")
 		(uuid "3f9dbb35-4296-4263-b7aa-c3514642524b")
 		(at 10 -50 0)
@@ -1613,7 +1558,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" "10µF"
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "73527fe4-16e5-44dc-b6f3-2d7d0a41aee1")
@@ -1624,13 +1569,13 @@
 				)
 			)
 		)
-		(property "LCSC" "C89632"
+		(property "LCSC" "C77092"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "fab5d318-c296-401c-912b-00a84642524b")
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "Murata Electronics"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1648,25 +1593,25 @@
 			(hide yes)
 			(uuid "a5c58027-2974-432a-9c66-166f4642524b")
 		)
-		(property "PARAM_temperature_coefficient" "{\"type\": \"EnumSet\", \"data\": {\"elements\": [{\"name\": \"X7R\"}], \"enum\": {\"name\": \"TemperatureCoefficient\", \"values\": {\"C0G\": 8.0, \"X5R\": 4.0, \"X6R\": 5.0, \"X7R\": 6.0, \"X7S\": 3.0, \"X8R\": 7.0, \"Y5V\": 1.0, \"Z5U\": 2.0}}}}"
+		(property "PARAM_temperature_coefficient" "{\"type\": \"EnumSet\", \"data\": {\"elements\": [{\"name\": \"X5R\"}], \"enum\": {\"name\": \"TemperatureCoefficient\", \"values\": {\"C0G\": 8.0, \"X5R\": 4.0, \"X6R\": 5.0, \"X7R\": 6.0, \"X7S\": 3.0, \"X8R\": 7.0, \"Y5V\": 1.0, \"Z5U\": 2.0}}}}"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "c49c9322-55ff-4613-ab6d-98ea4642524b")
 		)
-		(property "Partnumber" "CL31B106KBHNNNE"
+		(property "Partnumber" "GRM31CR61H106KA12L"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "3302f8b5-2a63-487e-8e16-4f934642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1810221111_Samsung-Electro-Mechanics-CL31B106KBHNNNE_C89632.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61H106KA12L_C77092.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "3b475cba-a57c-4d49-99ed-b4e54642524b")
 		)
-		(property "capacitance" "0±10.0%F"
+		(property "capacitance" "10±10.0%µF"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1678,7 +1623,7 @@
 			(hide yes)
 			(uuid "43030d4f-e620-429b-9a24-23fa4642524b")
 		)
-		(property "temperature_coefficient" "X7R"
+		(property "temperature_coefficient" "X5R"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1690,7 +1635,7 @@
 			(hide yes)
 			(uuid "bf2cc6d9-ed96-464e-ba82-12394642524b")
 		)
-		(property "lcsc_id" "C89632"
+		(property "lcsc_id" "C77092"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1834,17 +1779,6 @@
 			(locked no)
 			(uuid "48ca9f81-e4c5-4cfa-a77a-7fb7716735e0")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "082c7d9c-7fe0-48b1-b3f2-cb03060bb3f9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 1.59 0 0)
 			(size 1.49 1.73)
@@ -1860,7 +1794,7 @@
 			(uuid "0d533124-307a-4e3c-87f3-14f30ed04c08")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Samsung_Electro_Mechanics_CL31B106KBHNNNE/C1206_L3.2-W1.6-H1.3.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM31CR61H106KA12L/C1206_L3.2-W1.6-H1.3.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -1872,7 +1806,7 @@
 			)
 		)
 	)
-	(footprint "Samsung_Electro_Mechanics_CL31A226KAHNNNE:C1206"
+	(footprint "Murata_Electronics_GRM31CR61E226KE15L:C1206"
 		(layer "F.Cu")
 		(uuid "576396f2-525d-4407-b796-e6b94642524b")
 		(at 10 -60 0)
@@ -1887,7 +1821,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" "22µF"
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "f8c2071d-2f4c-4ea5-b0c6-fb60d17fe981")
@@ -1898,13 +1832,13 @@
 				)
 			)
 		)
-		(property "LCSC" "C12891"
+		(property "LCSC" "C77091"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "f08113ab-5210-4950-bd9d-0b9e4642524b")
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "Murata Electronics"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1928,19 +1862,19 @@
 			(hide yes)
 			(uuid "8e58508e-d222-4c25-923e-53174642524b")
 		)
-		(property "Partnumber" "CL31A226KAHNNNE"
+		(property "Partnumber" "GRM31CR61E226KE15L"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "49c01bc4-b24e-4579-acef-b10d4642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1810181722_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61E226KE15L_C77091.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "97048276-4e98-4246-8e6d-014a4642524b")
 		)
-		(property "capacitance" "0±10.0%F"
+		(property "capacitance" "22±10.0%µF"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1964,7 +1898,7 @@
 			(hide yes)
 			(uuid "65bd6eb3-034f-4aaa-8efb-bb7e4642524b")
 		)
-		(property "lcsc_id" "C12891"
+		(property "lcsc_id" "C77091"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2108,17 +2042,6 @@
 			(locked no)
 			(uuid "751a4b26-98a3-43f9-9428-a2cfd11da508")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "d582f14f-02ee-4c34-86bc-52b6b07b3cbc")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 1.59 0 0)
 			(size 1.49 1.73)
@@ -2134,7 +2057,7 @@
 			(uuid "5e87e237-7ead-4db9-a9e9-65d5809ccdbf")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Samsung_Electro_Mechanics_CL31A226KAHNNNE/C1206_L3.2-W1.6-H1.3.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM31CR61E226KE15L/C1206_L3.2-W1.6-H1.3.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -2146,7 +2069,7 @@
 			)
 		)
 	)
-	(footprint "Samsung_Electro_Mechanics_CL31A226KAHNNNE:C1206"
+	(footprint "Murata_Electronics_GRM31CR61E226KE15L:C1206"
 		(layer "F.Cu")
 		(uuid "4faedd5a-0781-4267-8f03-a8d74642524b")
 		(at 10 -70 0)
@@ -2161,7 +2084,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" "22µF"
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "f8c2071d-2f4c-4ea5-b0c6-fb60d17fe981")
@@ -2172,13 +2095,13 @@
 				)
 			)
 		)
-		(property "LCSC" "C12891"
+		(property "LCSC" "C77091"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "c0ae68ab-f35b-4a1f-b1b9-c8594642524b")
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "Murata Electronics"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2202,19 +2125,19 @@
 			(hide yes)
 			(uuid "6339562c-4bce-4e8b-9db2-3b764642524b")
 		)
-		(property "Partnumber" "CL31A226KAHNNNE"
+		(property "Partnumber" "GRM31CR61E226KE15L"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "b412023c-c6c1-4f17-99d1-f32a4642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1810181722_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61E226KE15L_C77091.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "71a29805-9f27-416e-9c61-d4de4642524b")
 		)
-		(property "capacitance" "0±10.0%F"
+		(property "capacitance" "22±10.0%µF"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2238,7 +2161,7 @@
 			(hide yes)
 			(uuid "b4ea0027-ac1d-4127-8998-80f34642524b")
 		)
-		(property "lcsc_id" "C12891"
+		(property "lcsc_id" "C77091"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2382,17 +2305,6 @@
 			(locked no)
 			(uuid "751a4b26-98a3-43f9-9428-a2cfd11da508")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "d582f14f-02ee-4c34-86bc-52b6b07b3cbc")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 1.59 0 0)
 			(size 1.49 1.73)
@@ -2408,7 +2320,7 @@
 			(uuid "5e87e237-7ead-4db9-a9e9-65d5809ccdbf")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Samsung_Electro_Mechanics_CL31A226KAHNNNE/C1206_L3.2-W1.6-H1.3.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM31CR61E226KE15L/C1206_L3.2-W1.6-H1.3.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -2435,7 +2347,7 @@
 				)
 			)
 		)
-		(property "Value" "L 0H"
+		(property "Value" "L 2.2µH"
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "989b5b75-9263-40e3-a601-767d633a5cbd")
@@ -2494,7 +2406,7 @@
 			(hide yes)
 			(uuid "8f217b78-e404-4042-952c-76da4642524b")
 		)
-		(property "inductance" "L 0±20.0%H"
+		(property "inductance" "L 2.2±20.0%µH"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2512,7 +2424,7 @@
 			(hide yes)
 			(uuid "13d8d498-e8fa-4f01-82ad-a7f34642524b")
 		)
-		(property "dc_resistance" "DCR 0.055Ω"
+		(property "dc_resistance" "DCR 55mΩ"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2572,17 +2484,6 @@
 			(locked no)
 			(uuid "12b2321c-39a9-4ea2-a3b0-f34b0ff11c39")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "ae4b2ae7-4c6b-4fc3-8f29-b54af56127ce")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 1 0 90)
 			(size 2.2 0.8)
@@ -2610,7 +2511,7 @@
 			)
 		)
 	)
-	(footprint "Samsung_Electro_Mechanics_CL05B333KB5VPNC:C0402"
+	(footprint "Murata_Electronics_GRM155R71H333KE14D:C0402"
 		(layer "F.Cu")
 		(uuid "328b2595-c5d6-4a99-a0c0-3d084642524b")
 		(at 10 -90 0)
@@ -2625,7 +2526,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" "33nF"
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "6f0880c5-9c13-4a2e-b7e8-00bb144dc004")
@@ -2636,13 +2537,13 @@
 				)
 			)
 		)
-		(property "LCSC" "C472437"
+		(property "LCSC" "C415530"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "db4c3818-f411-451a-b7c4-36464642524b")
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "Murata Electronics"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2666,19 +2567,19 @@
 			(hide yes)
 			(uuid "5be053cc-544d-4037-acdf-e27c4642524b")
 		)
-		(property "Partnumber" "CL05B333KB5VPNC"
+		(property "Partnumber" "GRM155R71H333KE14D"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "cf38d6db-5f9a-4cc3-9181-d1b24642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B333KB5VPNC_C472437.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM155R71H333KE14D_C415530.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "30065993-554f-4a9a-8592-b6fd4642524b")
 		)
-		(property "capacitance" "0±10.0%F"
+		(property "capacitance" "33±10.0%nF"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2702,7 +2603,7 @@
 			(hide yes)
 			(uuid "5982f0d2-1e40-4a7e-b838-dfdd4642524b")
 		)
-		(property "lcsc_id" "C472437"
+		(property "lcsc_id" "C415530"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2846,17 +2747,6 @@
 			(locked no)
 			(uuid "16a5dec9-31b8-4790-84c4-3591456073c2")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "2ba822a2-60e0-4b3c-b177-747b3bfab3d9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.42 0 0)
 			(size 0.5 0.54)
@@ -2872,7 +2762,7 @@
 			(uuid "5b95643e-d3a4-4561-85bc-cd3865dad0a6")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Samsung_Electro_Mechanics_CL05B333KB5VPNC/C0402_L1.0-W0.5-H0.5.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71H333KE14D/C0402_L1.0-W0.5-H0.5.step"
 			(offset
 				(xyz 0 0 -0)
 			)

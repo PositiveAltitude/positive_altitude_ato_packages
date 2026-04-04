@@ -39,66 +39,66 @@ module TPS62933DRLR_3V3_TI_C3200405:
 
     input_bulk_a.capacitance = 10uF +/- 10%
     input_bulk_a.max_voltage = 50V
-    input_bulk_a.temperature_coefficient = "X7R"
+    input_bulk_a.temperature_coefficient = "X5R"
     input_bulk_a.package = "1206"
-    input_bulk_a.manufacturer = "Samsung Electro-Mechanics"
-    input_bulk_a.mpn = "CL31B106KBHNNNE"
-    input_bulk_a.lcsc_id = "C89632"
-    input_bulk_a.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1810221111_Samsung-Electro-Mechanics-CL31B106KBHNNNE_C89632.pdf"
+    input_bulk_a.manufacturer = "Murata Electronics"
+    input_bulk_a.mpn = "GRM31CR61H106KA12L"
+    input_bulk_a.lcsc_id = "C77092"
+    input_bulk_a.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61H106KA12L_C77092.pdf"
 
     input_bulk_b.capacitance = 10uF +/- 10%
     input_bulk_b.max_voltage = 50V
-    input_bulk_b.temperature_coefficient = "X7R"
+    input_bulk_b.temperature_coefficient = "X5R"
     input_bulk_b.package = "1206"
-    input_bulk_b.manufacturer = "Samsung Electro-Mechanics"
-    input_bulk_b.mpn = "CL31B106KBHNNNE"
-    input_bulk_b.lcsc_id = "C89632"
-    input_bulk_b.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1810221111_Samsung-Electro-Mechanics-CL31B106KBHNNNE_C89632.pdf"
+    input_bulk_b.manufacturer = "Murata Electronics"
+    input_bulk_b.mpn = "GRM31CR61H106KA12L"
+    input_bulk_b.lcsc_id = "C77092"
+    input_bulk_b.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61H106KA12L_C77092.pdf"
 
     input_bypass.capacitance = 100nF +/- 10%
     input_bypass.max_voltage = 50V
     input_bypass.temperature_coefficient = "X7R"
     input_bypass.package = "0402"
-    input_bypass.manufacturer = "Samsung Electro-Mechanics"
-    input_bypass.mpn = "CL05B104KB54PNC"
-    input_bypass.lcsc_id = "C307331"
-    input_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KB54PNC_C307331.pdf"
+    input_bypass.manufacturer = "Murata Electronics"
+    input_bypass.mpn = "GRM155R71H104KE14D"
+    input_bypass.lcsc_id = "C77020"
+    input_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 
     output_bulk_a.capacitance = 22uF +/- 10%
     output_bulk_a.max_voltage = 25V
     output_bulk_a.temperature_coefficient = "X5R"
     output_bulk_a.package = "1206"
-    output_bulk_a.manufacturer = "Samsung Electro-Mechanics"
-    output_bulk_a.mpn = "CL31A226KAHNNNE"
-    output_bulk_a.lcsc_id = "C12891"
-    output_bulk_a.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1810181722_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
+    output_bulk_a.manufacturer = "Murata Electronics"
+    output_bulk_a.mpn = "GRM31CR61E226KE15L"
+    output_bulk_a.lcsc_id = "C77091"
+    output_bulk_a.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61E226KE15L_C77091.pdf"
 
     output_bulk_b.capacitance = 22uF +/- 10%
     output_bulk_b.max_voltage = 25V
     output_bulk_b.temperature_coefficient = "X5R"
     output_bulk_b.package = "1206"
-    output_bulk_b.manufacturer = "Samsung Electro-Mechanics"
-    output_bulk_b.mpn = "CL31A226KAHNNNE"
-    output_bulk_b.lcsc_id = "C12891"
-    output_bulk_b.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1810181722_Samsung-Electro-Mechanics-CL31A226KAHNNNE_C12891.pdf"
+    output_bulk_b.manufacturer = "Murata Electronics"
+    output_bulk_b.mpn = "GRM31CR61E226KE15L"
+    output_bulk_b.lcsc_id = "C77091"
+    output_bulk_b.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61E226KE15L_C77091.pdf"
 
     bootstrap_cap.capacitance = 100nF +/- 10%
     bootstrap_cap.max_voltage = 50V
     bootstrap_cap.temperature_coefficient = "X7R"
     bootstrap_cap.package = "0402"
-    bootstrap_cap.manufacturer = "Samsung Electro-Mechanics"
-    bootstrap_cap.mpn = "CL05B104KB54PNC"
-    bootstrap_cap.lcsc_id = "C307331"
-    bootstrap_cap.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KB54PNC_C307331.pdf"
+    bootstrap_cap.manufacturer = "Murata Electronics"
+    bootstrap_cap.mpn = "GRM155R71H104KE14D"
+    bootstrap_cap.lcsc_id = "C77020"
+    bootstrap_cap.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 
     soft_start_cap.capacitance = 33nF +/- 10%
     soft_start_cap.max_voltage = 50V
     soft_start_cap.temperature_coefficient = "X7R"
     soft_start_cap.package = "0402"
-    soft_start_cap.manufacturer = "Samsung Electro-Mechanics"
-    soft_start_cap.mpn = "CL05B333KB5VPNC"
-    soft_start_cap.lcsc_id = "C472437"
-    soft_start_cap.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B333KB5VPNC_C472437.pdf"
+    soft_start_cap.manufacturer = "Murata Electronics"
+    soft_start_cap.mpn = "GRM155R71H333KE14D"
+    soft_start_cap.lcsc_id = "C415530"
+    soft_start_cap.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM155R71H333KE14D_C415530.pdf"
 
     output_inductor.inductance = 2.2uH +/- 20%
     output_inductor.max_current = 3A
@@ -114,19 +114,19 @@ module TPS62933DRLR_3V3_TI_C3200405:
     feedback_top.max_power = 62.5mW
     feedback_top.max_voltage = 50V
     feedback_top.package = "0402"
-    feedback_top.manufacturer = "UNI-ROYAL(Uniroyal Elec)"
-    feedback_top.mpn = "0402WGF3162TCE"
-    feedback_top.lcsc_id = "C11463"
-    feedback_top.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0402WGF3162TCE_C11463.pdf"
+    feedback_top.manufacturer = "YAGEO"
+    feedback_top.mpn = "RC0402FR-0731K6L"
+    feedback_top.lcsc_id = "C276265"
+    feedback_top.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304140030_YAGEO-RC0402FR-0731K6L_C276265.pdf"
 
-    feedback_bottom.resistance = 10.2kohm +/- 1%
+    feedback_bottom.resistance = 10kohm +/- 1%
     feedback_bottom.max_power = 62.5mW
     feedback_bottom.max_voltage = 50V
     feedback_bottom.package = "0402"
-    feedback_bottom.manufacturer = "UNI-ROYAL(Uniroyal Elec)"
-    feedback_bottom.mpn = "0402WGF1022TCE"
-    feedback_bottom.lcsc_id = "C11660"
-    feedback_bottom.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0402WGF1022TCE_C11660.pdf"
+    feedback_bottom.manufacturer = "YAGEO"
+    feedback_bottom.mpn = "RC0402FR-0710KL"
+    feedback_bottom.lcsc_id = "C60490"
+    feedback_bottom.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
 
     power_in.lv ~ power_out.lv
 
