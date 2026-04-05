@@ -43,6 +43,8 @@ Guidance:
 - Explicitly specify the LCSC code for every concrete part selection.
 - Do not rely on Atopile's part picker to choose parts implicitly.
 - Prefer healthy LCSC stock unless the task explicitly requires something else.
+- When creating a new package, reuse the same concrete components already used elsewhere in this repository when they fit the requirements.
+- Prefer Murata MLCCs for ceramic capacitors and Yageo resistors for resistor selections unless the task explicitly requires something else.
 
 ## Library Asset Rules
 
@@ -65,6 +67,7 @@ Guidance:
 - MLCC package names should follow `c_<capacitance>_<voltage>_<package>_<manufacturer>_<lcsc>`.
 - Resistor package names should follow `r_<resistance>_<tolerance>_<power>_<package>_<manufacturer>_<lcsc>`.
 - For simple passives, prefer generic modules with explicit electrical values and fixed LCSC codes.
+- Reuse existing repository component choices for equivalent new designs when possible to keep BOMs consistent across packages.
 - Keep BOM decisions deterministic and documented in code.
 - Keep package-local assets and dependencies easy to trace.
 
