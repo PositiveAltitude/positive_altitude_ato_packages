@@ -1,0 +1,139 @@
+"""TPS56637RPAR 5.1 V, 5 A buck converter package pinned to TI C841386."""
+
+import Capacitor
+import ElectricPower
+import Inductor
+import Resistor
+from "parts/Texas_Instruments_TPS56637RPAR/Texas_Instruments_TPS56637RPAR.ato" import Texas_Instruments_TPS56637RPAR_package
+
+module TPS56637RPAR_5V1_5A_TI_C841386:
+    """
+    Fixed 5.1 V implementation of TPS56637RPAR for Raspberry Pi class 5 A loads.
+
+    This package reuses the existing Murata capacitor selections already present in
+    this repository and keeps the controller in FCCM by leaving MODE floating.
+    EN is also left floating, which enables the converter without adding a UVLO
+    divider. The passive values follow TI's 5 V reference design, with the top
+    feedback resistor adjusted to 75 kOhm to target 5.1 V.
+    """
+
+    power_in = new ElectricPower
+    power_out = new ElectricPower
+
+    assert power_in.voltage within 8V to 16.8V
+    assert power_out.voltage within 5.1V +/- 2%
+    assert power_out.max_current <= 5A
+
+    converter = new Texas_Instruments_TPS56637RPAR_package
+    input_bulk_a = new Capacitor
+    input_bulk_b = new Capacitor
+    input_bypass = new Capacitor
+    output_bulk_a = new Capacitor
+    output_bulk_b = new Capacitor
+    bootstrap_cap = new Capacitor
+    output_inductor = new Inductor
+    feedback_top = new Resistor
+    feedback_bottom = new Resistor
+
+    input_bulk_a.capacitance = 10uF +/- 10%
+    input_bulk_a.max_voltage = 50V
+    input_bulk_a.temperature_coefficient = "X5R"
+    input_bulk_a.package = "1206"
+    input_bulk_a.manufacturer = "Murata Electronics"
+    input_bulk_a.mpn = "GRM31CR61H106KA12L"
+    input_bulk_a.lcsc_id = "C77092"
+    input_bulk_a.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61H106KA12L_C77092.pdf"
+
+    input_bulk_b.capacitance = 10uF +/- 10%
+    input_bulk_b.max_voltage = 50V
+    input_bulk_b.temperature_coefficient = "X5R"
+    input_bulk_b.package = "1206"
+    input_bulk_b.manufacturer = "Murata Electronics"
+    input_bulk_b.mpn = "GRM31CR61H106KA12L"
+    input_bulk_b.lcsc_id = "C77092"
+    input_bulk_b.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61H106KA12L_C77092.pdf"
+
+    input_bypass.capacitance = 100nF +/- 10%
+    input_bypass.max_voltage = 50V
+    input_bypass.temperature_coefficient = "X7R"
+    input_bypass.package = "0402"
+    input_bypass.manufacturer = "Murata Electronics"
+    input_bypass.mpn = "GRM155R71H104KE14D"
+    input_bypass.lcsc_id = "C77020"
+    input_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
+
+    output_bulk_a.capacitance = 22uF +/- 10%
+    output_bulk_a.max_voltage = 25V
+    output_bulk_a.temperature_coefficient = "X5R"
+    output_bulk_a.package = "1206"
+    output_bulk_a.manufacturer = "Murata Electronics"
+    output_bulk_a.mpn = "GRM31CR61E226KE15L"
+    output_bulk_a.lcsc_id = "C77091"
+    output_bulk_a.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61E226KE15L_C77091.pdf"
+
+    output_bulk_b.capacitance = 22uF +/- 10%
+    output_bulk_b.max_voltage = 25V
+    output_bulk_b.temperature_coefficient = "X5R"
+    output_bulk_b.package = "1206"
+    output_bulk_b.manufacturer = "Murata Electronics"
+    output_bulk_b.mpn = "GRM31CR61E226KE15L"
+    output_bulk_b.lcsc_id = "C77091"
+    output_bulk_b.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61E226KE15L_C77091.pdf"
+
+    bootstrap_cap.capacitance = 100nF +/- 10%
+    bootstrap_cap.max_voltage = 50V
+    bootstrap_cap.temperature_coefficient = "X7R"
+    bootstrap_cap.package = "0402"
+    bootstrap_cap.manufacturer = "Murata Electronics"
+    bootstrap_cap.mpn = "GRM155R71H104KE14D"
+    bootstrap_cap.lcsc_id = "C77020"
+    bootstrap_cap.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
+
+    output_inductor.inductance = 3.3uH +/- 20%
+    output_inductor.max_current = 8.5A
+    output_inductor.saturation_current = 9.5A
+    output_inductor.dc_resistance = 22mohm
+    output_inductor.package = "SMD7x6_6mm"
+    output_inductor.manufacturer = "cjiang (Changjiang Microelectronics Tech)"
+    output_inductor.mpn = "FXL0630-3R3-M"
+    output_inductor.lcsc_id = "C167219"
+    output_inductor.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2404260921_cjiang--Changjiang-Microelectronics-Tech-FXL0630-3R3-M_C167219.pdf"
+
+    feedback_top.resistance = 75kohm +/- 1%
+    feedback_top.max_power = 62.5mW
+    feedback_top.max_voltage = 50V
+    feedback_top.package = "0402"
+    feedback_top.manufacturer = "YAGEO"
+    feedback_top.mpn = "RC0402FR-0775KL"
+    feedback_top.lcsc_id = "C137935"
+    feedback_top.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0775KL_C137935.pdf"
+
+    feedback_bottom.resistance = 10kohm +/- 1%
+    feedback_bottom.max_power = 62.5mW
+    feedback_bottom.max_voltage = 50V
+    feedback_bottom.package = "0402"
+    feedback_bottom.manufacturer = "YAGEO"
+    feedback_bottom.mpn = "RC0402FR-0710KL"
+    feedback_bottom.lcsc_id = "C60490"
+    feedback_bottom.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
+
+    power_in.lv ~ power_out.lv
+
+    power_in.hv ~ converter.VIN
+    power_in.lv ~ converter.AGND
+    power_in.lv ~ converter.PGND
+
+    converter.BOOT ~> bootstrap_cap ~> converter.SW
+    converter.SW ~> output_inductor ~> power_out.hv
+    power_out.hv ~> feedback_top ~> converter.FB
+    converter.FB ~> feedback_bottom ~> power_out.lv
+
+    power_in.hv ~> input_bulk_a ~> power_in.lv
+    power_in.hv ~> input_bulk_b ~> power_in.lv
+    power_in.hv ~> input_bypass ~> power_in.lv
+
+    power_out.hv ~> output_bulk_a ~> power_out.lv
+    power_out.hv ~> output_bulk_b ~> power_out.lv
+
+module TPS56637Buck5V1_5A from TPS56637RPAR_5V1_5A_TI_C841386:
+    pass
