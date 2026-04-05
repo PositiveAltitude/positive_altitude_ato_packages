@@ -1,0 +1,10 @@
+(fp_lib_table
+	(version 7)
+	(lib
+		(name "ZHOURI_2_54_2_20")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../../parts/ZHOURI_2_54_2_20")
+		(options "")
+		(descr "atopile: part lib: ZHOURI_2_54_2_20")
+	)
+)

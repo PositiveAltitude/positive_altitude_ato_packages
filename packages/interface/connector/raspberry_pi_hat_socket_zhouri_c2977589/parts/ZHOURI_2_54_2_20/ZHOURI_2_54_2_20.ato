@@ -1,0 +1,58 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component ZHOURI_2_54_2_20_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C2977589", date="2026-04-05T12:11:58.695177+00:00", checksum="edcff29597f24b5e95bdc9bd320f26c885f601bb3f0cf6ee2a7c148fb816fee0">
+
+    trait is_atomic_part<manufacturer="ZHOURI", partnumber="2.54-2*20", footprint="HDR-TH_40P-P2.54-V-F-R2-C20-S2.54.kicad_mod", symbol="2.54-2*20.kicad_sym", model="HDR-TH_40P-P2.54-F-LI-2X20P.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C2977589", manufacturer="ZHOURI", partno="2.54-2*20">
+    trait has_designator_prefix<prefix="U">
+    trait has_datasheet<datasheet="https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2203281730_ZHOURI-2-54-2-20_C2977589.pdf">
+
+    # pins
+    pin 40
+    pin 39
+    pin 38
+    pin 37
+    pin 36
+    pin 35
+    pin 34
+    pin 33
+    pin 32
+    pin 31
+    pin 30
+    pin 29
+    pin 28
+    pin 27
+    pin 26
+    pin 25
+    pin 24
+    pin 23
+    pin 22
+    pin 21
+    pin 20
+    pin 19
+    pin 18
+    pin 17
+    pin 16
+    pin 15
+    pin 14
+    pin 13
+    pin 12
+    pin 11
+    pin 10
+    pin 9
+    pin 8
+    pin 7
+    pin 6
+    pin 5
+    pin 4
+    pin 3
+    pin 2
+    pin 1
