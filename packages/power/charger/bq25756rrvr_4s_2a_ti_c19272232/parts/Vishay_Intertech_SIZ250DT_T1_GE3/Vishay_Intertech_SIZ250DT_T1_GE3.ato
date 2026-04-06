@@ -1,0 +1,28 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Vishay_Intertech_SIZ250DT_T1_GE3_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C3279427", date="2026-04-06T10:56:54.917813+00:00", checksum="673f314d60f4a832a219b3dd84e85b481be78d19426b167de9d972c0c0c3105e">
+
+    trait is_atomic_part<manufacturer="Vishay Intertech", partnumber="SIZ250DT-T1-GE3", footprint="POWERPAIR-8_L3.3-W3.3-P0.65-BL_SIZ260DT-T1-GE3.kicad_mod", symbol="SIZ250DT-T1-GE3.kicad_sym">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C3279427", manufacturer="Vishay Intertech", partno="SIZ250DT-T1-GE3">
+    trait has_designator_prefix<prefix="Q">
+    trait has_datasheet<datasheet="https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2404031053_Vishay-Intertech-SIZ250DT-T1-GE3_C3279427.pdf">
+
+    # pins
+    signal D1 ~ pin 10
+    D1 ~ pin 4
+    D1 ~ pin 3
+    D1 ~ pin 2
+    signal G1 ~ pin 1
+    signal G2 ~ pin 8
+    signal S1_D2 ~ pin 9
+    signal S2 ~ pin 7
+    S2 ~ pin 6
+    S2 ~ pin 5

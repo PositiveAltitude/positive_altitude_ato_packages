@@ -7,11 +7,11 @@ import I2C
 import Inductor
 import Resistor
 from "parts/Texas_Instruments_BQ25756RRVR/Texas_Instruments_BQ25756RRVR.ato" import Texas_Instruments_BQ25756RRVR_package
-from "parts/Texas_Instruments_CSD88537ND/Texas_Instruments_CSD88537ND.ato" import Texas_Instruments_CSD88537ND_package
+from "parts/Vishay_Intertech_SIZ250DT_T1_GE3/Vishay_Intertech_SIZ250DT_T1_GE3.ato" import Vishay_Intertech_SIZ250DT_T1_GE3_package
 
 module BQ25756RRVR_4S_2A_TI_C19272232:
     """
-    4S Li-ion charger built around TI's BQ25756 with a compact dual-MOSFET power stage.
+    4S Li-ion charger built around TI's BQ25756 with a compact Vishay dual-MOSFET power stage.
 
     The hardware defaults target a 16.8 V 4S pack with a 1 A maximum charge
     current using a 49.9 kohm ICHG resistor and 5 mOhm battery current sense
@@ -53,8 +53,8 @@ module BQ25756RRVR_4S_2A_TI_C19272232:
     assert logic_power.voltage within 1.8V to 5V
 
     charger = new Texas_Instruments_BQ25756RRVR_package
-    buck_half_bridge = new Texas_Instruments_CSD88537ND_package
-    boost_half_bridge = new Texas_Instruments_CSD88537ND_package
+    buck_half_bridge = new Vishay_Intertech_SIZ250DT_T1_GE3_package
+    boost_half_bridge = new Vishay_Intertech_SIZ250DT_T1_GE3_package
     input_sense_resistor = new Resistor
     battery_sense_resistor = new Resistor
     charge_current_program = new Resistor
@@ -350,12 +350,9 @@ module BQ25756RRVR_4S_2A_TI_C19272232:
     srp_filtered ~ charger.SRP
     srn_filtered ~ charger.SRN
 
-    # The dual MOSFET package exposes the two FETs separately. Tying S1 and D2 to
-    # the controller switch node yields one compact half bridge per package.
-    switch_1 ~ buck_half_bridge.S1
-    switch_1 ~ buck_half_bridge.D2
-    switch_2 ~ boost_half_bridge.S1
-    switch_2 ~ boost_half_bridge.D2
+    # The Vishay half-bridge package exposes the shared switching node as one pin.
+    switch_1 ~ buck_half_bridge.S1_D2
+    switch_2 ~ boost_half_bridge.S1_D2
 
     charger.HIDRV1 ~ buck_half_bridge.G1
     charger.LODRV1 ~ buck_half_bridge.G2

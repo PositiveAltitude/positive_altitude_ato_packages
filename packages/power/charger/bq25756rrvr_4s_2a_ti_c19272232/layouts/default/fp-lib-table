@@ -133,4 +133,11 @@
 		(options "")
 		(descr "atopile: part lib: TECHFUSE_SL0650_100M")
 	)
+	(lib
+		(name "Vishay_Intertech_SIZ250DT_T1_GE3")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../../parts/Vishay_Intertech_SIZ250DT_T1_GE3")
+		(options "")
+		(descr "atopile: part lib: Vishay_Intertech_SIZ250DT_T1_GE3")
+	)
 )
