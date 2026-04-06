@@ -13,4 +13,4 @@ builds:
 package:
   identifier: "local/power-charger-bq25756rrvr-4s-2a-ti-c19272232"
   version: "0.0.1"
-  summary: "BQ25756-based 4S Li-ion buck-boost charger package with 1 A default hardware charge limit, I2C control, and compact Vishay dual-MOSFETs."
+  summary: "BQ25756-based 4S Li-ion buck-boost charger package with 1 A default hardware charge limit, 20 V max input, I2C control, and compact XNRUSEMI dual-MOSFETs."

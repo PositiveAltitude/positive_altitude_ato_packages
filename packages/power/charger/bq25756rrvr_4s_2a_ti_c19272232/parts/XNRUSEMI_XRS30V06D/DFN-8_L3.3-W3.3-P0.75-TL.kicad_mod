@@ -1,0 +1,200 @@
+(footprint "XNRUSEMI_XRS30V06D:DFN-8_L3.3-W3.3-P0.75-TL"
+	(version 20241229)
+	(generator "faebryk_convert")
+	(generator_version "v5")
+	(layer "F.Cu")
+	(tedit "5DC5F6A4")
+	(uuid "a31a68c4-cc61-4f10-ab10-d680029c0d23")
+	(property "Reference" "REF**"
+		(at 0 -4.95)
+		(layer "F.SilkS")
+		(uuid "b1db51f8-5fca-4599-8af5-93338ff662cf")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "DFN-8_L3.3-W3.3-P0.75-TL"
+		(at 0 4.95)
+		(layer "F.Fab")
+		(uuid "47a8e498-0dc1-4d9e-a15f-33d2c2d805ea")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_circle
+		(center -1.5 1.37)
+		(end -1.4 1.37)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "Cmts.User")
+		(locked no)
+		(uuid "1b668d66-6d04-4749-b546-0a208191934c")
+	)
+	(fp_circle
+		(center -1.65 1.12)
+		(end -1.62 1.12)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(locked no)
+		(uuid "529cd97f-f17f-4b43-a12d-654b2c409ab5")
+	)
+	(fp_circle
+		(center -1.8 1.57)
+		(end -1.66 1.57)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(locked no)
+		(uuid "a3d47d29-04c7-47c0-845b-d97a743a7c94")
+	)
+	(fp_line
+		(start 1.51 -2.23)
+		(end 1.7 -2.23)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "7c2ed17a-f606-4b7e-89a6-7948e4c7c8c6")
+	)
+	(fp_line
+		(start 1.7 -2.23)
+		(end 1.7 1.17)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "001932ca-8bcf-4fff-82e6-02ae183f24d7")
+	)
+	(fp_line
+		(start 1.7 1.17)
+		(end 1.51 1.17)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "c91f9955-a5a8-4770-ae43-fec3de32ce9c")
+	)
+	(fp_line
+		(start -1.51 1.17)
+		(end -1.7 1.17)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "76512dce-a2c0-42bc-980b-b001a3f60ee7")
+	)
+	(fp_line
+		(start -1.7 1.17)
+		(end -1.7 -2.23)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "2554be35-7b2d-450d-8e19-50f5c48bfda2")
+	)
+	(fp_line
+		(start -1.7 -2.23)
+		(end -1.5 -2.23)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "0367f073-453d-45dc-98bd-0aa2d3cb88c0")
+	)
+	(fp_text user "%R"
+		(at 0 0)
+		(layer "F.Fab")
+		(uuid "d8947f8e-06be-42b6-b2bf-7d6158bdde89")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -1.13 0.95 0)
+		(size 0.4 0.85)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "85447897-ac38-4648-8f58-96b0cafdd171")
+	)
+	(pad "2" smd rect
+		(at -0.38 0.95 0)
+		(size 0.4 0.85)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "0e23a5d1-ecb5-4361-ac7d-1c7f57b6ef71")
+	)
+	(pad "3" smd rect
+		(at 0.37 0.95 0)
+		(size 0.4 0.85)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "f529c8df-0e53-4397-9560-bf7274921d29")
+	)
+	(pad "4" smd rect
+		(at 1.12 0.95 0)
+		(size 0.4 0.85)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "6d740703-b3a5-4cf2-b12c-62459802bfd4")
+	)
+	(pad "5" smd custom
+		(at 0.75 -0.95 0)
+		(size 0.01 0.01)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "f0e1bd58-4d89-4860-adc2-99f3ab591085")
+		(primitives
+			(gr_poly
+				(pts
+					(xy -0.57 -1.48) (xy -0.57 -0.68) (xy -0.57 -0.68) (xy -0.57 0.87) (xy 0.58 0.87) (xy 0.58 -0.88)
+					(xy 0.58 -0.88) (xy 0.58 -1.48) (xy 0.18 -1.48) (xy 0.18 -0.88) (xy -0.17 -0.88) (xy -0.17 -1.48)
+				)
+			)
+		)
+	)
+	(pad "8" smd custom
+		(at -0.75 -0.95 0)
+		(size 0.01 0.01)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "c4af8594-6e91-4097-9018-4a65cde56bad")
+		(primitives
+			(gr_poly
+				(pts
+					(xy -0.57 -1.48) (xy -0.57 -0.68) (xy -0.57 -0.68) (xy -0.57 0.87) (xy 0.58 0.87) (xy 0.58 -0.88)
+					(xy 0.58 -0.88) (xy 0.58 -1.48) (xy 0.18 -1.48) (xy 0.18 -0.88) (xy -0.17 -0.88) (xy -0.17 -1.48)
+				)
+			)
+		)
+	)
+	(embedded_fonts no)
+)

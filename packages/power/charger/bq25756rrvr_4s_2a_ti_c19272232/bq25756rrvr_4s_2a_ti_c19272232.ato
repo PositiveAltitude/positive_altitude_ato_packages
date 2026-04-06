@@ -7,11 +7,11 @@ import I2C
 import Inductor
 import Resistor
 from "parts/Texas_Instruments_BQ25756RRVR/Texas_Instruments_BQ25756RRVR.ato" import Texas_Instruments_BQ25756RRVR_package
-from "parts/Vishay_Intertech_SIZ250DT_T1_GE3/Vishay_Intertech_SIZ250DT_T1_GE3.ato" import Vishay_Intertech_SIZ250DT_T1_GE3_package
+from "parts/XNRUSEMI_XRS30V06D/XNRUSEMI_XRS30V06D.ato" import XNRUSEMI_XRS30V06D_package
 
 module BQ25756RRVR_4S_2A_TI_C19272232:
     """
-    4S Li-ion charger built around TI's BQ25756 with a compact Vishay dual-MOSFET power stage.
+    4S Li-ion charger built around TI's BQ25756 with a compact XNRUSEMI dual-MOSFET power stage.
 
     The hardware defaults target a 16.8 V 4S pack with a 1 A maximum charge
     current using a 49.9 kohm ICHG resistor and 5 mOhm battery current sense
@@ -23,9 +23,11 @@ module BQ25756RRVR_4S_2A_TI_C19272232:
     charging, while matching TI's example direction more closely than the previous
     15 uH choice. This is a practical compromise
     for 5 V class solar or USB input fallback up through 20 V class USB PD
-    operation. Reverse mode is not configured here, but the full buck-boost power
-    stage is still required because charging a 4S pack from 5 V input needs boost
-    operation on the charge path.
+    operation. The selected 30 V MOSFETs keep the layout compact, but they also
+    constrain the package input range to a 20 V maximum so the switching nodes
+    retain usable voltage margin. Reverse mode is not configured here, but the
+    full buck-boost power stage is still required because charging a 4S pack from
+    5 V input needs boost operation on the charge path.
 
     The ACUV and ACOV pins use TI's default 4.2 V to 60 V operating window by
     tying ACUV directly to VAC and ACOV to ground. MPPT and detailed input-current
@@ -47,14 +49,14 @@ module BQ25756RRVR_4S_2A_TI_C19272232:
     status_1_n = new ElectricLogic
     status_2_n = new ElectricLogic
 
-    assert power_in.voltage within 4.2V to 24V
+    assert power_in.voltage within 4.2V to 20V
     assert battery.voltage within 10V to 16.8V
     assert battery.max_current <= 2A
     assert logic_power.voltage within 1.8V to 5V
 
     charger = new Texas_Instruments_BQ25756RRVR_package
-    buck_half_bridge = new Vishay_Intertech_SIZ250DT_T1_GE3_package
-    boost_half_bridge = new Vishay_Intertech_SIZ250DT_T1_GE3_package
+    buck_half_bridge = new XNRUSEMI_XRS30V06D_package
+    boost_half_bridge = new XNRUSEMI_XRS30V06D_package
     input_sense_resistor = new Resistor
     battery_sense_resistor = new Resistor
     charge_current_program = new Resistor
@@ -350,9 +352,11 @@ module BQ25756RRVR_4S_2A_TI_C19272232:
     srp_filtered ~ charger.SRP
     srn_filtered ~ charger.SRN
 
-    # The Vishay half-bridge package exposes the shared switching node as one pin.
-    switch_1 ~ buck_half_bridge.S1_D2
-    switch_2 ~ boost_half_bridge.S1_D2
+    # The compact dual-FET package exposes the two transistors separately.
+    switch_1 ~ buck_half_bridge.S1
+    switch_1 ~ buck_half_bridge.D2
+    switch_2 ~ boost_half_bridge.S1
+    switch_2 ~ boost_half_bridge.D2
 
     charger.HIDRV1 ~ buck_half_bridge.G1
     charger.LODRV1 ~ buck_half_bridge.G2
