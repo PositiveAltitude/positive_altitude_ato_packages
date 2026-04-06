@@ -1,0 +1,20 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component PANASONIC_35SVPK47M_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C264034", date="2026-04-05T19:46:01.927695+00:00", checksum="1297618f68eeefb763043c313fdbe3873bf8352abe4a7478efe09c9fcf2b145d">
+
+    trait is_atomic_part<manufacturer="PANASONIC", partnumber="35SVPK47M", footprint="CAP-SMD_BD6.3-L6.6-W6.6-FD.kicad_mod", symbol="35SVPK47M.kicad_sym", model="CAP-SMD_BD6.3-L6.6-W6.6-FD.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C264034", manufacturer="PANASONIC", partno="35SVPK47M">
+    trait has_designator_prefix<prefix="C">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_1810311521_PANASONIC-35SVPK47M_C264034.pdf">
+
+    # pins
+    pin 1
+    pin 2

@@ -1,0 +1,20 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component TECHFUSE_SL0650_150M_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C22463830", date="2026-04-05T19:11:19.379670+00:00", checksum="4adafccd20dc420a96afc849b23771872452366d3f7150168925f81fbb715384">
+
+    trait is_atomic_part<manufacturer="TECHFUSE", partnumber="SL0650-150M", footprint="IND-SMD_L7.0-W6.6.kicad_mod", symbol="SL0650-150M.kicad_sym", model="IND-SMD_L7.0-W6.6-H3.0.STEP">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C22463830", manufacturer="TECHFUSE", partno="SL0650-150M">
+    trait has_designator_prefix<prefix="L">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_2406141138_TECHFUSE-SL0650-150M_C22463830.pdf">
+
+    # pins
+    pin 2
+    pin 1

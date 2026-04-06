@@ -1,0 +1,173 @@
+(footprint "PANASONIC_EEHZK1V101XP:CAP-SMD_BD6.3-L6.6-W6.6-FD"
+	(version 20241229)
+	(generator "faebryk_convert")
+	(generator_version "v5")
+	(layer "F.Cu")
+	(tedit "5DC5F6A4")
+	(uuid "3aa49303-6505-4e14-947c-f94bfcb73fd1")
+	(property "Reference" "REF**"
+		(at 0 -4)
+		(layer "F.SilkS")
+		(uuid "ed0e335a-f00b-49ea-b2bc-069a692d5377")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "CAP-SMD_BD6.3-L6.6-W6.6-FD"
+		(at 0 4)
+		(layer "F.Fab")
+		(uuid "47503c4b-9713-457c-8032-b31cf79a727c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_circle
+		(center -3.63 3.3)
+		(end -3.6 3.3)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(locked no)
+		(uuid "154b18b8-3c6b-4a21-a7c3-d77883cfc441")
+	)
+	(fp_line
+		(start 3.36 0.74)
+		(end 3.38 3.38)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "417fba98-0f2a-4ba2-b2a2-ad27a235ef38")
+	)
+	(fp_line
+		(start 3.38 3.38)
+		(end -1.98 3.38)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "2a9236e6-a484-4686-9363-f35c081ac76c")
+	)
+	(fp_line
+		(start -1.98 3.38)
+		(end -3.38 1.98)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "35a934d0-a87f-4f59-9143-66f54b4e679d")
+	)
+	(fp_line
+		(start -3.38 1.98)
+		(end -3.36 0.69)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "647ad813-ef72-423a-b08d-c08cd34dfd56")
+	)
+	(fp_line
+		(start 3.37 -0.71)
+		(end 3.38 -3.38)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "626414d6-579c-4438-867b-2a76c1adabe2")
+	)
+	(fp_line
+		(start 3.38 -3.38)
+		(end -1.98 -3.38)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "63f2e558-4095-422e-bd1a-efa7ac92e3df")
+	)
+	(fp_line
+		(start -1.98 -3.38)
+		(end -3.38 -1.98)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "f5e696ff-28c1-436d-84fa-8a05f3caa4ee")
+	)
+	(fp_line
+		(start -3.38 -1.98)
+		(end -3.38 -0.69)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "36e7f336-68da-4cb9-96c6-2de866e08534")
+	)
+	(fp_text user "%R"
+		(at 0 0)
+		(layer "F.Fab")
+		(uuid "b806610a-7270-4dd6-8385-46fc1ca62a24")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -2.67 0 0)
+		(size 3.5 1.2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "06cc7b94-9b1e-4b6e-aaf0-40a562df6139")
+	)
+	(pad "2" smd rect
+		(at 2.67 0 0)
+		(size 3.5 1.2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "ac320969-1212-40d1-b168-161bbef5c640")
+	)
+	(model "${KIPRJMOD}/../../parts/PANASONIC_EEHZK1V101XP/CAP-SMD_BD6.3-L6.6-W6.6-FD.step"
+		(offset
+			(xyz 0 0 -0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 180)
+		)
+	)
+	(embedded_fonts no)
+)

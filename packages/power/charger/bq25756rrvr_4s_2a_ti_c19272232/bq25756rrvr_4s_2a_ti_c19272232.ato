@@ -1,0 +1,402 @@
+"""BQ25756RRVR 4S Li-ion charger package with 1 A default hardware current limit."""
+
+import Capacitor
+import ElectricLogic
+import ElectricPower
+import I2C
+import Inductor
+import Resistor
+from "parts/Texas_Instruments_BQ25756RRVR/Texas_Instruments_BQ25756RRVR.ato" import Texas_Instruments_BQ25756RRVR_package
+from "parts/Texas_Instruments_CSD88537ND/Texas_Instruments_CSD88537ND.ato" import Texas_Instruments_CSD88537ND_package
+
+module BQ25756RRVR_4S_2A_TI_C19272232:
+    """
+    4S Li-ion charger built around TI's BQ25756 with a compact dual-MOSFET power stage.
+
+    The hardware defaults target a 16.8 V 4S pack with a 1 A maximum charge
+    current using a 49.9 kohm ICHG resistor and 5 mOhm battery current sense
+    resistor, per TI's programming equations. The power stage is still sized for
+    up to 2 A charging if firmware later disables the ICHG pin limit and raises
+    the charge current register. FSW_SYNC is strapped for 500 kHz operation and
+    paired with a 10 uH inductor. At the 2 A target this still keeps
+    ripple current comfortably below the inductor rating even for 5 V to 4S boost
+    charging, while matching TI's example direction more closely than the previous
+    15 uH choice. This is a practical compromise
+    for 5 V class solar or USB input fallback up through 20 V class USB PD
+    operation. Reverse mode is not configured here, but the full buck-boost power
+    stage is still required because charging a 4S pack from 5 V input needs boost
+    operation on the charge path.
+
+    The ACUV and ACOV pins use TI's default 4.2 V to 60 V operating window by
+    tying ACUV directly to VAC and ACOV to ground. MPPT and detailed input-current
+    behavior are left to the controller's I2C configuration. ILIM_HIZ is grounded
+    so the package defaults to the digital input-current control path instead of
+    adding a separate analog ILIM network. The TS pin is biased to a valid
+    mid-window voltage with a resistor divider so the package is usable without a
+    pack thermistor. Replace that divider with a real NTC network if cell
+    temperature supervision is required.
+    """
+
+    power_in = new ElectricPower
+    battery = new ElectricPower
+    logic_power = new ElectricPower
+    i2c = new I2C
+    charge_enable_n = new ElectricLogic
+    interrupt_n = new ElectricLogic
+    power_good_n = new ElectricLogic
+    status_1_n = new ElectricLogic
+    status_2_n = new ElectricLogic
+
+    assert power_in.voltage within 4.2V to 24V
+    assert battery.voltage within 10V to 16.8V
+    assert battery.max_current <= 2A
+    assert logic_power.voltage within 1.8V to 5V
+
+    charger = new Texas_Instruments_BQ25756RRVR_package
+    buck_half_bridge = new Texas_Instruments_CSD88537ND_package
+    boost_half_bridge = new Texas_Instruments_CSD88537ND_package
+    input_sense_resistor = new Resistor
+    battery_sense_resistor = new Resistor
+    charge_current_program = new Resistor
+    regulation_feedback_top = new Resistor
+    regulation_feedback_bottom = new Resistor
+    switching_frequency_program = new Resistor
+    acp_filter_series = new Resistor
+    acn_filter_series = new Resistor
+    srp_filter_series = new Resistor
+    srn_filter_series = new Resistor
+    charge_enable_pulldown = new Resistor
+    ts_bias_top = new Resistor
+    ts_bias_bottom = new Resistor
+    power_inductor = new Inductor
+    input_bulk_source = new Capacitor
+    input_bulk_converter = new Capacitor
+    input_bypass = new Capacitor
+    regn_bulk = new Capacitor
+    vac_bypass = new Capacitor
+    ac_sense_filter = new Capacitor
+    battery_sense_filter = new Capacitor
+    bootstrap_1 = new Capacitor
+    bootstrap_2 = new Capacitor
+    battery_bulk_converter = new Capacitor
+    battery_bulk_pack = new Capacitor
+    battery_bypass = new Capacitor
+
+    input_sense_resistor.resistance = 5mohm +/- 1%
+    input_sense_resistor.max_power = 1W
+    input_sense_resistor.package = "1206"
+    input_sense_resistor.manufacturer = "YAGEO"
+    input_sense_resistor.mpn = "PA1206FRE470R005Z"
+    input_sense_resistor.lcsc_id = "C728276"
+    input_sense_resistor.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304140030_YAGEO-PA1206FRE470R005Z_C728276.pdf"
+
+    battery_sense_resistor.resistance = 5mohm +/- 1%
+    battery_sense_resistor.max_power = 1W
+    battery_sense_resistor.package = "1206"
+    battery_sense_resistor.manufacturer = "YAGEO"
+    battery_sense_resistor.mpn = "PA1206FRE470R005Z"
+    battery_sense_resistor.lcsc_id = "C728276"
+    battery_sense_resistor.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304140030_YAGEO-PA1206FRE470R005Z_C728276.pdf"
+
+    charge_current_program.resistance = 49.9kohm +/- 1%
+    charge_current_program.max_power = 62.5mW
+    charge_current_program.max_voltage = 50V
+    charge_current_program.package = "0402"
+    charge_current_program.manufacturer = "YAGEO"
+    charge_current_program.mpn = "RC0402FR-0749K9L"
+    charge_current_program.lcsc_id = "C137969"
+    charge_current_program.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0749K9L_C137969.pdf"
+
+    regulation_feedback_top.resistance = 249kohm +/- 0.1%
+    regulation_feedback_top.max_power = 100mW
+    regulation_feedback_top.max_voltage = 75V
+    regulation_feedback_top.package = "0603"
+    regulation_feedback_top.manufacturer = "YAGEO"
+    regulation_feedback_top.mpn = "RT0603BRD07249KL"
+    regulation_feedback_top.lcsc_id = "C705752"
+    regulation_feedback_top.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2009282205_YAGEO-RT0603BRD07249KL_C705752.pdf"
+
+    regulation_feedback_bottom.resistance = 24.9kohm +/- 0.1%
+    regulation_feedback_bottom.max_power = 63mW
+    regulation_feedback_bottom.max_voltage = 50V
+    regulation_feedback_bottom.package = "0402"
+    regulation_feedback_bottom.manufacturer = "YAGEO"
+    regulation_feedback_bottom.mpn = "RT0402BRD0724K9L"
+    regulation_feedback_bottom.lcsc_id = "C852664"
+    regulation_feedback_bottom.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2203300930_YAGEO-RT0402BRD0724K9L_C852664.pdf"
+
+    switching_frequency_program.resistance = 49.9kohm +/- 1%
+    switching_frequency_program.max_power = 62.5mW
+    switching_frequency_program.max_voltage = 50V
+    switching_frequency_program.package = "0402"
+    switching_frequency_program.manufacturer = "YAGEO"
+    switching_frequency_program.mpn = "RC0402FR-0749K9L"
+    switching_frequency_program.lcsc_id = "C137969"
+    switching_frequency_program.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0749K9L_C137969.pdf"
+
+    acp_filter_series.resistance = 10ohm +/- 1%
+    acp_filter_series.max_power = 62.5mW
+    acp_filter_series.max_voltage = 50V
+    acp_filter_series.package = "0402"
+    acp_filter_series.manufacturer = "YAGEO"
+    acp_filter_series.mpn = "RC0402FR-0710RL"
+    acp_filter_series.lcsc_id = "C138066"
+    acp_filter_series.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710RL_C138066.pdf"
+
+    acn_filter_series.resistance = 10ohm +/- 1%
+    acn_filter_series.max_power = 62.5mW
+    acn_filter_series.max_voltage = 50V
+    acn_filter_series.package = "0402"
+    acn_filter_series.manufacturer = "YAGEO"
+    acn_filter_series.mpn = "RC0402FR-0710RL"
+    acn_filter_series.lcsc_id = "C138066"
+    acn_filter_series.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710RL_C138066.pdf"
+
+    srp_filter_series.resistance = 10ohm +/- 1%
+    srp_filter_series.max_power = 62.5mW
+    srp_filter_series.max_voltage = 50V
+    srp_filter_series.package = "0402"
+    srp_filter_series.manufacturer = "YAGEO"
+    srp_filter_series.mpn = "RC0402FR-0710RL"
+    srp_filter_series.lcsc_id = "C138066"
+    srp_filter_series.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710RL_C138066.pdf"
+
+    srn_filter_series.resistance = 10ohm +/- 1%
+    srn_filter_series.max_power = 62.5mW
+    srn_filter_series.max_voltage = 50V
+    srn_filter_series.package = "0402"
+    srn_filter_series.manufacturer = "YAGEO"
+    srn_filter_series.mpn = "RC0402FR-0710RL"
+    srn_filter_series.lcsc_id = "C138066"
+    srn_filter_series.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710RL_C138066.pdf"
+
+    charge_enable_pulldown.resistance = 10kohm +/- 1%
+    charge_enable_pulldown.max_power = 62.5mW
+    charge_enable_pulldown.max_voltage = 50V
+    charge_enable_pulldown.package = "0402"
+    charge_enable_pulldown.manufacturer = "YAGEO"
+    charge_enable_pulldown.mpn = "RC0402FR-0710KL"
+    charge_enable_pulldown.lcsc_id = "C60490"
+    charge_enable_pulldown.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
+
+    ts_bias_top.resistance = 10kohm +/- 1%
+    ts_bias_top.max_power = 62.5mW
+    ts_bias_top.max_voltage = 50V
+    ts_bias_top.package = "0402"
+    ts_bias_top.manufacturer = "YAGEO"
+    ts_bias_top.mpn = "RC0402FR-0710KL"
+    ts_bias_top.lcsc_id = "C60490"
+    ts_bias_top.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
+
+    ts_bias_bottom.resistance = 10kohm +/- 1%
+    ts_bias_bottom.max_power = 62.5mW
+    ts_bias_bottom.max_voltage = 50V
+    ts_bias_bottom.package = "0402"
+    ts_bias_bottom.manufacturer = "YAGEO"
+    ts_bias_bottom.mpn = "RC0402FR-0710KL"
+    ts_bias_bottom.lcsc_id = "C60490"
+    ts_bias_bottom.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
+
+    power_inductor.inductance = 10uH +/- 20%
+    power_inductor.max_current = 5A
+    power_inductor.saturation_current = 7A
+    power_inductor.dc_resistance = 58mohm
+    power_inductor.package = "SMD7_1x6_6mm"
+    power_inductor.manufacturer = "TECHFUSE"
+    power_inductor.mpn = "SL0650-100M"
+    power_inductor.lcsc_id = "C22463829"
+    power_inductor.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2406141138_TECHFUSE-SL0650-100M_C22463829.pdf"
+
+    input_bulk_source.capacitance = 100uF +/- 20%
+    input_bulk_source.max_voltage = 35V
+    input_bulk_source.manufacturer = "PANASONIC"
+    input_bulk_source.mpn = "EEHZK1V101XP"
+    input_bulk_source.lcsc_id = "C454360"
+    input_bulk_source.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2404151014_PANASONIC-EEHZK1V101XP_C454360.pdf"
+
+    input_bulk_converter.capacitance = 100uF +/- 20%
+    input_bulk_converter.max_voltage = 35V
+    input_bulk_converter.manufacturer = "PANASONIC"
+    input_bulk_converter.mpn = "EEHZK1V101XP"
+    input_bulk_converter.lcsc_id = "C454360"
+    input_bulk_converter.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2404151014_PANASONIC-EEHZK1V101XP_C454360.pdf"
+
+    input_bypass.capacitance = 100nF +/- 10%
+    input_bypass.max_voltage = 50V
+    input_bypass.temperature_coefficient = "X7R"
+    input_bypass.package = "0402"
+    input_bypass.manufacturer = "Murata Electronics"
+    input_bypass.mpn = "GRM155R71H104KE14D"
+    input_bypass.lcsc_id = "C77020"
+    input_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
+
+    regn_bulk.capacitance = 4.7uF +/- 10%
+    regn_bulk.max_voltage = 50V
+    regn_bulk.temperature_coefficient = "X7R"
+    regn_bulk.package = "1206"
+    regn_bulk.manufacturer = "Murata Electronics"
+    regn_bulk.mpn = "GRM31CR71H475KA12L"
+    regn_bulk.lcsc_id = "C77096"
+    regn_bulk.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR71H475KA12L_C77096.pdf"
+
+    vac_bypass.capacitance = 1uF +/- 10%
+    vac_bypass.max_voltage = 50V
+    vac_bypass.temperature_coefficient = "X5R"
+    vac_bypass.package = "0603"
+    vac_bypass.manufacturer = "Murata Electronics"
+    vac_bypass.mpn = "GRM188R61H105KAALD"
+    vac_bypass.lcsc_id = "C77386"
+    vac_bypass.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/1811012005_Murata-Electronics-GRM188R61H105KAALD_C77386.pdf"
+
+    ac_sense_filter.capacitance = 470nF +/- 10%
+    ac_sense_filter.max_voltage = 50V
+    ac_sense_filter.temperature_coefficient = "X5R"
+    ac_sense_filter.package = "0402"
+    ac_sense_filter.manufacturer = "Murata Electronics"
+    ac_sense_filter.mpn = "GRM155R61H474KE11D"
+    ac_sense_filter.lcsc_id = "C437527"
+    ac_sense_filter.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304140030_Murata-Electronics-GRM155R61H474KE11D_C437527.pdf"
+
+    battery_sense_filter.capacitance = 470nF +/- 10%
+    battery_sense_filter.max_voltage = 50V
+    battery_sense_filter.temperature_coefficient = "X5R"
+    battery_sense_filter.package = "0402"
+    battery_sense_filter.manufacturer = "Murata Electronics"
+    battery_sense_filter.mpn = "GRM155R61H474KE11D"
+    battery_sense_filter.lcsc_id = "C437527"
+    battery_sense_filter.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304140030_Murata-Electronics-GRM155R61H474KE11D_C437527.pdf"
+
+    bootstrap_1.capacitance = 100nF +/- 10%
+    bootstrap_1.max_voltage = 50V
+    bootstrap_1.temperature_coefficient = "X7R"
+    bootstrap_1.package = "0402"
+    bootstrap_1.manufacturer = "Murata Electronics"
+    bootstrap_1.mpn = "GRM155R71H104KE14D"
+    bootstrap_1.lcsc_id = "C77020"
+    bootstrap_1.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
+
+    bootstrap_2.capacitance = 100nF +/- 10%
+    bootstrap_2.max_voltage = 50V
+    bootstrap_2.temperature_coefficient = "X7R"
+    bootstrap_2.package = "0402"
+    bootstrap_2.manufacturer = "Murata Electronics"
+    bootstrap_2.mpn = "GRM155R71H104KE14D"
+    bootstrap_2.lcsc_id = "C77020"
+    bootstrap_2.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
+
+    battery_bulk_converter.capacitance = 100uF +/- 20%
+    battery_bulk_converter.max_voltage = 35V
+    battery_bulk_converter.manufacturer = "PANASONIC"
+    battery_bulk_converter.mpn = "EEHZK1V101XP"
+    battery_bulk_converter.lcsc_id = "C454360"
+    battery_bulk_converter.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2404151014_PANASONIC-EEHZK1V101XP_C454360.pdf"
+
+    battery_bulk_pack.capacitance = 100uF +/- 20%
+    battery_bulk_pack.max_voltage = 35V
+    battery_bulk_pack.manufacturer = "PANASONIC"
+    battery_bulk_pack.mpn = "EEHZK1V101XP"
+    battery_bulk_pack.lcsc_id = "C454360"
+    battery_bulk_pack.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2404151014_PANASONIC-EEHZK1V101XP_C454360.pdf"
+
+    battery_bypass.capacitance = 100nF +/- 10%
+    battery_bypass.max_voltage = 50V
+    battery_bypass.temperature_coefficient = "X7R"
+    battery_bypass.package = "0402"
+    battery_bypass.manufacturer = "Murata Electronics"
+    battery_bypass.mpn = "GRM155R71H104KE14D"
+    battery_bypass.lcsc_id = "C77020"
+    battery_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
+
+    i2c.scl.reference ~ logic_power
+    i2c.sda.reference ~ logic_power
+    charge_enable_n.reference ~ logic_power
+    interrupt_n.reference ~ logic_power
+    power_good_n.reference ~ logic_power
+    status_1_n.reference ~ logic_power
+    status_2_n.reference ~ logic_power
+
+    power_in.lv ~ battery.lv
+    power_in.lv ~ logic_power.lv
+    power_in.lv ~ charger.PGND
+    power_in.lv ~ charger.FBG
+    power_in.lv ~ buck_half_bridge.S2
+    power_in.lv ~ boost_half_bridge.S2
+
+    signal input_bus
+    signal charge_bus
+    signal switch_1 ~ charger.SW1
+    signal switch_2 ~ charger.SW2
+    signal acp_filtered
+    signal acn_filtered
+    signal srp_filtered
+    signal srn_filtered
+
+    power_in.hv ~> input_sense_resistor ~> input_bus
+    input_bus ~ charger.VAC
+    input_bus ~ charger.ACUV
+    power_in.lv ~ charger.ACOV
+    input_bus ~ buck_half_bridge.D1
+    power_in.hv ~> acp_filter_series ~> acp_filtered
+    input_bus ~> acn_filter_series ~> acn_filtered
+    acp_filtered ~ charger.ACP
+    acn_filtered ~ charger.ACN
+
+    charge_bus ~> battery_sense_resistor ~> battery.hv
+    battery.hv ~> regulation_feedback_top ~> charger.FB
+    charger.FB ~> regulation_feedback_bottom ~> battery.lv
+    charge_bus ~ boost_half_bridge.D1
+    charge_bus ~> srp_filter_series ~> srp_filtered
+    battery.hv ~> srn_filter_series ~> srn_filtered
+    srp_filtered ~ charger.SRP
+    srn_filtered ~ charger.SRN
+
+    # The dual MOSFET package exposes the two FETs separately. Tying S1 and D2 to
+    # the controller switch node yields one compact half bridge per package.
+    switch_1 ~ buck_half_bridge.S1
+    switch_1 ~ buck_half_bridge.D2
+    switch_2 ~ boost_half_bridge.S1
+    switch_2 ~ boost_half_bridge.D2
+
+    charger.HIDRV1 ~ buck_half_bridge.G1
+    charger.LODRV1 ~ buck_half_bridge.G2
+    charger.HIDRV2 ~ boost_half_bridge.G1
+    charger.LODRV2 ~ boost_half_bridge.G2
+
+    switch_1 ~> power_inductor ~> switch_2
+
+    charger.REGN ~ charger.DRV_SUP
+    charger.REGN ~> regn_bulk ~> power_in.lv
+    charger.BTST1 ~> bootstrap_1 ~> switch_1
+    charger.BTST2 ~> bootstrap_2 ~> switch_2
+    charger.ICHG ~> charge_current_program ~> power_in.lv
+    charger.FSW_SYNC ~> switching_frequency_program ~> power_in.lv
+    charger.ILIM_HIZ ~ power_in.lv
+
+    charger.REGN ~> ts_bias_top ~> charger.TS
+    charger.TS ~> ts_bias_bottom ~> power_in.lv
+
+    power_in.hv ~> input_bulk_source ~> power_in.lv
+    input_bus ~> input_bulk_converter ~> power_in.lv
+    input_bus ~> input_bypass ~> power_in.lv
+    charger.VAC ~> vac_bypass ~> power_in.lv
+    acp_filtered ~> ac_sense_filter ~> acn_filtered
+    srp_filtered ~> battery_sense_filter ~> srn_filtered
+
+    charge_bus ~> battery_bulk_converter ~> battery.lv
+    battery.hv ~> battery_bulk_pack ~> battery.lv
+    charge_bus ~> battery_bypass ~> battery.lv
+
+    i2c.scl.line ~ charger.SCL
+    i2c.sda.line ~ charger.SDA
+
+    charge_enable_n.line ~ charger.nCE
+    interrupt_n.line ~ charger.nINT
+    power_good_n.line ~ charger.nPG
+    status_1_n.line ~ charger.STAT1
+    status_2_n.line ~ charger.STAT2
+
+    charger.nCE ~> charge_enable_pulldown ~> logic_power.lv
+
+
+module BQ25756Charger4S from BQ25756RRVR_4S_2A_TI_C19272232:
+    pass

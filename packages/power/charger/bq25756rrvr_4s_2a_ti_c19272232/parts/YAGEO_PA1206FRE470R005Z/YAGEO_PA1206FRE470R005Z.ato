@@ -1,0 +1,20 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component YAGEO_PA1206FRE470R005Z_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C728276", date="2026-04-05T19:11:16.450788+00:00", checksum="ee30b47aaac6d091eeb2791d9c386db5f669508e00d296062f5c03e9dcc7296e">
+
+    trait is_atomic_part<manufacturer="YAGEO", partnumber="PA1206FRE470R005Z", footprint="R1206.kicad_mod", symbol="PA1206FRE470R005Z.kicad_sym", model="R1206_L3.2-W1.6-H0.6.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C728276", manufacturer="YAGEO", partno="PA1206FRE470R005Z">
+    trait has_designator_prefix<prefix="R">
+    trait has_datasheet<datasheet="https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304140030_YAGEO-PA1206FRE470R005Z_C728276.pdf">
+
+    # pins
+    pin 2
+    pin 1

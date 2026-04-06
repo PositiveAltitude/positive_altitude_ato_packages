@@ -1,0 +1,149 @@
+(footprint "YAGEO_RT0603BRD07249KL:R0603"
+	(version 20241229)
+	(generator "faebryk_convert")
+	(generator_version "v5")
+	(layer "F.Cu")
+	(tedit "5DC5F6A4")
+	(uuid "bc8f621a-4759-479b-a98f-0f85d81a7f8f")
+	(property "Reference" "REF**"
+		(at 0 -4)
+		(layer "F.SilkS")
+		(uuid "0971c1e9-3675-42fa-9359-c51a7a2ddaf5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "R0603"
+		(at 0 4)
+		(layer "F.Fab")
+		(uuid "3a9a3c7c-7ecc-478e-a93a-028bf1026f1e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_circle
+		(center -0.8 0.4)
+		(end -0.77 0.4)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(locked no)
+		(uuid "754dce25-1e2b-4143-97a6-7b59cd91b804")
+	)
+	(fp_line
+		(start 0.43 0.66)
+		(end 1.39 0.66)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "0e2454b1-4185-4f77-b7fd-40b935256a24")
+	)
+	(fp_line
+		(start 1.39 0.66)
+		(end 1.39 -0.66)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "5b965f13-6c40-4e29-89ba-cac79574429e")
+	)
+	(fp_line
+		(start 1.39 -0.66)
+		(end 0.43 -0.66)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "0df7eef0-5883-40c2-888e-a0b182c7b992")
+	)
+	(fp_line
+		(start -0.43 0.66)
+		(end -1.39 0.66)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "9930dba6-6c8d-4405-ad00-163c3ab4d1a2")
+	)
+	(fp_line
+		(start -1.39 0.66)
+		(end -1.39 -0.66)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "63a44fdc-f7cd-40fb-961b-156b46fafd6e")
+	)
+	(fp_line
+		(start -1.39 -0.66)
+		(end -0.43 -0.66)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "a6f0fa81-4601-4689-9ed5-43c788ff1e09")
+	)
+	(fp_text user "%R"
+		(at 0 0)
+		(layer "F.Fab")
+		(uuid "2e26266b-7787-4688-b182-0251c925119a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "2" smd rect
+		(at 0.75 0 0)
+		(size 0.81 0.86)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "541b8ae6-6174-4d49-86b6-31a2e60d5327")
+	)
+	(pad "1" smd rect
+		(at -0.75 0 0)
+		(size 0.81 0.86)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "de60b1ff-9ad2-4f6d-9e3e-7fcc7749ce66")
+	)
+	(model "${KIPRJMOD}/../../parts/YAGEO_RT0603BRD07249KL/R0603.STEP"
+		(offset
+			(xyz 0 0 -0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 270)
+		)
+	)
+	(embedded_fonts no)
+)

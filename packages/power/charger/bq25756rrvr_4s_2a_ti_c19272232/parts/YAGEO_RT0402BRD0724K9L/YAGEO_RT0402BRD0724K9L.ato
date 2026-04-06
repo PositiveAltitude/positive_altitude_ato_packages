@@ -1,0 +1,20 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component YAGEO_RT0402BRD0724K9L_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C852664", date="2026-04-05T19:11:17.143121+00:00", checksum="e34a8bce7675a70c7b5d1c8c6dc3714a1735ed9004fda7a6441accee873eeef5">
+
+    trait is_atomic_part<manufacturer="YAGEO", partnumber="RT0402BRD0724K9L", footprint="R0402.kicad_mod", symbol="RT0402BRD0724K9L.kicad_sym", model="R0402_L1.0-W0.5-H0.4.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C852664", manufacturer="YAGEO", partno="RT0402BRD0724K9L">
+    trait has_designator_prefix<prefix="R">
+    trait has_datasheet<datasheet="https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2203300930_YAGEO-RT0402BRD0724K9L_C852664.pdf">
+
+    # pins
+    pin 2
+    pin 1

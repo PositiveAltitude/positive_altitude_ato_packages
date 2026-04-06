@@ -1,0 +1,52 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Texas_Instruments_BQ25756RRVR_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C19272232", date="2026-04-05T19:04:07.308957+00:00", checksum="0ec88ec49b56ef67b1a9f2f02b534e649eb7c7219def1f2bfbff5277afe237d2">
+
+    trait is_atomic_part<manufacturer="Texas Instruments", partnumber="BQ25756RRVR", footprint="TQFN-36_L6.0-W5.0-P0.50-BL-EP-1.kicad_mod", symbol="BQ25756RRVR.kicad_sym", model="TQFN-36_L6.0-W5.0-P0.50-BL-EP-1.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C19272232", manufacturer="Texas Instruments", partno="BQ25756RRVR">
+    trait has_designator_prefix<prefix="U">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_2410121753_Texas-Instruments-BQ25756RRVR_C19272232.pdf">
+
+    # pins
+    signal ACN ~ pin 29
+    signal ACOV ~ pin 35
+    signal ACP ~ pin 30
+    signal ACUV ~ pin 34
+    signal BTST1 ~ pin 26
+    signal BTST2 ~ pin 20
+    signal DRV_SUP ~ pin 23
+    signal FB ~ pin 12
+    signal FBG ~ pin 11
+    signal FSW_SYNC ~ pin 36
+    signal HIDRV1 ~ pin 27
+    signal HIDRV2 ~ pin 19
+    signal ICHG ~ pin 9
+    signal ILIM_HIZ ~ pin 10
+    signal LODRV1 ~ pin 25
+    signal LODRV2 ~ pin 21
+    signal PGND ~ pin 17
+    PGND ~ pin 22
+    PGND ~ pin 37
+    signal REGN ~ pin 24
+    signal SCL ~ pin 1
+    signal SDA ~ pin 2
+    signal SRN ~ pin 13
+    signal SRP ~ pin 14
+    signal STAT1 ~ pin 4
+    signal STAT2 ~ pin 5
+    signal SW1 ~ pin 28
+    signal SW2 ~ pin 18
+    signal TS ~ pin 8
+    signal VAC ~ pin 32
+    VAC ~ pin 33
+    signal nCE ~ pin 7
+    signal nINT ~ pin 3
+    signal nPG ~ pin 6

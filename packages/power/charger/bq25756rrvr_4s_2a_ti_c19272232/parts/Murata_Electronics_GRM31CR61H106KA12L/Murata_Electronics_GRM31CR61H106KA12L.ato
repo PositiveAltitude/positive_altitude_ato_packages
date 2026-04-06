@@ -1,0 +1,22 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Murata_Electronics_GRM31CR61H106KA12L_package:
+    """10uF (106) ±10% 50V"""
+
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C77092", date="2026-04-05T19:11:18.667435+00:00", checksum="18ceadb94a9b7d2362d8192ff6656fe089f0a466f4292d6269805cc2fe2643c3">
+
+    trait is_atomic_part<manufacturer="Murata Electronics", partnumber="GRM31CR61H106KA12L", footprint="C1206.kicad_mod", symbol="GRM31CR61H106KA12L.kicad_sym", model="C1206_L3.2-W1.6-H1.3.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C77092", manufacturer="Murata Electronics", partno="GRM31CR61H106KA12L">
+    trait has_designator_prefix<prefix="C">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61H106KA12L_C77092.pdf">
+
+    # pins
+    pin 1
+    pin 2

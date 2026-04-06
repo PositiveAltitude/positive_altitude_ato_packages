@@ -1,0 +1,26 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Texas_Instruments_CSD88537ND_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C117439", date="2026-04-05T19:04:06.664685+00:00", checksum="9e45c18e8cb065b106b016e9031150ed9c9716e35f9cf0d97059e85067421261">
+
+    trait is_atomic_part<manufacturer="Texas Instruments", partnumber="CSD88537ND", footprint="SOIC-8_L4.9-W3.9-P1.27-LS6.0-BL.kicad_mod", symbol="CSD88537NDT.kicad_sym", model="SOIC-8_L4.9-W3.9-H1.7-LS6.0-P1.27.STEP">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C117439", manufacturer="Texas Instruments", partno="CSD88537ND">
+    trait has_designator_prefix<prefix="Q">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_1810181620_Texas-Instruments-CSD88537ND_C117439.pdf">
+
+    # pins
+    signal D1 ~ pin 7
+    D1 ~ pin 8
+    signal D2 ~ pin 5
+    D2 ~ pin 6
+    signal G1 ~ pin 2
+    signal G2 ~ pin 4
+    signal S1 ~ pin 1
+    signal S2 ~ pin 3
