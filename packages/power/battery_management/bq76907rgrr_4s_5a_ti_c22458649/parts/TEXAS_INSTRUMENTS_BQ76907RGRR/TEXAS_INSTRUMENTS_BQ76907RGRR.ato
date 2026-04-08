@@ -1,0 +1,37 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component TEXAS_INSTRUMENTS_BQ76907RGRR_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C22458649", date="2026-04-07T18:20:30.944952+00:00", checksum="3d0f7eaa056bbf573f6041a8b8a6e4ebf2d53cbf2f7b7de5ac5fb161da29c7e5">
+
+    trait is_atomic_part<manufacturer="TEXAS INSTRUMENTS", partnumber="BQ76907RGRR", footprint="VQFN-20_L3.5-W3.5-P0.50-TL-EP2.1.kicad_mod", symbol="BQ76907RGRR.kicad_sym", model="VQFN-20_L3.5-W3.5-P0.50-TL-EP2.1.STEP">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C22458649", manufacturer="TEXAS INSTRUMENTS", partno="BQ76907RGRR">
+    trait has_designator_prefix<prefix="U">
+
+    # pins
+    signal ALERT ~ pin 14
+    signal BAT ~ pin 17
+    signal CHG ~ pin 10
+    signal DSG ~ pin 9
+    signal EP ~ pin 21
+    signal REGOUT ~ pin 15
+    signal REGSRC ~ pin 16
+    signal SCL ~ pin 12
+    signal SDA ~ pin 13
+    signal SRN ~ pin 7
+    signal SRP ~ pin 6
+    signal TS ~ pin 8
+    signal VC0 ~ pin 5
+    signal VC1 ~ pin 4
+    signal VC2 ~ pin 3
+    signal VC3 ~ pin 2
+    signal VC4 ~ pin 1
+    signal VC5 ~ pin 20
+    signal VC6 ~ pin 19
+    signal VC7 ~ pin 18
+    signal VSS ~ pin 11

@@ -1,0 +1,303 @@
+"""BQ76907RGRR 4S Li-ion battery monitor and protector package."""
+
+import Capacitor
+import Diode
+import ElectricLogic
+import ElectricPower
+import I2C
+import Resistor
+from "parts/TEXAS_INSTRUMENTS_BQ76907RGRR/TEXAS_INSTRUMENTS_BQ76907RGRR.ato" import TEXAS_INSTRUMENTS_BQ76907RGRR_package
+from "parts/XNRUSEMI_XRS30V06D/XNRUSEMI_XRS30V06D.ato" import XNRUSEMI_XRS30V06D_package
+
+module BQ76907RGRR_4S_5A_TI_C22458649:
+    """
+    4S Li-ion battery monitor and low-side protection front end built around TI's BQ76907.
+
+    This package follows TI's required 4-cell connection pattern for the BQ76907:
+    VC1-VC0, VC3-VC2, VC5-VC4, and VC7-VC6 are the four real cells, with the
+    adjacent unused VC inputs shorted on the PCB by tying them to the same tap.
+    Two external N-FETs implement low-side charge and discharge protection, and a
+    1 mOhm current shunt keeps dissipation reasonable at the 5 A target current.
+
+    The TS pin is tied directly to VSS because the intended battery pack does not
+    provide a thermistor. Host or OTP configuration is still required to select
+    the 4-cell mode, enable the protection FETs, and program the protection
+    thresholds appropriate for the pack.
+    """
+
+    battery = new ElectricPower
+    pack = new ElectricPower
+    regout = new ElectricPower
+    i2c = new I2C
+    alert_n = new ElectricLogic
+    signal tap_1
+    signal tap_2
+    signal tap_3
+
+    assert battery.voltage within 10V to 16.8V
+    assert battery.max_current <= 5A
+    assert pack.voltage within 10V to 16.8V
+    assert pack.max_current <= 5A
+    assert regout.voltage within 3.3V +/- 5%
+    assert regout.max_current <= 20mA
+
+    monitor = new TEXAS_INSTRUMENTS_BQ76907RGRR_package
+    protection_fets = new XNRUSEMI_XRS30V06D_package
+    bat_feed_diode = new Diode
+    bat_filter_resistor = new Resistor
+    vc0_filter_resistor = new Resistor
+    sense_resistor = new Resistor
+    srp_filter_resistor = new Resistor
+    srn_filter_resistor = new Resistor
+    charge_gate_resistor = new Resistor
+    discharge_gate_resistor = new Resistor
+    charge_gate_pulldown = new Resistor
+    discharge_gate_pulldown = new Resistor
+    afe_supply_bulk = new Capacitor
+    afe_supply_bypass = new Capacitor
+    regout_bulk = new Capacitor
+    vc0_filter_cap = new Capacitor
+    cell_1_filter = new Capacitor
+    cell_2_filter = new Capacitor
+    cell_3_filter = new Capacitor
+    cell_4_filter = new Capacitor
+    current_sense_filter = new Capacitor
+
+    bat_feed_diode.forward_voltage = 450mV
+    bat_feed_diode.current = 1A
+    bat_feed_diode.reverse_working_voltage = 40V
+    bat_feed_diode.reverse_leakage_current = 1mA
+    bat_feed_diode.max_current = 1A
+    bat_feed_diode.manufacturer = "Diodes Incorporated"
+    bat_feed_diode.mpn = "1N5819HW-7-F"
+    bat_feed_diode.lcsc_id = "C82544"
+    bat_feed_diode.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141522_Diodes-Incorporated-1N5819HW-7-F_C82544.pdf"
+
+    bat_filter_resistor.resistance = 10ohm +/- 1%
+    bat_filter_resistor.max_power = 62.5mW
+    bat_filter_resistor.max_voltage = 50V
+    bat_filter_resistor.package = "0402"
+    bat_filter_resistor.manufacturer = "YAGEO"
+    bat_filter_resistor.mpn = "RC0402FR-0710RL"
+    bat_filter_resistor.lcsc_id = "C138066"
+    bat_filter_resistor.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710RL_C138066.pdf"
+
+    vc0_filter_resistor.resistance = 100ohm +/- 1%
+    vc0_filter_resistor.max_power = 62.5mW
+    vc0_filter_resistor.max_voltage = 50V
+    vc0_filter_resistor.package = "0402"
+    vc0_filter_resistor.manufacturer = "YAGEO"
+    vc0_filter_resistor.mpn = "RC0402FR-07100RL"
+    vc0_filter_resistor.lcsc_id = "C106232"
+    vc0_filter_resistor.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-07100RL_C106232.pdf"
+
+    sense_resistor.resistance = 1mohm +/- 1%
+    sense_resistor.max_power = 1W
+    sense_resistor.package = "1206"
+    sense_resistor.manufacturer = "YAGEO"
+    sense_resistor.mpn = "PA1206FRF470R001L"
+    sense_resistor.lcsc_id = "C728283"
+    sense_resistor.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2011301910_YAGEO-PA1206FRF470R001L_C728283.pdf"
+
+    srp_filter_resistor.resistance = 100ohm +/- 1%
+    srp_filter_resistor.max_power = 62.5mW
+    srp_filter_resistor.max_voltage = 50V
+    srp_filter_resistor.package = "0402"
+    srp_filter_resistor.manufacturer = "YAGEO"
+    srp_filter_resistor.mpn = "RC0402FR-07100RL"
+    srp_filter_resistor.lcsc_id = "C106232"
+    srp_filter_resistor.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-07100RL_C106232.pdf"
+
+    srn_filter_resistor.resistance = 100ohm +/- 1%
+    srn_filter_resistor.max_power = 62.5mW
+    srn_filter_resistor.max_voltage = 50V
+    srn_filter_resistor.package = "0402"
+    srn_filter_resistor.manufacturer = "YAGEO"
+    srn_filter_resistor.mpn = "RC0402FR-07100RL"
+    srn_filter_resistor.lcsc_id = "C106232"
+    srn_filter_resistor.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-07100RL_C106232.pdf"
+
+    charge_gate_resistor.resistance = 100ohm +/- 1%
+    charge_gate_resistor.max_power = 62.5mW
+    charge_gate_resistor.max_voltage = 50V
+    charge_gate_resistor.package = "0402"
+    charge_gate_resistor.manufacturer = "YAGEO"
+    charge_gate_resistor.mpn = "RC0402FR-07100RL"
+    charge_gate_resistor.lcsc_id = "C106232"
+    charge_gate_resistor.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-07100RL_C106232.pdf"
+
+    discharge_gate_resistor.resistance = 100ohm +/- 1%
+    discharge_gate_resistor.max_power = 62.5mW
+    discharge_gate_resistor.max_voltage = 50V
+    discharge_gate_resistor.package = "0402"
+    discharge_gate_resistor.manufacturer = "YAGEO"
+    discharge_gate_resistor.mpn = "RC0402FR-07100RL"
+    discharge_gate_resistor.lcsc_id = "C106232"
+    discharge_gate_resistor.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-07100RL_C106232.pdf"
+
+    charge_gate_pulldown.resistance = 100kohm +/- 1%
+    charge_gate_pulldown.max_power = 62.5mW
+    charge_gate_pulldown.max_voltage = 50V
+    charge_gate_pulldown.package = "0402"
+    charge_gate_pulldown.manufacturer = "YAGEO"
+    charge_gate_pulldown.mpn = "RC0402FR-07100KL"
+    charge_gate_pulldown.lcsc_id = "C60491"
+    charge_gate_pulldown.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-07100KL_C60491.pdf"
+
+    discharge_gate_pulldown.resistance = 100kohm +/- 1%
+    discharge_gate_pulldown.max_power = 62.5mW
+    discharge_gate_pulldown.max_voltage = 50V
+    discharge_gate_pulldown.package = "0402"
+    discharge_gate_pulldown.manufacturer = "YAGEO"
+    discharge_gate_pulldown.mpn = "RC0402FR-07100KL"
+    discharge_gate_pulldown.lcsc_id = "C60491"
+    discharge_gate_pulldown.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-07100KL_C60491.pdf"
+
+    afe_supply_bulk.capacitance = 1uF +/- 10%
+    afe_supply_bulk.max_voltage = 50V
+    afe_supply_bulk.temperature_coefficient = "X5R"
+    afe_supply_bulk.package = "0603"
+    afe_supply_bulk.manufacturer = "Murata Electronics"
+    afe_supply_bulk.mpn = "GRM188R61H105KAALD"
+    afe_supply_bulk.lcsc_id = "C77386"
+    afe_supply_bulk.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/1811012005_Murata-Electronics-GRM188R61H105KAALD_C77386.pdf"
+
+    afe_supply_bypass.capacitance = 100nF +/- 10%
+    afe_supply_bypass.max_voltage = 50V
+    afe_supply_bypass.temperature_coefficient = "X7R"
+    afe_supply_bypass.package = "0402"
+    afe_supply_bypass.manufacturer = "Murata Electronics"
+    afe_supply_bypass.mpn = "GRM155R71H104KE14D"
+    afe_supply_bypass.lcsc_id = "C77020"
+    afe_supply_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
+
+    regout_bulk.capacitance = 1uF +/- 10%
+    regout_bulk.max_voltage = 25V
+    regout_bulk.temperature_coefficient = "X5R"
+    regout_bulk.package = "0603"
+    regout_bulk.manufacturer = "Murata Electronics"
+    regout_bulk.mpn = "GRM188R61E105KA12D"
+    regout_bulk.lcsc_id = "C77046"
+    regout_bulk.datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304140030_Murata-Electronics-GRM188R61E105KA12D_C77046.pdf"
+
+    vc0_filter_cap.capacitance = 100nF +/- 10%
+    vc0_filter_cap.max_voltage = 50V
+    vc0_filter_cap.temperature_coefficient = "X7R"
+    vc0_filter_cap.package = "0402"
+    vc0_filter_cap.manufacturer = "Murata Electronics"
+    vc0_filter_cap.mpn = "GRM155R71H104KE14D"
+    vc0_filter_cap.lcsc_id = "C77020"
+    vc0_filter_cap.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
+
+    cell_1_filter.capacitance = 220nF +/- 10%
+    cell_1_filter.max_voltage = 25V
+    cell_1_filter.temperature_coefficient = "X7R"
+    cell_1_filter.package = "0603"
+    cell_1_filter.manufacturer = "Murata Electronics"
+    cell_1_filter.mpn = "GRM188R71E224KA88D"
+    cell_1_filter.lcsc_id = "C77051"
+    cell_1_filter.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM188R71E224KA88D_C77051.pdf"
+
+    cell_2_filter.capacitance = 220nF +/- 10%
+    cell_2_filter.max_voltage = 25V
+    cell_2_filter.temperature_coefficient = "X7R"
+    cell_2_filter.package = "0603"
+    cell_2_filter.manufacturer = "Murata Electronics"
+    cell_2_filter.mpn = "GRM188R71E224KA88D"
+    cell_2_filter.lcsc_id = "C77051"
+    cell_2_filter.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM188R71E224KA88D_C77051.pdf"
+
+    cell_3_filter.capacitance = 220nF +/- 10%
+    cell_3_filter.max_voltage = 25V
+    cell_3_filter.temperature_coefficient = "X7R"
+    cell_3_filter.package = "0603"
+    cell_3_filter.manufacturer = "Murata Electronics"
+    cell_3_filter.mpn = "GRM188R71E224KA88D"
+    cell_3_filter.lcsc_id = "C77051"
+    cell_3_filter.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM188R71E224KA88D_C77051.pdf"
+
+    cell_4_filter.capacitance = 220nF +/- 10%
+    cell_4_filter.max_voltage = 25V
+    cell_4_filter.temperature_coefficient = "X7R"
+    cell_4_filter.package = "0603"
+    cell_4_filter.manufacturer = "Murata Electronics"
+    cell_4_filter.mpn = "GRM188R71E224KA88D"
+    cell_4_filter.lcsc_id = "C77051"
+    cell_4_filter.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM188R71E224KA88D_C77051.pdf"
+
+    current_sense_filter.capacitance = 100nF +/- 10%
+    current_sense_filter.max_voltage = 50V
+    current_sense_filter.temperature_coefficient = "X7R"
+    current_sense_filter.package = "0402"
+    current_sense_filter.manufacturer = "Murata Electronics"
+    current_sense_filter.mpn = "GRM155R71H104KE14D"
+    current_sense_filter.lcsc_id = "C77020"
+    current_sense_filter.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
+
+    i2c.scl.reference ~ regout
+    i2c.sda.reference ~ regout
+    alert_n.reference ~ regout
+
+    battery.hv ~ pack.hv
+    battery.lv ~ regout.lv
+    battery.lv ~ monitor.VSS
+    battery.lv ~ monitor.EP
+    monitor.TS ~ battery.lv
+    monitor.REGOUT ~ regout.hv
+    i2c.scl.line ~ monitor.SCL
+    i2c.sda.line ~ monitor.SDA
+    alert_n.line ~ monitor.ALERT
+
+    signal afe_supply_input
+    signal afe_supply
+    signal vc0_filtered
+    signal sense_node
+    signal srp_filtered
+    signal srn_filtered
+    signal fet_common
+
+    battery.hv ~ bat_feed_diode.anode
+    bat_feed_diode.cathode ~ afe_supply_input
+    afe_supply_input ~> bat_filter_resistor ~> afe_supply
+    afe_supply ~ monitor.BAT
+    afe_supply ~ monitor.REGSRC
+    afe_supply ~> afe_supply_bulk ~> battery.lv
+    afe_supply ~> afe_supply_bypass ~> battery.lv
+    regout.hv ~> regout_bulk ~> regout.lv
+
+    battery.lv ~> vc0_filter_resistor ~> vc0_filtered
+    vc0_filtered ~ monitor.VC0
+    vc0_filtered ~> vc0_filter_cap ~> battery.lv
+    tap_1 ~ monitor.VC1
+    tap_1 ~ monitor.VC2
+    tap_2 ~ monitor.VC3
+    tap_2 ~ monitor.VC4
+    tap_3 ~ monitor.VC5
+    tap_3 ~ monitor.VC6
+    battery.hv ~ monitor.VC7
+
+    tap_1 ~> cell_1_filter ~> vc0_filtered
+    tap_2 ~> cell_2_filter ~> tap_1
+    tap_3 ~> cell_3_filter ~> tap_2
+    battery.hv ~> cell_4_filter ~> tap_3
+
+    battery.lv ~> sense_resistor ~> sense_node
+    sense_node ~ protection_fets.S1
+    protection_fets.D1 ~ fet_common
+    protection_fets.D2 ~ fet_common
+    protection_fets.S2 ~ pack.lv
+
+    monitor.DSG ~> discharge_gate_resistor ~> protection_fets.G1
+    monitor.CHG ~> charge_gate_resistor ~> protection_fets.G2
+    protection_fets.G1 ~> discharge_gate_pulldown ~> protection_fets.S1
+    protection_fets.G2 ~> charge_gate_pulldown ~> protection_fets.S2
+
+    sense_node ~> srp_filter_resistor ~> srp_filtered
+    battery.lv ~> srn_filter_resistor ~> srn_filtered
+    srp_filtered ~ monitor.SRP
+    srn_filtered ~ monitor.SRN
+    srp_filtered ~> current_sense_filter ~> srn_filtered
+
+
+module BQ76907BatteryManagement4S from BQ76907RGRR_4S_5A_TI_C22458649:
+    pass

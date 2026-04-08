@@ -1,0 +1,16 @@
+requires-atopile: "0.14.1007"
+
+paths:
+  src: ./
+  layout: ./layouts
+
+builds:
+  default:
+    entry: "bq76907rgrr_4s_5a_ti_c22458649.ato:BQ76907RGRR_4S_5A_TI_C22458649"
+  example:
+    entry: "example.ato:Example"
+
+package:
+  identifier: "local/power-battery-management-bq76907rgrr-4s-5a-ti-c22458649"
+  version: "0.0.1"
+  summary: "BQ76907-based 4S Li-ion battery monitor and low-side protection package for up to 5 A pack current, with I2C telemetry, 3.3 V REGOUT, and TS tied off for packs without a thermistor."
