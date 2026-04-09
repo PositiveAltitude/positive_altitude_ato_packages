@@ -1,0 +1,22 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component XNRUSEMI_XRS30V06D_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C42457041", date="2026-04-08T20:48:44.933790+00:00", checksum="9b726fe53eb325bf3bc9af1cb5a03ded1ad6c0f71dfa4dfe54b62904e0ac576a">
+
+    trait is_atomic_part<manufacturer="XNRUSEMI", partnumber="XRS30V06D", footprint="DFN-8_L3.3-W3.3-P0.75-TL.kicad_mod", symbol="XRS30V06D.kicad_sym">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C42457041", manufacturer="XNRUSEMI", partno="XRS30V06D">
+    trait has_designator_prefix<prefix="Q">
+
+    # pins
+    signal D1 ~ pin 8
+    signal D2 ~ pin 5
+    signal G1 ~ pin 2
+    signal G2 ~ pin 4
+    signal S1 ~ pin 1
+    signal S2 ~ pin 3

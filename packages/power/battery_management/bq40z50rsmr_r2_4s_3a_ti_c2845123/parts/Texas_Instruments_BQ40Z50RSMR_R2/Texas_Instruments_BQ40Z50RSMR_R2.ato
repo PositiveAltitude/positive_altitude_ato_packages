@@ -1,0 +1,48 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Texas_Instruments_BQ40Z50RSMR_R2_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C2845123", date="2026-04-08T20:48:33.034505+00:00", checksum="458e7c07bfb77d51fe1f9f49ffc3e9945c53f541a8f84534de22f08c469a56d4">
+
+    trait is_atomic_part<manufacturer="Texas Instruments", partnumber="BQ40Z50RSMR-R2", footprint="VQFN-32_L4.0-W4.0-P0.40-TL-EP1.4_2.kicad_mod", symbol="BQ40Z50RSMR-R2.kicad_sym", model="VQFN-32_L4.0-W4.0-P0.40-TL-EP1.4_2.STEP">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C2845123", manufacturer="Texas Instruments", partno="BQ40Z50RSMR-R2">
+    trait has_designator_prefix<prefix="U">
+    trait has_datasheet<datasheet="https://datasheet.lcsc.com/lcsc/2302220830_Texas-Instruments-BQ40Z50RSMR-R2_C2845123.pdf">
+
+    # pins
+    signal BAT ~ pin 32
+    signal BTP_INT ~ pin 15
+    signal CHG ~ pin 31
+    signal DSG ~ pin 28
+    signal EP ~ pin 33
+    signal FUSE ~ pin 25
+    signal LEDCNTLA ~ pin 20
+    signal LEDCNTLB ~ pin 21
+    signal LEDCNTLC ~ pin 22
+    signal PACK ~ pin 27
+    signal PBI ~ pin 1
+    signal PCHG ~ pin 30
+    signal PTC ~ pin 23
+    signal PTCEN ~ pin 24
+    signal SMBC ~ pin 19
+    signal SMBD ~ pin 18
+    signal SRN ~ pin 6
+    signal SRP ~ pin 8
+    signal TS1 ~ pin 10
+    signal TS2 ~ pin 11
+    signal TS3 ~ pin 12
+    signal TS4 ~ pin 13
+    signal VC1 ~ pin 5
+    signal VC2 ~ pin 4
+    signal VC3 ~ pin 3
+    signal VC4 ~ pin 2
+    signal VCC ~ pin 26
+    signal VSS ~ pin 9
+    signal nDISP ~ pin 17
+    signal nPRESh_or_SHUTDN ~ pin 16

@@ -1,0 +1,22 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Diodes_Incorporated_1N5819HW_7_F_package:
+    """1N5819HW-7-F"""
+
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C82544", date="2026-04-08T20:54:41.020830+00:00", checksum="3564895e9193892e5a37e43b9822f7d5b75e64014639ce48f437aec6dbfa93cd">
+
+    trait is_atomic_part<manufacturer="Diodes Incorporated", partnumber="1N5819HW-7-F", footprint="SOD-123_L2.7-W1.6-LS3.7-RD.kicad_mod", symbol="1N5819HW-7-F.kicad_sym", model="SOD-123_L2.7-W1.6-LS3.7-RD-2.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C82544", manufacturer="Diodes Incorporated", partno="1N5819HW-7-F">
+    trait has_designator_prefix<prefix="D">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_1811121309_Diodes-Incorporated-1N5819HW-7-F_C82544.pdf">
+
+    # pins
+    signal A ~ pin 2
+    signal K ~ pin 1

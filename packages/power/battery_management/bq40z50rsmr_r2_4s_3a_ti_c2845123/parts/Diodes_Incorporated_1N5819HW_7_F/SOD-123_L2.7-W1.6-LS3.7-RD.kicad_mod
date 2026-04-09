@@ -1,0 +1,126 @@
+(footprint "Diodes_Incorporated_1N5819HW_7_F:SOD-123_L2.7-W1.6-LS3.7-RD"
+	(version 20241229)
+	(generator "faebryk_convert")
+	(generator_version "v5")
+	(layer "F.Cu")
+	(tedit "5DC5F6A4")
+	(uuid "56881269-622f-4999-807e-00d426f97589")
+	(property "Reference" "REF**"
+		(at 0 -4)
+		(layer "F.SilkS")
+		(uuid "c9c2477c-de42-486f-ab54-0540c7d43924")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SOD-123_L2.7-W1.6-LS3.7-RD"
+		(at 0 4)
+		(layer "F.Fab")
+		(uuid "707e1e74-3df2-48f3-a3d6-d3924d6b0881")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_circle
+		(center -1.85 0.8)
+		(end -1.82 0.8)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(locked no)
+		(uuid "5fad4f7b-dda1-4143-a1d4-7c9f92eec978")
+	)
+	(fp_line
+		(start -1.38 -0.93)
+		(end 1.38 -0.93)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "56c5211f-dbfe-40ce-badf-eafe5338704b")
+	)
+	(fp_line
+		(start 1.38 -0.93)
+		(end 1.38 -0.68)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "4c6d0ae0-ec8b-4f6b-9bc2-da8d9aecfc7f")
+	)
+	(fp_line
+		(start -1.38 0.93)
+		(end 1.38 0.93)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "d8b6e560-97dd-4fa4-9de7-693c06b3f3ef")
+	)
+	(fp_line
+		(start 1.38 0.93)
+		(end 1.38 0.68)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "5b8885e9-42aa-4c51-b797-24adda5c492a")
+	)
+	(fp_line
+		(start -0.97 -0.93)
+		(end -0.97 0.93)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(layers "F.SilkS")
+		(locked no)
+		(uuid "8721c215-773b-406d-b1e2-dd7d718475ca")
+	)
+	(pad "2" smd rect
+		(at 1.64 0 0)
+		(size 0.91 1.22)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "e1acdfa6-9f90-4716-bf05-eed692abfaaa")
+	)
+	(pad "1" smd rect
+		(at -1.64 0 0)
+		(size 0.91 1.22)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "8bf94eeb-94b9-47ae-88e9-54d869df4233")
+	)
+	(model "${KIPRJMOD}/../../parts/Diodes_Incorporated_1N5819HW_7_F/SOD-123_L2.7-W1.6-LS3.7-RD-2.step"
+		(offset
+			(xyz 0 0 -0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 180)
+		)
+	)
+	(embedded_fonts no)
+)

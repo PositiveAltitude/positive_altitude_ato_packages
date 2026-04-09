@@ -1,0 +1,22 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Murata_Electronics_GRM188R61E225KA12D_package:
+    """2.2uF (225) ±10% 25V"""
+
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C77047", date="2026-04-08T20:54:44.562948+00:00", checksum="ef1b62d14d7f23f73939586dde61f4f6b9c94d1d68d324a8362008c8e6284f19">
+
+    trait is_atomic_part<manufacturer="Murata Electronics", partnumber="GRM188R61E225KA12D", footprint="C0603.kicad_mod", symbol="GRM188R61E225KA12D.kicad_sym", model="C0603_L1.6-W0.8-H0.8.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C77047", manufacturer="Murata Electronics", partno="GRM188R61E225KA12D">
+    trait has_designator_prefix<prefix="C">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM188R61E225KA12D_C77047.pdf">
+
+    # pins
+    pin 1
+    pin 2
