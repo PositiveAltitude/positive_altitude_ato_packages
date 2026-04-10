@@ -1,0 +1,19 @@
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Murata_Electronics_GRM188R61A106KE69D_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C77044", date="2026-04-10T13:09:19.272687+00:00", checksum="f0003f2316c00db63024d6773b954321805b7e6a418784902514c5be76ee0c9e">
+
+    trait is_atomic_part<manufacturer="Murata Electronics", partnumber="GRM188R61A106KE69D", footprint="C0603.kicad_mod", symbol="GRM188R61A106KE69D.kicad_sym", model="C0603_L1.6-W0.8-H0.8.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C77044", manufacturer="Murata Electronics", partno="GRM188R61A106KE69D">
+    trait has_designator_prefix<prefix="C">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM188R61A106KE69D_C77044.pdf">
+
+    # pins
+    pin 1
+    pin 2

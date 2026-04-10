@@ -1,0 +1,210 @@
+import Capacitor
+import ElectricLogic
+import ElectricPower
+import I2C
+import Resistor
+
+from "parts/TEXAS_INSTRUMENTS_TPS25730DREFR/TEXAS_INSTRUMENTS_TPS25730DREFR.ato" import TEXAS_INSTRUMENTS_TPS25730DREFR_package
+
+module TPS25730DREFR_20V_3A_TI_C22438973:
+    """
+    Autonomous sink-only USB-PD controller block around TI's TPS25730DREFR.
+
+    The public interface intentionally stops at the controller-block boundary:
+    USB-C CC pins, the upstream USB VBUS rail from a receptacle/protection stage,
+    the downstream negotiated sink rail, a 3.3-V controller/I2C supply rail, and
+    a small set of optional sideband outputs. The package does not include the
+    USB-C receptacle, CC ESD network, or downstream charger/load subsystem.
+
+    ADC straps are fixed for a 5-V minimum contract, 20-V maximum contract, and
+    0-A operating / 3-A maximum current. That keeps the autonomous policy aligned
+    with the plan: request the highest offered PDO inside the 5-V to 20-V / 3-A
+    window while still allowing light-load or startup cases below 3 A instead of
+    advertising a fixed 3-A operating point.
+
+    The TPS25730D integrated sink-path variant is used so `usb_vbus` maps to the
+    port-facing VBUS node and `sink_vbus` maps to the switched PPHV output. An
+    external 3.3-V rail is exposed for normal controller/I2C operation, but the
+    IC can still dead-battery start from `usb_vbus` when that rail is absent.
+    """
+
+    usb_vbus = new ElectricPower
+    sink_vbus = new ElectricPower
+    logic_3v3 = new ElectricPower
+    i2c = new I2C
+    cc1 = new ElectricLogic
+    cc2 = new ElectricLogic
+    cap_mismatch = new ElectricLogic
+    plug_event = new ElectricLogic
+    plug_flip = new ElectricLogic
+
+    assert usb_vbus.voltage within 5V to 20V
+    assert sink_vbus.max_current <= 3A
+    assert logic_3v3.voltage within 3V to 3.6V
+
+    controller = new TEXAS_INSTRUMENTS_TPS25730DREFR_package
+    cc1_filter = new Capacitor
+    cc2_filter = new Capacitor
+    usb_vbus_bulk = new Capacitor
+    sink_vbus_bulk = new Capacitor
+    logic_3v3_bypass = new Capacitor
+    ldo_3v3_bypass = new Capacitor
+    ldo_1v5_bypass = new Capacitor
+    i2c_scl_pullup = new Resistor
+    i2c_sda_pullup = new Resistor
+    adc_limit_top = new Resistor
+    adc_limit_bottom = new Resistor
+
+    cc1_filter.capacitance = 330pF +/- 5%
+    cc1_filter.max_voltage = 50V
+    cc1_filter.temperature_coefficient = "C0G"
+    cc1_filter.package = "0402"
+    cc1_filter.manufacturer = "Murata Electronics"
+    cc1_filter.mpn = "GRM1555C1H331JA01D"
+    cc1_filter.lcsc_id = "C76965"
+    cc1_filter.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809262015_Murata-Electronics-GRM1555C1H331JA01D_C76965.pdf"
+
+    cc2_filter.capacitance = 330pF +/- 5%
+    cc2_filter.max_voltage = 50V
+    cc2_filter.temperature_coefficient = "C0G"
+    cc2_filter.package = "0402"
+    cc2_filter.manufacturer = "Murata Electronics"
+    cc2_filter.mpn = "GRM1555C1H331JA01D"
+    cc2_filter.lcsc_id = "C76965"
+    cc2_filter.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809262015_Murata-Electronics-GRM1555C1H331JA01D_C76965.pdf"
+
+    usb_vbus_bulk.capacitance = 22uF +/- 10%
+    usb_vbus_bulk.max_voltage = 25V
+    usb_vbus_bulk.temperature_coefficient = "X7R"
+    usb_vbus_bulk.package = "1210"
+    usb_vbus_bulk.manufacturer = "Murata Electronics"
+    usb_vbus_bulk.mpn = "GRM32ER71E226KE15L"
+    usb_vbus_bulk.lcsc_id = "C21397"
+    usb_vbus_bulk.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811011112_Murata-Electronics-GRM32ER71E226KE15L_C21397.pdf"
+
+    sink_vbus_bulk.capacitance = 10uF +/- 10%
+    sink_vbus_bulk.max_voltage = 25V
+    sink_vbus_bulk.temperature_coefficient = "X5R"
+    sink_vbus_bulk.package = "0603"
+    sink_vbus_bulk.manufacturer = "Murata Electronics"
+    sink_vbus_bulk.mpn = "GRM188R61E106KA73D"
+    sink_vbus_bulk.lcsc_id = "C344022"
+    sink_vbus_bulk.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2204250000_Murata-Electronics-GRM188R61E106KA73D_C344022.pdf"
+
+    logic_3v3_bypass.capacitance = 10uF +/- 10%
+    logic_3v3_bypass.max_voltage = 10V
+    logic_3v3_bypass.temperature_coefficient = "X5R"
+    logic_3v3_bypass.package = "0603"
+    logic_3v3_bypass.manufacturer = "Murata Electronics"
+    logic_3v3_bypass.mpn = "GRM188R61A106KE69D"
+    logic_3v3_bypass.lcsc_id = "C77044"
+    logic_3v3_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809201615_Murata-Electronics-GRM188R61A106KE69D_C77044.pdf"
+
+    ldo_3v3_bypass.capacitance = 10uF +/- 10%
+    ldo_3v3_bypass.max_voltage = 10V
+    ldo_3v3_bypass.temperature_coefficient = "X5R"
+    ldo_3v3_bypass.package = "0603"
+    ldo_3v3_bypass.manufacturer = "Murata Electronics"
+    ldo_3v3_bypass.mpn = "GRM188R61A106KE69D"
+    ldo_3v3_bypass.lcsc_id = "C77044"
+    ldo_3v3_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809201615_Murata-Electronics-GRM188R61A106KE69D_C77044.pdf"
+
+    ldo_1v5_bypass.capacitance = 4.7uF +/- 10%
+    ldo_1v5_bypass.max_voltage = 10V
+    ldo_1v5_bypass.temperature_coefficient = "X5R"
+    ldo_1v5_bypass.package = "0402"
+    ldo_1v5_bypass.manufacturer = "Murata Electronics"
+    ldo_1v5_bypass.mpn = "GRM155R61A475KEAAD"
+    ldo_1v5_bypass.lcsc_id = "C77004"
+    ldo_1v5_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809201638_Murata-Electronics-GRM155R61A475KEAAD_C77004.pdf"
+
+    i2c_scl_pullup.resistance = 3.3kohm +/- 1%
+    i2c_scl_pullup.max_power = 62.5mW
+    i2c_scl_pullup.max_voltage = 50V
+    i2c_scl_pullup.package = "0402"
+    i2c_scl_pullup.manufacturer = "YAGEO"
+    i2c_scl_pullup.mpn = "RC0402FR-073K3L"
+    i2c_scl_pullup.lcsc_id = "C137992"
+    i2c_scl_pullup.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-073K3L_C137992.pdf"
+
+    i2c_sda_pullup.resistance = 3.3kohm +/- 1%
+    i2c_sda_pullup.max_power = 62.5mW
+    i2c_sda_pullup.max_voltage = 50V
+    i2c_sda_pullup.package = "0402"
+    i2c_sda_pullup.manufacturer = "YAGEO"
+    i2c_sda_pullup.mpn = "RC0402FR-073K3L"
+    i2c_sda_pullup.lcsc_id = "C137992"
+    i2c_sda_pullup.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-073K3L_C137992.pdf"
+
+    adc_limit_top.resistance = 200kohm +/- 1%
+    adc_limit_top.max_power = 62.5mW
+    adc_limit_top.max_voltage = 50V
+    adc_limit_top.package = "0402"
+    adc_limit_top.manufacturer = "YAGEO"
+    adc_limit_top.mpn = "RC0402FR-07200KL"
+    adc_limit_top.lcsc_id = "C114763"
+    adc_limit_top.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-07200KL_C114763.pdf"
+
+    adc_limit_bottom.resistance = 10kohm +/- 1%
+    adc_limit_bottom.max_power = 62.5mW
+    adc_limit_bottom.max_voltage = 50V
+    adc_limit_bottom.package = "0402"
+    adc_limit_bottom.manufacturer = "YAGEO"
+    adc_limit_bottom.mpn = "RC0402FR-0710KL"
+    adc_limit_bottom.lcsc_id = "C60490"
+    adc_limit_bottom.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
+
+    logic_3v3.lv ~ usb_vbus.lv
+    logic_3v3.lv ~ sink_vbus.lv
+    logic_3v3.lv ~ controller.GND
+
+    usb_vbus.hv ~ controller.VBUS_IN
+    usb_vbus.hv ~ controller.VBUS
+    usb_vbus.hv ~ controller.DRAIN
+    sink_vbus.hv ~ controller.PPHV
+    logic_3v3.hv ~ controller.VIN_3V3
+
+    cc1.reference ~ logic_3v3
+    cc2.reference ~ logic_3v3
+    cc1.line ~ controller.CC1
+    cc2.line ~ controller.CC2
+
+    i2c.scl.reference ~ logic_3v3
+    i2c.sda.reference ~ logic_3v3
+    i2c.scl.line ~ controller.I2Ct_SCL
+    i2c.sda.line ~ controller.I2Ct_SDA
+
+    cap_mismatch.reference ~ logic_3v3
+    plug_event.reference ~ logic_3v3
+    plug_flip.reference ~ logic_3v3
+    cap_mismatch.line ~ controller.CAP_MIS
+    plug_event.line ~ controller.PLUG_EVENT
+    plug_flip.line ~ controller.PLUG_FLIP
+
+    controller.ADCIN1 ~ logic_3v3.lv
+    controller.ADCIN2 ~ controller.LDO_3V3
+
+    controller.ADCIN3 ~ logic_3v3.lv
+    controller.LDO_3V3 ~> adc_limit_top ~> controller.ADCIN4
+    controller.ADCIN4 ~> adc_limit_bottom ~> logic_3v3.lv
+
+    controller.RESERVED ~ logic_3v3.lv
+    controller.nFAULT_IN ~ controller.LDO_3V3
+
+    usb_vbus.hv ~> usb_vbus_bulk ~> usb_vbus.lv
+    sink_vbus.hv ~> sink_vbus_bulk ~> sink_vbus.lv
+    logic_3v3.hv ~> logic_3v3_bypass ~> logic_3v3.lv
+    controller.LDO_3V3 ~> ldo_3v3_bypass ~> logic_3v3.lv
+    controller.LDO_1V5 ~> ldo_1v5_bypass ~> logic_3v3.lv
+
+    controller.CC1 ~> cc1_filter ~> logic_3v3.lv
+    controller.CC2 ~> cc2_filter ~> logic_3v3.lv
+
+    logic_3v3.hv ~> i2c_scl_pullup ~> controller.I2Ct_SCL
+    logic_3v3.hv ~> i2c_sda_pullup ~> controller.I2Ct_SDA
+
+module TPS25730AutonomousSinkController from TPS25730DREFR_20V_3A_TI_C22438973:
+    pass
+
+module TPS25730UsbPdSink from TPS25730DREFR_20V_3A_TI_C22438973:
+    pass
