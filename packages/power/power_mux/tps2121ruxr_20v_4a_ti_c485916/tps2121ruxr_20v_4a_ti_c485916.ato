@@ -1,0 +1,97 @@
+#pragma experiment("TRAITS")
+import ElectricLogic
+import ElectricPower
+
+from "parts/Texas_Instruments_TPS2121RUXR/Texas_Instruments_TPS2121RUXR.ato" import Texas_Instruments_TPS2121RUXR_package
+from "parts/Murata_Electronics_GRM31CR61H106KA12L/Murata_Electronics_GRM31CR61H106KA12L.ato" import Murata_Electronics_GRM31CR61H106KA12L_package
+from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
+from "parts/Murata_Electronics_GRM155R71H103KA88D/Murata_Electronics_GRM155R71H103KA88D.ato" import Murata_Electronics_GRM155R71H103KA88D_package
+from "parts/YAGEO_RC0402FR_07100KL/YAGEO_RC0402FR_07100KL.ato" import YAGEO_RC0402FR_07100KL_package
+from "parts/YAGEO_RC0402FR_0739KL/YAGEO_RC0402FR_0739KL.ato" import YAGEO_RC0402FR_0739KL_package
+from "parts/YAGEO_RC0402FR_0733KL/YAGEO_RC0402FR_0733KL.ato" import YAGEO_RC0402FR_0733KL_package
+from "parts/YAGEO_RC0402FR_07487RL/YAGEO_RC0402FR_07487RL.ato" import YAGEO_RC0402FR_07487RL_package
+
+module TPS2121RUXR_20V_4A_TI_C485916:
+    """
+    Generic two-input priority power mux built around TI's TPS2121RUXR.
+
+    `high_priority` maps to IN1 and `low_priority` maps to IN2. The external API
+    stays intentionally minimal and exposes only the raw status output beyond the
+    power rails. PR1 and CP2 are biased from the two inputs so a valid
+    `high_priority` source outranks `low_priority` when both are present. OV1 and
+    OV2 are grounded to disable the adjustable OV comparators and rely on the
+    package contract's 20 V ceiling instead. ILM and SS are configured internally
+    for a high current-limit setting and bounded startup ramp, giving practical
+    headroom above the requested 3 A minimum while keeping the package in an
+    honest 4 A class.
+    """
+
+    high_priority = new ElectricPower
+    low_priority = new ElectricPower
+    out = new ElectricPower
+    status = new ElectricLogic
+
+    assert high_priority.voltage within 5V to 20V
+    assert low_priority.voltage within 5V to 20V
+    assert out.max_current <= 4A
+
+    mux = new Texas_Instruments_TPS2121RUXR_package
+    high_priority_bulk = new Murata_Electronics_GRM31CR61H106KA12L_package
+    high_priority_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    low_priority_bulk = new Murata_Electronics_GRM31CR61H106KA12L_package
+    low_priority_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    output_bulk = new Murata_Electronics_GRM31CR61H106KA12L_package
+    output_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    priority_top = new YAGEO_RC0402FR_07100KL_package
+    priority_bottom = new YAGEO_RC0402FR_0739KL_package
+    fallback_top = new YAGEO_RC0402FR_07100KL_package
+    fallback_bottom = new YAGEO_RC0402FR_0733KL_package
+    current_limit_program = new YAGEO_RC0402FR_07487RL_package
+    soft_start_cap = new Murata_Electronics_GRM155R71H103KA88D_package
+
+    high_priority.lv ~ low_priority.lv
+    high_priority.lv ~ out.lv
+    out.lv ~ mux.GND
+
+    status.reference ~ out
+    status.line ~ mux.ST
+
+    high_priority.hv ~ mux.IN1
+    low_priority.hv ~ mux.IN2
+    out.hv ~ mux.OUT
+
+    high_priority.hv ~ priority_top.1
+    priority_top.2 ~ mux.PR1
+    mux.PR1 ~ priority_bottom.1
+    priority_bottom.2 ~ out.lv
+
+    low_priority.hv ~ fallback_top.1
+    fallback_top.2 ~ mux.CP2
+    mux.CP2 ~ fallback_bottom.1
+    fallback_bottom.2 ~ out.lv
+
+    mux.ILM ~ current_limit_program.1
+    current_limit_program.2 ~ out.lv
+    mux.SS ~ soft_start_cap.1
+    soft_start_cap.2 ~ out.lv
+    mux.OV1 ~ out.lv
+    mux.OV2 ~ out.lv
+
+    high_priority.hv ~ high_priority_bulk.1
+    high_priority_bulk.2 ~ high_priority.lv
+    high_priority.hv ~ high_priority_bypass.1
+    high_priority_bypass.2 ~ high_priority.lv
+    low_priority.hv ~ low_priority_bulk.1
+    low_priority_bulk.2 ~ low_priority.lv
+    low_priority.hv ~ low_priority_bypass.1
+    low_priority_bypass.2 ~ low_priority.lv
+    out.hv ~ output_bulk.1
+    output_bulk.2 ~ out.lv
+    out.hv ~ output_bypass.1
+    output_bypass.2 ~ out.lv
+
+module TPS2121PriorityPowerMux4A from TPS2121RUXR_20V_4A_TI_C485916:
+    pass
+
+module TPS2121PriorityPowerMux from TPS2121RUXR_20V_4A_TI_C485916:
+    pass

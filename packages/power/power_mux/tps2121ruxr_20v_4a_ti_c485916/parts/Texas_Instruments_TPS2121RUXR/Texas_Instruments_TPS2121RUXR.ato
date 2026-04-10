@@ -1,0 +1,26 @@
+#pragma experiment("TRAITS")
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Texas_Instruments_TPS2121RUXR_package:
+    trait is_auto_generated<system="manual_import", source="cse:TPS2121RUXT+lcsc:C485916", date="2026-04-09T17:55:00+00:00", checksum="manual-cse-import">
+    trait is_atomic_part<manufacturer="Texas Instruments", partnumber="TPS2121RUXR", footprint="TPS2121RUXR.kicad_mod", symbol="TPS2121RUXR.kicad_sym">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C485916", manufacturer="Texas Instruments", partno="TPS2121RUXR">
+    trait has_designator_prefix<prefix="U">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_2410121944_Texas-Instruments-TPS2121RUXR_C485916.pdf">
+
+    signal OUT ~ pin 1
+    signal IN2 ~ pin 2
+    signal CP2 ~ pin 3
+    signal OV2 ~ pin 4
+    signal OV1 ~ pin 5
+    signal PR1 ~ pin 6
+    signal IN1 ~ pin 7
+    OUT ~ pin 8
+    signal ST ~ pin 9
+    signal ILM ~ pin 10
+    signal SS ~ pin 11
+    signal GND ~ pin 12

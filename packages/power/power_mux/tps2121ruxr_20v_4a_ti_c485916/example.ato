@@ -1,0 +1,10 @@
+"""Example usage of the tps2121ruxr_20v_4a_ti_c485916 power mux package."""
+
+from "tps2121ruxr_20v_4a_ti_c485916.ato" import TPS2121PriorityPowerMux
+
+module Example:
+    mux = new TPS2121PriorityPowerMux
+
+    assert mux.high_priority.voltage within 5V to 20V
+    assert mux.low_priority.voltage within 5V to 18V
+    assert mux.out.max_current <= 4A
