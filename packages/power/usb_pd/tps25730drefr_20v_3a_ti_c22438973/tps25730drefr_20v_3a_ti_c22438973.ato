@@ -26,6 +26,8 @@ module TPS25730DREFR_20V_3A_TI_C22438973:
     port-facing VBUS node and `sink_vbus` maps to the switched PPHV output. An
     external 3.3-V rail is exposed for normal controller/I2C operation, but the
     IC can still dead-battery start from `usb_vbus` when that rail is absent.
+    The I2C pins are exported without onboard pullups so downstream designs can
+    provide the shared bus pullups explicitly.
     """
 
     usb_vbus = new ElectricPower
@@ -50,8 +52,6 @@ module TPS25730DREFR_20V_3A_TI_C22438973:
     logic_3v3_bypass = new Capacitor
     ldo_3v3_bypass = new Capacitor
     ldo_1v5_bypass = new Capacitor
-    i2c_scl_pullup = new Resistor
-    i2c_sda_pullup = new Resistor
     adc_limit_top = new Resistor
     adc_limit_bottom = new Resistor
 
@@ -73,23 +73,23 @@ module TPS25730DREFR_20V_3A_TI_C22438973:
     cc2_filter.lcsc_id = "C76965"
     cc2_filter.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809262015_Murata-Electronics-GRM1555C1H331JA01D_C76965.pdf"
 
-    usb_vbus_bulk.capacitance = 22uF +/- 10%
+    usb_vbus_bulk.capacitance = 4.7uF +/- 10%
     usb_vbus_bulk.max_voltage = 25V
-    usb_vbus_bulk.temperature_coefficient = "X7R"
-    usb_vbus_bulk.package = "1210"
+    usb_vbus_bulk.temperature_coefficient = "X5R"
+    usb_vbus_bulk.package = "0603"
     usb_vbus_bulk.manufacturer = "Murata Electronics"
-    usb_vbus_bulk.mpn = "GRM32ER71E226KE15L"
-    usb_vbus_bulk.lcsc_id = "C21397"
-    usb_vbus_bulk.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811011112_Murata-Electronics-GRM32ER71E226KE15L_C21397.pdf"
+    usb_vbus_bulk.mpn = "GRM188R61E475KE11D"
+    usb_vbus_bulk.lcsc_id = "C90057"
+    usb_vbus_bulk.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809201615_Murata-Electronics-GRM188R61E475KE11D_C90057.pdf"
 
-    sink_vbus_bulk.capacitance = 10uF +/- 10%
+    sink_vbus_bulk.capacitance = 47uF +/- 20%
     sink_vbus_bulk.max_voltage = 25V
     sink_vbus_bulk.temperature_coefficient = "X5R"
-    sink_vbus_bulk.package = "0603"
+    sink_vbus_bulk.package = "1206"
     sink_vbus_bulk.manufacturer = "Murata Electronics"
-    sink_vbus_bulk.mpn = "GRM188R61E106KA73D"
-    sink_vbus_bulk.lcsc_id = "C344022"
-    sink_vbus_bulk.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2204250000_Murata-Electronics-GRM188R61E106KA73D_C344022.pdf"
+    sink_vbus_bulk.mpn = "GRM31CR61E476ME44L"
+    sink_vbus_bulk.lcsc_id = "C403725"
+    sink_vbus_bulk.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61E476ME44L_C403725.pdf"
 
     logic_3v3_bypass.capacitance = 10uF +/- 10%
     logic_3v3_bypass.max_voltage = 10V
@@ -117,24 +117,6 @@ module TPS25730DREFR_20V_3A_TI_C22438973:
     ldo_1v5_bypass.mpn = "GRM155R61A475KEAAD"
     ldo_1v5_bypass.lcsc_id = "C77004"
     ldo_1v5_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809201638_Murata-Electronics-GRM155R61A475KEAAD_C77004.pdf"
-
-    i2c_scl_pullup.resistance = 3.3kohm +/- 1%
-    i2c_scl_pullup.max_power = 62.5mW
-    i2c_scl_pullup.max_voltage = 50V
-    i2c_scl_pullup.package = "0402"
-    i2c_scl_pullup.manufacturer = "YAGEO"
-    i2c_scl_pullup.mpn = "RC0402FR-073K3L"
-    i2c_scl_pullup.lcsc_id = "C137992"
-    i2c_scl_pullup.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-073K3L_C137992.pdf"
-
-    i2c_sda_pullup.resistance = 3.3kohm +/- 1%
-    i2c_sda_pullup.max_power = 62.5mW
-    i2c_sda_pullup.max_voltage = 50V
-    i2c_sda_pullup.package = "0402"
-    i2c_sda_pullup.manufacturer = "YAGEO"
-    i2c_sda_pullup.mpn = "RC0402FR-073K3L"
-    i2c_sda_pullup.lcsc_id = "C137992"
-    i2c_sda_pullup.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-073K3L_C137992.pdf"
 
     adc_limit_top.resistance = 200kohm +/- 1%
     adc_limit_top.max_power = 62.5mW
@@ -200,8 +182,6 @@ module TPS25730DREFR_20V_3A_TI_C22438973:
     controller.CC1 ~> cc1_filter ~> logic_3v3.lv
     controller.CC2 ~> cc2_filter ~> logic_3v3.lv
 
-    logic_3v3.hv ~> i2c_scl_pullup ~> controller.I2Ct_SCL
-    logic_3v3.hv ~> i2c_sda_pullup ~> controller.I2Ct_SDA
 
 module TPS25730AutonomousSinkController from TPS25730DREFR_20V_3A_TI_C22438973:
     pass
