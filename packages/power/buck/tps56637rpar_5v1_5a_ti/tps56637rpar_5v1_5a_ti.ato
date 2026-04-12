@@ -27,21 +27,41 @@ module TPS56637RPAR_5V1_5A_TI:
     assert power_out.voltage within 5.1V +/- 2%
     assert power_out.max_current <= 5A
 
+    power_in.hv.override_net_name = "VIN"
+    power_in.lv.override_net_name = "GND"
+    power_out.hv.override_net_name = "+5.1V"
+    power_out.lv.override_net_name = "GND"
+
     converter = new Texas_Instruments_TPS56637RPAR_package
+    # 10uF X5R 50V 1206 input capacitor
     input_bulk_a = new Murata_Electronics_GRM31CR61H106KA12L_package
+    # 10uF X5R 50V 1206 input capacitor
     input_bulk_b = new Murata_Electronics_GRM31CR61H106KA12L_package
+    # 100nF X7R 50V 0402 bypass capacitor
     input_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 22uF X5R 25V 1206 output capacitor
     output_bulk_a = new Murata_Electronics_GRM31CR61E226KE15L_package
+    # 22uF X5R 25V 1206 output capacitor
     output_bulk_b = new Murata_Electronics_GRM31CR61E226KE15L_package
+    # 100nF X7R 50V 0402 bypass capacitor
     bootstrap_cap = new Murata_Electronics_GRM155R71H104KE14D_package
     output_inductor = new cjiang_FXL0630_3R3_M_package
+    # 75kΩ 1% 0402 feedback resistor
     feedback_top = new YAGEO_RC0402FR_0775KL_package
+    # 10kΩ 1% 0402 bias resistor
     feedback_bottom = new YAGEO_RC0402FR_0710KL_package
     power_in.lv ~ power_out.lv
 
     power_in.hv ~ converter.VIN
     power_in.lv ~ converter.AGND
     power_in.lv ~ converter.PGND
+
+    converter.VIN.override_net_name = "VIN"
+    converter.AGND.override_net_name = "GND"
+    converter.PGND.override_net_name = "GND"
+    converter.BOOT.override_net_name = "BOOT"
+    converter.SW.override_net_name = "SW"
+    converter.FB.override_net_name = "FB"
 
     converter.BOOT ~ bootstrap_cap.1
     bootstrap_cap.2 ~ converter.SW
@@ -63,6 +83,7 @@ module TPS56637RPAR_5V1_5A_TI:
     output_bulk_a.2 ~ power_out.lv
     power_out.hv ~ output_bulk_b.1
     output_bulk_b.2 ~ power_out.lv
+
 
 module TPS56637Buck5V1_5A from TPS56637RPAR_5V1_5A_TI:
     pass

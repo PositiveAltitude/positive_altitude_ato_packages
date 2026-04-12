@@ -29,16 +29,30 @@ module TPS62933DRLR_3V3_TI:
     assert power_out.voltage within 3.3V +/- 2%
     assert power_out.max_current <= 1A
 
+    power_in.hv.override_net_name = "VIN"
+    power_in.lv.override_net_name = "GND"
+    power_out.hv.override_net_name = "+3.3V"
+    power_out.lv.override_net_name = "GND"
+
     converter = new Texas_Instruments_TPS62933DRLR_package
+    # 10uF X5R 50V 1206 input capacitor
     input_bulk_a = new Murata_Electronics_GRM31CR61H106KA12L_package
+    # 10uF X5R 50V 1206 input capacitor
     input_bulk_b = new Murata_Electronics_GRM31CR61H106KA12L_package
+    # 100nF X7R 50V 0402 bypass capacitor
     input_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 22uF X5R 25V 1206 output capacitor
     output_bulk_a = new Murata_Electronics_GRM31CR61E226KE15L_package
+    # 22uF X5R 25V 1206 output capacitor
     output_bulk_b = new Murata_Electronics_GRM31CR61E226KE15L_package
+    # 100nF X7R 50V 0402 bypass capacitor
     bootstrap_cap = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 33nF X7R 50V 0402 soft-start capacitor
     soft_start_cap = new Murata_Electronics_GRM155R71H333KE14D_package
     output_inductor = new cjiang_FTC252012S2R2MBCA_package
+    # 31.6kΩ 1% 0402 feedback resistor
     feedback_top = new YAGEO_RC0402FR_0731K6L_package
+    # 10kΩ 1% 0402 bias resistor
     feedback_bottom = new YAGEO_RC0402FR_0710KL_package
     power_in.lv ~ power_out.lv
 
@@ -46,6 +60,15 @@ module TPS62933DRLR_3V3_TI:
     power_in.lv ~ converter.GND
     power_in.hv ~ converter.EN
     converter.RT ~ power_in.lv
+
+    converter.VIN.override_net_name = "VIN"
+    converter.GND.override_net_name = "GND"
+    converter.EN.override_net_name = "VIN"
+    converter.RT.override_net_name = "GND"
+    converter.BST.override_net_name = "BST"
+    converter.SS.override_net_name = "SS"
+    converter.SW.override_net_name = "SW"
+    converter.FB.override_net_name = "FB"
 
     converter.SS ~ soft_start_cap.1
     soft_start_cap.2 ~ power_in.lv
@@ -69,6 +92,7 @@ module TPS62933DRLR_3V3_TI:
     output_bulk_a.2 ~ power_out.lv
     power_out.hv ~ output_bulk_b.1
     output_bulk_b.2 ~ power_out.lv
+
 
 module TPS62933Buck3V3 from TPS62933DRLR_3V3_TI:
     pass

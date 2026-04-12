@@ -35,18 +35,35 @@ module TPS2121RUXR_20V_4A_TI:
     assert low_priority.voltage within 5V to 20V
     assert out.max_current <= 4A
 
+    high_priority.hv.override_net_name = "HIGH_PRIORITY"
+    low_priority.hv.override_net_name = "LOW_PRIORITY"
+    out.hv.override_net_name = "OUT"
+    out.lv.override_net_name = "GND"
+
     mux = new Texas_Instruments_TPS2121RUXR_package
+    # 10uF X5R 50V 1206 input capacitor
     high_priority_bulk = new Murata_Electronics_GRM31CR61H106KA12L_package
+    # 100nF X7R 50V 0402 bypass capacitor
     high_priority_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 10uF X5R 50V 1206 input capacitor
     low_priority_bulk = new Murata_Electronics_GRM31CR61H106KA12L_package
+    # 100nF X7R 50V 0402 bypass capacitor
     low_priority_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 10uF X5R 50V 1206 input capacitor
     output_bulk = new Murata_Electronics_GRM31CR61H106KA12L_package
+    # 100nF X7R 50V 0402 bypass capacitor
     output_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 100kΩ 1% 0402 pull resistor
     priority_top = new YAGEO_RC0402FR_07100KL_package
+    # 39kΩ 1% 0402 divider resistor
     priority_bottom = new YAGEO_RC0402FR_0739KL_package
+    # 100kΩ 1% 0402 pull resistor
     fallback_top = new YAGEO_RC0402FR_07100KL_package
+    # 33kΩ 1% 0402 divider resistor
     fallback_bottom = new YAGEO_RC0402FR_0733KL_package
+    # 487Ω 1% 0402 ILM resistor
     current_limit_program = new YAGEO_RC0402FR_07487RL_package
+    # 10nF X7R 50V 0402 soft-start capacitor
     soft_start_cap = new Murata_Electronics_GRM155R71H103KA88D_package
 
     high_priority.lv ~ low_priority.lv
@@ -59,6 +76,13 @@ module TPS2121RUXR_20V_4A_TI:
     high_priority.hv ~ mux.IN1
     low_priority.hv ~ mux.IN2
     out.hv ~ mux.OUT
+
+    mux.IN1.override_net_name = "HIGH_PRIORITY"
+    mux.IN2.override_net_name = "LOW_PRIORITY"
+    mux.OUT.override_net_name = "OUT"
+    mux.GND.override_net_name = "GND"
+    mux.PR1.override_net_name = "PRIORITY_SEL"
+    mux.CP2.override_net_name = "FALLBACK_SEL"
 
     high_priority.hv ~ priority_top.1
     priority_top.2 ~ mux.PR1
@@ -89,6 +113,7 @@ module TPS2121RUXR_20V_4A_TI:
     output_bulk.2 ~ out.lv
     out.hv ~ output_bypass.1
     output_bypass.2 ~ out.lv
+
 
 module TPS2121PriorityPowerMux4A from TPS2121RUXR_20V_4A_TI:
     pass

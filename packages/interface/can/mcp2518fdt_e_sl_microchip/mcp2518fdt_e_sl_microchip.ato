@@ -5,8 +5,8 @@ import ElectricLogic
 import ElectricPower
 import SPI
 from "parts/Murata_Electronics_GRM1555C1H150JA01D/Murata_Electronics_GRM1555C1H150JA01D.ato" import Murata_Electronics_GRM1555C1H150JA01D_package
-from "parts/Murata_Electronics_GRM155R61C105KE01D/Murata_Electronics_GRM155R61C105KE01D.ato" import Murata_Electronics_GRM155R61C105KE01D_package
 from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
+from "parts/Murata_Electronics_GRM188R61H105KAALD/Murata_Electronics_GRM188R61H105KAALD.ato" import Murata_Electronics_GRM188R61H105KAALD_package
 from "parts/Microchip_Tech_MCP2518FDT_E_SL/Microchip_Tech_MCP2518FDT_E_SL.ato" import Microchip_Tech_MCP2518FDT_E_SL_package
 from "parts/TAE_TAXM40M4ZHBCDT2T/TAE_TAXM40M4ZHBCDT2T.ato" import TAE_TAXM40M4ZHBCDT2T_package
 
@@ -30,11 +30,22 @@ module MCP2518FDT_ESL_Microchip:
 
     controller = new Microchip_Tech_MCP2518FDT_E_SL_package
     crystal = new TAE_TAXM40M4ZHBCDT2T_package
+    # 100nF X7R 50V 0402 bypass capacitor
     vdd_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
-    vdd_bulk = new Murata_Electronics_GRM155R61C105KE01D_package
+    # 1uF X5R 50V 0603 bulk capacitor
+    vdd_bulk = new Murata_Electronics_GRM188R61H105KAALD_package
+    # 15pF C0G 50V 0402 load capacitor
     osc1_load = new Murata_Electronics_GRM1555C1H150JA01D_package
+    # 15pF C0G 50V 0402 load capacitor
     osc2_load = new Murata_Electronics_GRM1555C1H150JA01D_package
     assert power.voltage within 3.3V +/- 5%
+
+    power.hv.override_net_name = "+3.3V"
+    power.lv.override_net_name = "GND"
+    controller.OSC1.override_net_name = "OSC1"
+    controller.OSC2.override_net_name = "OSC2"
+    crystal.XTAL1.override_net_name = "OSC1"
+    crystal.XTAL2.override_net_name = "OSC2"
 
 
 
@@ -51,8 +62,18 @@ module MCP2518FDT_ESL_Microchip:
     nint1_gpio1.reference ~ power
     clko_sof.reference ~ power
 
+    ncs.line.override_net_name = "nCS"
+    nint.line.override_net_name = "nINT"
+    nint0_gpio0_xstby.line.override_net_name = "nINT0_GPIO0_XSTBY"
+    nint1_gpio1.line.override_net_name = "nINT1_GPIO1"
+    clko_sof.line.override_net_name = "CLKO_SOF"
+
     power.hv ~ controller.VDD
     power.lv ~ controller.VSS
+
+    controller.VDD.override_net_name = "+3.3V"
+    controller.VSS.override_net_name = "GND"
+    crystal.GND.override_net_name = "GND"
 
     controller.VDD ~ vdd_bypass.1
     vdd_bypass.2 ~ power.lv

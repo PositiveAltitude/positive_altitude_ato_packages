@@ -14,11 +14,18 @@ module STM32G0B1KBU6_ST:
     power = new ElectricPower
     mcu = new STMicroelectronics_STM32G0B1KBU6_package
 
+    # 4.7uF X5R 25V 0603 bulk capacitor
     supply_bulk = new Murata_Electronics_GRM188R61E475KE11D_package
+    # 100nF X7R 50V 0402 bypass capacitor
     supply_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 10kΩ 1% 0402 bias resistor
     boot_pulldown = new YAGEO_RC0402FR_0710KL_package
+    # 100nF X7R 50V 0402 bypass capacitor
     reset_cap = new Murata_Electronics_GRM155R71H104KE14D_package
     assert power.voltage within 1.7V to 3.6V
+
+    power.hv.override_net_name = "+3.3V"
+    power.lv.override_net_name = "GND"
 
 
 
@@ -28,6 +35,10 @@ module STM32G0B1KBU6_ST:
     power.lv ~ mcu.VSS_VSSA
 
     power.hv ~ mcu.VDD_VDDA
+
+    mcu.VDD_VDDA.override_net_name = "+3.3V"
+    mcu.VSS.override_net_name = "GND"
+    mcu.VSS_VSSA.override_net_name = "GND"
 
     mcu.VDD_VDDA ~ supply_bulk.1
     supply_bulk.2 ~ power.lv

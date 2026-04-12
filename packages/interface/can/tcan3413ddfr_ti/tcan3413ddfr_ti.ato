@@ -28,13 +28,22 @@ module TCAN3413DDFR_TI:
     stb = new ElectricLogic
 
     transceiver = new TEXAS_INSTRUMENTS_TCAN3413DDFR_package
+    # 100nF X7R 50V 0402 bypass capacitor
     vcc_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 100nF X7R 50V 0402 bypass capacitor
     vio_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 10kΩ 1% 0402 bias resistor
     standby_pulldown = new YAGEO_RC0402FR_0710KL_package
+    # 120Ω 1% 0402 termination resistor
     termination = new YAGEO_RC0402FR_07120RL_package
     termination_enable = new SolderJumper_2_Open_P1_3mm_package
 
     assert power.voltage within 3V to 3.6V
+
+    power.hv.override_net_name = "+3.3V"
+    power.lv.override_net_name = "GND"
+    transceiver.CANH.override_net_name = "CANH"
+    transceiver.CANL.override_net_name = "CANL"
 
 
 
@@ -49,6 +58,10 @@ module TCAN3413DDFR_TI:
     power.lv ~ transceiver.GND
     power.hv ~ transceiver.VCC
     power.hv ~ transceiver.SHDN_VIO
+
+    transceiver.GND.override_net_name = "GND"
+    transceiver.VCC.override_net_name = "+3.3V"
+    transceiver.SHDN_VIO.override_net_name = "+3.3V"
 
     transceiver.VCC ~ vcc_bypass.1
     vcc_bypass.2 ~ power.lv

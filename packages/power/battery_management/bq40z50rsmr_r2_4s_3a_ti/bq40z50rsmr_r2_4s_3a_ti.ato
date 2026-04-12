@@ -55,34 +55,73 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     assert pack.voltage within 10V to 16.8V
     assert pack.max_current <= 3A
 
+    cell_0.override_net_name = "GND"
+    tap_1.override_net_name = "CELL1"
+    tap_2.override_net_name = "CELL2"
+    tap_3.override_net_name = "CELL3"
+    cell_4.override_net_name = "CELL4"
+    fet_common.override_net_name = "FET_COMMON"
+    vcc_filtered.override_net_name = "BAT_FILT"
+    srp_filtered.override_net_name = "SRP_FILT"
+    srn_filtered.override_net_name = "SRN_FILT"
+    pack.hv.override_net_name = "PACK+"
+    pack.lv.override_net_name = "PACK-"
+
     monitor = new Texas_Instruments_BQ40Z50RSMR_R2_package
     protection_fets = new XNRUSEMI_XRS30V06D_package
+    # 1mΩ 1W 1206 current-sense resistor
     sense_resistor = new YAGEO_PA1206FRF470R001L_package
+    # 100Ω 1% 0402 series resistor
     vcc_series_resistor = new YAGEO_RC0402FR_07100RL_package
+    # 10kΩ 1% 0402 bias resistor
     pack_series_resistor = new YAGEO_RC0402FR_0710KL_package
+    # 100Ω 1% 0402 series resistor
     charge_gate_resistor = new YAGEO_RC0402FR_07100RL_package
+    # 100Ω 1% 0402 series resistor
     discharge_gate_resistor = new YAGEO_RC0402FR_07100RL_package
+    # 100kΩ 1% 0402 pull resistor
     charge_gate_pulldown = new YAGEO_RC0402FR_07100KL_package
+    # 100kΩ 1% 0402 pull resistor
     discharge_gate_pulldown = new YAGEO_RC0402FR_07100KL_package
+    # 100Ω 1% 0402 series resistor
     srp_filter_resistor = new YAGEO_RC0402FR_07100RL_package
+    # 100Ω 1% 0402 series resistor
     srn_filter_resistor = new YAGEO_RC0402FR_07100RL_package
+    # 100Ω 1% 0402 series resistor
     vc1_filter_resistor = new YAGEO_RC0402FR_07100RL_package
+    # 100Ω 1% 0402 series resistor
     vc2_filter_resistor = new YAGEO_RC0402FR_07100RL_package
+    # 100Ω 1% 0402 series resistor
     vc3_filter_resistor = new YAGEO_RC0402FR_07100RL_package
+    # 100Ω 1% 0402 series resistor
     vc4_filter_resistor = new YAGEO_RC0402FR_07100RL_package
+    # 10kΩ 1% 0402 bias resistor
     ts1_bias = new YAGEO_RC0402FR_0710KL_package
+    # 10kΩ 1% 0402 bias resistor
     ts2_bias = new YAGEO_RC0402FR_0710KL_package
+    # 10kΩ 1% 0402 bias resistor
     ts3_bias = new YAGEO_RC0402FR_0710KL_package
+    # 10kΩ 1% 0402 bias resistor
     ts4_bias = new YAGEO_RC0402FR_0710KL_package
+    # 100kΩ 1% 0402 pull resistor
     display_pullup = new YAGEO_RC0402FR_07100KL_package
+    # 2.2uF X5R 25V 0603 hold capacitor
     pbi_hold_cap = new Murata_Electronics_GRM188R61E225KA12D_package
+    # 100nF X7R 50V 0402 bypass capacitor
     bat_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 100nF X7R 50V 0402 bypass capacitor
     vcc_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 100nF X7R 50V 0402 bypass capacitor
     pack_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 100nF X7R 50V 0402 bypass capacitor
     current_sense_filter = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 100nF X7R 25V 0402 cell filter capacitor
     vc1_filter_cap = new Murata_Electronics_GRM155R71E104KE14D_package
+    # 100nF X7R 25V 0402 cell filter capacitor
     vc2_filter_cap = new Murata_Electronics_GRM155R71E104KE14D_package
+    # 100nF X7R 25V 0402 cell filter capacitor
     vc3_filter_cap = new Murata_Electronics_GRM155R71E104KE14D_package
+    # 100nF X7R 25V 0402 cell filter capacitor
     vc4_filter_cap = new Murata_Electronics_GRM155R71E104KE14D_package
     i2c.scl.reference ~ pack
     i2c.sda.reference ~ pack
@@ -96,6 +135,28 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     cell_0 ~ monitor.EP
     cell_4 ~ monitor.BAT
     cell_4 ~ protection_fets.S1
+
+    monitor.VSS.override_net_name = "GND"
+    monitor.BAT.override_net_name = "CELL4"
+    monitor.VCC.override_net_name = "BAT_FILT"
+    monitor.PACK.override_net_name = "PACK_FILT"
+    monitor.PBI.override_net_name = "PBI_HOLD"
+    monitor.TS1.override_net_name = "TS1_BIAS"
+    monitor.TS2.override_net_name = "TS2_BIAS"
+    monitor.TS3.override_net_name = "TS3_BIAS"
+    monitor.TS4.override_net_name = "TS4_BIAS"
+    monitor.VC1.override_net_name = "VC1_FILT"
+    monitor.VC2.override_net_name = "VC2_FILT"
+    monitor.VC3.override_net_name = "VC3_FILT"
+    monitor.VC4.override_net_name = "VC4_FILT"
+    monitor.SRP.override_net_name = "SRP_FILT"
+    monitor.SRN.override_net_name = "SRN_FILT"
+    protection_fets.G1.override_net_name = "DSG_GATE"
+    protection_fets.G2.override_net_name = "CHG_GATE"
+    protection_fets.S1.override_net_name = "CELL4"
+    protection_fets.S2.override_net_name = "PACK+"
+    protection_fets.D1.override_net_name = "FET_COMMON"
+    protection_fets.D2.override_net_name = "FET_COMMON"
 
     cell_4 ~ vcc_series_resistor.1
     vcc_series_resistor.2 ~ vcc_filtered

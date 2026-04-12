@@ -57,13 +57,21 @@ module TPS25730DREFR_20V_3A_TI:
     cc2.line.override_net_name = "CC2"
 
     controller = new TEXAS_INSTRUMENTS_TPS25730DREFR_package
+    # 330pF C0G 50V 0402 filter capacitor
     cc1_filter = new Murata_Electronics_GRM1555C1H331JA01D_package
+    # 330pF C0G 50V 0402 filter capacitor
     cc2_filter = new Murata_Electronics_GRM1555C1H331JA01D_package
+    # 4.7uF X5R 25V 0603 bulk capacitor
     usb_vbus_bulk = new Murata_Electronics_GRM188R61E475KE11D_package
+    # 10uF X5R 10V 0603 bypass capacitor
     logic_3v3_bypass = new Murata_Electronics_GRM188R61A106KE69D_package
+    # 10uF X5R 10V 0603 bypass capacitor
     ldo_3v3_bypass = new Murata_Electronics_GRM188R61A106KE69D_package
+    # 4.7uF X5R 10V 0402 bypass capacitor
     ldo_1v5_bypass = new Murata_Electronics_GRM155R61A475KEAAD_package
+    # 200kΩ 1% 0402 strap resistor
     adc_limit_top = new YAGEO_RC0402FR_07200KL_package
+    # 10kΩ 1% 0402 bias resistor
     adc_limit_bottom = new YAGEO_RC0402FR_0710KL_package
 
     logic_3v3.lv ~ usb_vbus.lv

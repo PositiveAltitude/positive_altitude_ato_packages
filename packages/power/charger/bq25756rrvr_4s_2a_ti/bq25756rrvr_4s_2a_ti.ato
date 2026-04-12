@@ -63,34 +63,66 @@ module BQ25756RRVR_4S_2A_TI:
     assert battery.max_current <= 2A
     assert logic_power.voltage within 1.8V to 5V
 
+    power_in.hv.override_net_name = "VIN"
+    power_in.lv.override_net_name = "GND"
+    battery.hv.override_net_name = "BAT+"
+    battery.lv.override_net_name = "BAT-"
+    logic_power.hv.override_net_name = "VIO"
+    logic_power.lv.override_net_name = "GND"
+
     charger = new Texas_Instruments_BQ25756RRVR_package
     buck_half_bridge = new XNRUSEMI_XRS30V06D_package
     boost_half_bridge = new XNRUSEMI_XRS30V06D_package
+    # 5mΩ 1W 1206 current-sense resistor
     input_sense_resistor = new YAGEO_PA1206FRE470R005Z_package
+    # 5mΩ 1W 1206 current-sense resistor
     battery_sense_resistor = new YAGEO_PA1206FRE470R005Z_package
+    # 49.9kΩ 1% 0402 programming resistor
     charge_current_program = new YAGEO_RC0402FR_0749K9L_package
+    # 249kΩ 0.1% 0603 feedback resistor
     regulation_feedback_top = new YAGEO_RT0603BRD07249KL_package
+    # 24.9kΩ 0.1% 0402 feedback resistor
     regulation_feedback_bottom = new YAGEO_RT0402BRD0724K9L_package
+    # 49.9kΩ 1% 0402 programming resistor
     switching_frequency_program = new YAGEO_RC0402FR_0749K9L_package
+    # 10Ω 1% 0402 filter resistor
     acp_filter_series = new YAGEO_RC0402FR_0710RL_package
+    # 10Ω 1% 0402 filter resistor
     acn_filter_series = new YAGEO_RC0402FR_0710RL_package
+    # 10Ω 1% 0402 filter resistor
     srp_filter_series = new YAGEO_RC0402FR_0710RL_package
+    # 10Ω 1% 0402 filter resistor
     srn_filter_series = new YAGEO_RC0402FR_0710RL_package
+    # 10kΩ 1% 0402 bias resistor
     charge_enable_pulldown = new YAGEO_RC0402FR_0710KL_package
+    # 10kΩ 1% 0402 bias resistor
     ts_bias_top = new YAGEO_RC0402FR_0710KL_package
+    # 10kΩ 1% 0402 bias resistor
     ts_bias_bottom = new YAGEO_RC0402FR_0710KL_package
     power_inductor = new TECHFUSE_SL0650_100M_package
+    # 100uF 35V electrolytic bulk capacitor
     input_bulk_source = new PANASONIC_EEHZK1V101XP_package
+    # 100uF 35V electrolytic bulk capacitor
     input_bulk_converter = new PANASONIC_EEHZK1V101XP_package
+    # 100nF X7R 50V 0402 bypass capacitor
     input_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 4.7uF X7R 50V 1206 regulator bulk capacitor
     regn_bulk = new Murata_Electronics_GRM31CR71H475KA12L_package
+    # 1uF X5R 50V 0603 bypass capacitor
     vac_bypass = new Murata_Electronics_GRM188R61H105KAALD_package
+    # 470nF X5R 50V 0402 sense filter capacitor
     ac_sense_filter = new Murata_Electronics_GRM155R61H474KE11D_package
+    # 470nF X5R 50V 0402 sense filter capacitor
     battery_sense_filter = new Murata_Electronics_GRM155R61H474KE11D_package
+    # 100nF X7R 50V 0402 bypass capacitor
     bootstrap_1 = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 100nF X7R 50V 0402 bypass capacitor
     bootstrap_2 = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 100uF 35V electrolytic bulk capacitor
     battery_bulk_converter = new PANASONIC_EEHZK1V101XP_package
+    # 100uF 35V electrolytic bulk capacitor
     battery_bulk_pack = new PANASONIC_EEHZK1V101XP_package
+    # 100nF X7R 50V 0402 bypass capacitor
     battery_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
     i2c.scl.reference ~ logic_power
     i2c.sda.reference ~ logic_power
@@ -107,6 +139,34 @@ module BQ25756RRVR_4S_2A_TI:
     power_in.lv ~ buck_half_bridge.S2
     power_in.lv ~ boost_half_bridge.S2
 
+    charger.PGND.override_net_name = "GND"
+    charger.FBG.override_net_name = "GND"
+    charger.ACOV.override_net_name = "GND"
+    charger.VAC.override_net_name = "INPUT_BUS"
+    charger.ACUV.override_net_name = "INPUT_BUS"
+    charger.ACP.override_net_name = "ACP_FILT"
+    charger.ACN.override_net_name = "ACN_FILT"
+    charger.SRP.override_net_name = "SRP_FILT"
+    charger.SRN.override_net_name = "SRN_FILT"
+    charger.BTST1.override_net_name = "BTST1"
+    charger.BTST2.override_net_name = "BTST2"
+    charger.REGN.override_net_name = "REGN"
+    charger.nCE.override_net_name = "nCE"
+    charger.nINT.override_net_name = "nINT"
+    charger.nPG.override_net_name = "nPG"
+    charger.STAT1.override_net_name = "STAT1"
+    charger.STAT2.override_net_name = "STAT2"
+    charger.HIDRV1.override_net_name = "HIDRV1"
+    charger.LODRV1.override_net_name = "LODRV1"
+    charger.HIDRV2.override_net_name = "HIDRV2"
+    charger.LODRV2.override_net_name = "LODRV2"
+    buck_half_bridge.G1.override_net_name = "HIDRV1"
+    buck_half_bridge.G2.override_net_name = "LODRV1"
+    boost_half_bridge.G1.override_net_name = "HIDRV2"
+    boost_half_bridge.G2.override_net_name = "LODRV2"
+    buck_half_bridge.S2.override_net_name = "GND"
+    boost_half_bridge.S2.override_net_name = "GND"
+
     signal input_bus
     signal charge_bus
     signal switch_1 ~ charger.SW1
@@ -115,6 +175,15 @@ module BQ25756RRVR_4S_2A_TI:
     signal acn_filtered
     signal srp_filtered
     signal srn_filtered
+
+    input_bus.override_net_name = "INPUT_BUS"
+    charge_bus.override_net_name = "CHARGE_BUS"
+    switch_1.override_net_name = "SW1"
+    switch_2.override_net_name = "SW2"
+    acp_filtered.override_net_name = "ACP_FILT"
+    acn_filtered.override_net_name = "ACN_FILT"
+    srp_filtered.override_net_name = "SRP_FILT"
+    srn_filtered.override_net_name = "SRN_FILT"
 
     power_in.hv ~ input_sense_resistor.1
     input_sense_resistor.2 ~ input_bus
