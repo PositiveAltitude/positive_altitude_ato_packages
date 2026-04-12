@@ -1,10 +1,13 @@
-#pragma experiment("TRAITS")
 import has_datasheet
 import has_designator_prefix
 import has_part_picked
 import is_atomic_part
+import is_auto_generated
 
 component Murata_Electronics_GRM188R61E475KE11D_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C90057", date="2026-04-12T17:07:07.563011+00:00", checksum="f060575cb0bd7250ffd684dd3eead1feda61a997c571d42a84a7f7cb9841d756">
 
     trait is_atomic_part<manufacturer="Murata Electronics", partnumber="GRM188R61E475KE11D", footprint="C0603.kicad_mod", symbol="GRM188R61E475KE11D.kicad_sym", model="C0603_L1.6-W0.8-H0.8.step">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C90057", manufacturer="Murata Electronics", partno="GRM188R61E475KE11D">
