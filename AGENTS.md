@@ -30,12 +30,12 @@ scripts/
 
 Guidance:
 
-- Mirror the official Atopile package template inside each `packages/` folder.
 - Keep one primary entry file per directory.
 - Keep multi-component assemblies in `packages/`.
 - Keep package-specific generated parts under the package's own `parts/` folder.
 - Use generic `Capacitor`, `Resistor`, `Inductor`, and similar abstractions directly in package code when a separate generated part is unnecessary.
 - Prefer using `ato` part generation over manual symbol/footprint sourcing workflows.
+- When creating a new package follow the best practices from the datasheet. Use example designs from datasheet when relevant.  
 
 ## Part Selection Rules
 
@@ -43,14 +43,20 @@ Guidance:
 - Explicitly specify the LCSC code for every concrete part selection.
 - Do not rely on Atopile's part picker to choose parts implicitly.
 - Prefer healthy LCSC stock unless the task explicitly requires something else.
-- When creating a new package, reuse the same concrete components already used elsewhere in this repository when they fit the requirements.
+- When creating a new package, reuse the same concrete components already used elsewhere in this repository when they fit the requirements. Especially MLCCs and resistors.
 - Prefer Murata MLCCs for ceramic capacitors and Yageo resistors for resistor selections unless the task explicitly requires something else.
+- Standard resistor package is 0402 if power constrains allows it
+- Standard package for MLCC
+  - less 1uF : 0402
+  - 1uF-4.7uF: 0603 (if it is reasonable from DC-bias perspective) 
+  - more than 4.7uF or high DC bias: larger packages
 
 ## Library Asset Rules
 
 - Prefer `ato` to generate and manage local part assets whenever it can provide a usable result.
 - Keep generated part definitions and ECAD assets under the owning package's `parts/` folder.
 - If a package depends on a manually vendored source-specific asset, call that out explicitly in the work summary.
+- During work on the package `ato` can create parts for some used components. Keep it in mind. Cleanup all unused parts before commiting git
 
 ## Verification Rules
 
@@ -64,17 +70,8 @@ Guidance:
 - Keep interfaces explicit and readable.
 - Prefer reusable parameterized packages over one-off designs.
 - Use package-local `parts/` only for concrete parts that need generated symbols, footprints, or models.
-- MLCC package names should follow `c_<capacitance>_<voltage>_<package>_<manufacturer>_<lcsc>`.
-- Resistor package names should follow `r_<resistance>_<tolerance>_<power>_<package>_<manufacturer>_<lcsc>`.
 - For simple passives, prefer generic modules with explicit electrical values and fixed LCSC codes.
 - Reuse existing repository component choices for equivalent new designs when possible to keep BOMs consistent across packages.
 - Keep BOM decisions deterministic and documented in code.
 - Keep package-local assets and dependencies easy to trace.
-
-## Working Style For Future Agents
-
-- Read this file before adding packages or parts.
-- Preserve existing user changes unless explicitly asked to modify them.
-- Do not bypass `ato` part generation without a concrete reason.
-- Do not introduce components without explicit LCSC references.
-- Do not create repo-level shared part stores unless explicitly requested.
+- Net names in the resulting schematic should be readable and usable. Use standard simple net names like `GND` `+3.3V` `SDA` etc. Override names if needed.
