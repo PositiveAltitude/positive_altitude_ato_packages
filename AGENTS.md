@@ -48,8 +48,8 @@ Guidance:
 - Standard resistor package is 0402 if power constrains allows it
 - Standard package for MLCC
   - less 1uF : 0402
-  - 1uF-4.7uF: 0603 (if it is reasonable from DC-bias perspective) 
-  - more than 4.7uF or high DC bias: larger packages
+  - 1uF-10uF: 0603 if it is reasonable from DC-bias perspective
+  - more than 10uF or high DC bias: larger packages
 
 ## Library Asset Rules
 

@@ -1,12 +1,9 @@
+#pragma experiment("TRAITS")
 import has_designator_prefix
 import has_part_picked
 import is_atomic_part
-import is_auto_generated
 
 component TEXAS_INSTRUMENTS_TPS25730DREFR_package:
-    # This trait marks this file as auto-generated
-    # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C22438973", date="2026-04-10T11:30:31.832575+00:00", checksum="47e6b7f64a3d470a5c142ee53329b0e4ef2318be1874e9a671c04ec50639e0a4">
 
     trait is_atomic_part<manufacturer="TEXAS INSTRUMENTS", partnumber="TPS25730DREFR", footprint="QFN-38_L6.0-W4.0-P0.40-TL-EP_RJK.kicad_mod", symbol="TPS25730DREFR.kicad_sym">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C22438973", manufacturer="TEXAS INSTRUMENTS", partno="TPS25730DREFR">

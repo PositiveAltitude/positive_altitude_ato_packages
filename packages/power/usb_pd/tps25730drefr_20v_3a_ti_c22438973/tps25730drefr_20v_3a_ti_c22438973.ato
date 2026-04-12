@@ -1,3 +1,4 @@
+#pragma experiment("TRAITS")
 import Capacitor
 import ElectricLogic
 import ElectricPower
@@ -48,7 +49,6 @@ module TPS25730DREFR_20V_3A_TI_C22438973:
     cc1_filter = new Capacitor
     cc2_filter = new Capacitor
     usb_vbus_bulk = new Capacitor
-    sink_vbus_bulk = new Capacitor
     logic_3v3_bypass = new Capacitor
     ldo_3v3_bypass = new Capacitor
     ldo_1v5_bypass = new Capacitor
@@ -81,15 +81,6 @@ module TPS25730DREFR_20V_3A_TI_C22438973:
     usb_vbus_bulk.mpn = "GRM188R61E475KE11D"
     usb_vbus_bulk.lcsc_id = "C90057"
     usb_vbus_bulk.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809201615_Murata-Electronics-GRM188R61E475KE11D_C90057.pdf"
-
-    sink_vbus_bulk.capacitance = 47uF +/- 20%
-    sink_vbus_bulk.max_voltage = 25V
-    sink_vbus_bulk.temperature_coefficient = "X5R"
-    sink_vbus_bulk.package = "1206"
-    sink_vbus_bulk.manufacturer = "Murata Electronics"
-    sink_vbus_bulk.mpn = "GRM31CR61E476ME44L"
-    sink_vbus_bulk.lcsc_id = "C403725"
-    sink_vbus_bulk.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61E476ME44L_C403725.pdf"
 
     logic_3v3_bypass.capacitance = 10uF +/- 10%
     logic_3v3_bypass.max_voltage = 10V
@@ -174,7 +165,6 @@ module TPS25730DREFR_20V_3A_TI_C22438973:
     controller.nFAULT_IN ~ controller.LDO_3V3
 
     usb_vbus.hv ~> usb_vbus_bulk ~> usb_vbus.lv
-    sink_vbus.hv ~> sink_vbus_bulk ~> sink_vbus.lv
     logic_3v3.hv ~> logic_3v3_bypass ~> logic_3v3.lv
     controller.LDO_3V3 ~> ldo_3v3_bypass ~> logic_3v3.lv
     controller.LDO_1V5 ~> ldo_1v5_bypass ~> logic_3v3.lv

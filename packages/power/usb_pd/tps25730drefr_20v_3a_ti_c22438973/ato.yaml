@@ -1,4 +1,4 @@
-requires-atopile: "0.14.1007"
+requires-atopile: "0.15.4"
 
 paths:
   src: ./
