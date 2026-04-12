@@ -2,10 +2,11 @@
 
 import CAN
 import CAN_TTL
-import Capacitor
 import ElectricLogic
 import ElectricPower
-import Resistor
+from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
+from "parts/YAGEO_RC0402FR_0710KL/YAGEO_RC0402FR_0710KL.ato" import YAGEO_RC0402FR_0710KL_package
+from "parts/YAGEO_RC0402FR_07120RL/YAGEO_RC0402FR_07120RL.ato" import YAGEO_RC0402FR_07120RL_package
 from "parts/TEXAS_INSTRUMENTS_TCAN3413DDFR/TEXAS_INSTRUMENTS_TCAN3413DDFR.ato" import TEXAS_INSTRUMENTS_TCAN3413DDFR_package
 from "parts/SolderJumper_2_Open_P1_3mm/SolderJumper_2_Open_P1_3mm.ato" import SolderJumper_2_Open_P1_3mm_package
 
@@ -27,49 +28,17 @@ module TCAN3413DDFR_TI:
     stb = new ElectricLogic
 
     transceiver = new TEXAS_INSTRUMENTS_TCAN3413DDFR_package
-    vcc_bypass = new Capacitor
-    vio_bypass = new Capacitor
-    standby_pulldown = new Resistor
-    termination = new Resistor
+    vcc_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    vio_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    standby_pulldown = new YAGEO_RC0402FR_0710KL_package
+    termination = new YAGEO_RC0402FR_07120RL_package
     termination_enable = new SolderJumper_2_Open_P1_3mm_package
 
     assert power.voltage within 3V to 3.6V
 
-    vcc_bypass.capacitance = 100nF +/- 10%
-    vcc_bypass.max_voltage = 50V
-    vcc_bypass.temperature_coefficient = "X7R"
-    vcc_bypass.package = "0402"
-    vcc_bypass.manufacturer = "Murata Electronics"
-    vcc_bypass.mpn = "GRM155R71H104KE14D"
-    vcc_bypass.lcsc_id = "C77020"
-    vcc_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 
-    vio_bypass.capacitance = 100nF +/- 10%
-    vio_bypass.max_voltage = 50V
-    vio_bypass.temperature_coefficient = "X7R"
-    vio_bypass.package = "0402"
-    vio_bypass.manufacturer = "Murata Electronics"
-    vio_bypass.mpn = "GRM155R71H104KE14D"
-    vio_bypass.lcsc_id = "C77020"
-    vio_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 
-    standby_pulldown.resistance = 10kohm +/- 1%
-    standby_pulldown.max_power = 62.5mW
-    standby_pulldown.max_voltage = 50V
-    standby_pulldown.package = "0402"
-    standby_pulldown.manufacturer = "YAGEO"
-    standby_pulldown.mpn = "RC0402FR-0710KL"
-    standby_pulldown.lcsc_id = "C60490"
-    standby_pulldown.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
 
-    termination.resistance = 120ohm +/- 1%
-    termination.max_power = 62.5mW
-    termination.max_voltage = 50V
-    termination.package = "0402"
-    termination.manufacturer = "YAGEO"
-    termination.mpn = "RC0402FR-07120RL"
-    termination.lcsc_id = "C114758"
-    termination.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-07120RL_C114758.pdf"
 
     can.diff_pair.p.reference ~ power
     can.diff_pair.n.reference ~ power
@@ -81,9 +50,12 @@ module TCAN3413DDFR_TI:
     power.hv ~ transceiver.VCC
     power.hv ~ transceiver.SHDN_VIO
 
-    transceiver.VCC ~> vcc_bypass ~> power.lv
-    transceiver.SHDN_VIO ~> vio_bypass ~> power.lv
-    transceiver.STB ~> standby_pulldown ~> power.lv
+    transceiver.VCC ~ vcc_bypass.1
+    vcc_bypass.2 ~ power.lv
+    transceiver.SHDN_VIO ~ vio_bypass.1
+    vio_bypass.2 ~ power.lv
+    transceiver.STB ~ standby_pulldown.1
+    standby_pulldown.2 ~ power.lv
 
     mcu.tx.line ~ transceiver.TXD
     mcu.rx.line ~ transceiver.RXD
@@ -91,7 +63,8 @@ module TCAN3413DDFR_TI:
     can.diff_pair.p.line ~ transceiver.CANH
     can.diff_pair.n.line ~ transceiver.CANL
 
-    can.diff_pair.p.line ~> termination ~> termination_enable.A
+    can.diff_pair.p.line ~ termination.1
+    termination.2 ~ termination_enable.A
     termination_enable.B ~ can.diff_pair.n.line
 
 

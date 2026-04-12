@@ -100,15 +100,15 @@
 			(outputdirectory "")
 		)
 	)
-	(net 1 "lv")
+	(net 1 "SW")
 	(net 2 "EN")
 	(net 3 "MODE")
-	(net 4 "FB")
+	(net 4 "2")
 	(net 5 "PG")
-	(net 6 "hv")
-	(net 7 "input_bypass-power-hv")
-	(net 8 "output_bulk_b-power-lv")
-	(net 9 "output_bulk_b-power-hv")
+	(net 6 "BOOT")
+	(net 7 "hv")
+	(net 8 "lv")
+	(net 9 "power_out-hv")
 	(footprint "Texas_Instruments_TPS56637RPAR:VQFN-HR-10_L3.0-W3.0_RPA"
 		(layer "F.Cu")
 		(uuid "12e0251d-7788-41b5-b14b-0ee04642524b")
@@ -337,22 +337,11 @@
 			(locked no)
 			(uuid "5e8415ea-6328-4dd2-8c04-7a99c6fda663")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "682fbdc1-48cf-45f3-8e2b-6385f022abbe")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "8" smd rect
 			(at 0.99 -0.65 0)
 			(size 0.4 2.1)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 7 "input_bypass-power-hv")
+			(net 7 "hv")
 			(uuid "f50f3fa1-4f6c-4473-82c5-27cc2ae8f2ef")
 		)
 		(pad "10" smd rect
@@ -366,7 +355,7 @@
 			(at -0.17 -0.65 0)
 			(size 0.4 2.1)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 8 "output_bulk_b-power-lv")
+			(net 8 "lv")
 			(uuid "0b82e321-8f3e-49d6-b57b-04aa80e3ef13")
 		)
 		(pad "5" smd rect
@@ -379,35 +368,35 @@
 			(at 0.41 0.85 0)
 			(size 0.25 1.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 1 "lv")
+			(net 1 "SW")
 			(uuid "60b6985f-1066-42c2-8e29-60732c6c9e49")
 		)
 		(pad "7" smd rect
 			(at 0.91 1.4 -90)
 			(size 0.6 0.25)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 6 "hv")
+			(net 6 "BOOT")
 			(uuid "2b8e49f1-a55e-4663-a87c-33fe2cc765e7")
 		)
 		(pad "8" smd rect
 			(at 1.36 -0.75 0)
 			(size 0.8 0.25)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 7 "input_bypass-power-hv")
+			(net 7 "hv")
 			(uuid "ab41c30d-48b4-47df-9123-f4c368630d83")
 		)
 		(pad "8" smd rect
 			(at 1.36 -0.25 0)
 			(size 0.8 0.25)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 7 "input_bypass-power-hv")
+			(net 7 "hv")
 			(uuid "5f6de6eb-45ca-4693-ab60-53cd2ea90d29")
 		)
 		(pad "8" smd rect
 			(at 1.36 0.25 0)
 			(size 0.8 0.25)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 7 "input_bypass-power-hv")
+			(net 7 "hv")
 			(uuid "e0f5b779-eac8-4e15-b8e3-7fc5f6f4a8f7")
 		)
 		(pad "4" smd rect
@@ -421,14 +410,14 @@
 			(at -1.36 0.25 0)
 			(size 0.6 0.25)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 8 "output_bulk_b-power-lv")
+			(net 8 "lv")
 			(uuid "0bcbe7c4-fec0-444b-bd69-65394027e6fd")
 		)
 		(pad "2" smd rect
 			(at -1.36 -0.25 0)
 			(size 0.6 0.25)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 4 "FB")
+			(net 4 "2")
 			(uuid "140eb549-4378-476a-ba78-3beed9b45d9c")
 		)
 		(pad "1" smd rect
@@ -466,7 +455,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "3fccc4b7-dfe3-4818-8060-f50012a4141e")
@@ -687,29 +676,18 @@
 			(locked no)
 			(uuid "4f4ac530-a886-4a5b-9d5c-935b95a56363")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "d43ca179-6c29-4533-b458-7d186fd9f07d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 1 "lv")
+			(net 1 "SW")
 			(uuid "9bfdf9dd-92cb-406e-bd77-c022cb87cd69")
 		)
 		(pad "1" smd rect
 			(at -0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 6 "hv")
+			(net 6 "BOOT")
 			(uuid "0f8ccfe4-57d3-4235-abce-eabb44754239")
 		)
 		(embedded_fonts no)
@@ -740,7 +718,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "3fccc4b7-dfe3-4818-8060-f50012a4141e")
@@ -961,29 +939,18 @@
 			(locked no)
 			(uuid "4f4ac530-a886-4a5b-9d5c-935b95a56363")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "d43ca179-6c29-4533-b458-7d186fd9f07d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 8 "output_bulk_b-power-lv")
+			(net 8 "lv")
 			(uuid "9bfdf9dd-92cb-406e-bd77-c022cb87cd69")
 		)
 		(pad "1" smd rect
 			(at -0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 7 "input_bypass-power-hv")
+			(net 7 "hv")
 			(uuid "0f8ccfe4-57d3-4235-abce-eabb44754239")
 		)
 		(embedded_fonts no)
@@ -1014,7 +981,7 @@
 				)
 			)
 		)
-		(property "Value" "10000Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "53bd456f-d215-4b23-9c37-9112ab433b99")
@@ -1061,7 +1028,7 @@
 			(hide yes)
 			(uuid "5d11ea3a-1e64-498f-93c7-bb9a4642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0710KL_C60490.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1187,29 +1154,18 @@
 			(locked no)
 			(uuid "824ed972-8c38-404c-8391-a86a5baaba06")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "e87f3619-4dce-48ac-b4b9-8b63b5571efc")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 8 "output_bulk_b-power-lv")
+			(net 8 "lv")
 			(uuid "99365eaa-b9a3-4f39-9c16-210807a0c740")
 		)
 		(pad "1" smd rect
 			(at -0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 4 "FB")
+			(net 4 "2")
 			(uuid "0cc57829-3ab2-4ffc-b2b6-801d99c485cf")
 		)
 		(embedded_fonts no)
@@ -1240,7 +1196,7 @@
 				)
 			)
 		)
-		(property "Value" "75000Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "09e0c4cd-46da-4188-810f-84b1578eb7cd")
@@ -1287,7 +1243,7 @@
 			(hide yes)
 			(uuid "7b0e1ce3-0398-4a2d-b4c3-4f1d4642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0775KL_C137935.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0775KL_C137935.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1413,29 +1369,18 @@
 			(locked no)
 			(uuid "61097679-801a-461d-ac46-cc532d5378ac")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "32d19e4c-1696-41c6-856e-062ace46b8e9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 4 "FB")
+			(net 4 "2")
 			(uuid "e32975b7-f3b7-4f43-a107-e0a34e0693a9")
 		)
 		(pad "1" smd rect
 			(at -0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 9 "output_bulk_b-power-hv")
+			(net 9 "power_out-hv")
 			(uuid "9c3f4979-197a-4231-9670-219b55a91f68")
 		)
 		(embedded_fonts no)
@@ -1466,7 +1411,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "b9150eb6-d346-46dc-bb2b-527fd9cef85d")
@@ -1687,29 +1632,18 @@
 			(locked no)
 			(uuid "d8237cac-2205-4478-987a-24f6261cce40")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "8158f4a3-dbb3-49c6-8ae0-63d9327e59b9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 1.59 0 0)
 			(size 1.49 1.73)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 8 "output_bulk_b-power-lv")
+			(net 8 "lv")
 			(uuid "99531bbb-6ad1-4bee-973e-9cb07e6dc673")
 		)
 		(pad "1" smd rect
 			(at -1.59 0 0)
 			(size 1.49 1.73)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 7 "input_bypass-power-hv")
+			(net 7 "hv")
 			(uuid "a63ed563-69aa-42b8-b32a-6e39a2d93743")
 		)
 		(embedded_fonts no)
@@ -1740,7 +1674,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "b9150eb6-d346-46dc-bb2b-527fd9cef85d")
@@ -1961,29 +1895,18 @@
 			(locked no)
 			(uuid "d8237cac-2205-4478-987a-24f6261cce40")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "8158f4a3-dbb3-49c6-8ae0-63d9327e59b9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 1.59 0 0)
 			(size 1.49 1.73)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 8 "output_bulk_b-power-lv")
+			(net 8 "lv")
 			(uuid "99531bbb-6ad1-4bee-973e-9cb07e6dc673")
 		)
 		(pad "1" smd rect
 			(at -1.59 0 0)
 			(size 1.49 1.73)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 7 "input_bypass-power-hv")
+			(net 7 "hv")
 			(uuid "a63ed563-69aa-42b8-b32a-6e39a2d93743")
 		)
 		(embedded_fonts no)
@@ -2014,7 +1937,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "87699d32-dfd4-46db-ba03-56ec2e4d4ff5")
@@ -2235,29 +2158,18 @@
 			(locked no)
 			(uuid "97757e6c-e850-431e-b369-82d15bd1ecd9")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "8784b052-a618-46f0-86b1-fb5a0c00720f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 1.59 0 0)
 			(size 1.49 1.73)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 8 "output_bulk_b-power-lv")
+			(net 8 "lv")
 			(uuid "e1d8bb1c-a555-47cc-add3-6a6abb1b1ae0")
 		)
 		(pad "1" smd rect
 			(at -1.59 0 0)
 			(size 1.49 1.73)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 9 "output_bulk_b-power-hv")
+			(net 9 "power_out-hv")
 			(uuid "ce5a8804-9beb-4224-81bc-cfe6752cedd3")
 		)
 		(embedded_fonts no)
@@ -2288,7 +2200,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "87699d32-dfd4-46db-ba03-56ec2e4d4ff5")
@@ -2509,29 +2421,18 @@
 			(locked no)
 			(uuid "97757e6c-e850-431e-b369-82d15bd1ecd9")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "8784b052-a618-46f0-86b1-fb5a0c00720f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 1.59 0 0)
 			(size 1.49 1.73)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 8 "output_bulk_b-power-lv")
+			(net 8 "lv")
 			(uuid "e1d8bb1c-a555-47cc-add3-6a6abb1b1ae0")
 		)
 		(pad "1" smd rect
 			(at -1.59 0 0)
 			(size 1.49 1.73)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 9 "output_bulk_b-power-hv")
+			(net 9 "power_out-hv")
 			(uuid "ce5a8804-9beb-4224-81bc-cfe6752cedd3")
 		)
 		(embedded_fonts no)
@@ -2562,7 +2463,7 @@
 				)
 			)
 		)
-		(property "Value" "L 0H"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "6655d430-9c09-47db-b511-33504ceaf4e4")
@@ -2579,7 +2480,7 @@
 			(hide yes)
 			(uuid "26c95c72-01bd-45f0-ae04-a9134642524b")
 		)
-		(property "Manufacturer" "cjiang(Changjiang Microelectronics Tech)"
+		(property "Manufacturer" "cjiang"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2771,29 +2672,18 @@
 			(locked no)
 			(uuid "56b9f7c1-1179-4793-a1f1-34a35c6446cd")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "2c10c151-1093-4d56-8b05-bfa5e43d8568")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "1" smd rect
 			(at -3 0 0)
 			(size 2.4 3.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 1 "lv")
+			(net 1 "SW")
 			(uuid "b76d893a-6f45-4d69-8787-3aca1f8aa6ad")
 		)
 		(pad "2" smd rect
 			(at 3 0 0)
 			(size 2.4 3.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 9 "output_bulk_b-power-hv")
+			(net 9 "power_out-hv")
 			(uuid "8c73ad0b-daa9-4c6f-8055-9070c81575f4")
 		)
 		(embedded_fonts no)

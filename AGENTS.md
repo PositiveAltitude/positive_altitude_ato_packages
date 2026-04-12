@@ -33,7 +33,7 @@ Guidance:
 - Keep one primary entry file per directory.
 - Keep multi-component assemblies in `packages/`.
 - Keep package-specific generated parts under the package's own `parts/` folder.
-- Use generic `Capacitor`, `Resistor`, `Inductor`, and similar abstractions directly in package code when a separate generated part is unnecessary.
+- Prefer explicit package-local concrete part modules over generic `Capacitor`, `Resistor`, `Inductor`, `Diode`, and similar abstractions whenever the package already owns the matching generated part assets, so builds stay deterministic and do not depend on live part-picking.
 - Prefer using `ato` part generation over manual symbol/footprint sourcing workflows.
 - When creating a new package follow the best practices from the datasheet. Use example designs from datasheet when relevant.  
 
@@ -53,7 +53,7 @@ Guidance:
 
 ## Library Asset Rules
 
-- Prefer `ato` to generate and manage local part assets whenever it can provide a usable result.
+- Prefer `ato` to generate and manage local part assets whenever it can provide a usable result, and then wire those generated local parts directly in package code instead of relying on generic part-picking.
 - Keep generated part definitions and ECAD assets under the owning package's `parts/` folder.
 - If a package depends on a manually vendored source-specific asset, call that out explicitly in the work summary.
 - During work on the package `ato` can create parts for some used components. Keep it in mind. Cleanup all unused parts before commiting git
@@ -70,7 +70,7 @@ Guidance:
 - Keep interfaces explicit and readable.
 - Prefer reusable parameterized packages over one-off designs.
 - Use package-local `parts/` only for concrete parts that need generated symbols, footprints, or models.
-- For simple passives, prefer generic modules with explicit electrical values and fixed LCSC codes.
+- For simple passives, prefer explicit package-local concrete part modules with fixed LCSC codes. Use generic modules only when a concrete local part asset truly is unnecessary and verification will not depend on live part-picking.
 - Reuse existing repository component choices for equivalent new designs when possible to keep BOMs consistent across packages.
 - Keep BOM decisions deterministic and documented in code.
 - Keep package-local assets and dependencies easy to trace.

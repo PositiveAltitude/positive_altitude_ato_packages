@@ -128,11 +128,11 @@
 	(net 25 "PB6")
 	(net 26 "PB7")
 	(net 27 "PB8")
-	(net 28 "hv")
+	(net 28 "PF2_NRST")
 	(net 29 "PA0")
 	(net 30 "PA1")
 	(net 31 "PA2")
-	(net 32 "supply_bypass-power-hv")
+	(net 32 "hv")
 	(footprint "STMicroelectronics_STM32G0B1KBU6:QFN-32_L5.0-W5.0-P0.50-TL-EP3.5"
 		(layer "F.Cu")
 		(uuid "bbad3e98-b826-480e-8e59-d59e4642524b")
@@ -346,7 +346,7 @@
 			(at -2.5 -0.25 0)
 			(size 0.8 0.28)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 32 "supply_bypass-power-hv")
+			(net 32 "hv")
 			(uuid "45102d7f-8195-4be2-a3f2-afe9f7ba438e")
 		)
 		(pad "5" smd oval
@@ -360,7 +360,7 @@
 			(at -2.5 0.75 0)
 			(size 0.8 0.28)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 28 "hv")
+			(net 28 "PF2_NRST")
 			(uuid "5e71d0f7-52cf-4c0b-a935-c50d52b7a691")
 		)
 		(pad "7" smd oval
@@ -574,7 +574,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10kΩ ±1%"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "a23a39c9-b5b7-477e-87ad-8f19ab967876")
@@ -621,7 +621,7 @@
 			(hide yes)
 			(uuid "8dcbce19-b3f6-4087-9b98-4b924642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0710KL_C60490.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -790,7 +790,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF ±10%"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "a6f22c75-528c-4e41-9a82-7a5a61141c50")
@@ -1022,7 +1022,7 @@
 			(at -0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 28 "hv")
+			(net 28 "PF2_NRST")
 			(uuid "9e755ca0-679b-4a11-b262-33392172d93b")
 		)
 		(embedded_fonts no)
@@ -1054,7 +1054,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF ±10%"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "a6f22c75-528c-4e41-9a82-7a5a61141c50")
@@ -1286,7 +1286,7 @@
 			(at -0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 32 "supply_bypass-power-hv")
+			(net 32 "hv")
 			(uuid "9e755ca0-679b-4a11-b262-33392172d93b")
 		)
 		(embedded_fonts no)
@@ -1318,7 +1318,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "4.7µF ±10%"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "7f896c7c-60eb-446a-ae44-599210c1079d")
@@ -1550,7 +1550,7 @@
 			(at -0.7 0 0)
 			(size 0.8 0.9)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 32 "supply_bypass-power-hv")
+			(net 32 "hv")
 			(uuid "f62df771-e891-4062-8053-6db5a57dc80e")
 		)
 		(embedded_fonts no)

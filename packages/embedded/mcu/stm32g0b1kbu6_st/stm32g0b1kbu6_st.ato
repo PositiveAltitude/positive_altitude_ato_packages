@@ -1,8 +1,9 @@
 """STM32G0B1KBU6 MCU package with fixed support passives and supply filtering."""
 
-import Capacitor
 import ElectricPower
-import Resistor
+from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
+from "parts/Murata_Electronics_GRM188R61E475KE11D/Murata_Electronics_GRM188R61E475KE11D.ato" import Murata_Electronics_GRM188R61E475KE11D_package
+from "parts/YAGEO_RC0402FR_0710KL/YAGEO_RC0402FR_0710KL.ato" import YAGEO_RC0402FR_0710KL_package
 from "parts/STMicroelectronics_STM32G0B1KBU6/STMicroelectronics_STM32G0B1KBU6.ato" import STMicroelectronics_STM32G0B1KBU6_package
 
 module STM32G0B1KBU6_ST:
@@ -13,59 +14,30 @@ module STM32G0B1KBU6_ST:
     power = new ElectricPower
     mcu = new STMicroelectronics_STM32G0B1KBU6_package
 
-    supply_bulk = new Capacitor
-    supply_bypass = new Capacitor
-    boot_pulldown = new Resistor
-    reset_cap = new Capacitor
-
+    supply_bulk = new Murata_Electronics_GRM188R61E475KE11D_package
+    supply_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    boot_pulldown = new YAGEO_RC0402FR_0710KL_package
+    reset_cap = new Murata_Electronics_GRM155R71H104KE14D_package
     assert power.voltage within 1.7V to 3.6V
 
-    supply_bulk.capacitance = 4.7uF +/- 10%
-    supply_bulk.max_voltage = 25V
-    supply_bulk.temperature_coefficient = "X5R"
-    supply_bulk.package = "0603"
-    supply_bulk.manufacturer = "Murata Electronics"
-    supply_bulk.mpn = "GRM188R61E475KE11D"
-    supply_bulk.lcsc_id = "C90057"
-    supply_bulk.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM188R61E475KE11D_C90057.pdf"
 
-    supply_bypass.capacitance = 100nF +/- 10%
-    supply_bypass.max_voltage = 50V
-    supply_bypass.temperature_coefficient = "X7R"
-    supply_bypass.package = "0402"
-    supply_bypass.manufacturer = "Murata Electronics"
-    supply_bypass.mpn = "GRM155R71H104KE14D"
-    supply_bypass.lcsc_id = "C77020"
-    supply_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 
-    boot_pulldown.resistance = 10kohm +/- 1%
-    boot_pulldown.max_power = 62.5mW
-    boot_pulldown.max_voltage = 50V
-    boot_pulldown.package = "0402"
-    boot_pulldown.manufacturer = "YAGEO"
-    boot_pulldown.mpn = "RC0402FR-0710KL"
-    boot_pulldown.lcsc_id = "C60490"
-    boot_pulldown.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
 
-    reset_cap.capacitance = 100nF +/- 10%
-    reset_cap.max_voltage = 50V
-    reset_cap.temperature_coefficient = "X7R"
-    reset_cap.package = "0402"
-    reset_cap.manufacturer = "Murata Electronics"
-    reset_cap.mpn = "GRM155R71H104KE14D"
-    reset_cap.lcsc_id = "C77020"
-    reset_cap.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 
     power.lv ~ mcu.VSS
     power.lv ~ mcu.VSS_VSSA
 
     power.hv ~ mcu.VDD_VDDA
 
-    mcu.VDD_VDDA ~> supply_bulk ~> power.lv
-    mcu.VDD_VDDA ~> supply_bypass ~> power.lv
+    mcu.VDD_VDDA ~ supply_bulk.1
+    supply_bulk.2 ~ power.lv
+    mcu.VDD_VDDA ~ supply_bypass.1
+    supply_bypass.2 ~ power.lv
 
-    mcu.PA14_BOOT0 ~> boot_pulldown ~> power.lv
-    mcu.PF2_NRST ~> reset_cap ~> power.lv
+    mcu.PA14_BOOT0 ~ boot_pulldown.1
+    boot_pulldown.2 ~ power.lv
+    mcu.PF2_NRST ~ reset_cap.1
+    reset_cap.2 ~ power.lv
 
     signal PA0 ~ mcu.PA0
     signal PA1 ~ mcu.PA1

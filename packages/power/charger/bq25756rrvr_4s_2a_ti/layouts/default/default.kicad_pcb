@@ -100,10 +100,10 @@
 			(outputdirectory "")
 		)
 	)
-	(net 5 "bootstrap_1-power-hv")
+	(net 5 "1-2")
 	(net 7 "SCL")
-	(net 8 "bootstrap_2-power-hv")
-	(net 10 "regn_bulk-power-hv")
+	(net 8 "1-4")
+	(net 10 "1-5")
 	(net 14 "FSW_SYNC")
 	(net 15 "5")
 	(net 16 "nPG")
@@ -114,21 +114,21 @@
 	(net 24 "FB")
 	(net 25 "4")
 	(net 26 "TS")
-	(net 2 "input_bulk_source-power-hv")
-	(net 12 "hv")
-	(net 28 "battery_sense_filter-power-hv")
-	(net 29 "lv")
-	(net 30 "battery_bulk_pack-power-hv")
-	(net 31 "battery_sense_filter-power-lv")
-	(net 27 "vac_bypass-power-lv")
-	(net 33 "vac_bypass-power-hv")
+	(net 2 "hv")
+	(net 12 "acp_filtered")
+	(net 28 "srp_filtered")
+	(net 29 "acn_filtered")
+	(net 30 "battery-hv")
+	(net 31 "srn_filtered")
+	(net 27 "lv")
+	(net 33 "1")
 	(net 34 "25")
 	(net 37 "21")
-	(net 3 "2")
-	(net 4 "bootstrap_1-power-lv")
-	(net 6 "bootstrap_2-power-lv")
+	(net 3 "2-1")
+	(net 4 "1-3")
+	(net 6 "2")
 	(net 9 "19")
-	(net 11 "battery_bypass-power-hv")
+	(net 11 "1-1")
 	(footprint "Texas_Instruments_BQ25756RRVR:TQFN-36_L6.0-W5.0-P0.50-BL-EP-1"
 		(layer "F.Cu")
 		(uuid "8f7ac943-8524-4f0e-b9d9-15564642524b")
@@ -321,22 +321,11 @@
 			(locked no)
 			(uuid "3175951c-9698-4460-acce-a05e9a177bcc")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "5462122e-66ea-4835-9a87-86cd47b645e4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "37" smd rect
 			(at 0 0 90)
 			(size 3.5 4.5)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "33b7421a-e856-4742-bca5-008e953c26b8")
 		)
 		(pad "36" smd rect
@@ -350,28 +339,28 @@
 			(at -3 1.25 90)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "e4224cdd-a64f-4b7d-8374-afe1c2501789")
 		)
 		(pad "34" smd rect
 			(at -3 0.75 90)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 33 "vac_bypass-power-hv")
+			(net 33 "1")
 			(uuid "bf335166-c723-4151-81e8-3a690c88e23f")
 		)
 		(pad "33" smd rect
 			(at -3 0.25 90)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 33 "vac_bypass-power-hv")
+			(net 33 "1")
 			(uuid "ddfafbd6-2111-412f-a733-4a9910a0a751")
 		)
 		(pad "32" smd rect
 			(at -3 -0.25 90)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 33 "vac_bypass-power-hv")
+			(net 33 "1")
 			(uuid "c5e79e3e-7ac5-43c0-ae60-ff958cfd4fe5")
 		)
 		(pad "31" smd rect
@@ -384,35 +373,35 @@
 			(at -3 -1.25 90)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 12 "hv")
+			(net 12 "acp_filtered")
 			(uuid "be333532-ed4a-486e-9d62-c962476cec55")
 		)
 		(pad "29" smd rect
 			(at -3 -1.75 90)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 29 "lv")
+			(net 29 "acn_filtered")
 			(uuid "fcb11aed-c44c-4798-b03e-132d72f8880a")
 		)
 		(pad "28" smd rect
 			(at -2.25 -2.5 0)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 4 "bootstrap_1-power-lv")
+			(net 4 "1-3")
 			(uuid "be3a56e3-c084-48d2-b664-58b646dec89a")
 		)
 		(pad "27" smd rect
 			(at -1.75 -2.5 0)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 3 "2")
+			(net 3 "2-1")
 			(uuid "25d00d52-ef63-465a-bd1a-1fc7b5b9151a")
 		)
 		(pad "26" smd rect
 			(at -1.25 -2.5 0)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 5 "bootstrap_1-power-hv")
+			(net 5 "1-2")
 			(uuid "16ae0f3a-0334-465d-a1d7-27552f3a3f72")
 		)
 		(pad "25" smd rect
@@ -426,21 +415,21 @@
 			(at -0.25 -2.5 0)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 10 "regn_bulk-power-hv")
+			(net 10 "1-5")
 			(uuid "dcccb3aa-ece9-4df0-86fa-bf7a1468bcc0")
 		)
 		(pad "23" smd rect
 			(at 0.25 -2.5 0)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 10 "regn_bulk-power-hv")
+			(net 10 "1-5")
 			(uuid "2e4767f1-7a45-4943-a553-58475a38840f")
 		)
 		(pad "22" smd rect
 			(at 0.75 -2.5 0)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "6360b74b-b8a7-4e26-b2c2-f5ca3d804e05")
 		)
 		(pad "21" smd rect
@@ -454,7 +443,7 @@
 			(at 1.75 -2.5 0)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 8 "bootstrap_2-power-hv")
+			(net 8 "1-4")
 			(uuid "2b78d2db-5de4-40dd-97e3-471726600cde")
 		)
 		(pad "19" smd rect
@@ -468,14 +457,14 @@
 			(at 3 -1.75 -90)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 6 "bootstrap_2-power-lv")
+			(net 6 "2")
 			(uuid "cc3069c9-4ddd-465c-a438-ee8b1a312784")
 		)
 		(pad "17" smd rect
 			(at 3 -1.25 -90)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "b842ef32-9b7b-4a0f-928f-aeb46c107178")
 		)
 		(pad "16" smd rect
@@ -494,14 +483,14 @@
 			(at 3 0.25 -90)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 28 "battery_sense_filter-power-hv")
+			(net 28 "srp_filtered")
 			(uuid "1f2adb8d-1736-465a-92cf-197ca8f58ca9")
 		)
 		(pad "13" smd rect
 			(at 3 0.75 -90)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 31 "battery_sense_filter-power-lv")
+			(net 31 "srn_filtered")
 			(uuid "2f1ac768-b6e9-4506-9565-feb1e6442459")
 		)
 		(pad "12" smd rect
@@ -515,14 +504,14 @@
 			(at 3 1.75 -90)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "938c5c63-1b1f-4328-9187-3e37ea79532a")
 		)
 		(pad "10" smd rect
 			(at 2.25 2.5 180)
 			(size 0.3 0.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "65a5b891-1240-4db4-8c4f-735207ce4681")
 		)
 		(pad "9" smd rect
@@ -769,36 +758,25 @@
 			(locked no)
 			(uuid "3da892c4-27a0-44cd-b072-f6788a08bb82")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "1d8c2be2-a5b5-4879-894c-f729a42a51e8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "1" smd rect
 			(at -1.13 0.95 0)
 			(size 0.4 0.85)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 4 "bootstrap_1-power-lv")
+			(net 4 "1-3")
 			(uuid "3aef5496-d136-44f2-994e-1e4bde36ba15")
 		)
 		(pad "2" smd rect
 			(at -0.38 0.95 0)
 			(size 0.4 0.85)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 3 "2")
+			(net 3 "2-1")
 			(uuid "e6909190-0918-41fe-a640-0dd4b604d20f")
 		)
 		(pad "3" smd rect
 			(at 0.37 0.95 0)
 			(size 0.4 0.85)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "60be8467-fb64-4431-93c8-cc386d4aecce")
 		)
 		(pad "4" smd rect
@@ -812,7 +790,7 @@
 			(at 0.75 -0.95 0)
 			(size 0.01 0.01)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 4 "bootstrap_1-power-lv")
+			(net 4 "1-3")
 			(uuid "0aec59d2-e67b-43dd-bf85-64753b0b7113")
 			(primitives
 				(gr_poly
@@ -827,7 +805,7 @@
 			(at -0.75 -0.95 0)
 			(size 0.01 0.01)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 33 "vac_bypass-power-hv")
+			(net 33 "1")
 			(uuid "23ffedde-1dc7-428a-b22f-9ca9b35b3307")
 			(primitives
 				(gr_poly
@@ -1008,22 +986,11 @@
 			(locked no)
 			(uuid "237ea222-5c34-4779-9fae-de2c697d0517")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "1d8c2be2-a5b5-4879-894c-f729a42a51e8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "1" smd rect
 			(at -1.13 0.95 0)
 			(size 0.4 0.85)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 6 "bootstrap_2-power-lv")
+			(net 6 "2")
 			(uuid "eee080d4-4212-4e9f-92d5-9da2df6de3e4")
 		)
 		(pad "2" smd rect
@@ -1037,7 +1004,7 @@
 			(at 0.37 0.95 0)
 			(size 0.4 0.85)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "113863cd-474f-4a1a-abe3-6692302e410f")
 		)
 		(pad "4" smd rect
@@ -1051,7 +1018,7 @@
 			(at 0.75 -0.95 0)
 			(size 0.01 0.01)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 6 "bootstrap_2-power-lv")
+			(net 6 "2")
 			(uuid "2e47d814-d316-477e-ad52-b9cfd667acb5")
 			(primitives
 				(gr_poly
@@ -1066,7 +1033,7 @@
 			(at -0.75 -0.95 0)
 			(size 0.01 0.01)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 11 "battery_bypass-power-hv")
+			(net 11 "1-1")
 			(uuid "e82819f8-8cc0-4d20-93dd-851d679c9d9f")
 			(primitives
 				(gr_poly
@@ -1094,7 +1061,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "bf51c7fc-3af4-4e1f-a76d-df0c9fd50c52")
@@ -1315,29 +1282,18 @@
 			(locked no)
 			(uuid "ee5f387b-d88f-41e6-abb5-e32a4597694a")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "6164274d-b5bf-4993-ad86-1e7a314c0d06")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 29 "lv")
+			(net 29 "acn_filtered")
 			(uuid "30cc8168-aad5-4ef3-b2f1-44c7642d408f")
 		)
 		(pad "1" smd rect
 			(at -0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 12 "hv")
+			(net 12 "acp_filtered")
 			(uuid "d5b860ac-c9b1-48fd-85e3-7bb770991279")
 		)
 		(embedded_fonts no)
@@ -1368,7 +1324,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "bf51c7fc-3af4-4e1f-a76d-df0c9fd50c52")
@@ -1589,29 +1545,18 @@
 			(locked no)
 			(uuid "ee5f387b-d88f-41e6-abb5-e32a4597694a")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "6164274d-b5bf-4993-ad86-1e7a314c0d06")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 31 "battery_sense_filter-power-lv")
+			(net 31 "srn_filtered")
 			(uuid "30cc8168-aad5-4ef3-b2f1-44c7642d408f")
 		)
 		(pad "1" smd rect
 			(at -0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 28 "battery_sense_filter-power-hv")
+			(net 28 "srp_filtered")
 			(uuid "d5b860ac-c9b1-48fd-85e3-7bb770991279")
 		)
 		(embedded_fonts no)
@@ -1642,7 +1587,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "86820a33-aad7-4a26-ab19-e2e97a31cec3")
@@ -1863,29 +1808,18 @@
 			(locked no)
 			(uuid "8d4c2d90-912d-4b8b-b051-4428a444ce65")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "d0c9e2d2-7e8a-49e7-b657-02d960818635")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "177add2f-3bf3-4339-8bc7-d73684bfe2eb")
 		)
 		(pad "1" smd rect
 			(at -0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 11 "battery_bypass-power-hv")
+			(net 11 "1-1")
 			(uuid "57530d57-5223-442e-af23-2fc137bafb0e")
 		)
 		(embedded_fonts no)
@@ -1916,7 +1850,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "86820a33-aad7-4a26-ab19-e2e97a31cec3")
@@ -2137,29 +2071,18 @@
 			(locked no)
 			(uuid "8d4c2d90-912d-4b8b-b051-4428a444ce65")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "d0c9e2d2-7e8a-49e7-b657-02d960818635")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 4 "bootstrap_1-power-lv")
+			(net 4 "1-3")
 			(uuid "177add2f-3bf3-4339-8bc7-d73684bfe2eb")
 		)
 		(pad "1" smd rect
 			(at -0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 5 "bootstrap_1-power-hv")
+			(net 5 "1-2")
 			(uuid "57530d57-5223-442e-af23-2fc137bafb0e")
 		)
 		(embedded_fonts no)
@@ -2190,7 +2113,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "86820a33-aad7-4a26-ab19-e2e97a31cec3")
@@ -2411,29 +2334,18 @@
 			(locked no)
 			(uuid "8d4c2d90-912d-4b8b-b051-4428a444ce65")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "d0c9e2d2-7e8a-49e7-b657-02d960818635")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 6 "bootstrap_2-power-lv")
+			(net 6 "2")
 			(uuid "177add2f-3bf3-4339-8bc7-d73684bfe2eb")
 		)
 		(pad "1" smd rect
 			(at -0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 8 "bootstrap_2-power-hv")
+			(net 8 "1-4")
 			(uuid "57530d57-5223-442e-af23-2fc137bafb0e")
 		)
 		(embedded_fonts no)
@@ -2464,7 +2376,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "86820a33-aad7-4a26-ab19-e2e97a31cec3")
@@ -2685,29 +2597,18 @@
 			(locked no)
 			(uuid "8d4c2d90-912d-4b8b-b051-4428a444ce65")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "d0c9e2d2-7e8a-49e7-b657-02d960818635")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "177add2f-3bf3-4339-8bc7-d73684bfe2eb")
 		)
 		(pad "1" smd rect
 			(at -0.42 0 0)
 			(size 0.5 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 33 "vac_bypass-power-hv")
+			(net 33 "1")
 			(uuid "57530d57-5223-442e-af23-2fc137bafb0e")
 		)
 		(embedded_fonts no)
@@ -2738,7 +2639,7 @@
 				)
 			)
 		)
-		(property "Value" "0.005Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "b1ec3705-6ab2-4274-a71d-e9c931cf3cfa")
@@ -2893,29 +2794,18 @@
 			(locked no)
 			(uuid "9986b470-eab1-4b66-8832-a531b0a71056")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "edae3199-6b0c-4df1-b76b-76a5650ca851")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 1.48 0 0)
 			(size 1.21 1.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 30 "battery_bulk_pack-power-hv")
+			(net 30 "battery-hv")
 			(uuid "923bb186-2d61-44dd-bfbe-1e95c2709c14")
 		)
 		(pad "1" smd rect
 			(at -1.48 0 0)
 			(size 1.21 1.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 11 "battery_bypass-power-hv")
+			(net 11 "1-1")
 			(uuid "ef922ab5-aae4-418f-8854-83ab3b24a395")
 		)
 		(embedded_fonts no)
@@ -2946,7 +2836,7 @@
 				)
 			)
 		)
-		(property "Value" "0.005Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "b1ec3705-6ab2-4274-a71d-e9c931cf3cfa")
@@ -3101,29 +2991,18 @@
 			(locked no)
 			(uuid "9986b470-eab1-4b66-8832-a531b0a71056")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "edae3199-6b0c-4df1-b76b-76a5650ca851")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 1.48 0 0)
 			(size 1.21 1.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 33 "vac_bypass-power-hv")
+			(net 33 "1")
 			(uuid "923bb186-2d61-44dd-bfbe-1e95c2709c14")
 		)
 		(pad "1" smd rect
 			(at -1.48 0 0)
 			(size 1.21 1.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 2 "input_bulk_source-power-hv")
+			(net 2 "hv")
 			(uuid "ef922ab5-aae4-418f-8854-83ab3b24a395")
 		)
 		(embedded_fonts no)
@@ -3154,7 +3033,7 @@
 				)
 			)
 		)
-		(property "Value" "49900Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "26c9227d-1398-458f-99d5-7cf14a09f6fa")
@@ -3201,7 +3080,7 @@
 			(hide yes)
 			(uuid "de8865a8-1bd0-4564-9b39-9b324642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0749K9L_C137969.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0749K9L_C137969.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3327,22 +3206,11 @@
 			(locked no)
 			(uuid "c43b3b76-a163-4e8b-8085-ee4577dbdcc5")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "a8465fb3-1142-42b0-bd71-cae1688dd52e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "2dcec44c-474a-42da-83cc-bb2923fdc6b6")
 		)
 		(pad "1" smd rect
@@ -3380,7 +3248,7 @@
 				)
 			)
 		)
-		(property "Value" "24900Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "26c9227d-1398-458f-99d5-7cf14a09f6fa")
@@ -3553,22 +3421,11 @@
 			(locked no)
 			(uuid "c43b3b76-a163-4e8b-8085-ee4577dbdcc5")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "a8465fb3-1142-42b0-bd71-cae1688dd52e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "2dcec44c-474a-42da-83cc-bb2923fdc6b6")
 		)
 		(pad "1" smd rect
@@ -3606,7 +3463,7 @@
 				)
 			)
 		)
-		(property "Value" "10000Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "9bea731e-58cc-4441-8f3d-77eb51d3a2b8")
@@ -3653,7 +3510,7 @@
 			(hide yes)
 			(uuid "fa1aa05b-fb0a-4c89-91b1-56824642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0710KL_C60490.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3779,22 +3636,11 @@
 			(locked no)
 			(uuid "dabf847b-de8f-43d7-a396-f1b81a6142ad")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "d46f8b67-3948-44bc-a221-a367e6626567")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "691aa051-79c9-4a5a-986a-8ac41f8eecbf")
 		)
 		(pad "1" smd rect
@@ -3832,7 +3678,7 @@
 				)
 			)
 		)
-		(property "Value" "10000Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "9bea731e-58cc-4441-8f3d-77eb51d3a2b8")
@@ -3879,7 +3725,7 @@
 			(hide yes)
 			(uuid "446feb8f-4808-4789-a90d-3fc74642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0710KL_C60490.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -4005,22 +3851,11 @@
 			(locked no)
 			(uuid "dabf847b-de8f-43d7-a396-f1b81a6142ad")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "d46f8b67-3948-44bc-a221-a367e6626567")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "691aa051-79c9-4a5a-986a-8ac41f8eecbf")
 		)
 		(pad "1" smd rect
@@ -4058,7 +3893,7 @@
 				)
 			)
 		)
-		(property "Value" "10000Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "9bea731e-58cc-4441-8f3d-77eb51d3a2b8")
@@ -4105,7 +3940,7 @@
 			(hide yes)
 			(uuid "3e81540c-3b6a-439d-bfd0-e6ec4642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710KL_C60490.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0710KL_C60490.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -4231,17 +4066,6 @@
 			(locked no)
 			(uuid "dabf847b-de8f-43d7-a396-f1b81a6142ad")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "d46f8b67-3948-44bc-a221-a367e6626567")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
@@ -4253,7 +4077,7 @@
 			(at -0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 10 "regn_bulk-power-hv")
+			(net 10 "1-5")
 			(uuid "6934d603-3995-40a9-bbf7-dc8cc47f72ab")
 		)
 		(embedded_fonts no)
@@ -4284,7 +4108,7 @@
 				)
 			)
 		)
-		(property "Value" "L 0H"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "0ee9fe3c-4194-4f17-8b18-6ef41aa0d452")
@@ -4445,29 +4269,18 @@
 			(locked no)
 			(uuid "396a6ba4-e323-4c61-a8ee-f00f4d806e39")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "36ef2b95-523d-4742-aab3-04af230ddf05")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "1" smd rect
 			(at -2.92 0 0)
 			(size 2.4 3.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 4 "bootstrap_1-power-lv")
+			(net 4 "1-3")
 			(uuid "b57bf0f1-a5ca-4f67-9c99-67b9540273f3")
 		)
 		(pad "2" smd rect
 			(at 2.92 0 0)
 			(size 2.4 3.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 6 "bootstrap_2-power-lv")
+			(net 6 "2")
 			(uuid "f32317f6-4aff-4b37-be62-bfb330b4a23b")
 		)
 		(embedded_fonts no)
@@ -4498,7 +4311,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "7e09effe-b06a-4bdb-80cd-2475ceb1ee19")
@@ -4719,29 +4532,18 @@
 			(locked no)
 			(uuid "c9b8e60d-1924-48a3-97d7-72e1c05f2e51")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "32b066d2-d27c-47b7-98c3-c252c71f1418")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 1.59 0 0)
 			(size 1.49 1.73)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "307985c4-d957-4f47-bc35-a049590739f2")
 		)
 		(pad "1" smd rect
 			(at -1.59 0 0)
 			(size 1.49 1.73)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 10 "regn_bulk-power-hv")
+			(net 10 "1-5")
 			(uuid "b60c4421-b54e-4bfc-89be-3c067d1c05a9")
 		)
 		(embedded_fonts no)
@@ -4772,7 +4574,7 @@
 				)
 			)
 		)
-		(property "Value" "249000Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "3a9a3c7c-7ecc-478e-a93a-028bf1026f1e")
@@ -4945,17 +4747,6 @@
 			(locked no)
 			(uuid "754dce25-1e2b-4143-97a6-7b59cd91b804")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "2e26266b-7787-4688-b182-0251c925119a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.75 0 0)
 			(size 0.81 0.86)
@@ -4967,7 +4758,7 @@
 			(at -0.75 0 0)
 			(size 0.81 0.86)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 30 "battery_bulk_pack-power-hv")
+			(net 30 "battery-hv")
 			(uuid "de60b1ff-9ad2-4f6d-9e3e-7fcc7749ce66")
 		)
 		(embedded_fonts no)
@@ -4998,7 +4789,7 @@
 				)
 			)
 		)
-		(property "Value" "49900Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "b2379328-ff7f-4b3c-93ba-268f5be6a05f")
@@ -5045,7 +4836,7 @@
 			(hide yes)
 			(uuid "8d510a3a-b14a-49e9-a561-44cd4642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0749K9L_C137969.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0749K9L_C137969.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -5171,22 +4962,11 @@
 			(locked no)
 			(uuid "9102b91b-6d71-4dd9-8b8a-1776743f32f2")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "224271ca-22a5-46ad-aa92-34628b4bba5e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "4e60e9bd-cdfb-4e90-b483-6d78cc2dd6dd")
 		)
 		(pad "1" smd rect
@@ -5224,7 +5004,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "088d9d41-626e-4812-9f04-fc1ac9304bd1")
@@ -5445,29 +5225,18 @@
 			(locked no)
 			(uuid "31082fb5-e604-444e-9ede-4749df79216c")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "260fe9b1-2a02-464c-a0a1-ffad5c2332cc")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.7 0 0)
 			(size 0.8 0.9)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "5e3fb0bd-ead9-4252-a0a4-2e06a2357419")
 		)
 		(pad "1" smd rect
 			(at -0.7 0 0)
 			(size 0.8 0.9)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 33 "vac_bypass-power-hv")
+			(net 33 "1")
 			(uuid "5633b556-ff32-4360-9769-a34f9d8cdb51")
 		)
 		(embedded_fonts no)
@@ -5498,7 +5267,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "47503c4b-9713-457c-8032-b31cf79a727c")
@@ -5671,29 +5440,18 @@
 			(locked no)
 			(uuid "154b18b8-3c6b-4a21-a7c3-d77883cfc441")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "b806610a-7270-4dd6-8385-46fc1ca62a24")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "1" smd rect
 			(at -2.67 0 0)
 			(size 3.5 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 11 "battery_bypass-power-hv")
+			(net 11 "1-1")
 			(uuid "06cc7b94-9b1e-4b6e-aaf0-40a562df6139")
 		)
 		(pad "2" smd rect
 			(at 2.67 0 0)
 			(size 3.5 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "ac320969-1212-40d1-b168-161bbef5c640")
 		)
 		(embedded_fonts no)
@@ -5724,7 +5482,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "47503c4b-9713-457c-8032-b31cf79a727c")
@@ -5897,29 +5655,18 @@
 			(locked no)
 			(uuid "154b18b8-3c6b-4a21-a7c3-d77883cfc441")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "b806610a-7270-4dd6-8385-46fc1ca62a24")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "1" smd rect
 			(at -2.67 0 0)
 			(size 3.5 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 30 "battery_bulk_pack-power-hv")
+			(net 30 "battery-hv")
 			(uuid "06cc7b94-9b1e-4b6e-aaf0-40a562df6139")
 		)
 		(pad "2" smd rect
 			(at 2.67 0 0)
 			(size 3.5 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "ac320969-1212-40d1-b168-161bbef5c640")
 		)
 		(embedded_fonts no)
@@ -5950,7 +5697,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "47503c4b-9713-457c-8032-b31cf79a727c")
@@ -6123,29 +5870,18 @@
 			(locked no)
 			(uuid "154b18b8-3c6b-4a21-a7c3-d77883cfc441")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "b806610a-7270-4dd6-8385-46fc1ca62a24")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "1" smd rect
 			(at -2.67 0 0)
 			(size 3.5 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 33 "vac_bypass-power-hv")
+			(net 33 "1")
 			(uuid "06cc7b94-9b1e-4b6e-aaf0-40a562df6139")
 		)
 		(pad "2" smd rect
 			(at 2.67 0 0)
 			(size 3.5 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "ac320969-1212-40d1-b168-161bbef5c640")
 		)
 		(embedded_fonts no)
@@ -6176,7 +5912,7 @@
 				)
 			)
 		)
-		(property "Value" "0F"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "47503c4b-9713-457c-8032-b31cf79a727c")
@@ -6349,29 +6085,18 @@
 			(locked no)
 			(uuid "154b18b8-3c6b-4a21-a7c3-d77883cfc441")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "b806610a-7270-4dd6-8385-46fc1ca62a24")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "1" smd rect
 			(at -2.67 0 0)
 			(size 3.5 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 2 "input_bulk_source-power-hv")
+			(net 2 "hv")
 			(uuid "06cc7b94-9b1e-4b6e-aaf0-40a562df6139")
 		)
 		(pad "2" smd rect
 			(at 2.67 0 0)
 			(size 3.5 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "vac_bypass-power-lv")
+			(net 27 "lv")
 			(uuid "ac320969-1212-40d1-b168-161bbef5c640")
 		)
 		(embedded_fonts no)
@@ -6402,7 +6127,7 @@
 				)
 			)
 		)
-		(property "Value" "10Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "e2ba09f4-fee2-469c-bb84-f4e2842da8e6")
@@ -6449,7 +6174,7 @@
 			(hide yes)
 			(uuid "62c0cabf-4f4c-4753-b9e1-9c1e4642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710RL_C138066.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0710RL_C138066.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -6575,29 +6300,18 @@
 			(locked no)
 			(uuid "8efbb438-7afa-47b5-a717-7dbd13b9f06d")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "7b288a8a-1274-475e-bf09-6483417928c6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 29 "lv")
+			(net 29 "acn_filtered")
 			(uuid "d1fd5199-ab45-433d-a9c5-622fd966db18")
 		)
 		(pad "1" smd rect
 			(at -0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 33 "vac_bypass-power-hv")
+			(net 33 "1")
 			(uuid "dbea1fbe-4699-412d-ae30-9d917ea88756")
 		)
 		(embedded_fonts no)
@@ -6628,7 +6342,7 @@
 				)
 			)
 		)
-		(property "Value" "10Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "e2ba09f4-fee2-469c-bb84-f4e2842da8e6")
@@ -6675,7 +6389,7 @@
 			(hide yes)
 			(uuid "54dda1d2-85ba-4a6b-8b87-efa34642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710RL_C138066.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0710RL_C138066.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -6801,29 +6515,18 @@
 			(locked no)
 			(uuid "8efbb438-7afa-47b5-a717-7dbd13b9f06d")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "7b288a8a-1274-475e-bf09-6483417928c6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 12 "hv")
+			(net 12 "acp_filtered")
 			(uuid "d1fd5199-ab45-433d-a9c5-622fd966db18")
 		)
 		(pad "1" smd rect
 			(at -0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 2 "input_bulk_source-power-hv")
+			(net 2 "hv")
 			(uuid "dbea1fbe-4699-412d-ae30-9d917ea88756")
 		)
 		(embedded_fonts no)
@@ -6854,7 +6557,7 @@
 				)
 			)
 		)
-		(property "Value" "10Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "e2ba09f4-fee2-469c-bb84-f4e2842da8e6")
@@ -6901,7 +6604,7 @@
 			(hide yes)
 			(uuid "6626ec4e-7b27-426b-94e9-6ec34642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710RL_C138066.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0710RL_C138066.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -7027,29 +6730,18 @@
 			(locked no)
 			(uuid "8efbb438-7afa-47b5-a717-7dbd13b9f06d")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "7b288a8a-1274-475e-bf09-6483417928c6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 31 "battery_sense_filter-power-lv")
+			(net 31 "srn_filtered")
 			(uuid "d1fd5199-ab45-433d-a9c5-622fd966db18")
 		)
 		(pad "1" smd rect
 			(at -0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 30 "battery_bulk_pack-power-hv")
+			(net 30 "battery-hv")
 			(uuid "dbea1fbe-4699-412d-ae30-9d917ea88756")
 		)
 		(embedded_fonts no)
@@ -7080,7 +6772,7 @@
 				)
 			)
 		)
-		(property "Value" "10Ω"
+		(property "Value" ""
 			(at 0 4)
 			(layer "F.Fab")
 			(uuid "e2ba09f4-fee2-469c-bb84-f4e2842da8e6")
@@ -7127,7 +6819,7 @@
 			(hide yes)
 			(uuid "4590efa1-4d2d-4bbe-a140-dcde4642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811141608_YAGEO-RC0402FR-0710RL_C138066.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0402FR-0710RL_C138066.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -7253,29 +6945,18 @@
 			(locked no)
 			(uuid "8efbb438-7afa-47b5-a717-7dbd13b9f06d")
 		)
-		(fp_text user "%R"
-			(at 0 0)
-			(layer "F.Fab")
-			(uuid "7b288a8a-1274-475e-bf09-6483417928c6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(pad "2" smd rect
 			(at 0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 28 "battery_sense_filter-power-hv")
+			(net 28 "srp_filtered")
 			(uuid "d1fd5199-ab45-433d-a9c5-622fd966db18")
 		)
 		(pad "1" smd rect
 			(at -0.43 0 0)
 			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 11 "battery_bypass-power-hv")
+			(net 11 "1-1")
 			(uuid "dbea1fbe-4699-412d-ae30-9d917ea88756")
 		)
 		(embedded_fonts no)
