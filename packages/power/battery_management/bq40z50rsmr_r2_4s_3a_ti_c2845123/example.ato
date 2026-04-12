@@ -1,9 +1,0 @@
-"""Example usage of the BQ40Z50-R2 4S battery frontend package."""
-
-from "bq40z50rsmr_r2_4s_3a_ti_c2845123.ato" import BQ40Z50BatteryFrontend4S
-
-module Example:
-    frontend = new BQ40Z50BatteryFrontend4S
-
-    assert frontend.pack.voltage within 10V to 16.8V
-    assert frontend.pack.max_current <= 3A

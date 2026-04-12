@@ -1,0 +1,10 @@
+"""Example usage of the tps56637rpar_5v1_5a_ti buck package."""
+
+from "tps56637rpar_5v1_5a_ti.ato" import TPS56637Buck5V1_5A
+
+module Example:
+    buck = new TPS56637Buck5V1_5A
+
+    assert buck.power_in.voltage within 12V to 16.8V
+    assert buck.power_out.voltage within 5.1V +/- 2%
+    assert buck.power_out.max_current <= 5A

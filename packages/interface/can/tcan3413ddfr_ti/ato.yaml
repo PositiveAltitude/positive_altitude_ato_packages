@@ -1,0 +1,16 @@
+requires-atopile: "0.15.4"
+
+paths:
+  src: ./
+  layout: ./layouts
+
+builds:
+  default:
+    entry: "tcan3413ddfr_ti.ato:TCAN3413DDFR_TI"
+  example:
+    entry: "example.ato:Example"
+
+package:
+  identifier: "local/interface-can-tcan3413ddfr-ti"
+  version: "0.0.1"
+  summary: "TCAN3413DDFR 3.3 V CAN FD transceiver with local decoupling and solder-jumper-selectable 120 ohm termination."

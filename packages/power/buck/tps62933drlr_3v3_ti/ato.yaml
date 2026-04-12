@@ -1,0 +1,15 @@
+requires-atopile: "0.15.4"
+
+paths:
+  src: ./
+  layout: ./layouts
+
+builds:
+  default:
+    entry: tps62933drlr_3v3_ti.ato:TPS62933DRLR_3V3_TI
+  example:
+    entry: example.ato:Example
+
+package:
+  identifier: "local/power-buck-tps62933drlr-3v3-ti"
+  version: "0.0.1"

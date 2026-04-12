@@ -1,0 +1,138 @@
+#pragma experiment("TRAITS")
+import ElectricLogic
+import ElectricPower
+import I2C
+
+from "parts/Murata_Electronics_GRM1555C1H331JA01D/Murata_Electronics_GRM1555C1H331JA01D.ato" import Murata_Electronics_GRM1555C1H331JA01D_package
+from "parts/Murata_Electronics_GRM155R61A475KEAAD/Murata_Electronics_GRM155R61A475KEAAD.ato" import Murata_Electronics_GRM155R61A475KEAAD_package
+from "parts/Murata_Electronics_GRM188R61A106KE69D/Murata_Electronics_GRM188R61A106KE69D.ato" import Murata_Electronics_GRM188R61A106KE69D_package
+from "parts/Murata_Electronics_GRM188R61E475KE11D/Murata_Electronics_GRM188R61E475KE11D.ato" import Murata_Electronics_GRM188R61E475KE11D_package
+from "parts/TEXAS_INSTRUMENTS_TPS25730DREFR/TEXAS_INSTRUMENTS_TPS25730DREFR.ato" import TEXAS_INSTRUMENTS_TPS25730DREFR_package
+from "parts/YAGEO_RC0402FR_0710KL/YAGEO_RC0402FR_0710KL.ato" import YAGEO_RC0402FR_0710KL_package
+from "parts/YAGEO_RC0402FR_07200KL/YAGEO_RC0402FR_07200KL.ato" import YAGEO_RC0402FR_07200KL_package
+
+module TPS25730DREFR_20V_3A_TI:
+    """
+    Autonomous sink-only USB-PD controller block around TI's TPS25730DREFR.
+
+    The public interface intentionally stops at the controller-block boundary:
+    USB-C CC pins, the upstream USB VBUS rail from a receptacle/protection stage,
+    the downstream negotiated sink rail, a 3.3-V controller/I2C supply rail, and
+    a small set of optional sideband outputs. The package does not include the
+    USB-C receptacle, CC ESD network, or downstream charger/load subsystem.
+
+    ADC straps are fixed for a 5-V minimum contract, 20-V maximum contract, and
+    0-A operating / 3-A maximum current. That keeps the autonomous policy aligned
+    with the plan: request the highest offered PDO inside the 5-V to 20-V / 3-A
+    window while still allowing light-load or startup cases below 3 A instead of
+    advertising a fixed 3-A operating point.
+
+    The TPS25730D integrated sink-path variant is used so `usb_vbus` maps to the
+    port-facing VBUS node and `sink_vbus` maps to the switched PPHV output. An
+    external 3.3-V rail is exposed for normal controller/I2C operation, but the
+    IC can still dead-battery start from `usb_vbus` when that rail is absent.
+    The I2C pins are exported without onboard pullups so downstream designs can
+    provide the shared bus pullups explicitly.
+    """
+
+    usb_vbus = new ElectricPower
+    sink_vbus = new ElectricPower
+    logic_3v3 = new ElectricPower
+    i2c = new I2C
+    cc1 = new ElectricLogic
+    cc2 = new ElectricLogic
+    cap_mismatch = new ElectricLogic
+    plug_event = new ElectricLogic
+    plug_flip = new ElectricLogic
+
+    assert usb_vbus.voltage within 5V to 20V
+    assert sink_vbus.max_current <= 3A
+    assert logic_3v3.voltage within 3V to 3.6V
+
+    usb_vbus.hv.override_net_name = "USB_VBUS"
+    sink_vbus.hv.override_net_name = "SINK_VBUS"
+    logic_3v3.hv.override_net_name = "3V3"
+    logic_3v3.lv.override_net_name = "GND"
+    cc1.line.override_net_name = "CC1"
+    cc2.line.override_net_name = "CC2"
+
+    controller = new TEXAS_INSTRUMENTS_TPS25730DREFR_package
+    cc1_filter = new Murata_Electronics_GRM1555C1H331JA01D_package
+    cc2_filter = new Murata_Electronics_GRM1555C1H331JA01D_package
+    usb_vbus_bulk = new Murata_Electronics_GRM188R61E475KE11D_package
+    logic_3v3_bypass = new Murata_Electronics_GRM188R61A106KE69D_package
+    ldo_3v3_bypass = new Murata_Electronics_GRM188R61A106KE69D_package
+    ldo_1v5_bypass = new Murata_Electronics_GRM155R61A475KEAAD_package
+    adc_limit_top = new YAGEO_RC0402FR_07200KL_package
+    adc_limit_bottom = new YAGEO_RC0402FR_0710KL_package
+
+    logic_3v3.lv ~ usb_vbus.lv
+    logic_3v3.lv ~ sink_vbus.lv
+    logic_3v3.lv ~ controller.GND
+
+    usb_vbus.hv ~ controller.VBUS_IN
+    usb_vbus.hv ~ controller.VBUS
+    usb_vbus.hv ~ controller.DRAIN
+    sink_vbus.hv ~ controller.PPHV
+    logic_3v3.hv ~ controller.VIN_3V3
+
+    controller.VBUS_IN.override_net_name = "USB_VBUS"
+    controller.VBUS.override_net_name = "USB_VBUS"
+    controller.DRAIN.override_net_name = "USB_VBUS"
+    controller.PPHV.override_net_name = "SINK_VBUS"
+    controller.VIN_3V3.override_net_name = "3V3"
+    controller.GND.override_net_name = "GND"
+
+    cc1.reference ~ logic_3v3
+    cc2.reference ~ logic_3v3
+    cc1.line ~ controller.CC1
+    cc2.line ~ controller.CC2
+
+    i2c.scl.reference ~ logic_3v3
+    i2c.sda.reference ~ logic_3v3
+    i2c.scl.line ~ controller.I2Ct_SCL
+    i2c.sda.line ~ controller.I2Ct_SDA
+
+    cap_mismatch.reference ~ logic_3v3
+    plug_event.reference ~ logic_3v3
+    plug_flip.reference ~ logic_3v3
+    cap_mismatch.line ~ controller.CAP_MIS
+    plug_event.line ~ controller.PLUG_EVENT
+    plug_flip.line ~ controller.PLUG_FLIP
+
+    controller.ADCIN1 ~ logic_3v3.lv
+    controller.ADCIN2 ~ controller.LDO_3V3
+
+    controller.ADCIN3 ~ logic_3v3.lv
+    controller.ADCIN4.override_net_name = "PD_LIMIT_SEL"
+    controller.LDO_3V3 ~ adc_limit_top.1
+    adc_limit_top.2 ~ controller.ADCIN4
+    controller.ADCIN4 ~ adc_limit_bottom.1
+    adc_limit_bottom.2 ~ logic_3v3.lv
+
+    controller.RESERVED ~ logic_3v3.lv
+    controller.nFAULT_IN ~ controller.LDO_3V3
+
+    controller.LDO_3V3.override_net_name = "LDO_3V3"
+    controller.LDO_1V5.override_net_name = "LDO_1V5"
+
+    usb_vbus.hv ~ usb_vbus_bulk.1
+    usb_vbus_bulk.2 ~ usb_vbus.lv
+    logic_3v3.hv ~ logic_3v3_bypass.1
+    logic_3v3_bypass.2 ~ logic_3v3.lv
+    controller.LDO_3V3 ~ ldo_3v3_bypass.1
+    ldo_3v3_bypass.2 ~ logic_3v3.lv
+    controller.LDO_1V5 ~ ldo_1v5_bypass.1
+    ldo_1v5_bypass.2 ~ logic_3v3.lv
+
+    controller.CC1 ~ cc1_filter.1
+    cc1_filter.2 ~ logic_3v3.lv
+    controller.CC2 ~ cc2_filter.1
+    cc2_filter.2 ~ logic_3v3.lv
+
+
+module TPS25730AutonomousSinkController from TPS25730DREFR_20V_3A_TI:
+    pass
+
+module TPS25730UsbPdSink from TPS25730DREFR_20V_3A_TI:
+    pass

@@ -1,0 +1,16 @@
+requires-atopile: "0.15.4"
+
+paths:
+  src: ./
+  layout: ./layouts
+
+builds:
+  default:
+    entry: "tps2121ruxr_20v_4a_ti.ato:TPS2121RUXR_20V_4A_TI"
+  example:
+    entry: "example.ato:Example"
+
+package:
+  identifier: "local/power-power-mux-tps2121ruxr-20v-4a-ti"
+  version: "0.0.1"
+  summary: "Minimal generic 20 V-class priority power mux around TI TPS2121RUXR with reverse-current blocking and exported status."

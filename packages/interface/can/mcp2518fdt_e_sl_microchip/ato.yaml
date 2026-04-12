@@ -1,0 +1,18 @@
+requires-atopile: "0.15.4"
+
+paths:
+  src: ./
+  layout: ./layouts
+
+builds:
+  default:
+    entry: "mcp2518fdt_e_sl_microchip.ato:MCP2518FDT_ESL_Microchip"
+    standardize_designators: false
+  example:
+    entry: "example.ato:Example"
+    standardize_designators: false
+
+package:
+  identifier: "local/interface-can-mcp2518fdt-e-sl-microchip"
+  version: "0.0.1"
+  summary: "MCP2518FDT-E/SL 3.3 V SPI to CAN FD controller with local clock and decoupling network."

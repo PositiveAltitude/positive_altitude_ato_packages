@@ -1,0 +1,8 @@
+"""Example usage of the STM32G0B1KBU6 support package."""
+
+from "stm32g0b1kbu6_st.ato" import STM32G0B1KBU6
+
+module Example:
+    mcu = new STM32G0B1KBU6
+
+    assert mcu.power.voltage within 3.3V +/- 5%

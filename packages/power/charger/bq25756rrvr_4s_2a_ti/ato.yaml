@@ -1,0 +1,16 @@
+requires-atopile: "0.15.4"
+
+paths:
+  src: ./
+  layout: ./layouts
+
+builds:
+  default:
+    entry: "bq25756rrvr_4s_2a_ti.ato:BQ25756RRVR_4S_2A_TI"
+  example:
+    entry: "example.ato:Example"
+
+package:
+  identifier: "local/power-charger-bq25756rrvr-4s-2a-ti"
+  version: "0.0.1"
+  summary: "BQ25756-based 4S Li-ion buck-boost charger package with 1 A default hardware charge limit, 20 V max input, I2C control, and compact XNRUSEMI dual-MOSFETs."

@@ -1,0 +1,112 @@
+"""MCP2518FD SPI to CAN FD controller package for 3.3 V Raspberry Pi designs."""
+
+import CAN_TTL
+import Capacitor
+import ElectricLogic
+import ElectricPower
+import SPI
+from "parts/Microchip_Tech_MCP2518FDT_E_SL/Microchip_Tech_MCP2518FDT_E_SL.ato" import Microchip_Tech_MCP2518FDT_E_SL_package
+from "parts/TAE_TAXM40M4ZHBCDT2T/TAE_TAXM40M4ZHBCDT2T.ato" import TAE_TAXM40M4ZHBCDT2T_package
+
+module MCP2518FDT_ESL_Microchip:
+    """
+    MCP2518FD CAN FD controller with the local clock and supply network needed for
+    direct Raspberry Pi SPI integration.
+
+    This package exposes the controller-side CAN TX/RX link as `CAN_TTL`; pair it
+    with a separate CAN transceiver package to reach the bus.
+    """
+
+    power = new ElectricPower
+    spi = new SPI
+    phy = new CAN_TTL
+    ncs = new ElectricLogic
+    nint = new ElectricLogic
+    nint0_gpio0_xstby = new ElectricLogic
+    nint1_gpio1 = new ElectricLogic
+    clko_sof = new ElectricLogic
+
+    controller = new Microchip_Tech_MCP2518FDT_E_SL_package
+    crystal = new TAE_TAXM40M4ZHBCDT2T_package
+    vdd_bypass = new Capacitor
+    vdd_bulk = new Capacitor
+    osc1_load = new Capacitor
+    osc2_load = new Capacitor
+
+    assert power.voltage within 3.3V +/- 5%
+
+    vdd_bypass.capacitance = 100nF +/- 10%
+    vdd_bypass.max_voltage = 50V
+    vdd_bypass.temperature_coefficient = "X7R"
+    vdd_bypass.package = "0402"
+    vdd_bypass.manufacturer = "Murata Electronics"
+    vdd_bypass.mpn = "GRM155R71H104KE14D"
+    vdd_bypass.lcsc_id = "C77020"
+    vdd_bypass.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
+
+    vdd_bulk.capacitance = 1uF +/- 10%
+    vdd_bulk.max_voltage = 16V
+    vdd_bulk.temperature_coefficient = "X5R"
+    vdd_bulk.package = "0402"
+    vdd_bulk.manufacturer = "Murata Electronics"
+    vdd_bulk.mpn = "GRM155R61C105KE01D"
+    vdd_bulk.lcsc_id = "C77007"
+    vdd_bulk.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1810011711_Murata-Electronics-GRM155R61C105KE01D_C77007.pdf"
+
+    osc1_load.capacitance = 15pF +/- 5%
+    osc1_load.max_voltage = 50V
+    osc1_load.temperature_coefficient = "C0G"
+    osc1_load.package = "0402"
+    osc1_load.manufacturer = "Murata Electronics"
+    osc1_load.mpn = "GRM1555C1H150JA01D"
+    osc1_load.lcsc_id = "C76950"
+    osc1_load.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1810011652_Murata-Electronics-GRM1555C1H150JA01D_C76950.pdf"
+
+    osc2_load.capacitance = 15pF +/- 5%
+    osc2_load.max_voltage = 50V
+    osc2_load.temperature_coefficient = "C0G"
+    osc2_load.package = "0402"
+    osc2_load.manufacturer = "Murata Electronics"
+    osc2_load.mpn = "GRM1555C1H150JA01D"
+    osc2_load.lcsc_id = "C76950"
+    osc2_load.datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1810011652_Murata-Electronics-GRM1555C1H150JA01D_C76950.pdf"
+
+    spi.sclk.reference ~ power
+    spi.mosi.reference ~ power
+    spi.miso.reference ~ power
+    phy.tx.reference ~ power
+    phy.rx.reference ~ power
+    ncs.reference ~ power
+    nint.reference ~ power
+    nint0_gpio0_xstby.reference ~ power
+    nint1_gpio1.reference ~ power
+    clko_sof.reference ~ power
+
+    power.hv ~ controller.VDD
+    power.lv ~ controller.VSS
+
+    controller.VDD ~> vdd_bypass ~> power.lv
+    controller.VDD ~> vdd_bulk ~> power.lv
+
+    controller.OSC1 ~ crystal.XTAL1
+    controller.OSC2 ~ crystal.XTAL2
+    crystal.GND ~ power.lv
+    crystal.XTAL1 ~> osc1_load ~> power.lv
+    crystal.XTAL2 ~> osc2_load ~> power.lv
+
+    spi.sclk.line ~ controller.SCK
+    spi.mosi.line ~ controller.SDI
+    spi.miso.line ~ controller.SDO
+    ncs.line ~ controller.nCS
+
+    phy.tx.line ~ controller.TXCAN
+    phy.rx.line ~ controller.RXCAN
+
+    nint.line ~ controller.nINT
+    nint0_gpio0_xstby.line ~ controller.nINT0_GPIO0_XSTBY
+    nint1_gpio1.line ~ controller.nINT1_GPIO1
+    clko_sof.line ~ controller.CLKO_SOF
+
+
+module Mcp2518fdtESlMicrochipC626758 from MCP2518FDT_ESL_Microchip:
+    pass
