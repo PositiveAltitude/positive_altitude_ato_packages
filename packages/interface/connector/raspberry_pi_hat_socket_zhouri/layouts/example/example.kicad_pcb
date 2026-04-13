@@ -128,9 +128,9 @@
 	(net 36 "SCL")
 	(net 38 "P07_GPIO4_GPCLK0")
 	(net 39 "P08_GPIO14_TXD0")
-	(net 41 "+3.3V")
-	(net 42 "GND")
-	(net 43 "+5V")
+	(net 41 "hv")
+	(net 42 "lv")
+	(net 43 "power_5v0-hv")
 	(footprint "ZHOURI_2_54_2_20:HDR-TH_40P-P2.54-V-F-R2-C20-S2.54"
 		(layer "F.Cu")
 		(uuid "d97eafc6-232e-445d-9029-e5be4642524b")
@@ -266,7 +266,7 @@
 			(size 1.6 1.6)
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
-			(net 42 "GND")
+			(net 42 "lv")
 			(uuid "ec219a3f-30bc-491f-a9b4-d1447d69c453")
 		)
 		(pad "38" thru_hole circle
@@ -306,7 +306,7 @@
 			(size 1.6 1.6)
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
-			(net 42 "GND")
+			(net 42 "lv")
 			(uuid "34615cbc-4eac-4064-8fc3-5d9dcd960f21")
 		)
 		(pad "33" thru_hole circle
@@ -338,7 +338,7 @@
 			(size 1.6 1.6)
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
-			(net 42 "GND")
+			(net 42 "lv")
 			(uuid "3fe1a90b-b981-43c9-8704-db7a34fcaaf4")
 		)
 		(pad "29" thru_hole circle
@@ -378,7 +378,7 @@
 			(size 1.6 1.6)
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
-			(net 42 "GND")
+			(net 42 "lv")
 			(uuid "3fd64441-52d7-4386-9ebb-2c1f97b57d38")
 		)
 		(pad "24" thru_hole circle
@@ -418,7 +418,7 @@
 			(size 1.6 1.6)
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
-			(net 42 "GND")
+			(net 42 "lv")
 			(uuid "65eafbc3-81d9-435f-a749-1d18ff4733e5")
 		)
 		(pad "19" thru_hole circle
@@ -442,7 +442,7 @@
 			(size 1.6 1.6)
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
-			(net 41 "+3.3V")
+			(net 41 "hv")
 			(uuid "244f0c71-d0cc-4fb4-96f3-9aea8510892c")
 		)
 		(pad "16" thru_hole circle
@@ -466,7 +466,7 @@
 			(size 1.6 1.6)
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
-			(net 42 "GND")
+			(net 42 "lv")
 			(uuid "cbb5fc6f-90cc-41ac-b4c0-5cc15c337816")
 		)
 		(pad "13" thru_hole circle
@@ -506,7 +506,7 @@
 			(size 1.6 1.6)
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
-			(net 42 "GND")
+			(net 42 "lv")
 			(uuid "2817fbce-aa47-4007-9ec7-caf0bcbe5fd9")
 		)
 		(pad "8" thru_hole circle
@@ -530,7 +530,7 @@
 			(size 1.6 1.6)
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
-			(net 42 "GND")
+			(net 42 "lv")
 			(uuid "e95aefa6-7e17-48a6-aab7-d24026b1a2d9")
 		)
 		(pad "5" thru_hole circle
@@ -546,7 +546,7 @@
 			(size 1.6 1.6)
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
-			(net 43 "+5V")
+			(net 43 "power_5v0-hv")
 			(uuid "1b057d1b-b7f9-4616-bbea-0a009072f5e1")
 		)
 		(pad "3" thru_hole circle
@@ -562,7 +562,7 @@
 			(size 1.6 1.6)
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
-			(net 43 "+5V")
+			(net 43 "power_5v0-hv")
 			(uuid "7f91b43e-93c1-42ff-b056-41911bd1266a")
 		)
 		(pad "1" thru_hole rect
@@ -570,7 +570,7 @@
 			(size 1.6 1.6)
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
-			(net 41 "+3.3V")
+			(net 41 "hv")
 			(uuid "5526fdb9-2064-4bc2-8bad-390cb75c87e2")
 		)
 		(embedded_fonts no)

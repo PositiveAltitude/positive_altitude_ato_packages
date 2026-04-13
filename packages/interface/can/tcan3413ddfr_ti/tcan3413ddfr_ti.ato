@@ -40,10 +40,6 @@ module TCAN3413DDFR_TI:
 
     assert power.voltage within 3V to 3.6V
 
-    power.hv.override_net_name = "+3.3V"
-    power.lv.override_net_name = "GND"
-    transceiver.CANH.override_net_name = "CANH"
-    transceiver.CANL.override_net_name = "CANL"
 
 
 
@@ -59,9 +55,6 @@ module TCAN3413DDFR_TI:
     power.hv ~ transceiver.VCC
     power.hv ~ transceiver.SHDN_VIO
 
-    transceiver.GND.override_net_name = "GND"
-    transceiver.VCC.override_net_name = "+3.3V"
-    transceiver.SHDN_VIO.override_net_name = "+3.3V"
 
     transceiver.VCC ~ vcc_bypass.1
     vcc_bypass.2 ~ power.lv

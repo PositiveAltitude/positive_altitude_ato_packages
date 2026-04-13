@@ -27,10 +27,6 @@ module TPS56637RPAR_5V1_5A_TI:
     assert power_out.voltage within 5.1V +/- 2%
     assert power_out.max_current <= 5A
 
-    power_in.hv.override_net_name = "VIN"
-    power_in.lv.override_net_name = "GND"
-    power_out.hv.override_net_name = "+5.1V"
-    power_out.lv.override_net_name = "GND"
 
     converter = new Texas_Instruments_TPS56637RPAR_package
     # 10uF X5R 50V 1206 input capacitor
@@ -56,12 +52,6 @@ module TPS56637RPAR_5V1_5A_TI:
     power_in.lv ~ converter.AGND
     power_in.lv ~ converter.PGND
 
-    converter.VIN.override_net_name = "VIN"
-    converter.AGND.override_net_name = "GND"
-    converter.PGND.override_net_name = "GND"
-    converter.BOOT.override_net_name = "BOOT"
-    converter.SW.override_net_name = "SW"
-    converter.FB.override_net_name = "FB"
 
     converter.BOOT ~ bootstrap_cap.1
     bootstrap_cap.2 ~ converter.SW

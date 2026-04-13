@@ -24,8 +24,6 @@ module STM32G0B1KBU6_ST:
     reset_cap = new Murata_Electronics_GRM155R71H104KE14D_package
     assert power.voltage within 1.7V to 3.6V
 
-    power.hv.override_net_name = "+3.3V"
-    power.lv.override_net_name = "GND"
 
 
 
@@ -36,9 +34,6 @@ module STM32G0B1KBU6_ST:
 
     power.hv ~ mcu.VDD_VDDA
 
-    mcu.VDD_VDDA.override_net_name = "+3.3V"
-    mcu.VSS.override_net_name = "GND"
-    mcu.VSS_VSSA.override_net_name = "GND"
 
     mcu.VDD_VDDA ~ supply_bulk.1
     supply_bulk.2 ~ power.lv

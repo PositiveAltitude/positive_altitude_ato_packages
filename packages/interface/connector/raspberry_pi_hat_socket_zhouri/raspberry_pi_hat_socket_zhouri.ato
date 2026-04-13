@@ -28,10 +28,6 @@ module RaspberryPiHATSocket_ZHOURI:
     assert power_3v3.voltage within 3.3V +/- 5%
     assert power_5v0.voltage within 5V +/- 5%
 
-    power_3v3.hv.override_net_name = "+3.3V"
-    power_3v3.lv.override_net_name = "GND"
-    power_5v0.hv.override_net_name = "+5V"
-    power_5v0.lv.override_net_name = "GND"
 
     signal P01_3V3 ~ connector.1
     signal P02_5V0 ~ connector.2
@@ -74,11 +70,6 @@ module RaspberryPiHATSocket_ZHOURI:
     signal P39_GND ~ connector.39
     signal P40_GPIO21_PCM_DOUT ~ connector.40
 
-    P01_3V3.override_net_name = "+3.3V"
-    P17_3V3.override_net_name = "+3.3V"
-    P02_5V0.override_net_name = "+5V"
-    P04_5V0.override_net_name = "+5V"
-    P06_GND.override_net_name = "GND"
 
     power_3v3.hv ~ P01_3V3
     power_3v3.hv ~ P17_3V3

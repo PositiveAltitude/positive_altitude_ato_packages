@@ -35,10 +35,6 @@ module TPS2121RUXR_20V_4A_TI:
     assert low_priority.voltage within 5V to 20V
     assert out.max_current <= 4A
 
-    high_priority.hv.override_net_name = "HIGH_PRIORITY"
-    low_priority.hv.override_net_name = "LOW_PRIORITY"
-    out.hv.override_net_name = "OUT"
-    out.lv.override_net_name = "GND"
 
     mux = new Texas_Instruments_TPS2121RUXR_package
     # 10uF X5R 50V 1206 input capacitor
@@ -77,12 +73,6 @@ module TPS2121RUXR_20V_4A_TI:
     low_priority.hv ~ mux.IN2
     out.hv ~ mux.OUT
 
-    mux.IN1.override_net_name = "HIGH_PRIORITY"
-    mux.IN2.override_net_name = "LOW_PRIORITY"
-    mux.OUT.override_net_name = "OUT"
-    mux.GND.override_net_name = "GND"
-    mux.PR1.override_net_name = "PRIORITY_SEL"
-    mux.CP2.override_net_name = "FALLBACK_SEL"
 
     high_priority.hv ~ priority_top.1
     priority_top.2 ~ mux.PR1

@@ -63,12 +63,6 @@ module BQ25756RRVR_4S_2A_TI:
     assert battery.max_current <= 2A
     assert logic_power.voltage within 1.8V to 5V
 
-    power_in.hv.override_net_name = "VIN"
-    power_in.lv.override_net_name = "GND"
-    battery.hv.override_net_name = "BAT+"
-    battery.lv.override_net_name = "BAT-"
-    logic_power.hv.override_net_name = "VIO"
-    logic_power.lv.override_net_name = "GND"
 
     charger = new Texas_Instruments_BQ25756RRVR_package
     buck_half_bridge = new XNRUSEMI_XRS30V06D_package
@@ -139,33 +133,6 @@ module BQ25756RRVR_4S_2A_TI:
     power_in.lv ~ buck_half_bridge.S2
     power_in.lv ~ boost_half_bridge.S2
 
-    charger.PGND.override_net_name = "GND"
-    charger.FBG.override_net_name = "GND"
-    charger.ACOV.override_net_name = "GND"
-    charger.VAC.override_net_name = "INPUT_BUS"
-    charger.ACUV.override_net_name = "INPUT_BUS"
-    charger.ACP.override_net_name = "ACP_FILT"
-    charger.ACN.override_net_name = "ACN_FILT"
-    charger.SRP.override_net_name = "SRP_FILT"
-    charger.SRN.override_net_name = "SRN_FILT"
-    charger.BTST1.override_net_name = "BTST1"
-    charger.BTST2.override_net_name = "BTST2"
-    charger.REGN.override_net_name = "REGN"
-    charger.nCE.override_net_name = "nCE"
-    charger.nINT.override_net_name = "nINT"
-    charger.nPG.override_net_name = "nPG"
-    charger.STAT1.override_net_name = "STAT1"
-    charger.STAT2.override_net_name = "STAT2"
-    charger.HIDRV1.override_net_name = "HIDRV1"
-    charger.LODRV1.override_net_name = "LODRV1"
-    charger.HIDRV2.override_net_name = "HIDRV2"
-    charger.LODRV2.override_net_name = "LODRV2"
-    buck_half_bridge.G1.override_net_name = "HIDRV1"
-    buck_half_bridge.G2.override_net_name = "LODRV1"
-    boost_half_bridge.G1.override_net_name = "HIDRV2"
-    boost_half_bridge.G2.override_net_name = "LODRV2"
-    buck_half_bridge.S2.override_net_name = "GND"
-    boost_half_bridge.S2.override_net_name = "GND"
 
     signal input_bus
     signal charge_bus
@@ -176,14 +143,6 @@ module BQ25756RRVR_4S_2A_TI:
     signal srp_filtered
     signal srn_filtered
 
-    input_bus.override_net_name = "INPUT_BUS"
-    charge_bus.override_net_name = "CHARGE_BUS"
-    switch_1.override_net_name = "SW1"
-    switch_2.override_net_name = "SW2"
-    acp_filtered.override_net_name = "ACP_FILT"
-    acn_filtered.override_net_name = "ACN_FILT"
-    srp_filtered.override_net_name = "SRP_FILT"
-    srn_filtered.override_net_name = "SRN_FILT"
 
     power_in.hv ~ input_sense_resistor.1
     input_sense_resistor.2 ~ input_bus

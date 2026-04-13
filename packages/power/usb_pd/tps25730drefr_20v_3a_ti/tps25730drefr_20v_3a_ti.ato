@@ -49,12 +49,6 @@ module TPS25730DREFR_20V_3A_TI:
     assert sink_vbus.max_current <= 3A
     assert logic_3v3.voltage within 3V to 3.6V
 
-    usb_vbus.hv.override_net_name = "USB_VBUS"
-    sink_vbus.hv.override_net_name = "SINK_VBUS"
-    logic_3v3.hv.override_net_name = "3V3"
-    logic_3v3.lv.override_net_name = "GND"
-    cc1.line.override_net_name = "CC1"
-    cc2.line.override_net_name = "CC2"
 
     controller = new TEXAS_INSTRUMENTS_TPS25730DREFR_package
     # 330pF C0G 50V 0402 filter capacitor
@@ -84,12 +78,6 @@ module TPS25730DREFR_20V_3A_TI:
     sink_vbus.hv ~ controller.PPHV
     logic_3v3.hv ~ controller.VIN_3V3
 
-    controller.VBUS_IN.override_net_name = "USB_VBUS"
-    controller.VBUS.override_net_name = "USB_VBUS"
-    controller.DRAIN.override_net_name = "USB_VBUS"
-    controller.PPHV.override_net_name = "SINK_VBUS"
-    controller.VIN_3V3.override_net_name = "3V3"
-    controller.GND.override_net_name = "GND"
 
     cc1.reference ~ logic_3v3
     cc2.reference ~ logic_3v3
@@ -112,7 +100,6 @@ module TPS25730DREFR_20V_3A_TI:
     controller.ADCIN2 ~ controller.LDO_3V3
 
     controller.ADCIN3 ~ logic_3v3.lv
-    controller.ADCIN4.override_net_name = "PD_LIMIT_SEL"
     controller.LDO_3V3 ~ adc_limit_top.1
     adc_limit_top.2 ~ controller.ADCIN4
     controller.ADCIN4 ~ adc_limit_bottom.1
@@ -121,8 +108,6 @@ module TPS25730DREFR_20V_3A_TI:
     controller.RESERVED ~ logic_3v3.lv
     controller.nFAULT_IN ~ controller.LDO_3V3
 
-    controller.LDO_3V3.override_net_name = "LDO_3V3"
-    controller.LDO_1V5.override_net_name = "LDO_1V5"
 
     usb_vbus.hv ~ usb_vbus_bulk.1
     usb_vbus_bulk.2 ~ usb_vbus.lv
