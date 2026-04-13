@@ -74,4 +74,3 @@ Guidance:
 - Reuse existing repository component choices for equivalent new designs when possible to keep BOMs consistent across packages.
 - Keep BOM decisions deterministic and documented in code.
 - Keep package-local assets and dependencies easy to trace.
-- Net names in the resulting schematic should be readable and usable. Use standard simple net names like `GND` `+3.3V` `SDA` etc. Override names if needed.

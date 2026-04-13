@@ -17,9 +17,10 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     """
     4S protected smart-battery frontend built around TI's BQ40Z50-R2.
 
-    This package intentionally exposes only the protected pack interface:
-    PACK+/PACK-, SMBC/SMBD, and BTP_INT. Raw cell-stack nodes remain internal
-    to preserve the smart-pack abstraction agreed in planning.
+    This package exposes both the protected pack interface and the raw battery
+    stack terminals so downstream designs can add their own battery connector,
+    fuse, or harness wiring around the frontend. Individual cell taps still
+    remain internal to the package.
 
     The charge/discharge path follows a high-side back-to-back N-FET structure
     using the same XNRUSEMI dual MOSFET already used elsewhere in the repo.
@@ -38,6 +39,7 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     """
 
     pack = new ElectricPower
+    raw_battery = new ElectricPower
     i2c = new I2C
     btp_int = new ElectricLogic
 
@@ -54,18 +56,7 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
 
     assert pack.voltage within 10V to 16.8V
     assert pack.max_current <= 3A
-
-    cell_0.override_net_name = "GND"
-    tap_1.override_net_name = "CELL1"
-    tap_2.override_net_name = "CELL2"
-    tap_3.override_net_name = "CELL3"
-    cell_4.override_net_name = "CELL4"
-    fet_common.override_net_name = "FET_COMMON"
-    vcc_filtered.override_net_name = "BAT_FILT"
-    srp_filtered.override_net_name = "SRP_FILT"
-    srn_filtered.override_net_name = "SRN_FILT"
-    pack.hv.override_net_name = "PACK+"
-    pack.lv.override_net_name = "PACK-"
+    assert raw_battery.voltage within 10V to 16.8V
 
     monitor = new Texas_Instruments_BQ40Z50RSMR_R2_package
     protection_fets = new XNRUSEMI_XRS30V06D_package
@@ -131,32 +122,13 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     i2c.sda.line ~ monitor.SMBD
     btp_int.line ~ monitor.BTP_INT
 
+    raw_battery.hv ~ cell_4
+    raw_battery.lv ~ cell_0
+
     cell_0 ~ monitor.VSS
     cell_0 ~ monitor.EP
     cell_4 ~ monitor.BAT
     cell_4 ~ protection_fets.S1
-
-    monitor.VSS.override_net_name = "GND"
-    monitor.BAT.override_net_name = "CELL4"
-    monitor.VCC.override_net_name = "BAT_FILT"
-    monitor.PACK.override_net_name = "PACK_FILT"
-    monitor.PBI.override_net_name = "PBI_HOLD"
-    monitor.TS1.override_net_name = "TS1_BIAS"
-    monitor.TS2.override_net_name = "TS2_BIAS"
-    monitor.TS3.override_net_name = "TS3_BIAS"
-    monitor.TS4.override_net_name = "TS4_BIAS"
-    monitor.VC1.override_net_name = "VC1_FILT"
-    monitor.VC2.override_net_name = "VC2_FILT"
-    monitor.VC3.override_net_name = "VC3_FILT"
-    monitor.VC4.override_net_name = "VC4_FILT"
-    monitor.SRP.override_net_name = "SRP_FILT"
-    monitor.SRN.override_net_name = "SRN_FILT"
-    protection_fets.G1.override_net_name = "DSG_GATE"
-    protection_fets.G2.override_net_name = "CHG_GATE"
-    protection_fets.S1.override_net_name = "CELL4"
-    protection_fets.S2.override_net_name = "PACK+"
-    protection_fets.D1.override_net_name = "FET_COMMON"
-    protection_fets.D2.override_net_name = "FET_COMMON"
 
     cell_4 ~ vcc_series_resistor.1
     vcc_series_resistor.2 ~ vcc_filtered

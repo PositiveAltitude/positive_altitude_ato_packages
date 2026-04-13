@@ -4,11 +4,10 @@ Reusable Atopile package for a **4S BQ40Z50-R2 smart-battery frontend**.
 
 ## Exposed interface
 
-- `PACK+`
-- `PACK-`
-- `SMBC`
-- `SMBD`
-- `BTP_INT`
+- `pack` protected pack power interface
+- `raw_battery` raw cell-stack power interface upstream of the protection FETs for an external battery connector or harness
+- `i2c` SMBus interface
+- `btp_int` battery-trip-point interrupt output
 
 ## Included
 
@@ -23,7 +22,6 @@ Reusable Atopile package for a **4S BQ40Z50-R2 smart-battery frontend**.
 - SMBus pull-ups
 - thermistors
 - secondary protection / chemical fuse
-- raw battery-node exposure
 - LED / button / pack-presence UX features
 - dedicated `PCHG` path in this revision
 

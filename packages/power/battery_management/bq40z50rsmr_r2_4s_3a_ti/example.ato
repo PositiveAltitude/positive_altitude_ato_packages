@@ -7,3 +7,4 @@ module Example:
 
     assert frontend.pack.voltage within 10V to 16.8V
     assert frontend.pack.max_current <= 3A
+    assert frontend.raw_battery.voltage within 10V to 16.8V
