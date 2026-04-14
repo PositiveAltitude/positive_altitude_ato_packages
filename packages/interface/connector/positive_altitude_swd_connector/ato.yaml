@@ -1,0 +1,16 @@
+requires-atopile: "0.15.4"
+
+paths:
+  src: ./
+  layout: ./layouts
+
+builds:
+  default:
+    entry: "positive_altitude_swd_connector.ato:PositiveAltitudeSWDConnector"
+  example:
+    entry: "example.ato:Example"
+
+package:
+  identifier: "local/interface-connector-positive-altitude-swd-connector"
+  version: "0.0.1"
+  summary: "No-solder 5-pin SWD target footprint based on PositiveAltitude's custom SWD probe connector."

@@ -1,0 +1,17 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_removed
+import is_atomic_part
+
+component Positive_Altitude_SWD_Connector_package:
+    """PCB-side footprint for PositiveAltitude's custom no-solder SWD probe."""
+
+    trait is_atomic_part<manufacturer="PositiveAltitude", partnumber="Positive_Altitude_SWD_Connector", footprint="Positive_Altitude_SWD_Connector.kicad_mod", symbol="Positive_Altitude_SWD_Connector.kicad_sym">
+    trait has_part_removed
+    trait has_designator_prefix<prefix="J">
+
+    signal P1_3V3 ~ pin 1
+    signal P2_SWCLK ~ pin 2
+    signal P3_GND ~ pin 3
+    signal P4_SWDIO ~ pin 4
+    signal P5_RESET ~ pin 5

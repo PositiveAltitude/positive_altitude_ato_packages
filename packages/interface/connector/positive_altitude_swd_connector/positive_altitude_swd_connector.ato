@@ -1,0 +1,34 @@
+"""Positive Altitude no-solder SWD target connector footprint."""
+
+import ElectricLogic
+import ElectricPower
+from "parts/Positive_Altitude_SWD_Connector/Positive_Altitude_SWD_Connector.ato" import Positive_Altitude_SWD_Connector_package
+
+module PositiveAltitudeSWDConnector:
+    """
+    PCB-side SWD target footprint based on PositiveAltitude's custom no-solder
+    5-pin SWD probe connector.
+
+    The exposed interface is intentionally minimal and matches the reference
+    symbol: 3.3 V target reference, SWCLK, GND, SWDIO, and RESET.
+    """
+
+    connector = new Positive_Altitude_SWD_Connector_package
+    power = new ElectricPower
+    swclk = new ElectricLogic
+    swdio = new ElectricLogic
+    reset = new ElectricLogic
+
+    assert power.voltage within 3.3V +/- 10%
+
+
+    power.hv ~ connector.P1_3V3
+    power.lv ~ connector.P3_GND
+
+    swclk.reference ~ power
+    swdio.reference ~ power
+    reset.reference ~ power
+
+    swclk.line ~ connector.P2_SWCLK
+    swdio.line ~ connector.P4_SWDIO
+    reset.line ~ connector.P5_RESET

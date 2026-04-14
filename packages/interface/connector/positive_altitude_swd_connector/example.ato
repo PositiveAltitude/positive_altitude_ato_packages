@@ -1,0 +1,8 @@
+"""Example usage of the Positive Altitude SWD connector package."""
+
+from "positive_altitude_swd_connector.ato" import PositiveAltitudeSWDConnector
+
+module Example:
+    swd = new PositiveAltitudeSWDConnector
+
+    assert swd.power.voltage within 3.3V +/- 10%
