@@ -119,4 +119,11 @@
 		(options "")
 		(descr "atopile: part lib: XNRUSEMI_XRS30V06D")
 	)
+	(lib
+		(name "Viking_Tech_ARG02BTC2493")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../../parts/Viking_Tech_ARG02BTC2493")
+		(options "")
+		(descr "atopile: part lib: Viking_Tech_ARG02BTC2493")
+	)
 )

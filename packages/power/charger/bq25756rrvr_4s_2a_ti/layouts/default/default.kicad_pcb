@@ -4559,7 +4559,7 @@
 			)
 		)
 	)
-	(footprint "YAGEO_RT0603BRD07249KL:R0603"
+	(footprint "Viking_Tech_ARG02BTC2493:R0402"
 		(layer "F.Cu")
 		(uuid "5ff3bdfb-65d2-4bb3-b39c-83fe4642524b")
 		(at 30 -290 0)
@@ -4585,13 +4585,13 @@
 				)
 			)
 		)
-		(property "LCSC" "C705752"
+		(property "LCSC" "C2984416"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "e631693d-dd08-4e2b-b6d2-b1934642524b")
 		)
-		(property "Manufacturer" "YAGEO"
+		(property "Manufacturer" "Viking Tech"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -4615,13 +4615,13 @@
 			(hide yes)
 			(uuid "b3dfaa8b-6a4c-4b39-ade3-313b4642524b")
 		)
-		(property "Partnumber" "RT0603BRD07249KL"
+		(property "Partnumber" "ARG02BTC2493"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "87839bae-bce2-42da-92f5-ae244642524b")
 		)
-		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2009282205_YAGEO-RT0603BRD07249KL_C705752.pdf"
+		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2208081100_Viking-Tech-ARG02BTC2493_C2984416.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -4651,7 +4651,7 @@
 			(hide yes)
 			(uuid "147ffab5-8911-4ee3-bf4e-58d84642524b")
 		)
-		(property "lcsc_id" "C705752"
+		(property "lcsc_id" "C2984416"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -4663,10 +4663,10 @@
 			(hide yes)
 			(uuid "19d50e2b-2afc-4c43-9d48-43224642524b")
 		)
-		(attr smd)
+		(attr through_hole)
 		(fp_line
-			(start 0.43 0.66)
-			(end 1.39 0.66)
+			(start -0.23 0.5)
+			(end -0.94 0.5)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -4674,11 +4674,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "0e2454b1-4185-4f77-b7fd-40b935256a24")
+			(uuid "eaec7f51-5567-4a51-94ca-608ce2cdd951")
 		)
 		(fp_line
-			(start 1.39 0.66)
-			(end 1.39 -0.66)
+			(start -0.94 0.5)
+			(end -0.94 -0.5)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -4686,11 +4686,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "5b965f13-6c40-4e29-89ba-cac79574429e")
+			(uuid "bf9f8af3-590b-4b15-b61d-24b63e2bda23")
 		)
 		(fp_line
-			(start 1.39 -0.66)
-			(end 0.43 -0.66)
+			(start -0.94 -0.5)
+			(end -0.23 -0.5)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -4698,11 +4698,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "0df7eef0-5883-40c2-888e-a0b182c7b992")
+			(uuid "a6cf9b9d-c49b-403a-a914-cbcd5d15f83d")
 		)
 		(fp_line
-			(start -0.43 0.66)
-			(end -1.39 0.66)
+			(start 0.23 0.5)
+			(end 0.94 0.5)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -4710,11 +4710,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "9930dba6-6c8d-4405-ad00-163c3ab4d1a2")
+			(uuid "21343e0c-da37-43c6-bb44-bfa411183fde")
 		)
 		(fp_line
-			(start -1.39 0.66)
-			(end -1.39 -0.66)
+			(start 0.94 0.5)
+			(end 0.94 -0.5)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -4722,11 +4722,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "63a44fdc-f7cd-40fb-961b-156b46fafd6e")
+			(uuid "28de6489-c314-4d7f-bcb2-821f0f1cce0c")
 		)
 		(fp_line
-			(start -1.39 -0.66)
-			(end -0.43 -0.66)
+			(start 0.94 -0.5)
+			(end 0.23 -0.5)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -4734,43 +4734,43 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "a6f0fa81-4601-4689-9ed5-43c788ff1e09")
+			(uuid "9ed131fc-60b2-40c2-a816-274067b2be6a")
 		)
 		(fp_circle
-			(center -0.8 0.4)
-			(end -0.77 0.4)
+			(center -0.5 0.25)
+			(end -0.47 0.25)
 			(stroke
 				(width 0.06)
 				(type solid)
 			)
 			(layer "F.Fab")
 			(locked no)
-			(uuid "754dce25-1e2b-4143-97a6-7b59cd91b804")
+			(uuid "2089b23a-d41a-42bb-a654-e45bc73e0db3")
 		)
 		(pad "2" smd rect
-			(at 0.75 0 0)
-			(size 0.81 0.86)
+			(at 0.43 0 0)
+			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(net 24 "FB")
-			(uuid "541b8ae6-6174-4d49-86b6-31a2e60d5327")
+			(uuid "a09d477a-a317-43c2-a08b-ce9c1b99f096")
 		)
 		(pad "1" smd rect
-			(at -0.75 0 0)
-			(size 0.81 0.86)
+			(at -0.43 0 0)
+			(size 0.57 0.54)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(net 30 "battery-hv")
-			(uuid "de60b1ff-9ad2-4f6d-9e3e-7fcc7749ce66")
+			(uuid "401616fe-17ba-4bb9-a0a8-340d749b56ac")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/YAGEO_RT0603BRD07249KL/R0603.STEP"
+		(model "${KIPRJMOD}/../../parts/Viking_Tech_ARG02BTC2493/R0402_L1.0-W0.5-H0.4.step"
 			(offset
-				(xyz 0 0 -0)
+				(xyz 0 -0 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 270)
+				(xyz 0 0 0)
 			)
 		)
 	)

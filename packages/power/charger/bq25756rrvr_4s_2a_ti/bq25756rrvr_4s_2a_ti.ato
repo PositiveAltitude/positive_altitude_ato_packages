@@ -14,7 +14,7 @@ from "parts/YAGEO_RC0402FR_0710KL/YAGEO_RC0402FR_0710KL.ato" import YAGEO_RC0402
 from "parts/YAGEO_RC0402FR_0710RL/YAGEO_RC0402FR_0710RL.ato" import YAGEO_RC0402FR_0710RL_package
 from "parts/YAGEO_RC0402FR_0749K9L/YAGEO_RC0402FR_0749K9L.ato" import YAGEO_RC0402FR_0749K9L_package
 from "parts/YAGEO_RT0402BRD0724K9L/YAGEO_RT0402BRD0724K9L.ato" import YAGEO_RT0402BRD0724K9L_package
-from "parts/YAGEO_RT0603BRD07249KL/YAGEO_RT0603BRD07249KL.ato" import YAGEO_RT0603BRD07249KL_package
+from "parts/Viking_Tech_ARG02BTC2493/Viking_Tech_ARG02BTC2493.ato" import Viking_Tech_ARG02BTC2493_package
 from "parts/Texas_Instruments_BQ25756RRVR/Texas_Instruments_BQ25756RRVR.ato" import Texas_Instruments_BQ25756RRVR_package
 from "parts/XNRUSEMI_XRS30V06D/XNRUSEMI_XRS30V06D.ato" import XNRUSEMI_XRS30V06D_package
 
@@ -73,8 +73,8 @@ module BQ25756RRVR_4S_2A_TI:
     battery_sense_resistor = new YAGEO_PA1206FRE470R005Z_package
     # 49.9kΩ 1% 0402 programming resistor
     charge_current_program = new YAGEO_RC0402FR_0749K9L_package
-    # 249kΩ 0.1% 0603 feedback resistor
-    regulation_feedback_top = new YAGEO_RT0603BRD07249KL_package
+    # 249kΩ 0.1% 0402 feedback resistor
+    regulation_feedback_top = new Viking_Tech_ARG02BTC2493_package
     # 24.9kΩ 0.1% 0402 feedback resistor
     regulation_feedback_bottom = new YAGEO_RT0402BRD0724K9L_package
     # 49.9kΩ 1% 0402 programming resistor
