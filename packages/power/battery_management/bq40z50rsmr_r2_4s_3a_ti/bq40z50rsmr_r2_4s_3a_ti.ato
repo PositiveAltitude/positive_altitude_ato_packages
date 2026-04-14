@@ -102,6 +102,8 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     current_sense_filter = new Murata_Electronics_GRM155R71H104KE14D_package
     # 10kΩ 0402 high-resistance PTC thermistor for FET overtemperature trip
     fet_safety_ptc = new Murata_Electronics_PRF15BB103RB6RC_package
+    # 100nF X7R 25V 0402 PTC filter capacitor
+    fet_safety_ptc_filter = new Murata_Electronics_GRM155R71E104KE14D_package
     # 100nF X7R 25V 0402 cell filter capacitor
     vc1_filter_cap = new Murata_Electronics_GRM155R71E104KE14D_package
     # 100nF X7R 25V 0402 cell filter capacitor
@@ -140,6 +142,8 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     pbi_hold_cap.2 ~ cell_0
     monitor.PTC ~ fet_safety_ptc.1
     fet_safety_ptc.2 ~ cell_4
+    monitor.PTC ~ fet_safety_ptc_filter.1
+    fet_safety_ptc_filter.2 ~ cell_4
     monitor.PTCEN ~ cell_4
     monitor.FUSE ~ cell_0
     monitor.nPRESh_or_SHUTDN ~ cell_0
