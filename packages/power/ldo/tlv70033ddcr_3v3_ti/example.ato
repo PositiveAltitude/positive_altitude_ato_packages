@@ -1,0 +1,10 @@
+"""Example usage of the TLV70033DDCR 3.3 V LDO package."""
+
+from "tlv70033ddcr_3v3_ti.ato" import TLV70033LDO3V3
+
+module Example:
+    ldo = new TLV70033LDO3V3
+
+    assert ldo.power_in.voltage within 4.75V to 5.25V
+    assert ldo.power_out.voltage within 3.3V +/- 2%
+    assert ldo.power_out.max_current <= 200mA

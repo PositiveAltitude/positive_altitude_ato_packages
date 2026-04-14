@@ -1,0 +1,43 @@
+"""TLV70033DDCR 3.3 V LDO package pinned to TI C11337."""
+
+import ElectricPower
+from "parts/Murata_Electronics_GRM188R61H105KAALD/Murata_Electronics_GRM188R61H105KAALD.ato" import Murata_Electronics_GRM188R61H105KAALD_package
+from "parts/Texas_Instruments_TLV70033DDCR/Texas_Instruments_TLV70033DDCR.ato" import Texas_Instruments_TLV70033DDCR_package
+
+module TLV70033DDCR_3V3_TI:
+    """
+    Minimal always-on 5 V to 3.3 V LDO implementation using TI's TLV70033DDCR.
+
+    The package follows TI's simple application circuit with one 1 uF ceramic
+    capacitor on the input and one 1 uF ceramic capacitor on the output. EN is
+    tied directly to VIN to keep the BOM at just the LDO and two capacitors.
+    """
+
+    power_in = new ElectricPower
+    power_out = new ElectricPower
+
+    assert power_in.voltage within 4.5V to 5.5V
+    assert power_out.voltage within 3.3V +/- 2%
+    assert power_out.max_current <= 200mA
+
+
+    regulator = new Texas_Instruments_TLV70033DDCR_package
+    # 1uF X5R 50V 0603 input capacitor
+    input_cap = new Murata_Electronics_GRM188R61H105KAALD_package
+    # 1uF X5R 50V 0603 output capacitor
+    output_cap = new Murata_Electronics_GRM188R61H105KAALD_package
+    power_in.lv ~ power_out.lv
+
+    power_in.hv ~ regulator.IN
+    power_in.lv ~ regulator.GND
+    power_in.hv ~ regulator.EN
+    regulator.OUT ~ power_out.hv
+
+    power_in.hv ~ input_cap.1
+    input_cap.2 ~ power_in.lv
+    power_out.hv ~ output_cap.1
+    output_cap.2 ~ power_out.lv
+
+
+module TLV70033LDO3V3 from TLV70033DDCR_3V3_TI:
+    pass

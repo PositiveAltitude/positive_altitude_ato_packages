@@ -1,0 +1,23 @@
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Texas_Instruments_TLV70033DDCR_package:
+    """Single Output LDO, 200 mA, Fixed 3.3 V Output, 2 to 5.5 V Input, with Low IQ, 5-pin SOT (DDC), -40 to 125 degC, Green (RoHS  no SbBr)"""
+
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C11337", date="2026-04-14T16:22:55.517677+00:00", checksum="45d16244c37d92ec114ae55284a9bfa9c35af518f00bb8c85717e48e8b00402a">
+
+    trait is_atomic_part<manufacturer="Texas Instruments", partnumber="TLV70033DDCR", footprint="SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR.kicad_mod", symbol="TLV70033DDCR.kicad_sym", model="SOT-23-5_L2.9-W1.6-H1.1-LS2.8-P0.95.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C11337", manufacturer="Texas Instruments", partno="TLV70033DDCR">
+    trait has_designator_prefix<prefix="U">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_1809251714_Texas-Instruments-TLV70033DDCR_C11337.pdf">
+
+    # pins
+    signal EN ~ pin 3
+    signal GND ~ pin 2
+    signal IN ~ pin 1
+    signal OUT ~ pin 5

@@ -1,0 +1,16 @@
+requires-atopile: "0.15.4"
+
+paths:
+  src: ./
+  layout: ./layouts
+
+builds:
+  default:
+    entry: "tlv70033ddcr_3v3_ti.ato:TLV70033DDCR_3V3_TI"
+  example:
+    entry: "example.ato:Example"
+
+package:
+  identifier: "local/power-ldo-tlv70033ddcr-3v3-ti"
+  version: "0.0.1"
+  summary: "Minimal 5 V to 3.3 V LDO package using TI TLV70033DDCR with only the regulator and two 1 uF ceramic capacitors."
