@@ -1,0 +1,16 @@
+requires-atopile: "0.15.4"
+
+paths:
+  src: ./
+  layout: ./layouts
+
+builds:
+  default:
+    entry: "tps25961drvr_19v_2a_ti.ato:TPS25961DRVR_19V_2A_TI"
+  example:
+    entry: "example.ato:Example"
+
+package:
+  identifier: "local/power-power-switch-tps25961drvr-19v-2a-ti"
+  version: "0.0.1"
+  summary: "TI TPS25961 eFuse package for 2.7 V to 19 V rails with fixed 2 A current limiting, fixed slew-rate soft-start, 3.3 V push-pull enable compatibility, and 19 V overvoltage cutoff."

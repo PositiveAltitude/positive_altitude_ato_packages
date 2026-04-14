@@ -1,0 +1,69 @@
+"""TPS25961DRVR 19 V / 2 A protected power switch package pinned to TI C5571272."""
+
+import ElectricLogic
+import ElectricPower
+from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
+from "parts/Murata_Electronics_GRM188R61H105KAALD/Murata_Electronics_GRM188R61H105KAALD.ato" import Murata_Electronics_GRM188R61H105KAALD_package
+from "parts/Texas_Instruments_TPS25961DRVR/Texas_Instruments_TPS25961DRVR.ato" import Texas_Instruments_TPS25961DRVR_package
+from "parts/YAGEO_RC0402FR_0710KL/YAGEO_RC0402FR_0710KL.ato" import YAGEO_RC0402FR_0710KL_package
+from "parts/YAGEO_RC0402FR_07140KL/YAGEO_RC0402FR_07140KL.ato" import YAGEO_RC0402FR_07140KL_package
+from "parts/YAGEO_RC0402FR_0725K5L/YAGEO_RC0402FR_0725K5L.ato" import YAGEO_RC0402FR_0725K5L_package
+
+module TPS25961DRVR_19V_2A_TI:
+    """
+    Current-limited high-side power switch built around TI's TPS25961.
+
+    This package is configured to work on both 3.3 V rails and 4S battery rails
+    up to the device's 19 V operating limit. The current-limit resistor is set
+    for a nominal 2 A clamp, the internal output slew-rate control provides the
+    soft-start behavior, and the EN/UVLO pin is driven directly from an external
+    3.3 V push-pull logic signal referenced to the input ground.
+
+    The OVLO divider is fixed near 18.6 V typical so normal 4S operation up to
+    16.8 V is allowed while higher-voltage faults are cut off before exceeding
+    the device's intended operating region.
+    """
+
+    power_in = new ElectricPower
+    power_out = new ElectricPower
+    enable = new ElectricLogic
+
+    assert power_in.voltage within 2.7V to 19V
+    assert power_out.max_current <= 2A
+
+
+    efuse = new Texas_Instruments_TPS25961DRVR_package
+    # 25.5kΩ 1% 0402 current-limit programming resistor for 2 A nominal limit
+    current_limit_program = new YAGEO_RC0402FR_0725K5L_package
+    # 140kΩ 1% 0402 OVLO top resistor
+    ovlo_top = new YAGEO_RC0402FR_07140KL_package
+    # 10kΩ 1% 0402 OVLO bottom resistor
+    ovlo_bottom = new YAGEO_RC0402FR_0710KL_package
+    # 100nF X7R 50V 0402 input bypass capacitor
+    input_cap = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 1uF X5R 50V 0603 output capacitor
+    output_cap = new Murata_Electronics_GRM188R61H105KAALD_package
+    enable.reference ~ power_in
+    power_in.lv ~ power_out.lv
+
+    power_in.hv ~ efuse.IN
+    power_in.lv ~ efuse.GND
+    enable.line ~ efuse.EN_UVLO
+    efuse.OUT ~ power_out.hv
+
+    efuse.ILIM ~ current_limit_program.1
+    current_limit_program.2 ~ power_in.lv
+
+    power_in.hv ~ ovlo_top.1
+    ovlo_top.2 ~ efuse.OVLO
+    efuse.OVLO ~ ovlo_bottom.1
+    ovlo_bottom.2 ~ power_in.lv
+
+    power_in.hv ~ input_cap.1
+    input_cap.2 ~ power_in.lv
+    power_out.hv ~ output_cap.1
+    output_cap.2 ~ power_out.lv
+
+
+module TPS25961PowerSwitch19V2A from TPS25961DRVR_19V_2A_TI:
+    pass
