@@ -105,4 +105,11 @@
 		(options "")
 		(descr "atopile: part lib: Samsung_Electro_Mechanics_CL05A106MP5NUNC")
 	)
+	(lib
+		(name "Murata_Electronics_PRF15BB103RB6RC")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_PRF15BB103RB6RC")
+		(options "")
+		(descr "atopile: part lib: Murata_Electronics_PRF15BB103RB6RC")
+	)
 )

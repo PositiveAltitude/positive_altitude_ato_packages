@@ -6,6 +6,7 @@ import I2C
 from "parts/Murata_Electronics_GRM155R71E104KE14D/Murata_Electronics_GRM155R71E104KE14D.ato" import Murata_Electronics_GRM155R71E104KE14D_package
 from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
 from "parts/Murata_Electronics_GRM188R61E225KA12D/Murata_Electronics_GRM188R61E225KA12D.ato" import Murata_Electronics_GRM188R61E225KA12D_package
+from "parts/Murata_Electronics_PRF15BB103RB6RC/Murata_Electronics_PRF15BB103RB6RC.ato" import Murata_Electronics_PRF15BB103RB6RC_package
 from "parts/YAGEO_PA1206FRF470R001L/YAGEO_PA1206FRF470R001L.ato" import YAGEO_PA1206FRF470R001L_package
 from "parts/YAGEO_RC0402FR_07100KL/YAGEO_RC0402FR_07100KL.ato" import YAGEO_RC0402FR_07100KL_package
 from "parts/YAGEO_RC0402FR_07100RL/YAGEO_RC0402FR_07100RL.ato" import YAGEO_RC0402FR_07100RL_package
@@ -27,11 +28,12 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     Cell balancing support is kept internal to the BQ40Z50-R2 architecture by
     wiring the cell taps and recommended VC input filters.
 
-    No thermistors are included. Instead, each TS input is biased with a fixed
-    10-kohm resistor to VSS so the hardware can operate without external NTCs.
-    Chemistry, balancing behavior, temperature policy, and any permanent-fail
-    masking still require appropriate BQ40Z50-R2 configuration in TI's data
-    flash for the target pack.
+    The unused TS inputs are tied directly to VSS per the datasheet's unused-pin
+    guidance. A dedicated 0402 PTC safety thermistor is placed between BAT and
+    PTC so the gauge can permanently trip on excessive FET temperature without
+    adding external NTC channels. Chemistry, balancing behavior, temperature
+    policy, and any permanent-fail masking still require appropriate
+    BQ40Z50-R2 configuration in TI's data flash for the target pack.
 
     PCHG is intentionally left unimplemented in this minimal package revision.
     This keeps the package aligned with the user's narrow scope while making the
@@ -53,6 +55,10 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     signal vcc_filtered
     signal srp_filtered
     signal srn_filtered
+    signal vc1_filtered
+    signal vc2_filtered
+    signal vc3_filtered
+    signal vc4_filtered
 
     assert pack.voltage within 10V to 16.8V
     assert pack.max_current <= 3A
@@ -79,6 +85,10 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     # 100Ω 1% 0402 series resistor
     srn_filter_resistor = new YAGEO_RC0402FR_07100RL_package
     # 100Ω 1% 0402 series resistor
+    smbc_series_resistor = new YAGEO_RC0402FR_07100RL_package
+    # 100Ω 1% 0402 series resistor
+    smbd_series_resistor = new YAGEO_RC0402FR_07100RL_package
+    # 100Ω 1% 0402 series resistor
     vc1_filter_resistor = new YAGEO_RC0402FR_07100RL_package
     # 100Ω 1% 0402 series resistor
     vc2_filter_resistor = new YAGEO_RC0402FR_07100RL_package
@@ -86,26 +96,12 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     vc3_filter_resistor = new YAGEO_RC0402FR_07100RL_package
     # 100Ω 1% 0402 series resistor
     vc4_filter_resistor = new YAGEO_RC0402FR_07100RL_package
-    # 10kΩ 1% 0402 bias resistor
-    ts1_bias = new YAGEO_RC0402FR_0710KL_package
-    # 10kΩ 1% 0402 bias resistor
-    ts2_bias = new YAGEO_RC0402FR_0710KL_package
-    # 10kΩ 1% 0402 bias resistor
-    ts3_bias = new YAGEO_RC0402FR_0710KL_package
-    # 10kΩ 1% 0402 bias resistor
-    ts4_bias = new YAGEO_RC0402FR_0710KL_package
-    # 100kΩ 1% 0402 pull resistor
-    display_pullup = new YAGEO_RC0402FR_07100KL_package
     # 2.2uF X5R 25V 0603 hold capacitor
     pbi_hold_cap = new Murata_Electronics_GRM188R61E225KA12D_package
     # 100nF X7R 50V 0402 bypass capacitor
-    bat_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
-    # 100nF X7R 50V 0402 bypass capacitor
-    vcc_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
-    # 100nF X7R 50V 0402 bypass capacitor
-    pack_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
-    # 100nF X7R 50V 0402 bypass capacitor
     current_sense_filter = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 10kΩ 0402 high-resistance PTC thermistor for FET overtemperature trip
+    fet_safety_ptc = new Murata_Electronics_PRF15BB103RB6RC_package
     # 100nF X7R 25V 0402 cell filter capacitor
     vc1_filter_cap = new Murata_Electronics_GRM155R71E104KE14D_package
     # 100nF X7R 25V 0402 cell filter capacitor
@@ -118,8 +114,10 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     i2c.sda.reference ~ pack
     btp_int.reference ~ pack
 
-    i2c.scl.line ~ monitor.SMBC
-    i2c.sda.line ~ monitor.SMBD
+    i2c.scl.line ~ smbc_series_resistor.1
+    smbc_series_resistor.2 ~ monitor.SMBC
+    i2c.sda.line ~ smbd_series_resistor.1
+    smbd_series_resistor.2 ~ monitor.SMBD
     btp_int.line ~ monitor.BTP_INT
 
     raw_battery.hv ~ cell_4
@@ -133,51 +131,45 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     cell_4 ~ vcc_series_resistor.1
     vcc_series_resistor.2 ~ vcc_filtered
     vcc_filtered ~ monitor.VCC
-    vcc_filtered ~ vcc_bypass.1
-    vcc_bypass.2 ~ cell_0
-    cell_4 ~ bat_bypass.1
-    bat_bypass.2 ~ cell_0
 
     pack.hv ~ pack_series_resistor.1
     pack_series_resistor.2 ~ pack_filtered
     pack_filtered ~ monitor.PACK
-    pack_filtered ~ pack_bypass.1
-    pack_bypass.2 ~ cell_0
 
     monitor.PBI ~ pbi_hold_cap.1
     pbi_hold_cap.2 ~ cell_0
-    monitor.PTC ~ cell_0
-    monitor.PTCEN ~ cell_0
+    monitor.PTC ~ fet_safety_ptc.1
+    fet_safety_ptc.2 ~ cell_4
+    monitor.PTCEN ~ cell_4
     monitor.FUSE ~ cell_0
     monitor.nPRESh_or_SHUTDN ~ cell_0
-    cell_4 ~ display_pullup.1
-    display_pullup.2 ~ monitor.nDISP
+    monitor.nDISP ~ cell_0
 
     tap_1 ~ vc1_filter_resistor.1
-    vc1_filter_resistor.2 ~ monitor.VC1
-    monitor.VC1 ~ vc1_filter_cap.1
+    vc1_filter_resistor.2 ~ vc1_filtered
+    vc1_filtered ~ monitor.VC1
+    vc1_filtered ~ vc1_filter_cap.1
     vc1_filter_cap.2 ~ cell_0
     tap_2 ~ vc2_filter_resistor.1
-    vc2_filter_resistor.2 ~ monitor.VC2
-    monitor.VC2 ~ vc2_filter_cap.1
-    vc2_filter_cap.2 ~ tap_1
+    vc2_filter_resistor.2 ~ vc2_filtered
+    vc2_filtered ~ monitor.VC2
+    vc2_filtered ~ vc2_filter_cap.1
+    vc2_filter_cap.2 ~ vc1_filtered
     tap_3 ~ vc3_filter_resistor.1
-    vc3_filter_resistor.2 ~ monitor.VC3
-    monitor.VC3 ~ vc3_filter_cap.1
-    vc3_filter_cap.2 ~ tap_2
+    vc3_filter_resistor.2 ~ vc3_filtered
+    vc3_filtered ~ monitor.VC3
+    vc3_filtered ~ vc3_filter_cap.1
+    vc3_filter_cap.2 ~ vc2_filtered
     cell_4 ~ vc4_filter_resistor.1
-    vc4_filter_resistor.2 ~ monitor.VC4
-    monitor.VC4 ~ vc4_filter_cap.1
-    vc4_filter_cap.2 ~ tap_3
+    vc4_filter_resistor.2 ~ vc4_filtered
+    vc4_filtered ~ monitor.VC4
+    vc4_filtered ~ vc4_filter_cap.1
+    vc4_filter_cap.2 ~ vc3_filtered
 
-    monitor.TS1 ~ ts1_bias.1
-    ts1_bias.2 ~ cell_0
-    monitor.TS2 ~ ts2_bias.1
-    ts2_bias.2 ~ cell_0
-    monitor.TS3 ~ ts3_bias.1
-    ts3_bias.2 ~ cell_0
-    monitor.TS4 ~ ts4_bias.1
-    ts4_bias.2 ~ cell_0
+    monitor.TS1 ~ cell_0
+    monitor.TS2 ~ cell_0
+    monitor.TS3 ~ cell_0
+    monitor.TS4 ~ cell_0
 
     cell_0 ~ sense_resistor.1
     sense_resistor.2 ~ pack.lv

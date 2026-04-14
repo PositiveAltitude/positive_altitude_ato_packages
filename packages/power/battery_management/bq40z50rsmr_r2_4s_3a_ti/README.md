@@ -14,13 +14,15 @@ Reusable Atopile package for a **4S BQ40Z50-R2 smart-battery frontend**.
 - TI `BQ40Z50RSMR-R2` (`LCSC C2845123`)
 - Reused XNRUSEMI dual N-FET `XRS30V06D` (`LCSC C42457041`) for the protected high-side path
 - Internal cell-tap filtering and balancing support wiring
-- Fixed 10-kohm TS bias resistors so the hardware can operate without external thermistors
+- 100-Ω series resistors on SMBC/SMBD and VC sense lines per the TI reference schematic
+- Unused TS1-TS4 and `nDISP` pinned to `VSS`
+- Murata `PRF15BB103RB6RC` (`LCSC C443668`) 0402 safety PTC thermistor at the FETs
 
 ## Intentionally omitted
 
 - MCU / firmware logic
 - SMBus pull-ups
-- thermistors
+- external pack/cell thermistors
 - secondary protection / chemical fuse
 - LED / button / pack-presence UX features
 - dedicated `PCHG` path in this revision
