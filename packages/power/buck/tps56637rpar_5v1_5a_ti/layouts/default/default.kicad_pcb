@@ -1662,7 +1662,7 @@
 	(footprint "Murata_Electronics_GRM31CR61H106KA12L:C1206"
 		(layer "F.Cu")
 		(uuid "26c4430a-d558-4b9a-a992-180b4642524b")
-		(at 10 -50 0)
+		(at 100 -50 0)
 		(property "Reference" "C3"
 			(at 0 -4)
 			(layer "F.SilkS")

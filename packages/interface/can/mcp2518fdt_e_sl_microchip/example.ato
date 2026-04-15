@@ -1,8 +1,0 @@
-"""Example usage of the MCP2518FD SPI to CAN FD controller package."""
-
-from "mcp2518fdt_e_sl_microchip.ato" import MCP2518FDT_ESL_Microchip
-
-module Example:
-    can_ctrl = new MCP2518FDT_ESL_Microchip
-
-    assert can_ctrl.power.voltage within 3.3V +/- 5%

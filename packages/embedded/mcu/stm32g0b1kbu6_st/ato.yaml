@@ -7,9 +7,6 @@ paths:
 builds:
   default:
     entry: "stm32g0b1kbu6_st.ato:STM32G0B1KBU6_ST"
-  example:
-    entry: "example.ato:Example"
-
 package:
   identifier: "local/embedded-mcu-stm32g0b1kbu6-st"
   version: "0.0.1"

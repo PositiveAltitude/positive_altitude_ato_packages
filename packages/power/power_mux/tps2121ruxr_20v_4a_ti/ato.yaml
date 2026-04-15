@@ -7,9 +7,6 @@ paths:
 builds:
   default:
     entry: "tps2121ruxr_20v_4a_ti.ato:TPS2121RUXR_20V_4A_TI"
-  example:
-    entry: "example.ato:Example"
-
 package:
   identifier: "local/power-power-mux-tps2121ruxr-20v-4a-ti"
   version: "0.0.1"

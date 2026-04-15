@@ -7,9 +7,6 @@ paths:
 builds:
   default:
     entry: "tps25730drefr_20v_3a_ti.ato:TPS25730DREFR_20V_3A_TI"
-  example:
-    entry: "example.ato:Example"
-
 package:
   identifier: "local/power-usb-pd-tps25730drefr-20v-3a-ti"
   version: "0.0.1"

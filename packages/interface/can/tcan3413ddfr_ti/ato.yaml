@@ -7,9 +7,6 @@ paths:
 builds:
   default:
     entry: "tcan3413ddfr_ti.ato:TCAN3413DDFR_TI"
-  example:
-    entry: "example.ato:Example"
-
 package:
   identifier: "local/interface-can-tcan3413ddfr-ti"
   version: "0.0.1"

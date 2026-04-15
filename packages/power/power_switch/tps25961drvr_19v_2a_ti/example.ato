@@ -1,9 +1,0 @@
-"""Example usage of the TPS25961 19 V / 2 A power switch package."""
-
-from "tps25961drvr_19v_2a_ti.ato" import TPS25961PowerSwitch19V2A
-
-module Example:
-    switch = new TPS25961PowerSwitch19V2A
-
-    assert switch.power_in.voltage within 3.3V to 16.8V
-    assert switch.power_out.max_current <= 2A

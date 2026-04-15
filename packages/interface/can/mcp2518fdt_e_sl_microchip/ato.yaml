@@ -8,10 +8,6 @@ builds:
   default:
     entry: "mcp2518fdt_e_sl_microchip.ato:MCP2518FDT_ESL_Microchip"
     standardize_designators: false
-  example:
-    entry: "example.ato:Example"
-    standardize_designators: false
-
 package:
   identifier: "local/interface-can-mcp2518fdt-e-sl-microchip"
   version: "0.0.1"

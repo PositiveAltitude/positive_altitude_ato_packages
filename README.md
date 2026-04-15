@@ -12,6 +12,12 @@ The focus is on practical, ready-to-integrate building blocks for embedded and p
 
 All packages use explicit, LCSC-traceable component selections and are intended to build cleanly as standalone Atopile packages.
 
+## Component inventory
+
+See [`components_list.md`](components_list.md) for a categorized inventory of all LCSC-traceable parts used by the top-level package default BOMs.
+
+That list intentionally excludes custom footprints and other non-purchasable items that do not appear in package BOM outputs.
+
 ## Current packages
 
 ### Embedded

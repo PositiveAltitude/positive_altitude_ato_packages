@@ -7,9 +7,6 @@ paths:
 builds:
   default:
     entry: tps56637rpar_5v1_5a_ti.ato:TPS56637RPAR_5V1_5A_TI
-  example:
-    entry: example.ato:Example
-
 package:
   identifier: "local/power-buck-tps56637rpar-5v1-5a-ti"
   version: "0.0.1"

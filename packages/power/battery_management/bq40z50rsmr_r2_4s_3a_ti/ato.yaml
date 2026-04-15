@@ -7,9 +7,6 @@ paths:
 builds:
   default:
     entry: "bq40z50rsmr_r2_4s_3a_ti.ato:BQ40Z50BatteryFrontend4S"
-  example:
-    entry: "example.ato:Example"
-
 package:
   identifier: "local/power-battery-management-bq40z50rsmr-r2-4s-3a-ti"
   version: "0.0.1"

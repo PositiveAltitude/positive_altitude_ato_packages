@@ -1,6 +1,0 @@
-"""Example usage of the Raspberry Pi 40-pin HAT socket package."""
-
-from "raspberry_pi_hat_socket_zhouri.ato" import RaspberryPiHATSocket
-
-module Example:
-    hat = new RaspberryPiHATSocket

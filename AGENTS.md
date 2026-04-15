@@ -74,3 +74,5 @@ Guidance:
 - Reuse existing repository component choices for equivalent new designs when possible to keep BOMs consistent across packages.
 - Keep BOM decisions deterministic and documented in code.
 - Keep package-local assets and dependencies easy to trace.
+- Keep the root `components_list.md` inventory in sync when top-level package BOM contents or LCSC selections change.
+- `components_list.md` is derived from the top-level package default BOMs and intentionally excludes custom / removed / non-purchasable footprints that do not appear in those BOMs.

@@ -7,9 +7,6 @@ paths:
 builds:
   default:
     entry: "bq25756rrvr_4s_2a_ti.ato:BQ25756RRVR_4S_2A_TI"
-  example:
-    entry: "example.ato:Example"
-
 package:
   identifier: "local/power-charger-bq25756rrvr-4s-2a-ti"
   version: "0.0.1"

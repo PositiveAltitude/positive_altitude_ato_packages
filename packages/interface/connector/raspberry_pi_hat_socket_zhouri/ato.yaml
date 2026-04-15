@@ -7,9 +7,6 @@ paths:
 builds:
   default:
     entry: "raspberry_pi_hat_socket_zhouri.ato:RaspberryPiHATSocket_ZHOURI"
-  example:
-    entry: "example.ato:Example"
-
 package:
   identifier: "local/interface-connector-raspberry-pi-hat-socket-zhouri"
   version: "0.0.1"

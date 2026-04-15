@@ -7,9 +7,6 @@ paths:
 builds:
   default:
     entry: "positive_altitude_swd_connector.ato:PositiveAltitudeSWDConnector"
-  example:
-    entry: "example.ato:Example"
-
 package:
   identifier: "local/interface-connector-positive-altitude-swd-connector"
   version: "0.0.1"
