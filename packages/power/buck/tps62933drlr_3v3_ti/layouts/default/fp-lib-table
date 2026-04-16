@@ -15,13 +15,6 @@
 		(descr "atopile: part lib: cjiang_FTC252012S2R2MBCA")
 	)
 	(lib
-		(name "Murata_Electronics_GRM31CR61H106KA12L")
-		(type "KiCad")
-		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_GRM31CR61H106KA12L")
-		(options "")
-		(descr "atopile: part lib: Murata_Electronics_GRM31CR61H106KA12L")
-	)
-	(lib
 		(name "YAGEO_RC0402FR_0710KL")
 		(type "KiCad")
 		(uri "${KIPRJMOD}/../../parts/YAGEO_RC0402FR_0710KL")
@@ -36,13 +29,6 @@
 		(descr "atopile: part lib: YAGEO_RC0402FR_0731K6L")
 	)
 	(lib
-		(name "Murata_Electronics_GRM155R71H333KE14D")
-		(type "KiCad")
-		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71H333KE14D")
-		(options "")
-		(descr "atopile: part lib: Murata_Electronics_GRM155R71H333KE14D")
-	)
-	(lib
 		(name "Murata_Electronics_GRM155R71H104KE14D")
 		(type "KiCad")
 		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71H104KE14D")
@@ -50,10 +36,17 @@
 		(descr "atopile: part lib: Murata_Electronics_GRM155R71H104KE14D")
 	)
 	(lib
-		(name "Murata_Electronics_GRM31CR61E226KE15L")
+		(name "Murata_Electronics_GRM21BR61H106KE43L")
 		(type "KiCad")
-		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_GRM31CR61E226KE15L")
+		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_GRM21BR61H106KE43L")
 		(options "")
-		(descr "atopile: part lib: Murata_Electronics_GRM31CR61E226KE15L")
+		(descr "atopile: part lib: Murata_Electronics_GRM21BR61H106KE43L")
+	)
+	(lib
+		(name "Murata_Electronics_GRM32ER71E226KE15L")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_GRM32ER71E226KE15L")
+		(options "")
+		(descr "atopile: part lib: Murata_Electronics_GRM32ER71E226KE15L")
 	)
 )

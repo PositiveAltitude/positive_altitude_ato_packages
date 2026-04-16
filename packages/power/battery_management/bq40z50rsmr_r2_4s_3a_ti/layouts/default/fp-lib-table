@@ -78,13 +78,6 @@
 		(descr "atopile: part lib: YAGEO_RC0402FR_07100RL")
 	)
 	(lib
-		(name "Murata_Electronics_GRM155R71E104KE14D")
-		(type "KiCad")
-		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71E104KE14D")
-		(options "")
-		(descr "atopile: part lib: Murata_Electronics_GRM155R71E104KE14D")
-	)
-	(lib
 		(name "YAGEO_RC0402FR_07100KL")
 		(type "KiCad")
 		(uri "${KIPRJMOD}/../../parts/YAGEO_RC0402FR_07100KL")

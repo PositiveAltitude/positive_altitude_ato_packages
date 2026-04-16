@@ -3,9 +3,7 @@ import ElectricLogic
 import ElectricPower
 
 from "parts/Texas_Instruments_TPS2121RUXR/Texas_Instruments_TPS2121RUXR.ato" import Texas_Instruments_TPS2121RUXR_package
-from "parts/Murata_Electronics_GRM31CR61H106KA12L/Murata_Electronics_GRM31CR61H106KA12L.ato" import Murata_Electronics_GRM31CR61H106KA12L_package
 from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
-from "parts/Murata_Electronics_GRM155R71H103KA88D/Murata_Electronics_GRM155R71H103KA88D.ato" import Murata_Electronics_GRM155R71H103KA88D_package
 from "parts/YAGEO_RC0402FR_07100KL/YAGEO_RC0402FR_07100KL.ato" import YAGEO_RC0402FR_07100KL_package
 from "parts/YAGEO_RC0402FR_0739KL/YAGEO_RC0402FR_0739KL.ato" import YAGEO_RC0402FR_0739KL_package
 from "parts/YAGEO_RC0402FR_0733KL/YAGEO_RC0402FR_0733KL.ato" import YAGEO_RC0402FR_0733KL_package
@@ -37,16 +35,10 @@ module TPS2121RUXR_20V_4A_TI:
 
 
     mux = new Texas_Instruments_TPS2121RUXR_package
-    # 10uF X5R 50V 1206 input capacitor
-    high_priority_bulk = new Murata_Electronics_GRM31CR61H106KA12L_package
     # 100nF X7R 50V 0402 bypass capacitor
     high_priority_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
-    # 10uF X5R 50V 1206 input capacitor
-    low_priority_bulk = new Murata_Electronics_GRM31CR61H106KA12L_package
     # 100nF X7R 50V 0402 bypass capacitor
     low_priority_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
-    # 10uF X5R 50V 1206 input capacitor
-    output_bulk = new Murata_Electronics_GRM31CR61H106KA12L_package
     # 100nF X7R 50V 0402 bypass capacitor
     output_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
     # 100kΩ 1% 0402 pull resistor
@@ -59,8 +51,8 @@ module TPS2121RUXR_20V_4A_TI:
     fallback_bottom = new YAGEO_RC0402FR_0733KL_package
     # 487Ω 1% 0402 ILM resistor
     current_limit_program = new YAGEO_RC0402FR_07487RL_package
-    # 10nF X7R 50V 0402 soft-start capacitor
-    soft_start_cap = new Murata_Electronics_GRM155R71H103KA88D_package
+    # 100nF X7R 50V 0402 soft-start capacitor
+    soft_start_cap = new Murata_Electronics_GRM155R71H104KE14D_package
 
     high_priority.lv ~ low_priority.lv
     high_priority.lv ~ out.lv
@@ -91,16 +83,10 @@ module TPS2121RUXR_20V_4A_TI:
     mux.OV1 ~ out.lv
     mux.OV2 ~ out.lv
 
-    high_priority.hv ~ high_priority_bulk.1
-    high_priority_bulk.2 ~ high_priority.lv
     high_priority.hv ~ high_priority_bypass.1
     high_priority_bypass.2 ~ high_priority.lv
-    low_priority.hv ~ low_priority_bulk.1
-    low_priority_bulk.2 ~ low_priority.lv
     low_priority.hv ~ low_priority_bypass.1
     low_priority_bypass.2 ~ low_priority.lv
-    out.hv ~ output_bulk.1
-    output_bulk.2 ~ out.lv
     out.hv ~ output_bypass.1
     output_bypass.2 ~ out.lv
 

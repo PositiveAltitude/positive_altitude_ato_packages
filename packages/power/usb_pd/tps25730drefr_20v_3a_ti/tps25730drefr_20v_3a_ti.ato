@@ -4,9 +4,8 @@ import ElectricPower
 import I2C
 
 from "parts/Murata_Electronics_GRM1555C1H331JA01D/Murata_Electronics_GRM1555C1H331JA01D.ato" import Murata_Electronics_GRM1555C1H331JA01D_package
-from "parts/Murata_Electronics_GRM155R61A475KEAAD/Murata_Electronics_GRM155R61A475KEAAD.ato" import Murata_Electronics_GRM155R61A475KEAAD_package
-from "parts/Murata_Electronics_GRM188R61A106KE69D/Murata_Electronics_GRM188R61A106KE69D.ato" import Murata_Electronics_GRM188R61A106KE69D_package
 from "parts/Murata_Electronics_GRM188R61E475KE11D/Murata_Electronics_GRM188R61E475KE11D.ato" import Murata_Electronics_GRM188R61E475KE11D_package
+from "parts/Murata_Electronics_GRM21BR61H106KE43L/Murata_Electronics_GRM21BR61H106KE43L.ato" import Murata_Electronics_GRM21BR61H106KE43L_package
 from "parts/TEXAS_INSTRUMENTS_TPS25730DREFR/TEXAS_INSTRUMENTS_TPS25730DREFR.ato" import TEXAS_INSTRUMENTS_TPS25730DREFR_package
 from "parts/YAGEO_RC0402FR_0710KL/YAGEO_RC0402FR_0710KL.ato" import YAGEO_RC0402FR_0710KL_package
 from "parts/YAGEO_RC0402FR_07200KL/YAGEO_RC0402FR_07200KL.ato" import YAGEO_RC0402FR_07200KL_package
@@ -57,12 +56,12 @@ module TPS25730DREFR_20V_3A_TI:
     cc2_filter = new Murata_Electronics_GRM1555C1H331JA01D_package
     # 4.7uF X5R 25V 0603 bulk capacitor
     usb_vbus_bulk = new Murata_Electronics_GRM188R61E475KE11D_package
-    # 10uF X5R 10V 0603 bypass capacitor
-    logic_3v3_bypass = new Murata_Electronics_GRM188R61A106KE69D_package
-    # 10uF X5R 10V 0603 bypass capacitor
-    ldo_3v3_bypass = new Murata_Electronics_GRM188R61A106KE69D_package
-    # 4.7uF X5R 10V 0402 bypass capacitor
-    ldo_1v5_bypass = new Murata_Electronics_GRM155R61A475KEAAD_package
+    # 10uF X5R 50V 0805 bypass capacitor
+    logic_3v3_bypass = new Murata_Electronics_GRM21BR61H106KE43L_package
+    # 10uF X5R 50V 0805 bypass capacitor
+    ldo_3v3_bypass = new Murata_Electronics_GRM21BR61H106KE43L_package
+    # 4.7uF X5R 25V 0603 bypass capacitor
+    ldo_1v5_bypass = new Murata_Electronics_GRM188R61E475KE11D_package
     # 200kΩ 1% 0402 strap resistor
     adc_limit_top = new YAGEO_RC0402FR_07200KL_package
     # 10kΩ 1% 0402 bias resistor

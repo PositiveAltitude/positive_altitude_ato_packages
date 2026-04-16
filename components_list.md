@@ -3,7 +3,7 @@
 Repository-wide component inventory generated from the **default BOM** of each top-level package under `packages/`.
 
 - Top-level packages scanned: **13**
-- Unique purchasable LCSC parts found: **52**
+- Unique purchasable LCSC parts found: **49**
 - Scope: only parts that appear in `build/builds/default/default.bom.json` are listed here.
 - Excludes non-BOM or non-purchasable items such as custom footprints / removed parts (for example the PositiveAltitude SWD footprint and the solder-jumper footprint).
 
@@ -24,6 +24,7 @@ Package names in the tables use the final package directory name (for example `t
 | `RC0402FR-07120RL` | `C114758` | `R0402` | 120 Ω | 1% CAN termination resistor | `tcan3413ddfr_ti` |
 | `RC0402FR-07140KL` | `C114151` | `R0402` | 140 kΩ | 1% OVLO divider resistor | `tps25961drvr_19v_2a_ti` |
 | `RC0402FR-07200KL` | `C114763` | `R0402` | 200 kΩ | 1% USB-PD ADC strap resistor | `tps25730drefr_20v_3a_ti` |
+| `RC0402FR-0720KL` | `C93942` | `R0402` | 20 kΩ | 1% feed-forward resistor for TPS56637 | `tps56637rpar_5v1_5a_ti` |
 | `RC0402FR-0725K5L` | `C273695` | `R0402` | 25.5 kΩ | 1% current-limit programming resistor | `tps25961drvr_19v_2a_ti` |
 | `RC0402FR-0731K6L` | `C276265` | `R0402` | 31.6 kΩ | 1% buck feedback resistor | `tps62933drlr_3v3_ti` |
 | `RC0402FR-0733KL` | `C138003` | `R0402` | 33 kΩ | 1% divider resistor | `tps2121ruxr_20v_4a_ti` |
@@ -37,21 +38,17 @@ Package names in the tables use the final package directory name (for example `t
 
 | Part number | LCSC code | Part package | Capacitance | Tolerance | Voltage | Used in packages |
 | --- | --- | --- | --- | --- | --- | --- |
+| `GRM1555C1H101JA01D` | `C77177` | `C0402` | 100 pF | ±5% | 50 V | `tps56637rpar_5v1_5a_ti` |
 | `GRM1555C1H150JA01D` | `C76950` | `C0402` | 15 pF | ±5% | 50 V | `mcp2518fdt_e_sl_microchip` |
 | `GRM1555C1H331JA01D` | `C76965` | `C0402` | 330 pF | ±5% | 50 V | `tps25730drefr_20v_3a_ti` |
-| `GRM155R61A475KEAAD` | `C77004` | `C0402` | 4.7 µF | ±10% | 10 V | `tps25730drefr_20v_3a_ti` |
 | `GRM155R61H474KE11D` | `C437527` | `C0402` | 470 nF | ±10% | 50 V | `bq25756rrvr_4s_2a_ti` |
-| `GRM155R71E104KE14D` | `C77014` | `C0402` | 100 nF | ±10% | 25 V | `bq40z50rsmr_r2_4s_3a_ti` |
-| `GRM155R71H103KA88D` | `C77019` | `C0402` | 10 nF | ±10% | 50 V | `tps2121ruxr_20v_4a_ti` |
 | `GRM155R71H104KE14D` | `C77020` | `C0402` | 100 nF | ±10% | 50 V | `bq25756rrvr_4s_2a_ti`<br>`bq40z50rsmr_r2_4s_3a_ti`<br>`mcp2518fdt_e_sl_microchip`<br>`stm32g0b1kbu6_st`<br>`tcan3413ddfr_ti`<br>`tps2121ruxr_20v_4a_ti`<br>`tps25961drvr_19v_2a_ti`<br>`tps56637rpar_5v1_5a_ti`<br>`tps62933drlr_3v3_ti` |
-| `GRM155R71H333KE14D` | `C415530` | `C0402` | 33 nF | ±10% | 50 V | `tps62933drlr_3v3_ti` |
-| `GRM188R61A106KE69D` | `C77044` | `C0603` | 10 µF | ±10% | 10 V | `tps25730drefr_20v_3a_ti` |
 | `GRM188R61E225KA12D` | `C77047` | `C0603` | 2.2 µF | ±10% | 25 V | `bq40z50rsmr_r2_4s_3a_ti` |
 | `GRM188R61E475KE11D` | `C90057` | `C0603` | 4.7 µF | ±10% | 25 V | `stm32g0b1kbu6_st`<br>`tps25730drefr_20v_3a_ti` |
 | `GRM188R61H105KAALD` | `C77386` | `C0603` | 1 µF | ±10% | 50 V | `bq25756rrvr_4s_2a_ti`<br>`mcp2518fdt_e_sl_microchip`<br>`tlv70033ddcr_3v3_ti`<br>`tps25961drvr_19v_2a_ti` |
-| `GRM31CR61E226KE15L` | `C77091` | `C1206` | 22 µF | ±10% | 25 V | `tps56637rpar_5v1_5a_ti`<br>`tps62933drlr_3v3_ti` |
-| `GRM31CR61H106KA12L` | `C77092` | `C1206` | 10 µF | ±10% | 50 V | `tps2121ruxr_20v_4a_ti`<br>`tps56637rpar_5v1_5a_ti`<br>`tps62933drlr_3v3_ti` |
+| `GRM21BR61H106KE43L` | `C440198` | `C0805` | 10 µF | ±10% | 50 V | `tps25730drefr_20v_3a_ti`<br>`tps56637rpar_5v1_5a_ti`<br>`tps62933drlr_3v3_ti` |
 | `GRM31CR71H475KA12L` | `C77096` | `C1206` | 4.7 µF | ±10% | 50 V | `bq25756rrvr_4s_2a_ti` |
+| `GRM32ER71E226KE15L` | `C21397` | `C1210` | 22 µF | ±10% | 25 V | `tps56637rpar_5v1_5a_ti`<br>`tps62933drlr_3v3_ti` |
 
 ## Electrolytic / bulk capacitors
 
@@ -77,7 +74,7 @@ Package names in the tables use the final package directory name (for example `t
 | `TPS2121RUXR` | `C485916` | `TPS2121RUXR` | priority power mux | two-input 5–20 V mux configured as an honest 4 A class path | `tps2121ruxr_20v_4a_ti` |
 | `TPS25730DREFR` | `C22438973` | `QFN-38_L6.0-W4.0-P0.40-TL-EP_RJK` | USB-PD sink controller | autonomous 5–20 V / 3 A sink contract controller with integrated sink path | `tps25730drefr_20v_3a_ti` |
 | `TPS25961DRVR` | `C5571272` | `WSON-6_L2.0-W2.0-P0.65-TL-EP` | eFuse / high-side power switch | 2.7–19 V input, nominal 2 A current limit, fixed OVLO network | `tps25961drvr_19v_2a_ti` |
-| `TPS56637RPAR` | `C841386` | `VQFN-HR-10_L3.0-W3.0_RPA` | buck regulator | fixed 5.1 V / 5 A buck converter for 8–16.8 V input rails | `tps56637rpar_5v1_5a_ti` |
+| `TPS56637RPAR` | `C841386` | `VQFN-HR-10_L3.0-W3.0_RPA` | buck regulator | fixed 5.1 V / 5 A buck converter with datasheet-style feed-forward network and 22-µF 1210 output bank | `tps56637rpar_5v1_5a_ti` |
 | `TPS62933DRLR` | `C3200405` | `SOT-583-8_L2.1-W1.2-P0.50-LS1.6-BR` | buck regulator | 3.3 V output from 3.8–30 V input, intentionally derated to 1 A in this package | `tps62933drlr_3v3_ti` |
 
 ## Interface ICs

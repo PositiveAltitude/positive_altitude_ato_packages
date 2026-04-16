@@ -2989,7 +2989,7 @@
 			)
 		)
 	)
-	(footprint "Murata_Electronics_GRM155R71E104KE14D:C0402"
+	(footprint "Murata_Electronics_GRM155R71H104KE14D:C0402"
 		(layer "F.Cu")
 		(uuid "a4c4a0be-8c3e-4ac3-af75-94f24642524b")
 		(at 20 -170 0)
@@ -3016,7 +3016,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C77014"
+		(property "LCSC" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3046,13 +3046,13 @@
 			(hide yes)
 			(uuid "df0615ff-484c-44a8-8733-86124642524b")
 		)
-		(property "Partnumber" "GRM155R71E104KE14D"
+		(property "Partnumber" "GRM155R71H104KE14D"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "4a7043c6-10fc-4e21-9b43-abab4642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811081616_Murata-Electronics-GRM155R71E104KE14D_C77014.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3082,7 +3082,7 @@
 			(hide yes)
 			(uuid "e1ab082b-af5a-4919-bf30-9e3f4642524b")
 		)
-		(property "lcsc_id" "C77014"
+		(property "lcsc_id" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3241,7 +3241,7 @@
 			(uuid "1045df93-feaf-4ba1-9a52-58ef797323d7")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71E104KE14D/C0402_L1.0-W0.5-H0.5.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71H104KE14D/C0402_L1.0-W0.5-H0.5.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -3253,7 +3253,7 @@
 			)
 		)
 	)
-	(footprint "Murata_Electronics_GRM155R71E104KE14D:C0402"
+	(footprint "Murata_Electronics_GRM155R71H104KE14D:C0402"
 		(layer "F.Cu")
 		(uuid "7ae73a77-8cd4-476a-ae74-32c84642524b")
 		(at 20 -180 0)
@@ -3280,7 +3280,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C77014"
+		(property "LCSC" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3310,13 +3310,13 @@
 			(hide yes)
 			(uuid "74984893-66e8-4cd1-9e18-6eb94642524b")
 		)
-		(property "Partnumber" "GRM155R71E104KE14D"
+		(property "Partnumber" "GRM155R71H104KE14D"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "b9243497-520d-4fe7-a5b5-10684642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811081616_Murata-Electronics-GRM155R71E104KE14D_C77014.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3346,7 +3346,7 @@
 			(hide yes)
 			(uuid "2704c634-6b37-4619-954a-58174642524b")
 		)
-		(property "lcsc_id" "C77014"
+		(property "lcsc_id" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3505,7 +3505,7 @@
 			(uuid "1045df93-feaf-4ba1-9a52-58ef797323d7")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71E104KE14D/C0402_L1.0-W0.5-H0.5.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71H104KE14D/C0402_L1.0-W0.5-H0.5.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -3517,7 +3517,7 @@
 			)
 		)
 	)
-	(footprint "Murata_Electronics_GRM155R71E104KE14D:C0402"
+	(footprint "Murata_Electronics_GRM155R71H104KE14D:C0402"
 		(layer "F.Cu")
 		(uuid "59841ba7-f7c5-4292-9bc5-0d944642524b")
 		(at 20 -190 0)
@@ -3544,7 +3544,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C77014"
+		(property "LCSC" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3574,13 +3574,13 @@
 			(hide yes)
 			(uuid "789bf222-5f5d-44aa-b5ec-36544642524b")
 		)
-		(property "Partnumber" "GRM155R71E104KE14D"
+		(property "Partnumber" "GRM155R71H104KE14D"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "01b5e43f-d72b-4c61-aea6-28804642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811081616_Murata-Electronics-GRM155R71E104KE14D_C77014.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3610,7 +3610,7 @@
 			(hide yes)
 			(uuid "9f75172a-b12d-4eb2-ada0-96e54642524b")
 		)
-		(property "lcsc_id" "C77014"
+		(property "lcsc_id" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3769,7 +3769,7 @@
 			(uuid "1045df93-feaf-4ba1-9a52-58ef797323d7")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71E104KE14D/C0402_L1.0-W0.5-H0.5.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71H104KE14D/C0402_L1.0-W0.5-H0.5.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -3781,7 +3781,7 @@
 			)
 		)
 	)
-	(footprint "Murata_Electronics_GRM155R71E104KE14D:C0402"
+	(footprint "Murata_Electronics_GRM155R71H104KE14D:C0402"
 		(layer "F.Cu")
 		(uuid "6649515f-0b6d-4700-bd16-5b704642524b")
 		(at 20 -200 0)
@@ -3808,7 +3808,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C77014"
+		(property "LCSC" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3838,13 +3838,13 @@
 			(hide yes)
 			(uuid "31d5b3fe-0516-497e-be11-fce54642524b")
 		)
-		(property "Partnumber" "GRM155R71E104KE14D"
+		(property "Partnumber" "GRM155R71H104KE14D"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "98b5e7a3-0b37-4853-8112-faf24642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811081616_Murata-Electronics-GRM155R71E104KE14D_C77014.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3874,7 +3874,7 @@
 			(hide yes)
 			(uuid "842419d6-d271-4523-8ff2-e1784642524b")
 		)
-		(property "lcsc_id" "C77014"
+		(property "lcsc_id" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -4033,7 +4033,7 @@
 			(uuid "1045df93-feaf-4ba1-9a52-58ef797323d7")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71E104KE14D/C0402_L1.0-W0.5-H0.5.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71H104KE14D/C0402_L1.0-W0.5-H0.5.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -5697,7 +5697,7 @@
 			)
 		)
 	)
-	(footprint "Murata_Electronics_GRM155R71E104KE14D:C0402"
+	(footprint "Murata_Electronics_GRM155R71H104KE14D:C0402"
 		(layer "F.Cu")
 		(uuid "a05f98f5-b190-4ea5-b216-ef384642524b")
 		(at 0 0 0)
@@ -5724,7 +5724,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C77014"
+		(property "LCSC" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -5736,13 +5736,13 @@
 			(hide yes)
 			(uuid "028bd9ae-5341-4268-a6d5-c3264642524b")
 		)
-		(property "Partnumber" "GRM155R71E104KE14D"
+		(property "Partnumber" "GRM155R71H104KE14D"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "a2796d5e-74e5-4299-8ef9-b9454642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1811081616_Murata-Electronics-GRM155R71E104KE14D_C77014.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -5754,7 +5754,7 @@
 			(hide yes)
 			(uuid "a0225d41-ca69-473e-a061-e4b74642524b")
 		)
-		(property "lcsc_id" "C77014"
+		(property "lcsc_id" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -5907,7 +5907,7 @@
 			(uuid "1045df93-feaf-4ba1-9a52-58ef797323d7")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71E104KE14D/C0402_L1.0-W0.5-H0.5.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71H104KE14D/C0402_L1.0-W0.5-H0.5.step"
 			(offset
 				(xyz 0 0 -0)
 			)

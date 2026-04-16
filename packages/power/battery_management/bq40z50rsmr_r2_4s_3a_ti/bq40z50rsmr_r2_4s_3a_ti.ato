@@ -3,7 +3,6 @@
 import ElectricLogic
 import ElectricPower
 import I2C
-from "parts/Murata_Electronics_GRM155R71E104KE14D/Murata_Electronics_GRM155R71E104KE14D.ato" import Murata_Electronics_GRM155R71E104KE14D_package
 from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
 from "parts/Murata_Electronics_GRM188R61E225KA12D/Murata_Electronics_GRM188R61E225KA12D.ato" import Murata_Electronics_GRM188R61E225KA12D_package
 from "parts/Murata_Electronics_PRF15BB103RB6RC/Murata_Electronics_PRF15BB103RB6RC.ato" import Murata_Electronics_PRF15BB103RB6RC_package
@@ -102,16 +101,16 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     current_sense_filter = new Murata_Electronics_GRM155R71H104KE14D_package
     # 10kΩ 0402 high-resistance PTC thermistor for FET overtemperature trip
     fet_safety_ptc = new Murata_Electronics_PRF15BB103RB6RC_package
-    # 100nF X7R 25V 0402 PTC filter capacitor
-    fet_safety_ptc_filter = new Murata_Electronics_GRM155R71E104KE14D_package
-    # 100nF X7R 25V 0402 cell filter capacitor
-    vc1_filter_cap = new Murata_Electronics_GRM155R71E104KE14D_package
-    # 100nF X7R 25V 0402 cell filter capacitor
-    vc2_filter_cap = new Murata_Electronics_GRM155R71E104KE14D_package
-    # 100nF X7R 25V 0402 cell filter capacitor
-    vc3_filter_cap = new Murata_Electronics_GRM155R71E104KE14D_package
-    # 100nF X7R 25V 0402 cell filter capacitor
-    vc4_filter_cap = new Murata_Electronics_GRM155R71E104KE14D_package
+    # 100nF X7R 50V 0402 PTC filter capacitor
+    fet_safety_ptc_filter = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 100nF X7R 50V 0402 cell filter capacitor
+    vc1_filter_cap = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 100nF X7R 50V 0402 cell filter capacitor
+    vc2_filter_cap = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 100nF X7R 50V 0402 cell filter capacitor
+    vc3_filter_cap = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 100nF X7R 50V 0402 cell filter capacitor
+    vc4_filter_cap = new Murata_Electronics_GRM155R71H104KE14D_package
     i2c.scl.reference ~ pack
     i2c.sda.reference ~ pack
     btp_int.reference ~ pack

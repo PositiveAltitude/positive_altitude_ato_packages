@@ -1280,7 +1280,7 @@
 			)
 		)
 	)
-	(footprint "Murata_Electronics_GRM31CR61H106KA12L:C1206"
+	(footprint "Murata_Electronics_GRM21BR61H106KE43L:C0805"
 		(layer "F.Cu")
 		(uuid "d3cddd2b-c951-4701-8e5b-e6104642524b")
 		(at 10 -40 0)
@@ -1306,7 +1306,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C77092"
+		(property "LCSC" "C440198"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1336,13 +1336,13 @@
 			(hide yes)
 			(uuid "34b71e02-b3f2-4aee-ba11-e6914642524b")
 		)
-		(property "Partnumber" "GRM31CR61H106KA12L"
+		(property "Partnumber" "GRM21BR61H106KE43L"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "1265c9a8-3ba8-44a2-9758-6c364642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61H106KA12L_C77092.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2411041759_Murata-Electronics-GRM21BR61H106KE43L_C440198.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1372,7 +1372,7 @@
 			(hide yes)
 			(uuid "d873323e-a996-4874-9d6d-98b04642524b")
 		)
-		(property "lcsc_id" "C77092"
+		(property "lcsc_id" "C440198"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1386,8 +1386,8 @@
 		)
 		(attr smd)
 		(fp_line
-			(start 2.41 -1.09)
-			(end 0.93 -1.09)
+			(start 1.81 -0.9)
+			(end 0.4 -0.9)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1395,11 +1395,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "15687edd-29e3-4f10-ada3-dce06babd32c")
+			(uuid "78b3078f-9ed8-4157-81f4-2998e7af9156")
 		)
 		(fp_line
-			(start 0.93 1.09)
-			(end 2.41 1.09)
+			(start 0.4 0.9)
+			(end 1.81 0.9)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1407,11 +1407,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "a7739d10-77a9-4604-a44c-7c9872235ec7")
+			(uuid "63c303a6-2783-459f-9e1a-8131ef412af1")
 		)
 		(fp_line
-			(start 2.56 0.94)
-			(end 2.56 -0.94)
+			(start 1.96 0.75)
+			(end 1.96 -0.75)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1419,11 +1419,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "c8c2aebe-732d-48ec-9021-8f5cb3a87744")
+			(uuid "8bbb6921-c8ca-4dac-b8a5-f5faa2c20e94")
 		)
 		(fp_line
-			(start -2.41 -1.09)
-			(end -0.93 -1.09)
+			(start -1.81 -0.9)
+			(end -0.4 -0.9)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1431,11 +1431,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "e2030611-65a6-42fd-8272-475a6ff6f8a6")
+			(uuid "dbf9f93c-52cf-4745-958a-5560e2b2a154")
 		)
 		(fp_line
-			(start -0.93 1.09)
-			(end -2.41 1.09)
+			(start -0.4 0.9)
+			(end -1.81 0.9)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1443,11 +1443,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "0837ef66-1829-48cb-8340-997e62bd4109")
+			(uuid "8b6477c1-520a-4e51-b357-741e29523de6")
 		)
 		(fp_line
-			(start -2.56 0.94)
-			(end -2.56 -0.94)
+			(start -1.96 0.75)
+			(end -1.96 -0.75)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1455,83 +1455,83 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "75694c4b-cf7e-43b6-b1ef-24ae61cd4c4f")
+			(uuid "a241858c-7562-4e23-8653-aaacc76334c7")
 		)
 		(fp_arc
-			(start 2.56 0.94)
-			(mid 2.516066 1.046066)
-			(end 2.41 1.09)
+			(start 1.96 0.75)
+			(mid 1.916066 0.856066)
+			(end 1.81 0.9)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "ffabbb02-ded6-48ff-87ee-c8f56739ad77")
+			(uuid "80e5bded-3516-463d-b036-6cedbdea7723")
 		)
 		(fp_arc
-			(start 2.41 -1.09)
-			(mid 2.516066 -1.046066)
-			(end 2.56 -0.94)
+			(start 1.81 -0.9)
+			(mid 1.916066 -0.856066)
+			(end 1.96 -0.75)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "cede50aa-7e71-4fe4-adf2-52582ae989c0")
+			(uuid "ed4b4620-e68c-4f79-b9e9-3342e469db21")
 		)
 		(fp_arc
-			(start -2.56 0.94)
-			(mid -2.516066 1.046066)
-			(end -2.41 1.09)
+			(start -1.96 0.75)
+			(mid -1.916066 0.856066)
+			(end -1.81 0.9)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "ec6d0d98-3b4c-4b03-be7a-8de510509478")
+			(uuid "c0b5c735-bd9e-40e7-a224-e7b96835783e")
 		)
 		(fp_arc
-			(start -2.41 -1.09)
-			(mid -2.516066 -1.046066)
-			(end -2.56 -0.94)
+			(start -1.81 -0.9)
+			(mid -1.916066 -0.856066)
+			(end -1.96 -0.75)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "a85c92a0-fab0-4a6a-bcec-0b74bed6d078")
+			(uuid "65a8820d-121d-47e9-b6f7-81411541101f")
 		)
 		(fp_circle
-			(center -1.6 0.8)
-			(end -1.57 0.8)
+			(center -1 0.63)
+			(end -0.97 0.63)
 			(stroke
 				(width 0.06)
 				(type solid)
 			)
 			(layer "F.Fab")
 			(locked no)
-			(uuid "48ca9f81-e4c5-4cfa-a77a-7fb7716735e0")
+			(uuid "abfb5319-300b-4c40-a127-b4bb543e6237")
 		)
 		(pad "2" smd rect
-			(at 1.59 0 0)
-			(size 1.49 1.73)
+			(at 1 0 0)
+			(size 1.41 1.35)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(net 4 "lv")
-			(uuid "8851ae81-8fb4-4b9e-9406-cd345d8023d7")
+			(uuid "1cf2166d-ab8f-4e44-b9bb-599131479ec7")
 		)
 		(pad "1" smd rect
-			(at -1.59 0 0)
-			(size 1.49 1.73)
+			(at -1 0 0)
+			(size 1.41 1.35)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(net 6 "hv")
-			(uuid "0d533124-307a-4e3c-87f3-14f30ed04c08")
+			(uuid "7c9bfaf7-bfe7-4888-89cd-50d43121545c")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM31CR61H106KA12L/C1206_L3.2-W1.6-H1.3.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM21BR61H106KE43L/C0805_L2.0-W1.3-H1.3.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -1543,7 +1543,7 @@
 			)
 		)
 	)
-	(footprint "Murata_Electronics_GRM31CR61H106KA12L:C1206"
+	(footprint "Murata_Electronics_GRM21BR61H106KE43L:C0805"
 		(layer "F.Cu")
 		(uuid "3f9dbb35-4296-4263-b7aa-c3514642524b")
 		(at 10 -50 0)
@@ -1569,7 +1569,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C77092"
+		(property "LCSC" "C440198"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1599,13 +1599,13 @@
 			(hide yes)
 			(uuid "c49c9322-55ff-4613-ab6d-98ea4642524b")
 		)
-		(property "Partnumber" "GRM31CR61H106KA12L"
+		(property "Partnumber" "GRM21BR61H106KE43L"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "3302f8b5-2a63-487e-8e16-4f934642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61H106KA12L_C77092.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2411041759_Murata-Electronics-GRM21BR61H106KE43L_C440198.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1635,7 +1635,7 @@
 			(hide yes)
 			(uuid "bf2cc6d9-ed96-464e-ba82-12394642524b")
 		)
-		(property "lcsc_id" "C77092"
+		(property "lcsc_id" "C440198"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1649,8 +1649,8 @@
 		)
 		(attr smd)
 		(fp_line
-			(start 2.41 -1.09)
-			(end 0.93 -1.09)
+			(start 1.81 -0.9)
+			(end 0.4 -0.9)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1658,11 +1658,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "15687edd-29e3-4f10-ada3-dce06babd32c")
+			(uuid "25a3ed21-bd2e-4c1e-9bb9-0b3b3efd7a05")
 		)
 		(fp_line
-			(start 0.93 1.09)
-			(end 2.41 1.09)
+			(start 0.4 0.9)
+			(end 1.81 0.9)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1670,11 +1670,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "a7739d10-77a9-4604-a44c-7c9872235ec7")
+			(uuid "c99c4a3c-2800-4108-8341-019358c1c01f")
 		)
 		(fp_line
-			(start 2.56 0.94)
-			(end 2.56 -0.94)
+			(start 1.96 0.75)
+			(end 1.96 -0.75)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1682,11 +1682,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "c8c2aebe-732d-48ec-9021-8f5cb3a87744")
+			(uuid "09c1ad5a-e8ff-46ff-89aa-4ffa25707994")
 		)
 		(fp_line
-			(start -2.41 -1.09)
-			(end -0.93 -1.09)
+			(start -1.81 -0.9)
+			(end -0.4 -0.9)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1694,11 +1694,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "e2030611-65a6-42fd-8272-475a6ff6f8a6")
+			(uuid "77140c28-8772-4eb8-a956-f21a953a7127")
 		)
 		(fp_line
-			(start -0.93 1.09)
-			(end -2.41 1.09)
+			(start -0.4 0.9)
+			(end -1.81 0.9)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1706,11 +1706,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "0837ef66-1829-48cb-8340-997e62bd4109")
+			(uuid "e9056d76-52ca-404e-ab32-892c70f53d95")
 		)
 		(fp_line
-			(start -2.56 0.94)
-			(end -2.56 -0.94)
+			(start -1.96 0.75)
+			(end -1.96 -0.75)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1718,83 +1718,83 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "75694c4b-cf7e-43b6-b1ef-24ae61cd4c4f")
+			(uuid "a4e38062-bada-43cf-a3e1-6e33aee8e070")
 		)
 		(fp_arc
-			(start 2.56 0.94)
-			(mid 2.516066 1.046066)
-			(end 2.41 1.09)
+			(start 1.96 0.75)
+			(mid 1.916066 0.856066)
+			(end 1.81 0.9)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "ffabbb02-ded6-48ff-87ee-c8f56739ad77")
+			(uuid "cae5b8fe-7ff5-4489-9cd6-aa2e077457fc")
 		)
 		(fp_arc
-			(start 2.41 -1.09)
-			(mid 2.516066 -1.046066)
-			(end 2.56 -0.94)
+			(start 1.81 -0.9)
+			(mid 1.916066 -0.856066)
+			(end 1.96 -0.75)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "cede50aa-7e71-4fe4-adf2-52582ae989c0")
+			(uuid "0c0490a6-9530-405b-95ef-4742f57e4cf3")
 		)
 		(fp_arc
-			(start -2.56 0.94)
-			(mid -2.516066 1.046066)
-			(end -2.41 1.09)
+			(start -1.96 0.75)
+			(mid -1.916066 0.856066)
+			(end -1.81 0.9)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "ec6d0d98-3b4c-4b03-be7a-8de510509478")
+			(uuid "6ce57852-0927-4e02-9748-f4905ca617a3")
 		)
 		(fp_arc
-			(start -2.41 -1.09)
-			(mid -2.516066 -1.046066)
-			(end -2.56 -0.94)
+			(start -1.81 -0.9)
+			(mid -1.916066 -0.856066)
+			(end -1.96 -0.75)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "a85c92a0-fab0-4a6a-bcec-0b74bed6d078")
+			(uuid "e34ed02b-2c28-4d72-8804-327a33e84111")
 		)
 		(fp_circle
-			(center -1.6 0.8)
-			(end -1.57 0.8)
+			(center -1 0.63)
+			(end -0.97 0.63)
 			(stroke
 				(width 0.06)
 				(type solid)
 			)
 			(layer "F.Fab")
 			(locked no)
-			(uuid "48ca9f81-e4c5-4cfa-a77a-7fb7716735e0")
+			(uuid "8de3e75f-4128-42b0-b75b-a1fdedd716e3")
 		)
 		(pad "2" smd rect
-			(at 1.59 0 0)
-			(size 1.49 1.73)
+			(at 1 0 0)
+			(size 1.41 1.35)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(net 4 "lv")
-			(uuid "8851ae81-8fb4-4b9e-9406-cd345d8023d7")
+			(uuid "4f110f85-9f99-41a7-9937-8283edc647bd")
 		)
 		(pad "1" smd rect
-			(at -1.59 0 0)
-			(size 1.49 1.73)
+			(at -1 0 0)
+			(size 1.41 1.35)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(net 6 "hv")
-			(uuid "0d533124-307a-4e3c-87f3-14f30ed04c08")
+			(uuid "050fbb80-a232-4c60-8c6c-450f9191f1ec")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM31CR61H106KA12L/C1206_L3.2-W1.6-H1.3.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM21BR61H106KE43L/C0805_L2.0-W1.3-H1.3.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -1806,7 +1806,7 @@
 			)
 		)
 	)
-	(footprint "Murata_Electronics_GRM31CR61E226KE15L:C1206"
+	(footprint "Murata_Electronics_GRM32ER71E226KE15L:C1210"
 		(layer "F.Cu")
 		(uuid "576396f2-525d-4407-b796-e6b94642524b")
 		(at 10 -60 0)
@@ -1832,7 +1832,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C77091"
+		(property "LCSC" "C21397"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1862,13 +1862,13 @@
 			(hide yes)
 			(uuid "8e58508e-d222-4c25-923e-53174642524b")
 		)
-		(property "Partnumber" "GRM31CR61E226KE15L"
+		(property "Partnumber" "GRM32ER71E226KE15L"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "49c01bc4-b24e-4579-acef-b10d4642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61E226KE15L_C77091.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2308111542_Murata-Electronics-GRM32ER71E226KE15L_C21397.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1898,7 +1898,7 @@
 			(hide yes)
 			(uuid "65bd6eb3-034f-4aaa-8efb-bb7e4642524b")
 		)
-		(property "lcsc_id" "C77091"
+		(property "lcsc_id" "C21397"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1912,8 +1912,8 @@
 		)
 		(attr smd)
 		(fp_line
-			(start 2.41 -1.09)
-			(end 0.93 -1.09)
+			(start 2.56 1.43)
+			(end 2.56 -1.43)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1921,11 +1921,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "00511d5a-7a6f-46e7-81d1-16f2e606671d")
+			(uuid "3e0b24ff-30f1-447b-bacb-954848910b87")
 		)
 		(fp_line
-			(start 0.93 1.09)
-			(end 2.41 1.09)
+			(start 2.41 -1.58)
+			(end 0.78 -1.58)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1933,11 +1933,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "865df805-f17f-42fa-b205-f4ea9378738b")
+			(uuid "c8e48cf6-d948-4293-bfc6-d85ac2ae3240")
 		)
 		(fp_line
-			(start 2.56 0.94)
-			(end 2.56 -0.94)
+			(start 0.78 1.58)
+			(end 2.41 1.58)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1945,11 +1945,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "ec1c735d-a63e-49e7-a3e3-998a5050b26b")
+			(uuid "92143746-ed76-4a6e-a934-ecc739ba1ce6")
 		)
 		(fp_line
-			(start -2.41 -1.09)
-			(end -0.93 -1.09)
+			(start -2.41 -1.58)
+			(end -0.78 -1.58)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1957,11 +1957,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "f50c8e8f-afc9-4485-979c-b7a3c01d793a")
+			(uuid "0a537c8f-5713-43cb-89eb-e0bc39b75594")
 		)
 		(fp_line
-			(start -0.93 1.09)
-			(end -2.41 1.09)
+			(start -0.78 1.58)
+			(end -2.41 1.58)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1969,11 +1969,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "90ffafeb-e9a9-4f72-8edc-f07c2cd09d4b")
+			(uuid "24e839c0-8c80-48e0-8c1a-819e7316af4d")
 		)
 		(fp_line
-			(start -2.56 0.94)
-			(end -2.56 -0.94)
+			(start -2.56 1.43)
+			(end -2.56 -1.43)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -1981,83 +1981,83 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "4dccea66-1d32-4d0b-b017-51d5fb5e6ddd")
+			(uuid "1513d10e-5570-4918-a0db-ab14b257ecba")
 		)
 		(fp_arc
-			(start 2.56 0.94)
-			(mid 2.516066 1.046066)
-			(end 2.41 1.09)
+			(start 2.56 1.43)
+			(mid 2.516066 1.536066)
+			(end 2.41 1.58)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "faeb21ef-2cd5-42f4-bb2e-2b88cb2b9287")
+			(uuid "55ff7a34-98bb-40a8-a814-6782136bce14")
 		)
 		(fp_arc
-			(start 2.41 -1.09)
-			(mid 2.516066 -1.046066)
-			(end 2.56 -0.94)
+			(start 2.41 -1.58)
+			(mid 2.516066 -1.536066)
+			(end 2.56 -1.43)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "7912f66f-a413-4d8d-9b9e-c71fae16bcbc")
+			(uuid "6ceea6fc-d056-4ee4-b730-97c2c892bdb8")
 		)
 		(fp_arc
-			(start -2.56 0.94)
-			(mid -2.516066 1.046066)
-			(end -2.41 1.09)
+			(start -2.56 1.43)
+			(mid -2.516066 1.536066)
+			(end -2.41 1.58)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "3d955f35-1a46-4b2e-9185-9e1f9dd15ad2")
+			(uuid "8c7cf7ad-3ac5-4774-b0db-4c676ca7f8ad")
 		)
 		(fp_arc
-			(start -2.41 -1.09)
-			(mid -2.516066 -1.046066)
-			(end -2.56 -0.94)
+			(start -2.41 -1.58)
+			(mid -2.516066 -1.536066)
+			(end -2.56 -1.43)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "75a680da-1710-4926-b0c3-9a7ac9727584")
+			(uuid "a369c8a8-d1f5-4b8d-add8-39a817fedec6")
 		)
 		(fp_circle
-			(center -1.6 0.8)
-			(end -1.57 0.8)
+			(center -1.6 1.25)
+			(end -1.57 1.25)
 			(stroke
 				(width 0.06)
 				(type solid)
 			)
 			(layer "F.Fab")
 			(locked no)
-			(uuid "751a4b26-98a3-43f9-9428-a2cfd11da508")
+			(uuid "8b381743-930e-4467-a228-09e22e22e62d")
 		)
 		(pad "2" smd rect
-			(at 1.59 0 0)
-			(size 1.49 1.73)
+			(at 1.52 0 0)
+			(size 1.63 2.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(net 4 "lv")
-			(uuid "abdc6cda-f703-4805-a68f-f51afba7a179")
+			(uuid "b0bc27df-172c-463c-bb7e-1911c500390f")
 		)
 		(pad "1" smd rect
-			(at -1.59 0 0)
-			(size 1.49 1.73)
+			(at -1.52 0 0)
+			(size 1.63 2.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(net 7 "power_out-hv")
-			(uuid "5e87e237-7ead-4db9-a9e9-65d5809ccdbf")
+			(uuid "28d2f0f2-f747-4b07-8a9e-61158f1118bc")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM31CR61E226KE15L/C1206_L3.2-W1.6-H1.3.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM32ER71E226KE15L/C1210_L3.2-W2.5-H2.5.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -2069,7 +2069,7 @@
 			)
 		)
 	)
-	(footprint "Murata_Electronics_GRM31CR61E226KE15L:C1206"
+	(footprint "Murata_Electronics_GRM32ER71E226KE15L:C1210"
 		(layer "F.Cu")
 		(uuid "4faedd5a-0781-4267-8f03-a8d74642524b")
 		(at 10 -70 0)
@@ -2095,7 +2095,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C77091"
+		(property "LCSC" "C21397"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2125,13 +2125,13 @@
 			(hide yes)
 			(uuid "6339562c-4bce-4e8b-9db2-3b764642524b")
 		)
-		(property "Partnumber" "GRM31CR61E226KE15L"
+		(property "Partnumber" "GRM32ER71E226KE15L"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "b412023c-c6c1-4f17-99d1-f32a4642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM31CR61E226KE15L_C77091.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2308111542_Murata-Electronics-GRM32ER71E226KE15L_C21397.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2161,7 +2161,7 @@
 			(hide yes)
 			(uuid "b4ea0027-ac1d-4127-8998-80f34642524b")
 		)
-		(property "lcsc_id" "C77091"
+		(property "lcsc_id" "C21397"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2175,8 +2175,8 @@
 		)
 		(attr smd)
 		(fp_line
-			(start 2.41 -1.09)
-			(end 0.93 -1.09)
+			(start 2.56 1.43)
+			(end 2.56 -1.43)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -2184,11 +2184,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "00511d5a-7a6f-46e7-81d1-16f2e606671d")
+			(uuid "22e6fa29-4e64-4028-9aab-7fe335208d84")
 		)
 		(fp_line
-			(start 0.93 1.09)
-			(end 2.41 1.09)
+			(start 2.41 -1.58)
+			(end 0.78 -1.58)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -2196,11 +2196,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "865df805-f17f-42fa-b205-f4ea9378738b")
+			(uuid "ad2fa251-3a09-451d-b1b7-878d6b4afba2")
 		)
 		(fp_line
-			(start 2.56 0.94)
-			(end 2.56 -0.94)
+			(start 0.78 1.58)
+			(end 2.41 1.58)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -2208,11 +2208,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "ec1c735d-a63e-49e7-a3e3-998a5050b26b")
+			(uuid "22c4cf2a-5119-4870-a407-f1eb7e2fe5de")
 		)
 		(fp_line
-			(start -2.41 -1.09)
-			(end -0.93 -1.09)
+			(start -2.41 -1.58)
+			(end -0.78 -1.58)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -2220,11 +2220,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "f50c8e8f-afc9-4485-979c-b7a3c01d793a")
+			(uuid "80a86d44-98c5-4811-aa0f-f0f1261c85ec")
 		)
 		(fp_line
-			(start -0.93 1.09)
-			(end -2.41 1.09)
+			(start -0.78 1.58)
+			(end -2.41 1.58)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -2232,11 +2232,11 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "90ffafeb-e9a9-4f72-8edc-f07c2cd09d4b")
+			(uuid "d816156a-2c1b-4b09-afa7-200b1e6453ce")
 		)
 		(fp_line
-			(start -2.56 0.94)
-			(end -2.56 -0.94)
+			(start -2.56 1.43)
+			(end -2.56 -1.43)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -2244,83 +2244,83 @@
 			(layer "F.SilkS")
 			(layers "F.SilkS")
 			(locked no)
-			(uuid "4dccea66-1d32-4d0b-b017-51d5fb5e6ddd")
+			(uuid "2f86f638-048a-47b9-bdea-da63e6c1d525")
 		)
 		(fp_arc
-			(start 2.56 0.94)
-			(mid 2.516066 1.046066)
-			(end 2.41 1.09)
+			(start 2.56 1.43)
+			(mid 2.516066 1.536066)
+			(end 2.41 1.58)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "faeb21ef-2cd5-42f4-bb2e-2b88cb2b9287")
+			(uuid "ad3523fc-9339-4580-a32b-6c6a34d37453")
 		)
 		(fp_arc
-			(start 2.41 -1.09)
-			(mid 2.516066 -1.046066)
-			(end 2.56 -0.94)
+			(start 2.41 -1.58)
+			(mid 2.516066 -1.536066)
+			(end 2.56 -1.43)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "7912f66f-a413-4d8d-9b9e-c71fae16bcbc")
+			(uuid "8913d536-7099-4f5c-9e96-da6eb33fc7f4")
 		)
 		(fp_arc
-			(start -2.56 0.94)
-			(mid -2.516066 1.046066)
-			(end -2.41 1.09)
+			(start -2.56 1.43)
+			(mid -2.516066 1.536066)
+			(end -2.41 1.58)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "3d955f35-1a46-4b2e-9185-9e1f9dd15ad2")
+			(uuid "29fd8758-5f4d-49bd-b791-a7db88bee5fc")
 		)
 		(fp_arc
-			(start -2.41 -1.09)
-			(mid -2.516066 -1.046066)
-			(end -2.56 -0.94)
+			(start -2.41 -1.58)
+			(mid -2.516066 -1.536066)
+			(end -2.56 -1.43)
 			(stroke
 				(width 0.15)
 				(type solid)
 			)
 			(layer "F.SilkS")
 			(locked no)
-			(uuid "75a680da-1710-4926-b0c3-9a7ac9727584")
+			(uuid "2e3ee1cc-6f1e-4e90-95fc-42a60e4467da")
 		)
 		(fp_circle
-			(center -1.6 0.8)
-			(end -1.57 0.8)
+			(center -1.6 1.25)
+			(end -1.57 1.25)
 			(stroke
 				(width 0.06)
 				(type solid)
 			)
 			(layer "F.Fab")
 			(locked no)
-			(uuid "751a4b26-98a3-43f9-9428-a2cfd11da508")
+			(uuid "fd36a3aa-f86b-4f41-a861-185218dd2b72")
 		)
 		(pad "2" smd rect
-			(at 1.59 0 0)
-			(size 1.49 1.73)
+			(at 1.52 0 0)
+			(size 1.63 2.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(net 4 "lv")
-			(uuid "abdc6cda-f703-4805-a68f-f51afba7a179")
+			(uuid "cb89bd87-6d7a-41bc-b187-15a2542e9aba")
 		)
 		(pad "1" smd rect
-			(at -1.59 0 0)
-			(size 1.49 1.73)
+			(at -1.52 0 0)
+			(size 1.63 2.7)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(net 7 "power_out-hv")
-			(uuid "5e87e237-7ead-4db9-a9e9-65d5809ccdbf")
+			(uuid "01c9337b-e1d2-4c4b-8910-a9e1edd2ba81")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM31CR61E226KE15L/C1206_L3.2-W1.6-H1.3.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM32ER71E226KE15L/C1210_L3.2-W2.5-H2.5.step"
 			(offset
 				(xyz 0 0 -0)
 			)
@@ -2511,7 +2511,7 @@
 			)
 		)
 	)
-	(footprint "Murata_Electronics_GRM155R71H333KE14D:C0402"
+	(footprint "Murata_Electronics_GRM155R71H104KE14D:C0402"
 		(layer "F.Cu")
 		(uuid "328b2595-c5d6-4a99-a0c0-3d084642524b")
 		(at 10 -90 0)
@@ -2537,7 +2537,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C415530"
+		(property "LCSC" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2567,13 +2567,13 @@
 			(hide yes)
 			(uuid "5be053cc-544d-4037-acdf-e27c4642524b")
 		)
-		(property "Partnumber" "GRM155R71H333KE14D"
+		(property "Partnumber" "GRM155R71H104KE14D"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
 			(uuid "cf38d6db-5f9a-4cc3-9181-d1b24642524b")
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Murata-Electronics-GRM155R71H333KE14D_C415530.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1809272047_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2603,7 +2603,7 @@
 			(hide yes)
 			(uuid "5982f0d2-1e40-4a7e-b838-dfdd4642524b")
 		)
-		(property "lcsc_id" "C415530"
+		(property "lcsc_id" "C77020"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -2762,7 +2762,7 @@
 			(uuid "5b95643e-d3a4-4561-85bc-cd3865dad0a6")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71H333KE14D/C0402_L1.0-W0.5-H0.5.step"
+		(model "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71H104KE14D/C0402_L1.0-W0.5-H0.5.step"
 			(offset
 				(xyz 0 0 -0)
 			)

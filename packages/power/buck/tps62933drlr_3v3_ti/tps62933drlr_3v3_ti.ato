@@ -2,9 +2,8 @@
 
 import ElectricPower
 from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
-from "parts/Murata_Electronics_GRM155R71H333KE14D/Murata_Electronics_GRM155R71H333KE14D.ato" import Murata_Electronics_GRM155R71H333KE14D_package
-from "parts/Murata_Electronics_GRM31CR61E226KE15L/Murata_Electronics_GRM31CR61E226KE15L.ato" import Murata_Electronics_GRM31CR61E226KE15L_package
-from "parts/Murata_Electronics_GRM31CR61H106KA12L/Murata_Electronics_GRM31CR61H106KA12L.ato" import Murata_Electronics_GRM31CR61H106KA12L_package
+from "parts/Murata_Electronics_GRM21BR61H106KE43L/Murata_Electronics_GRM21BR61H106KE43L.ato" import Murata_Electronics_GRM21BR61H106KE43L_package
+from "parts/Murata_Electronics_GRM32ER71E226KE15L/Murata_Electronics_GRM32ER71E226KE15L.ato" import Murata_Electronics_GRM32ER71E226KE15L_package
 from "parts/YAGEO_RC0402FR_0710KL/YAGEO_RC0402FR_0710KL.ato" import YAGEO_RC0402FR_0710KL_package
 from "parts/YAGEO_RC0402FR_0731K6L/YAGEO_RC0402FR_0731K6L.ato" import YAGEO_RC0402FR_0731K6L_package
 from "parts/cjiang_FTC252012S2R2MBCA/cjiang_FTC252012S2R2MBCA.ato" import cjiang_FTC252012S2R2MBCA_package
@@ -18,7 +17,7 @@ module TPS62933DRLR_3V3_TI:
     is resized to a compact 2.2 uH part and the design is intentionally derated to
     1 A output current. With the selected FTC252012S2R2MBCA inductor, a practical
     continuous output current ceiling is about 2.5 A, with roughly 3 A as the hard
-    upper edge before inductor and regulator limits converge. The 33 nF soft-start
+    upper edge before inductor and regulator limits converge. The 100 nF soft-start
     capacitor is required because the SS pin must not float.
     """
 
@@ -31,20 +30,20 @@ module TPS62933DRLR_3V3_TI:
 
 
     converter = new Texas_Instruments_TPS62933DRLR_package
-    # 10uF X5R 50V 1206 input capacitor
-    input_bulk_a = new Murata_Electronics_GRM31CR61H106KA12L_package
-    # 10uF X5R 50V 1206 input capacitor
-    input_bulk_b = new Murata_Electronics_GRM31CR61H106KA12L_package
+    # 10uF X5R 50V 0805 input capacitor
+    input_bulk_a = new Murata_Electronics_GRM21BR61H106KE43L_package
+    # 10uF X5R 50V 0805 input capacitor
+    input_bulk_b = new Murata_Electronics_GRM21BR61H106KE43L_package
     # 100nF X7R 50V 0402 bypass capacitor
     input_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
-    # 22uF X5R 25V 1206 output capacitor
-    output_bulk_a = new Murata_Electronics_GRM31CR61E226KE15L_package
-    # 22uF X5R 25V 1206 output capacitor
-    output_bulk_b = new Murata_Electronics_GRM31CR61E226KE15L_package
+    # 22uF X7R 25V 1210 output capacitor with better DC-bias retention
+    output_bulk_a = new Murata_Electronics_GRM32ER71E226KE15L_package
+    # 22uF X7R 25V 1210 output capacitor with better DC-bias retention
+    output_bulk_b = new Murata_Electronics_GRM32ER71E226KE15L_package
     # 100nF X7R 50V 0402 bypass capacitor
     bootstrap_cap = new Murata_Electronics_GRM155R71H104KE14D_package
-    # 33nF X7R 50V 0402 soft-start capacitor
-    soft_start_cap = new Murata_Electronics_GRM155R71H333KE14D_package
+    # 100nF X7R 50V 0402 soft-start capacitor
+    soft_start_cap = new Murata_Electronics_GRM155R71H104KE14D_package
     output_inductor = new cjiang_FTC252012S2R2MBCA_package
     # 31.6kΩ 1% 0402 feedback resistor
     feedback_top = new YAGEO_RC0402FR_0731K6L_package

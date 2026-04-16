@@ -1,0 +1,19 @@
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Murata_Electronics_GRM1555C1H101JA01D_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C77177", date="2026-04-16T12:11:12.337751+00:00", checksum="913ad7c409d65ea08597b1bbdefffb7084c8f191f6d7708a883c87673013701f">
+
+    trait is_atomic_part<manufacturer="Murata Electronics", partnumber="GRM1555C1H101JA01D", footprint="C0402.kicad_mod", symbol="GRM1555C1H101JA01D.kicad_sym", model="C0402_L1.0-W0.5-H0.5.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C77177", manufacturer="Murata Electronics", partno="GRM1555C1H101JA01D">
+    trait has_designator_prefix<prefix="C">
+    trait has_datasheet<datasheet="https://www.lcsc.com/datasheet/lcsc_datasheet_1811081617_Murata-Electronics-GRM1555C1H101JA01D_C77177.pdf">
+
+    # pins
+    pin 1
+    pin 2

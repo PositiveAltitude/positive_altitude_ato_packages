@@ -2,9 +2,11 @@
 
 import ElectricPower
 from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
-from "parts/Murata_Electronics_GRM31CR61E226KE15L/Murata_Electronics_GRM31CR61E226KE15L.ato" import Murata_Electronics_GRM31CR61E226KE15L_package
-from "parts/Murata_Electronics_GRM31CR61H106KA12L/Murata_Electronics_GRM31CR61H106KA12L.ato" import Murata_Electronics_GRM31CR61H106KA12L_package
+from "parts/Murata_Electronics_GRM1555C1H101JA01D/Murata_Electronics_GRM1555C1H101JA01D.ato" import Murata_Electronics_GRM1555C1H101JA01D_package
+from "parts/Murata_Electronics_GRM21BR61H106KE43L/Murata_Electronics_GRM21BR61H106KE43L.ato" import Murata_Electronics_GRM21BR61H106KE43L_package
+from "parts/Murata_Electronics_GRM32ER71E226KE15L/Murata_Electronics_GRM32ER71E226KE15L.ato" import Murata_Electronics_GRM32ER71E226KE15L_package
 from "parts/YAGEO_RC0402FR_0710KL/YAGEO_RC0402FR_0710KL.ato" import YAGEO_RC0402FR_0710KL_package
+from "parts/YAGEO_RC0402FR_0720KL/YAGEO_RC0402FR_0720KL.ato" import YAGEO_RC0402FR_0720KL_package
 from "parts/YAGEO_RC0402FR_0775KL/YAGEO_RC0402FR_0775KL.ato" import YAGEO_RC0402FR_0775KL_package
 from "parts/cjiang_FXL0630_3R3_M/cjiang_FXL0630_3R3_M.ato" import cjiang_FXL0630_3R3_M_package
 from "parts/Texas_Instruments_TPS56637RPAR/Texas_Instruments_TPS56637RPAR.ato" import Texas_Instruments_TPS56637RPAR_package
@@ -13,11 +15,14 @@ module TPS56637RPAR_5V1_5A_TI:
     """
     Fixed 5.1 V implementation of TPS56637RPAR for Raspberry Pi class 5 A loads.
 
-    This package reuses the existing Murata capacitor selections already present in
-    this repository and keeps the controller in FCCM by leaving MODE floating.
-    EN is also left floating, which enables the converter without adding a UVLO
-    divider. The passive values follow TI's 5 V reference design, with the top
-    feedback resistor adjusted to 75 kOhm to target 5.1 V.
+    This package keeps the controller in FCCM by leaving MODE floating and leaves
+    EN floating, which enables the converter without adding a UVLO divider.
+    The passive values follow TI's 5-V reference design and Table 4 guidance,
+    with the top feedback resistor adjusted to 75 kOhm to target 5.1 V instead
+    of the 5.0-V example. The feed-forward RC leg keeps TI's 20-kΩ / 100-pF
+    recommendation from the 5-V row, and the output bulk capacitors use the
+    higher-bias-stability Murata GRM32ER71E226KE15L 22-µF 1210 part that TI also
+    cites in the datasheet design example.
     """
 
     power_in = new ElectricPower
@@ -29,16 +34,16 @@ module TPS56637RPAR_5V1_5A_TI:
 
 
     converter = new Texas_Instruments_TPS56637RPAR_package
-    # 10uF X5R 50V 1206 input capacitor
-    input_bulk_a = new Murata_Electronics_GRM31CR61H106KA12L_package
-    # 10uF X5R 50V 1206 input capacitor
-    input_bulk_b = new Murata_Electronics_GRM31CR61H106KA12L_package
+    # 10uF X5R 50V 0805 input capacitor
+    input_bulk_a = new Murata_Electronics_GRM21BR61H106KE43L_package
+    # 10uF X5R 50V 0805 input capacitor
+    input_bulk_b = new Murata_Electronics_GRM21BR61H106KE43L_package
     # 100nF X7R 50V 0402 bypass capacitor
     input_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
-    # 22uF X5R 25V 1206 output capacitor
-    output_bulk_a = new Murata_Electronics_GRM31CR61E226KE15L_package
-    # 22uF X5R 25V 1206 output capacitor
-    output_bulk_b = new Murata_Electronics_GRM31CR61E226KE15L_package
+    # 22uF X7R 25V 1210 output capacitor with better DC-bias retention
+    output_bulk_a = new Murata_Electronics_GRM32ER71E226KE15L_package
+    # 22uF X7R 25V 1210 output capacitor with better DC-bias retention
+    output_bulk_b = new Murata_Electronics_GRM32ER71E226KE15L_package
     # 100nF X7R 50V 0402 bypass capacitor
     bootstrap_cap = new Murata_Electronics_GRM155R71H104KE14D_package
     output_inductor = new cjiang_FXL0630_3R3_M_package
@@ -46,6 +51,10 @@ module TPS56637RPAR_5V1_5A_TI:
     feedback_top = new YAGEO_RC0402FR_0775KL_package
     # 10kΩ 1% 0402 bias resistor
     feedback_bottom = new YAGEO_RC0402FR_0710KL_package
+    # 20kΩ 1% 0402 feed-forward resistor
+    feedforward_resistor = new YAGEO_RC0402FR_0720KL_package
+    # 100pF C0G 50V 0402 feed-forward capacitor
+    feedforward_cap = new Murata_Electronics_GRM1555C1H101JA01D_package
     power_in.lv ~ power_out.lv
 
     power_in.hv ~ converter.VIN
@@ -61,6 +70,9 @@ module TPS56637RPAR_5V1_5A_TI:
     feedback_top.2 ~ converter.FB
     converter.FB ~ feedback_bottom.1
     feedback_bottom.2 ~ power_out.lv
+    power_out.hv ~ feedforward_resistor.1
+    feedforward_resistor.2 ~ feedforward_cap.1
+    feedforward_cap.2 ~ converter.FB
 
     power_in.hv ~ input_bulk_a.1
     input_bulk_a.2 ~ power_in.lv
