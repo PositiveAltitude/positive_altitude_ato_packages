@@ -86,7 +86,3 @@ module MCP2518FDT_ESL_Microchip:
     nint0_gpio0_xstby.line ~ controller.nINT0_GPIO0_XSTBY
     nint1_gpio1.line ~ controller.nINT1_GPIO1
     clko_sof.line ~ controller.CLKO_SOF
-
-
-module Mcp2518fdtESlMicrochipC626758 from MCP2518FDT_ESL_Microchip:
-    pass

@@ -121,10 +121,3 @@ module TPS25730DREFR_20V_3A_TI:
     cc1_filter.2 ~ logic_3v3.lv
     controller.CC2 ~ cc2_filter.1
     cc2_filter.2 ~ logic_3v3.lv
-
-
-module TPS25730AutonomousSinkController from TPS25730DREFR_20V_3A_TI:
-    pass
-
-module TPS25730UsbPdSink from TPS25730DREFR_20V_3A_TI:
-    pass

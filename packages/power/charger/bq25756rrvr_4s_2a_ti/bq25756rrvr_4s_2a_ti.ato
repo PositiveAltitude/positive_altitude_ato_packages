@@ -234,7 +234,3 @@ module BQ25756RRVR_4S_2A_TI:
 
     charger.nCE ~ charge_enable_pulldown.1
     charge_enable_pulldown.2 ~ logic_power.lv
-
-
-module BQ25756Charger4S from BQ25756RRVR_4S_2A_TI:
-    pass

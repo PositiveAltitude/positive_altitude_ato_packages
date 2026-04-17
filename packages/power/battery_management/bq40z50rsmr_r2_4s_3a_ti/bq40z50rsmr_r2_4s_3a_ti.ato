@@ -197,7 +197,3 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     discharge_gate_pulldown.2 ~ protection_fets.S1
     protection_fets.G2 ~ charge_gate_pulldown.1
     charge_gate_pulldown.2 ~ protection_fets.S2
-
-
-module BQ40Z50BatteryFrontend4S from BQ40Z50RSMR_R2_4S_3A_TI:
-    pass

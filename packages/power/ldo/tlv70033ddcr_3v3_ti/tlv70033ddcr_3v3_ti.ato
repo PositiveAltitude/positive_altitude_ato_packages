@@ -37,7 +37,3 @@ module TLV70033DDCR_3V3_TI:
     input_cap.2 ~ power_in.lv
     power_out.hv ~ output_cap.1
     output_cap.2 ~ power_out.lv
-
-
-module TLV70033LDO3V3 from TLV70033DDCR_3V3_TI:
-    pass

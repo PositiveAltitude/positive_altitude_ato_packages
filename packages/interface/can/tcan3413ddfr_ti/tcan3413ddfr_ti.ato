@@ -72,7 +72,3 @@ module TCAN3413DDFR_TI:
     can.diff_pair.p.line ~ termination.1
     termination.2 ~ termination_enable.A
     termination_enable.B ~ can.diff_pair.n.line
-
-
-module TCAN3413DDFR from TCAN3413DDFR_TI:
-    pass

@@ -78,7 +78,3 @@ module STM32G0B1KBU6_ST:
     signal VDD_VDDA ~ mcu.VDD_VDDA
     signal VSS ~ mcu.VSS
     signal VSS_VSSA ~ mcu.VSS_VSSA
-
-
-module STM32G0B1KBU6 from STM32G0B1KBU6_ST:
-    pass

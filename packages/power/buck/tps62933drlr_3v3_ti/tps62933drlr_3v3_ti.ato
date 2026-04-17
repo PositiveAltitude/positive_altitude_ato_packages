@@ -79,7 +79,3 @@ module TPS62933DRLR_3V3_TI:
     output_bulk_a.2 ~ power_out.lv
     power_out.hv ~ output_bulk_b.1
     output_bulk_b.2 ~ power_out.lv
-
-
-module TPS62933Buck3V3 from TPS62933DRLR_3V3_TI:
-    pass

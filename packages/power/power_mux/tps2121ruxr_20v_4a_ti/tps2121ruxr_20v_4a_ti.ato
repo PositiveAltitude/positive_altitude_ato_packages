@@ -89,10 +89,3 @@ module TPS2121RUXR_20V_4A_TI:
     low_priority_bypass.2 ~ low_priority.lv
     out.hv ~ output_bypass.1
     output_bypass.2 ~ out.lv
-
-
-module TPS2121PriorityPowerMux4A from TPS2121RUXR_20V_4A_TI:
-    pass
-
-module TPS2121PriorityPowerMux from TPS2121RUXR_20V_4A_TI:
-    pass

@@ -6,7 +6,7 @@ paths:
 
 builds:
   default:
-    entry: "bq40z50rsmr_r2_4s_3a_ti.ato:BQ40Z50BatteryFrontend4S"
+    entry: "bq40z50rsmr_r2_4s_3a_ti.ato:BQ40Z50RSMR_R2_4S_3A_TI"
 package:
   identifier: "local/power-battery-management-bq40z50rsmr-r2-4s-3a-ti"
   version: "0.0.1"

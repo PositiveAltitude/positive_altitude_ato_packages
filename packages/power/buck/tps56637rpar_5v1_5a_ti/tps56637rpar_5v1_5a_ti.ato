@@ -86,7 +86,3 @@ module TPS56637RPAR_5V1_5A_TI:
     output_bulk_a.2 ~ power_out.lv
     power_out.hv ~ output_bulk_b.1
     output_bulk_b.2 ~ power_out.lv
-
-
-module TPS56637Buck5V1_5A from TPS56637RPAR_5V1_5A_TI:
-    pass

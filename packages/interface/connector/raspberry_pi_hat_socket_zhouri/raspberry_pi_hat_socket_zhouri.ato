@@ -115,7 +115,3 @@ module RaspberryPiHATSocket_ZHOURI:
     spi0_ce1_n.reference ~ power_3v3
     spi0_ce0_n.line ~ P24_GPIO8_CE0_N
     spi0_ce1_n.line ~ P26_GPIO7_CE1_N
-
-
-module RaspberryPiHATSocket from RaspberryPiHATSocket_ZHOURI:
-    pass

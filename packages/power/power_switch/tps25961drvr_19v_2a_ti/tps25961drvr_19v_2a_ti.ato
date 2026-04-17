@@ -63,7 +63,3 @@ module TPS25961DRVR_19V_2A_TI:
     input_cap.2 ~ power_in.lv
     power_out.hv ~ output_cap.1
     output_cap.2 ~ power_out.lv
-
-
-module TPS25961PowerSwitch19V2A from TPS25961DRVR_19V_2A_TI:
-    pass
