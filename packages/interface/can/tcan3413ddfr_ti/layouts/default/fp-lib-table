@@ -15,13 +15,6 @@
 		(descr "atopile: part lib: Samsung_Electro_Mechanics_CL05B104KB54PNC")
 	)
 	(lib
-		(name "SolderJumper_2_Open_P1_3mm")
-		(type "KiCad")
-		(uri "${KIPRJMOD}/../../parts/SolderJumper_2_Open_P1_3mm")
-		(options "")
-		(descr "atopile: part lib: SolderJumper_2_Open_P1_3mm")
-	)
-	(lib
 		(name "TEXAS_INSTRUMENTS_TCAN3413DDFR")
 		(type "KiCad")
 		(uri "${KIPRJMOD}/../../parts/TEXAS_INSTRUMENTS_TCAN3413DDFR")
@@ -55,12 +48,5 @@
 		(uri "${KIPRJMOD}/../../parts/YAGEO_RC0402FR_0710KL")
 		(options "")
 		(descr "atopile: part lib: YAGEO_RC0402FR_0710KL")
-	)
-	(lib
-		(name "YAGEO_RC0402FR_07120RL")
-		(type "KiCad")
-		(uri "${KIPRJMOD}/../../parts/YAGEO_RC0402FR_07120RL")
-		(options "")
-		(descr "atopile: part lib: YAGEO_RC0402FR_07120RL")
 	)
 )

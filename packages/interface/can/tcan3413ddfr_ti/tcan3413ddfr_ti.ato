@@ -1,14 +1,11 @@
-"""TCAN3413DDFR CAN FD transceiver package with local decoupling and optional termination."""
+"""TCAN3413DDFR CAN FD transceiver package with local decoupling."""
 
 import CAN
 import CAN_TTL
 import ElectricLogic
 import ElectricPower
 from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
-from "parts/YAGEO_RC0402FR_0710KL/YAGEO_RC0402FR_0710KL.ato" import YAGEO_RC0402FR_0710KL_package
-from "parts/YAGEO_RC0402FR_07120RL/YAGEO_RC0402FR_07120RL.ato" import YAGEO_RC0402FR_07120RL_package
 from "parts/TEXAS_INSTRUMENTS_TCAN3413DDFR/TEXAS_INSTRUMENTS_TCAN3413DDFR.ato" import TEXAS_INSTRUMENTS_TCAN3413DDFR_package
-from "parts/SolderJumper_2_Open_P1_3mm/SolderJumper_2_Open_P1_3mm.ato" import SolderJumper_2_Open_P1_3mm_package
 
 module TCAN3413DDFR_TI:
     """
@@ -17,9 +14,9 @@ module TCAN3413DDFR_TI:
     EasyEDA labels pin 5 as `SHDN_VIO` because the symbol is shared with adjacent
     variants. On TCAN3413DDFR that pin is the VIO supply pin, so this package ties
     it to the same 3.3 V rail as VCC and decouples both pins locally. STB is
-    exposed while a 10 kohm pulldown keeps the transceiver in normal mode unless a
-    host drives it high. The 120 ohm bus termination is disabled by default and is
-    only connected when the solder jumper is bridged.
+    exposed directly. The device has an internal pull-up on STB, so downstream
+    designs must drive STB from an MCU or tie it to GND to keep the transceiver
+    enabled. Bus termination is left entirely to downstream designs.
     """
 
     power = new ElectricPower
@@ -32,11 +29,6 @@ module TCAN3413DDFR_TI:
     vcc_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
     # 100nF X7R 50V 0402 bypass capacitor
     vio_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
-    # 10kΩ 1% 0402 bias resistor
-    standby_pulldown = new YAGEO_RC0402FR_0710KL_package
-    # 120Ω 1% 0402 termination resistor
-    termination = new YAGEO_RC0402FR_07120RL_package
-    termination_enable = new SolderJumper_2_Open_P1_3mm_package
 
     assert power.voltage within 3V to 3.6V
 
@@ -60,15 +52,9 @@ module TCAN3413DDFR_TI:
     vcc_bypass.2 ~ power.lv
     transceiver.SHDN_VIO ~ vio_bypass.1
     vio_bypass.2 ~ power.lv
-    transceiver.STB ~ standby_pulldown.1
-    standby_pulldown.2 ~ power.lv
 
     mcu.tx.line ~ transceiver.TXD
     mcu.rx.line ~ transceiver.RXD
     stb.line ~ transceiver.STB
     can.diff_pair.p.line ~ transceiver.CANH
     can.diff_pair.n.line ~ transceiver.CANL
-
-    can.diff_pair.p.line ~ termination.1
-    termination.2 ~ termination_enable.A
-    termination_enable.B ~ can.diff_pair.n.line
