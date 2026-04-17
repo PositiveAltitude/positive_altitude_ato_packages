@@ -1,0 +1,11 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_removed
+import is_atomic_part
+
+component Raspberry_Pi_Hat_Mounting_Hole_NPTH_package:
+    """Mechanical Raspberry Pi HAT mounting hole: 2.75 mm NPTH, 6.2 mm mask opening."""
+
+    trait is_atomic_part<manufacturer="Custom", partnumber="Raspberry_Pi_Hat_Mounting_Hole_NPTH_2p75_6p2", footprint="Raspberry_Pi_Hat_Mounting_Hole_NPTH.kicad_mod", symbol="Raspberry_Pi_Hat_Mounting_Hole_NPTH.kicad_sym">
+    trait has_part_removed
+    trait has_designator_prefix<prefix="H">

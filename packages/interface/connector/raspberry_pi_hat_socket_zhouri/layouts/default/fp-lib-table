@@ -7,4 +7,11 @@
 		(options "")
 		(descr "atopile: part lib: ZHOURI_2_54_2_20")
 	)
+	(lib
+		(name "Raspberry_Pi_Hat_Mounting_Hole_NPTH")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../../parts/Raspberry_Pi_Hat_Mounting_Hole_NPTH")
+		(options "")
+		(descr "atopile: part lib: Raspberry_Pi_Hat_Mounting_Hole_NPTH")
+	)
 )

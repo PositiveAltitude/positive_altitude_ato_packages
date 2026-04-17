@@ -10,4 +10,4 @@ builds:
 package:
   identifier: "local/interface-connector-raspberry-pi-hat-socket-zhouri"
   version: "0.0.1"
-  summary: "Raspberry Pi 40-pin HAT socket built around a 2x20 2.54 mm through-hole female header footprint-compatible with the standard HAT connector."
+  summary: "Raspberry Pi 40-pin HAT socket built around a 2x20 2.54 mm through-hole female header plus the four standard HAT mounting holes."

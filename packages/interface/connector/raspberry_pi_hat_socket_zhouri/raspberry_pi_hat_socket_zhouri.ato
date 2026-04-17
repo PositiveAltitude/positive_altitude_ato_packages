@@ -4,12 +4,14 @@ import ElectricLogic
 import ElectricPower
 import I2C
 import SPI
+from "parts/Raspberry_Pi_Hat_Mounting_Hole_NPTH/Raspberry_Pi_Hat_Mounting_Hole_NPTH.ato" import Raspberry_Pi_Hat_Mounting_Hole_NPTH_package
 from "parts/ZHOURI_2_54_2_20/ZHOURI_2_54_2_20.ato" import ZHOURI_2_54_2_20_package
 
 module RaspberryPiHATSocket_ZHOURI:
     """
     Raspberry Pi 40-pin HAT connector wrapped around a footprint-compatible
-    2x20, 2.54 mm through-hole female header.
+    2x20, 2.54 mm through-hole female header plus the four standard HAT
+    mounting holes.
 
     The selected connector matches the standard Raspberry Pi HAT 40-pin
     footprint and pin numbering. It is suitable when a HAT-style board needs a
@@ -18,6 +20,10 @@ module RaspberryPiHATSocket_ZHOURI:
     """
 
     connector = new ZHOURI_2_54_2_20_package
+    mounting_hole_1 = new Raspberry_Pi_Hat_Mounting_Hole_NPTH_package
+    mounting_hole_2 = new Raspberry_Pi_Hat_Mounting_Hole_NPTH_package
+    mounting_hole_3 = new Raspberry_Pi_Hat_Mounting_Hole_NPTH_package
+    mounting_hole_4 = new Raspberry_Pi_Hat_Mounting_Hole_NPTH_package
     power_3v3 = new ElectricPower
     power_5v0 = new ElectricPower
     i2c1 = new I2C
