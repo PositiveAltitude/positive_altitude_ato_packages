@@ -73,6 +73,7 @@ module TPS56637RPAR_5V1_5A_TI:
     power_out.hv ~ feedforward_resistor.1
     feedforward_resistor.2 ~ feedforward_cap.1
     feedforward_cap.2 ~ converter.FB
+    converter.MODE ~ power_in.lv
 
     power_in.hv ~ input_bulk_a.1
     input_bulk_a.2 ~ power_in.lv
