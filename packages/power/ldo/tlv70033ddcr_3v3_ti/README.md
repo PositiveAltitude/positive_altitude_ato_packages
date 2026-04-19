@@ -1,20 +1,25 @@
 # tlv70033ddcr_3v3_ti
 
-Minimal always-on **5 V to 3.3 V** LDO package using TI `TLV70033DDCR`.
+Basic 5 V to 3.3 V LDO package using TI `TLV70033DDCR`.
 
-## Exposed interface
+## What it includes
 
-- `power_in` 5 V input power interface
-- `power_out` 3.3 V regulated output power interface
+- TI `TLV70033DDCR` regulator (`LCSC C11337`)
+- 1 uF input capacitor
+- 1 uF output capacitor
 
-## Included
+## Interface
 
-- TI `TLV70033DDCR` (`LCSC C11337`)
-- one 1 uF ceramic input capacitor
-- one 1 uF ceramic output capacitor
+- `power_in` — 5 V input rail
+- `power_out` — regulated 3.3 V output rail
+
+## Behavior
+
+- `EN` is tied to input power, so the regulator is always on when `power_in` is present
+- intended for simple low-current 3.3 V rails
+- package limit is set to 200 mA output current
 
 ## Notes
 
-- `EN` is tied high for an always-on low-BOM implementation.
-- the package is intended for modest 3.3 V housekeeping rails up to 200 mA.
-- the package follows TI's simple application circuit with only the regulator and two capacitors.
+- follows the simple TI application circuit
+- does not expose an enable control pin
