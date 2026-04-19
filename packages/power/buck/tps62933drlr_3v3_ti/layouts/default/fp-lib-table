@@ -49,4 +49,11 @@
 		(options "")
 		(descr "atopile: part lib: Murata_Electronics_GRM32ER71E226KE15L")
 	)
+	(lib
+		(name "YAGEO_RC0402FR_0775KL")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../../parts/YAGEO_RC0402FR_0775KL")
+		(options "")
+		(descr "atopile: part lib: YAGEO_RC0402FR_0775KL")
+	)
 )

@@ -6,6 +6,7 @@ from "parts/Murata_Electronics_GRM21BR61H106KE43L/Murata_Electronics_GRM21BR61H1
 from "parts/Murata_Electronics_GRM32ER71E226KE15L/Murata_Electronics_GRM32ER71E226KE15L.ato" import Murata_Electronics_GRM32ER71E226KE15L_package
 from "parts/YAGEO_RC0402FR_0710KL/YAGEO_RC0402FR_0710KL.ato" import YAGEO_RC0402FR_0710KL_package
 from "parts/YAGEO_RC0402FR_0731K6L/YAGEO_RC0402FR_0731K6L.ato" import YAGEO_RC0402FR_0731K6L_package
+from "parts/YAGEO_RC0402FR_0775KL/YAGEO_RC0402FR_0775KL.ato" import YAGEO_RC0402FR_0775KL_package
 from "parts/cjiang_FTC252012S2R2MBCA/cjiang_FTC252012S2R2MBCA.ato" import cjiang_FTC252012S2R2MBCA_package
 from "parts/Texas_Instruments_TPS62933DRLR/Texas_Instruments_TPS62933DRLR.ato" import Texas_Instruments_TPS62933DRLR_package
 
@@ -18,7 +19,8 @@ module TPS62933DRLR_3V3_TI:
     1 A output current. With the selected FTC252012S2R2MBCA inductor, a practical
     continuous output current ceiling is about 2.5 A, with roughly 3 A as the hard
     upper edge before inductor and regulator limits converge. The 100 nF soft-start
-    capacitor is required because the SS pin must not float.
+    capacitor is required because the SS pin must not float, and the EN divider
+    raises the effective startup threshold to approximately 10 V.
     """
 
     power_in = new ElectricPower
@@ -40,11 +42,17 @@ module TPS62933DRLR_3V3_TI:
     output_bulk_a = new Murata_Electronics_GRM32ER71E226KE15L_package
     # 22uF X7R 25V 1210 output capacitor with better DC-bias retention
     output_bulk_b = new Murata_Electronics_GRM32ER71E226KE15L_package
+    # 100nF X7R 50V 0402 output bypass capacitor
+    output_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
     # 100nF X7R 50V 0402 bypass capacitor
     bootstrap_cap = new Murata_Electronics_GRM155R71H104KE14D_package
     # 100nF X7R 50V 0402 soft-start capacitor
     soft_start_cap = new Murata_Electronics_GRM155R71H104KE14D_package
     output_inductor = new cjiang_FTC252012S2R2MBCA_package
+    # 75kΩ 1% 0402 EN divider top resistor for ~10 V startup
+    enable_top = new YAGEO_RC0402FR_0775KL_package
+    # 10kΩ 1% 0402 EN divider bottom resistor
+    enable_bottom = new YAGEO_RC0402FR_0710KL_package
     # 31.6kΩ 1% 0402 feedback resistor
     feedback_top = new YAGEO_RC0402FR_0731K6L_package
     # 10kΩ 1% 0402 bias resistor
@@ -53,8 +61,12 @@ module TPS62933DRLR_3V3_TI:
 
     power_in.hv ~ converter.VIN
     power_in.lv ~ converter.GND
-    power_in.hv ~ converter.EN
     converter.RT ~ power_in.lv
+
+    power_in.hv ~ enable_top.1
+    enable_top.2 ~ converter.EN
+    converter.EN ~ enable_bottom.1
+    enable_bottom.2 ~ power_in.lv
 
 
     converter.SS ~ soft_start_cap.1
@@ -79,3 +91,5 @@ module TPS62933DRLR_3V3_TI:
     output_bulk_a.2 ~ power_out.lv
     power_out.hv ~ output_bulk_b.1
     output_bulk_b.2 ~ power_out.lv
+    power_out.hv ~ output_bypass.1
+    output_bypass.2 ~ power_out.lv

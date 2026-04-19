@@ -7,6 +7,7 @@ paths:
 builds:
   default:
     entry: tps62933drlr_3v3_ti.ato:TPS62933DRLR_3V3_TI
+    hide_designators: true
 package:
   identifier: "local/power-buck-tps62933drlr-3v3-ti"
   version: "0.0.1"
