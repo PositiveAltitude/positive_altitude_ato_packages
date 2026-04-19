@@ -4,7 +4,7 @@ import CAN_TTL
 import ElectricLogic
 import ElectricPower
 import SPI
-from "parts/Murata_Electronics_GRM1555C1H150JA01D/Murata_Electronics_GRM1555C1H150JA01D.ato" import Murata_Electronics_GRM1555C1H150JA01D_package
+from "parts/Murata_Electronics_GRM1555C1H220JA01D/Murata_Electronics_GRM1555C1H220JA01D.ato" import Murata_Electronics_GRM1555C1H220JA01D_package
 from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
 from "parts/Murata_Electronics_GRM188R61H105KAALD/Murata_Electronics_GRM188R61H105KAALD.ato" import Murata_Electronics_GRM188R61H105KAALD_package
 from "parts/Microchip_Tech_MCP2518FDT_E_SL/Microchip_Tech_MCP2518FDT_E_SL.ato" import Microchip_Tech_MCP2518FDT_E_SL_package
@@ -34,10 +34,10 @@ module MCP2518FDT_ESL_Microchip:
     vdd_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
     # 1uF X5R 50V 0603 bulk capacitor
     vdd_bulk = new Murata_Electronics_GRM188R61H105KAALD_package
-    # 15pF C0G 50V 0402 load capacitor
-    osc1_load = new Murata_Electronics_GRM1555C1H150JA01D_package
-    # 15pF C0G 50V 0402 load capacitor
-    osc2_load = new Murata_Electronics_GRM1555C1H150JA01D_package
+    # 22pF C0G 50V 0402 load capacitor
+    osc1_load = new Murata_Electronics_GRM1555C1H220JA01D_package
+    # 22pF C0G 50V 0402 load capacitor
+    osc2_load = new Murata_Electronics_GRM1555C1H220JA01D_package
     assert power.voltage within 3.3V +/- 5%
 
 

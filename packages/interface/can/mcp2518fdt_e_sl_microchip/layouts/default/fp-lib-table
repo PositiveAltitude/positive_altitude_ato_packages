@@ -15,13 +15,6 @@
 		(descr "atopile: part lib: TAE_TAXM40M4ZHBCDT2T")
 	)
 	(lib
-		(name "Murata_Electronics_GRM1555C1H150JA01D")
-		(type "KiCad")
-		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_GRM1555C1H150JA01D")
-		(options "")
-		(descr "atopile: part lib: Murata_Electronics_GRM1555C1H150JA01D")
-	)
-	(lib
 		(name "Murata_Electronics_GRM155R61C105KE01D")
 		(type "KiCad")
 		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R61C105KE01D")
@@ -41,5 +34,12 @@
 		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_GRM188R61H105KAALD")
 		(options "")
 		(descr "atopile: part lib: Murata_Electronics_GRM188R61H105KAALD")
+	)
+	(lib
+		(name "Murata_Electronics_GRM1555C1H220JA01D")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_GRM1555C1H220JA01D")
+		(options "")
+		(descr "atopile: part lib: Murata_Electronics_GRM1555C1H220JA01D")
 	)
 )
