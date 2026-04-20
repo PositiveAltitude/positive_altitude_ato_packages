@@ -33,7 +33,7 @@ That list intentionally excludes custom footprints and other non-purchasable ite
   MCP2518FDT-E/SL 3.3 V SPI-to-CAN-FD controller with local clock and decoupling network.
 
 - `packages/interface/can/tcan3413ddfr_ti`  
-  TCAN3413DDFR 3.3 V CAN FD transceiver with local decoupling and solder-jumper-selectable 120 Ω termination.
+  TCAN3413DDFR 3.3 V CAN FD transceiver with local decoupling and exposed STB control.
 
 #### Connector
 

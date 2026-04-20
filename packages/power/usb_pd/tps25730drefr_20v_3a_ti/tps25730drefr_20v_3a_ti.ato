@@ -31,7 +31,8 @@ module TPS25730DREFR_20V_3A_TI:
     external 3.3-V rail is exposed for normal controller/I2C operation, but the
     IC can still dead-battery start from `usb_vbus` when that rail is absent.
     The I2C pins are exported without onboard pullups so downstream designs can
-    provide the shared bus pullups explicitly.
+    provide the shared bus pullups explicitly. DRAIN is intentionally left
+    floating in this package.
     """
 
     usb_vbus = new ElectricPower
@@ -73,7 +74,6 @@ module TPS25730DREFR_20V_3A_TI:
 
     usb_vbus.hv ~ controller.VBUS_IN
     usb_vbus.hv ~ controller.VBUS
-    usb_vbus.hv ~ controller.DRAIN
     sink_vbus.hv ~ controller.PPHV
     logic_3v3.hv ~ controller.VIN_3V3
 
