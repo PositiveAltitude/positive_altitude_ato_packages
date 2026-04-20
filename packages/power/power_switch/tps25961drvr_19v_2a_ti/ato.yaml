@@ -7,6 +7,7 @@ paths:
 builds:
   default:
     entry: "tps25961drvr_19v_2a_ti.ato:TPS25961DRVR_19V_2A_TI"
+    hide_designators: true
 package:
   identifier: "local/power-power-switch-tps25961drvr-19v-2a-ti"
   version: "0.0.1"

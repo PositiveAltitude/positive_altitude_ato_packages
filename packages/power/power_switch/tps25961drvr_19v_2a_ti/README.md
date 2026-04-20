@@ -1,22 +1,30 @@
 # tps25961drvr_19v_2a_ti
 
-Reusable Atopile package for a **TI TPS25961** current-limiting power distribution switch.
+Protected high-side power-switch package based on TI `TPS25961DRVR`.
 
-## Exposed interface
+## What it includes
 
-- `power_in` protected input power rail
-- `power_out` protected output power rail
-- `enable` active-high control input intended for **regular 3.3 V push-pull logic**
+- TI `TPS25961DRVR` eFuse / power switch (`LCSC C5571272`)
+- fixed 2 A current-limit resistor
+- fixed OVLO divider for up to 19 V input rails
+- 100 nF input capacitor
+- 1 uF output capacitor
 
-## Included
+## Interface
 
-- TI `TPS25961DRVR` (`LCSC C5571272`)
-- fixed **2 A** current-limit programming resistor
-- fixed **19 V-class** OVLO divider so the part works on both **3.3 V** and **4S** rails
-- TI's recommended small input/output capacitors
+- `power_in` — input power rail
+- `power_out` — protected output rail
+- `enable` — active-high logic control
+
+## Behavior
+
+- intended for 2.7 V to 19 V input rails
+- current limit is set to about 2 A
+- OVLO is set so normal 4S battery voltages pass while higher faults are blocked
+- startup slew rate / soft-start is handled internally by the IC
 
 ## Notes
 
-- the device's start-up slew rate / soft-start is internal and fixed by the IC
-- `enable` is referenced to `power_in.lv`; drive it actively high or low from 3.3 V logic
-- the fixed OVLO network is chosen so normal 4S battery operation up to 16.8 V stays below cutoff while still protecting against higher input faults
+- `enable` is referenced to input ground
+- drive `enable` from normal 3.3 V push-pull logic
+- do not leave `enable` / EN floating
