@@ -28,3 +28,4 @@ Compact 3.3 V buck-converter package based on TI `TPS62933DRLR`.
 
 - this package is intended for higher-input-voltage rails where 3.3 V is needed locally
 - it uses explicit local parts to keep BOM selection deterministic
+- TI's TPS62933 datasheet says not to allow `VOUT` to exceed `VIN`; if your system can hold the 3.3 V rail up after input power falls away, add an external diode or equivalent protection path so `power_out` cannot rise above `power_in`  
