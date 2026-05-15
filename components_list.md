@@ -41,7 +41,7 @@ Package names in the tables use the final package directory name (for example `t
 | `GRM1555C1H220JA01D` | `C76960` | `C0402` | 22 pF | ±5% | 50 V | `mcp2518fdt_e_sl_microchip` |
 | `GRM1555C1H331JA01D` | `C76965` | `C0402` | 330 pF | ±5% | 50 V | `tps25730drefr_20v_3a_ti` |
 | `GRM155R61H474KE11D` | `C437527` | `C0402` | 470 nF | ±10% | 50 V | `bq25756rrvr_4s_2a_ti` |
-| `GRM155R71H104KE14D` | `C77020` | `C0402` | 100 nF | ±10% | 50 V | `bq25756rrvr_4s_2a_ti`<br>`bq40z50rsmr_r2_4s_3a_ti`<br>`mcp2518fdt_e_sl_microchip`<br>`stm32g0b1kbu6_st`<br>`tcan3413ddfr_ti`<br>`tps2121ruxr_20v_4a_ti`<br>`tps25961drvr_19v_2a_ti`<br>`tps56637rpar_5v1_5a_ti`<br>`tps62933drlr_3v3_ti` |
+| `GRM155R71H104KE14D` | `C77020` | `C0402` | 100 nF | ±10% | 50 V | `bq25756rrvr_4s_2a_ti`<br>`bq40z50rsmr_r2_4s_3a_ti`<br>`mcp2518fdt_e_sl_microchip`<br>`stm32g0b1kbu6_st`<br>`tcan3413ddfr_ti`<br>`tps2121ruxr_20v_4a_ti`<br>`tps25730drefr_20v_3a_ti`<br>`tps25961drvr_19v_2a_ti`<br>`tps56637rpar_5v1_5a_ti`<br>`tps62933drlr_3v3_ti` |
 | `GRM188R61E225KA12D` | `C77047` | `C0603` | 2.2 µF | ±10% | 25 V | `bq40z50rsmr_r2_4s_3a_ti` |
 | `GRM188R61E475KE11D` | `C90057` | `C0603` | 4.7 µF | ±10% | 25 V | `stm32g0b1kbu6_st`<br>`tps25730drefr_20v_3a_ti` |
 | `GRM188R61H105KAALD` | `C77386` | `C0603` | 1 µF | ±10% | 50 V | `bq25756rrvr_4s_2a_ti`<br>`mcp2518fdt_e_sl_microchip`<br>`tlv70033ddcr_3v3_ti`<br>`tps25961drvr_19v_2a_ti` |

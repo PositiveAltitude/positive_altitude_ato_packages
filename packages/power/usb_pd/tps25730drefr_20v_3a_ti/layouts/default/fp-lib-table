@@ -56,4 +56,11 @@
 		(options "")
 		(descr "atopile: part lib: Murata_Electronics_GRM21BR61H106KE43L")
 	)
+	(lib
+		(name "Murata_Electronics_GRM155R71H104KE14D")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_GRM155R71H104KE14D")
+		(options "")
+		(descr "atopile: part lib: Murata_Electronics_GRM155R71H104KE14D")
+	)
 )

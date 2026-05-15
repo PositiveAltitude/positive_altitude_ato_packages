@@ -4,6 +4,7 @@ import ElectricPower
 import I2C
 
 from "parts/Murata_Electronics_GRM1555C1H331JA01D/Murata_Electronics_GRM1555C1H331JA01D.ato" import Murata_Electronics_GRM1555C1H331JA01D_package
+from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
 from "parts/Murata_Electronics_GRM188R61E475KE11D/Murata_Electronics_GRM188R61E475KE11D.ato" import Murata_Electronics_GRM188R61E475KE11D_package
 from "parts/Murata_Electronics_GRM21BR61H106KE43L/Murata_Electronics_GRM21BR61H106KE43L.ato" import Murata_Electronics_GRM21BR61H106KE43L_package
 from "parts/TEXAS_INSTRUMENTS_TPS25730DREFR/TEXAS_INSTRUMENTS_TPS25730DREFR.ato" import TEXAS_INSTRUMENTS_TPS25730DREFR_package
@@ -57,6 +58,10 @@ module TPS25730DREFR_20V_3A_TI:
     cc2_filter = new Murata_Electronics_GRM1555C1H331JA01D_package
     # 4.7uF X5R 25V 0603 bulk capacitor
     usb_vbus_bulk = new Murata_Electronics_GRM188R61E475KE11D_package
+    # 100nF X7R 50V 0402 local bypass capacitor for VBUS_IN pins
+    vbus_in_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 100nF X7R 50V 0402 local bypass capacitor for VBUS pins
+    vbus_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
     # 10uF X5R 50V 0805 bypass capacitor
     logic_3v3_bypass = new Murata_Electronics_GRM21BR61H106KE43L_package
     # 10uF X5R 50V 0805 bypass capacitor
@@ -110,6 +115,10 @@ module TPS25730DREFR_20V_3A_TI:
 
     usb_vbus.hv ~ usb_vbus_bulk.1
     usb_vbus_bulk.2 ~ usb_vbus.lv
+    usb_vbus.hv ~ vbus_in_bypass.1
+    vbus_in_bypass.2 ~ usb_vbus.lv
+    usb_vbus.hv ~ vbus_bypass.1
+    vbus_bypass.2 ~ usb_vbus.lv
     logic_3v3.hv ~ logic_3v3_bypass.1
     logic_3v3_bypass.2 ~ logic_3v3.lv
     controller.LDO_3V3 ~ ldo_3v3_bypass.1
