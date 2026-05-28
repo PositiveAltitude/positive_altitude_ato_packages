@@ -16,11 +16,11 @@ from "parts/YAGEO_RC0402FR_0749K9L/YAGEO_RC0402FR_0749K9L.ato" import YAGEO_RC04
 from "parts/YAGEO_RT0402BRD0724K9L/YAGEO_RT0402BRD0724K9L.ato" import YAGEO_RT0402BRD0724K9L_package
 from "parts/Viking_Tech_ARG02BTC2493/Viking_Tech_ARG02BTC2493.ato" import Viking_Tech_ARG02BTC2493_package
 from "parts/Texas_Instruments_BQ25756RRVR/Texas_Instruments_BQ25756RRVR.ato" import Texas_Instruments_BQ25756RRVR_package
-from "parts/XNRUSEMI_XRS30V06D/XNRUSEMI_XRS30V06D.ato" import XNRUSEMI_XRS30V06D_package
+from "parts/Texas_Instruments_CSD18543Q3A/Texas_Instruments_CSD18543Q3A.ato" import Texas_Instruments_CSD18543Q3A_package
 
 module BQ25756RRVR_4S_2A_TI:
     """
-    4S Li-ion charger built around TI's BQ25756 with a compact XNRUSEMI dual-MOSFET power stage.
+    4S Li-ion charger built around TI's BQ25756 with standalone TI power MOSFETs.
 
     The hardware defaults target a 16.8 V 4S pack with a 1 A maximum charge
     current using a 49.9 kohm ICHG resistor and 5 mOhm battery current sense
@@ -32,9 +32,9 @@ module BQ25756RRVR_4S_2A_TI:
     charging, while matching TI's example direction more closely than the previous
     15 uH choice. This is a practical compromise
     for 5 V class solar or USB input fallback up through 20 V class USB PD
-    operation. The selected 30 V MOSFETs keep the layout compact, but they also
-    constrain the package input range to a 20 V maximum so the switching nodes
-    retain usable voltage margin. Reverse mode is not configured here, but the
+    operation. The selected 60 V MOSFETs keep comfortable switch-node voltage
+    margin while the package input range remains constrained to 20 V. Reverse mode
+    is not configured here, but the
     full buck-boost power stage is still required because charging a 4S pack from
     5 V input needs boost operation on the charge path.
 
@@ -65,8 +65,10 @@ module BQ25756RRVR_4S_2A_TI:
 
 
     charger = new Texas_Instruments_BQ25756RRVR_package
-    buck_half_bridge = new XNRUSEMI_XRS30V06D_package
-    boost_half_bridge = new XNRUSEMI_XRS30V06D_package
+    buck_high_side = new Texas_Instruments_CSD18543Q3A_package
+    buck_low_side = new Texas_Instruments_CSD18543Q3A_package
+    boost_high_side = new Texas_Instruments_CSD18543Q3A_package
+    boost_low_side = new Texas_Instruments_CSD18543Q3A_package
     # 5mΩ 1W 1206 current-sense resistor
     input_sense_resistor = new YAGEO_PA1206FRE470R005Z_package
     # 5mΩ 1W 1206 current-sense resistor
@@ -100,6 +102,10 @@ module BQ25756RRVR_4S_2A_TI:
     input_bulk_converter = new PANASONIC_EEHZK1V101XP_package
     # 100nF X7R 50V 0402 bypass capacitor
     input_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 4.7uF X7R 50V 1206 MOSFET-local input bypass capacitor
+    input_fet_bulk = new Murata_Electronics_GRM31CR71H475KA12L_package
+    # 100nF X7R 50V 0402 MOSFET-local input bypass capacitor
+    input_fet_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
     # 4.7uF X7R 50V 1206 regulator bulk capacitor
     regn_bulk = new Murata_Electronics_GRM31CR71H475KA12L_package
     # 1uF X5R 50V 0603 bypass capacitor
@@ -118,6 +124,10 @@ module BQ25756RRVR_4S_2A_TI:
     battery_bulk_pack = new PANASONIC_EEHZK1V101XP_package
     # 100nF X7R 50V 0402 bypass capacitor
     battery_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
+    # 4.7uF X7R 50V 1206 MOSFET-local charge-bus bypass capacitor
+    charge_fet_bulk = new Murata_Electronics_GRM31CR71H475KA12L_package
+    # 100nF X7R 50V 0402 MOSFET-local charge-bus bypass capacitor
+    charge_fet_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
     i2c.scl.reference ~ logic_power
     i2c.sda.reference ~ logic_power
     charge_enable_n.reference ~ logic_power
@@ -130,8 +140,8 @@ module BQ25756RRVR_4S_2A_TI:
     power_in.lv ~ logic_power.lv
     power_in.lv ~ charger.PGND
     power_in.lv ~ charger.FBG
-    power_in.lv ~ buck_half_bridge.S2
-    power_in.lv ~ boost_half_bridge.S2
+    power_in.lv ~ buck_low_side.S
+    power_in.lv ~ boost_low_side.S
 
 
     signal input_bus
@@ -149,7 +159,7 @@ module BQ25756RRVR_4S_2A_TI:
     input_bus ~ charger.VAC
     input_bus ~ charger.ACUV
     power_in.lv ~ charger.ACOV
-    input_bus ~ buck_half_bridge.D1
+    input_bus ~ buck_high_side.D
     power_in.hv ~ acp_filter_series.1
     acp_filter_series.2 ~ acp_filtered
     input_bus ~ acn_filter_series.1
@@ -163,7 +173,7 @@ module BQ25756RRVR_4S_2A_TI:
     regulation_feedback_top.2 ~ charger.FB
     charger.FB ~ regulation_feedback_bottom.1
     regulation_feedback_bottom.2 ~ battery.lv
-    charge_bus ~ boost_half_bridge.D1
+    charge_bus ~ boost_high_side.D
     charge_bus ~ srp_filter_series.1
     srp_filter_series.2 ~ srp_filtered
     battery.hv ~ srn_filter_series.1
@@ -171,16 +181,15 @@ module BQ25756RRVR_4S_2A_TI:
     srp_filtered ~ charger.SRP
     srn_filtered ~ charger.SRN
 
-    # The compact dual-FET package exposes the two transistors separately.
-    switch_1 ~ buck_half_bridge.S1
-    switch_1 ~ buck_half_bridge.D2
-    switch_2 ~ boost_half_bridge.S1
-    switch_2 ~ boost_half_bridge.D2
+    switch_1 ~ buck_high_side.S
+    switch_1 ~ buck_low_side.D
+    switch_2 ~ boost_high_side.S
+    switch_2 ~ boost_low_side.D
 
-    charger.HIDRV1 ~ buck_half_bridge.G1
-    charger.LODRV1 ~ buck_half_bridge.G2
-    charger.HIDRV2 ~ boost_half_bridge.G1
-    charger.LODRV2 ~ boost_half_bridge.G2
+    charger.HIDRV1 ~ buck_high_side.G
+    charger.LODRV1 ~ buck_low_side.G
+    charger.HIDRV2 ~ boost_high_side.G
+    charger.LODRV2 ~ boost_low_side.G
 
     switch_1 ~ power_inductor.1
     power_inductor.2 ~ switch_2
@@ -209,6 +218,10 @@ module BQ25756RRVR_4S_2A_TI:
     input_bulk_converter.2 ~ power_in.lv
     input_bus ~ input_bypass.1
     input_bypass.2 ~ power_in.lv
+    input_bus ~ input_fet_bulk.1
+    input_fet_bulk.2 ~ power_in.lv
+    input_bus ~ input_fet_bypass.1
+    input_fet_bypass.2 ~ power_in.lv
     charger.VAC ~ vac_bypass.1
     vac_bypass.2 ~ power_in.lv
     acp_filtered ~ ac_sense_filter.1
@@ -222,6 +235,10 @@ module BQ25756RRVR_4S_2A_TI:
     battery_bulk_pack.2 ~ battery.lv
     charge_bus ~ battery_bypass.1
     battery_bypass.2 ~ battery.lv
+    charge_bus ~ charge_fet_bulk.1
+    charge_fet_bulk.2 ~ battery.lv
+    charge_bus ~ charge_fet_bypass.1
+    charge_fet_bypass.2 ~ battery.lv
 
     i2c.scl.line ~ charger.SCL
     i2c.sda.line ~ charger.SDA

@@ -1,0 +1,21 @@
+import has_datasheet
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+
+component Texas_Instruments_CSD18543Q3A_package:
+    trait is_atomic_part<manufacturer="Texas Instruments", partnumber="CSD18543Q3A", footprint="VSONP-8_L3.1-W3.1-P0.65-LS3.5-BL.kicad_mod", symbol="CSD18543Q3A.kicad_sym", model="VSON-CLIP-8_L3.1-W3.0-H0.8-P0.65.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C840100", manufacturer="Texas Instruments", partno="CSD18543Q3A">
+    trait has_designator_prefix<prefix="Q">
+    trait has_datasheet<datasheet="https://www.ti.com/lit/ds/symlink/csd18543q3a.pdf">
+
+    # pins
+    signal D ~ pin 5
+    D ~ pin 6
+    D ~ pin 7
+    D ~ pin 8
+    D ~ pin 9
+    signal G ~ pin 4
+    signal S ~ pin 1
+    S ~ pin 2
+    S ~ pin 3
