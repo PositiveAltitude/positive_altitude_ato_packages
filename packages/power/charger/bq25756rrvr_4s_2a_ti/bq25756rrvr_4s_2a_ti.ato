@@ -5,6 +5,7 @@ import ElectricPower
 import I2C
 from "parts/Murata_Electronics_GRM155R61H474KE11D/Murata_Electronics_GRM155R61H474KE11D.ato" import Murata_Electronics_GRM155R61H474KE11D_package
 from "parts/Murata_Electronics_GRM155R71H104KE14D/Murata_Electronics_GRM155R71H104KE14D.ato" import Murata_Electronics_GRM155R71H104KE14D_package
+from "parts/Murata_Electronics_GRM188R61E475KE11D/Murata_Electronics_GRM188R61E475KE11D.ato" import Murata_Electronics_GRM188R61E475KE11D_package
 from "parts/Murata_Electronics_GRM188R61H105KAALD/Murata_Electronics_GRM188R61H105KAALD.ato" import Murata_Electronics_GRM188R61H105KAALD_package
 from "parts/Murata_Electronics_GRM31CR71H475KA12L/Murata_Electronics_GRM31CR71H475KA12L.ato" import Murata_Electronics_GRM31CR71H475KA12L_package
 from "parts/PANASONIC_EEHZK1V101XP/PANASONIC_EEHZK1V101XP.ato" import PANASONIC_EEHZK1V101XP_package
@@ -100,14 +101,12 @@ module BQ25756RRVR_4S_2A_TI:
     input_bulk_source = new PANASONIC_EEHZK1V101XP_package
     # 100uF 35V electrolytic bulk capacitor
     input_bulk_converter = new PANASONIC_EEHZK1V101XP_package
-    # 100nF X7R 50V 0402 bypass capacitor
-    input_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
     # 4.7uF X7R 50V 1206 MOSFET-local input bypass capacitor
     input_fet_bulk = new Murata_Electronics_GRM31CR71H475KA12L_package
     # 100nF X7R 50V 0402 MOSFET-local input bypass capacitor
     input_fet_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
-    # 4.7uF X7R 50V 1206 regulator bulk capacitor
-    regn_bulk = new Murata_Electronics_GRM31CR71H475KA12L_package
+    # 4.7uF X5R 25V 0603 regulator bulk capacitor
+    regn_bulk = new Murata_Electronics_GRM188R61E475KE11D_package
     # 1uF X5R 50V 0603 bypass capacitor
     vac_bypass = new Murata_Electronics_GRM188R61H105KAALD_package
     # 470nF X5R 50V 0402 sense filter capacitor
@@ -122,8 +121,6 @@ module BQ25756RRVR_4S_2A_TI:
     battery_bulk_converter = new PANASONIC_EEHZK1V101XP_package
     # 100uF 35V electrolytic bulk capacitor
     battery_bulk_pack = new PANASONIC_EEHZK1V101XP_package
-    # 100nF X7R 50V 0402 bypass capacitor
-    battery_bypass = new Murata_Electronics_GRM155R71H104KE14D_package
     # 4.7uF X7R 50V 1206 MOSFET-local charge-bus bypass capacitor
     charge_fet_bulk = new Murata_Electronics_GRM31CR71H475KA12L_package
     # 100nF X7R 50V 0402 MOSFET-local charge-bus bypass capacitor
@@ -216,8 +213,6 @@ module BQ25756RRVR_4S_2A_TI:
     input_bulk_source.2 ~ power_in.lv
     input_bus ~ input_bulk_converter.1
     input_bulk_converter.2 ~ power_in.lv
-    input_bus ~ input_bypass.1
-    input_bypass.2 ~ power_in.lv
     input_bus ~ input_fet_bulk.1
     input_fet_bulk.2 ~ power_in.lv
     input_bus ~ input_fet_bypass.1
@@ -233,8 +228,6 @@ module BQ25756RRVR_4S_2A_TI:
     battery_bulk_converter.2 ~ battery.lv
     battery.hv ~ battery_bulk_pack.1
     battery_bulk_pack.2 ~ battery.lv
-    charge_bus ~ battery_bypass.1
-    battery_bypass.2 ~ battery.lv
     charge_bus ~ charge_fet_bulk.1
     charge_fet_bulk.2 ~ battery.lv
     charge_bus ~ charge_fet_bypass.1
