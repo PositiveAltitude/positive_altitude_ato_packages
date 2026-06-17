@@ -11,7 +11,7 @@ from "parts/YAGEO_RC0402FR_07100KL/YAGEO_RC0402FR_07100KL.ato" import YAGEO_RC04
 from "parts/YAGEO_RC0402FR_07100RL/YAGEO_RC0402FR_07100RL.ato" import YAGEO_RC0402FR_07100RL_package
 from "parts/YAGEO_RC0402FR_0710KL/YAGEO_RC0402FR_0710KL.ato" import YAGEO_RC0402FR_0710KL_package
 from "parts/Texas_Instruments_BQ40Z50RSMR_R2/Texas_Instruments_BQ40Z50RSMR_R2.ato" import Texas_Instruments_BQ40Z50RSMR_R2_package
-from "parts/XNRUSEMI_XRS30V06D/XNRUSEMI_XRS30V06D.ato" import XNRUSEMI_XRS30V06D_package
+from "parts/Texas_Instruments_CSD18543Q3A/Texas_Instruments_CSD18543Q3A.ato" import Texas_Instruments_CSD18543Q3A_package
 
 module BQ40Z50RSMR_R2_4S_3A_TI:
     """
@@ -23,7 +23,7 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     remain internal to the package.
 
     The charge/discharge path follows a high-side back-to-back N-FET structure
-    using the same XNRUSEMI dual MOSFET already used elsewhere in the repo.
+    using two of the same TI CSD18543Q3A MOSFETs as the charger package.
     Cell balancing support is kept internal to the BQ40Z50-R2 architecture by
     wiring the cell taps and recommended VC input filters.
 
@@ -64,7 +64,8 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     assert raw_battery.voltage within 10V to 16.8V
 
     monitor = new Texas_Instruments_BQ40Z50RSMR_R2_package
-    protection_fets = new XNRUSEMI_XRS30V06D_package
+    discharge_fet = new Texas_Instruments_CSD18543Q3A_package
+    charge_fet = new Texas_Instruments_CSD18543Q3A_package
     # 1mΩ 1W 1206 current-sense resistor
     sense_resistor = new YAGEO_PA1206FRF470R001L_package
     # 100Ω 1% 0402 series resistor
@@ -127,7 +128,7 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     cell_0 ~ monitor.VSS
     cell_0 ~ monitor.EP
     cell_4 ~ monitor.BAT
-    cell_4 ~ protection_fets.S1
+    cell_4 ~ discharge_fet.S
 
     cell_4 ~ vcc_series_resistor.1
     vcc_series_resistor.2 ~ vcc_filtered
@@ -185,15 +186,15 @@ module BQ40Z50RSMR_R2_4S_3A_TI:
     srp_filtered ~ current_sense_filter.1
     current_sense_filter.2 ~ srn_filtered
 
-    protection_fets.D1 ~ fet_common
-    protection_fets.D2 ~ fet_common
-    protection_fets.S2 ~ pack.hv
+    discharge_fet.D ~ fet_common
+    charge_fet.D ~ fet_common
+    charge_fet.S ~ pack.hv
 
     monitor.DSG ~ discharge_gate_resistor.1
-    discharge_gate_resistor.2 ~ protection_fets.G1
+    discharge_gate_resistor.2 ~ discharge_fet.G
     monitor.CHG ~ charge_gate_resistor.1
-    charge_gate_resistor.2 ~ protection_fets.G2
-    protection_fets.G1 ~ discharge_gate_pulldown.1
-    discharge_gate_pulldown.2 ~ protection_fets.S1
-    protection_fets.G2 ~ charge_gate_pulldown.1
-    charge_gate_pulldown.2 ~ protection_fets.S2
+    charge_gate_resistor.2 ~ charge_fet.G
+    discharge_fet.G ~ discharge_gate_pulldown.1
+    discharge_gate_pulldown.2 ~ discharge_fet.S
+    charge_fet.G ~ charge_gate_pulldown.1
+    charge_gate_pulldown.2 ~ charge_fet.S

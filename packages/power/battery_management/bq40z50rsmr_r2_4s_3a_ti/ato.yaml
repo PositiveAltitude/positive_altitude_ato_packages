@@ -11,4 +11,4 @@ builds:
 package:
   identifier: "local/power-battery-management-bq40z50rsmr-r2-4s-3a-ti"
   version: "0.0.1"
-  summary: "BQ40Z50-R2-based 4S protected smart-battery frontend for up to 3 A continuous pack current, with TI-aligned VC/SMBus filtering, grounded unused TS/DISP pins, a FET safety PTC thermistor, SMBus telemetry, and BTP interrupt output."
+  summary: "BQ40Z50-R2-based 4S protected smart-battery frontend for up to 3 A continuous pack current, with paired TI CSD18543Q3A protection MOSFETs, TI-aligned VC/SMBus filtering, grounded unused TS/DISP pins, a FET safety PTC thermistor, SMBus telemetry, and BTP interrupt output."

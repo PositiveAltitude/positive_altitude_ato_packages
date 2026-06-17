@@ -8,13 +8,6 @@
 		(descr "atopile: part lib: Texas_Instruments_BQ40Z50RSMR_R2")
 	)
 	(lib
-		(name "XNRUSEMI_XRS30V06D")
-		(type "KiCad")
-		(uri "${KIPRJMOD}/../../parts/XNRUSEMI_XRS30V06D")
-		(options "")
-		(descr "atopile: part lib: XNRUSEMI_XRS30V06D")
-	)
-	(lib
 		(name "Diodes_Incorporated_1N5819HW_7_F")
 		(type "KiCad")
 		(uri "${KIPRJMOD}/../../parts/Diodes_Incorporated_1N5819HW_7_F")
@@ -104,5 +97,12 @@
 		(uri "${KIPRJMOD}/../../parts/Murata_Electronics_PRF15BB103RB6RC")
 		(options "")
 		(descr "atopile: part lib: Murata_Electronics_PRF15BB103RB6RC")
+	)
+	(lib
+		(name "Texas_Instruments_CSD18543Q3A")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/../../parts/Texas_Instruments_CSD18543Q3A")
+		(options "")
+		(descr "atopile: part lib: Texas_Instruments_CSD18543Q3A")
 	)
 )

@@ -105,5 +105,4 @@ Package names in the tables use the final package directory name (for example `t
 
 | Part number | LCSC code | Part package | Topology | Note | Used in packages |
 | --- | --- | --- | --- | --- | --- |
-| `CSD18543Q3A` | `C840100` | `VSONP-8_L3.1-W3.1-P0.65-LS3.5-BL` | standalone N-channel MOSFET | 60 V TI NexFET used as discrete high-side and low-side FETs in BQ25756 buck-boost stages | `bq25756rrvr_4s_2a_ti` |
-| `XRS30V06D` | `C42457041` | `DFN-8_L3.3-W3.3-P0.75-TL` | dual N-channel MOSFET | compact 30 V-class dual-FET package used in battery protection stages | `bq40z50rsmr_r2_4s_3a_ti` |
+| `CSD18543Q3A` | `C840100` | `VSONP-8_L3.1-W3.1-P0.65-LS3.5-BL` | standalone N-channel MOSFET | 60 V TI NexFET used as discrete high-side and low-side FETs in BQ25756 buck-boost stages and as paired back-to-back BQ40Z50 protection FETs | `bq25756rrvr_4s_2a_ti`<br>`bq40z50rsmr_r2_4s_3a_ti` |

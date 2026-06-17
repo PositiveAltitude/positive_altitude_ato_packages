@@ -12,7 +12,7 @@ Reusable Atopile package for a **4S BQ40Z50-R2 smart-battery frontend**.
 ## Included
 
 - TI `BQ40Z50RSMR-R2` (`LCSC C2845123`)
-- Reused XNRUSEMI dual N-FET `XRS30V06D` (`LCSC C42457041`) for the protected high-side path
+- Two TI `CSD18543Q3A` N-FETs (`LCSC C840100`) for the protected high-side back-to-back path, matching the charger package MOSFET
 - Internal cell-tap filtering and balancing support wiring
 - 100-Ω series resistors on SMBC/SMBD and VC sense lines per the TI reference schematic
 - Unused TS1-TS4 and `nDISP` pinned to `VSS`
